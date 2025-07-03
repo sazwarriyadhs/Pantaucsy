@@ -139,7 +139,7 @@ export default function LandingPage() {
                 const hasAddress = addressText !== `announcements.items.${announcement.titleKey}.address`;
                 return(
                   <Card key={index} className="flex flex-col transition-all duration-300 hover:shadow-lg">
-                    {announcement.image.startsWith('https') || announcement.image.startsWith('/') ? (
+                    {announcement.image ? (
                       <CardHeader className="p-0">
                         <Image
                           src={announcement.image}
@@ -161,8 +161,8 @@ export default function LandingPage() {
                         </div>
                       </CardHeader>
                     )}
-                    <CardContent className={`flex-1 flex flex-col ${announcement.image.startsWith('https') || announcement.image.startsWith('/') ? 'pt-6' : ''}`}>
-                      {(announcement.image.startsWith('https') || announcement.image.startsWith('/')) && (
+                    <CardContent className={`flex-1 flex flex-col ${announcement.image ? 'pt-6' : ''}`}>
+                      {announcement.image && (
                         <>
                           <CardTitle className="text-xl font-headline">{t(`announcements.items.${announcement.titleKey}.title`)}</CardTitle>
                           <CardDescription className='mb-4'>{new Date(announcement.date).toLocaleDateString(locale, { year: 'numeric', month: 'long', day: 'numeric' })}</CardDescription>
