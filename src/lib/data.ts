@@ -10,13 +10,13 @@ export const announcements = [
   {
     titleKey: "tpq_congratulations",
     date: "2024-08-16",
-    image: "/images/tpq_congratulations.jpg",
+    image: "https://placehold.co/600x400.png",
     imageHint: "children students",
   },
   {
     titleKey: "obituary_aswin",
     date: "2025-06-24",
-    image: "/images/obituary_aswin.jpg",
+    image: "https://placehold.co/600x400.png",
     imageHint: "condolence flowers",
   },
   {
@@ -390,5 +390,7 @@ export const wasteManagementSchedule = [
     typeKey: "garden_bulky",
   },
 ];
+
+    
 
     
