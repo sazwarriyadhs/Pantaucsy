@@ -5,7 +5,7 @@ const id = {
     residents: 'Warga',
     associationManagement: 'Pengurus Paguyuban',
     iplManagement: 'Iuran IPL',
-    classifieds: 'Iklan Baris',
+    classifieds: 'Iklan Kita',
     classifiedsManagement: 'Manajemen Iklan',
     events: 'Acara',
     gallery: 'Galeri Foto',
@@ -274,7 +274,7 @@ const id = {
     }
   },
   classifieds: {
-    title: 'Iklan Baris',
+    title: 'Iklan Kita',
     description: 'Jual, beli, atau tukar barang dengan tetangga Anda.',
     contactViaWhatsapp: 'Pesan via WhatsApp',
     items: {
