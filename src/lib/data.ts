@@ -390,8 +390,10 @@ export const wasteManagementSchedule = [
     typeKey: "garden_bulky",
   },
 ];
-
     
 
     
 
+
+
+    
