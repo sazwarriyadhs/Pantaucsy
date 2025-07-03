@@ -1,3 +1,4 @@
+
 "use client"
 
 import { useEffect, useRef, useState } from "react"
@@ -54,6 +55,9 @@ export function AdForm({ isOpen, onOpenChange, onSubmit, ad }: AdFormProps) {
 
   const [hasCameraPermission, setHasCameraPermission] = useState<boolean | null>(null);
   const [imagePreview, setImagePreview] = useState<string | null>(null);
+  type ImageMode = "idle" | "camera";
+  const [imageMode, setImageMode] = useState<ImageMode>("idle");
+
   const videoRef = useRef<HTMLVideoElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -96,13 +100,14 @@ export function AdForm({ isOpen, onOpenChange, onSubmit, ad }: AdFormProps) {
         })
         setImagePreview(null)
       }
+      setImageMode("idle");
     }
   }, [ad, form, isOpen, t])
 
   useEffect(() => {
     let stream: MediaStream | null = null;
-    if (isOpen) {
-      const getCameraPermission = async () => {
+    const getCamera = async () => {
+      if (imageMode === 'camera' && isOpen) {
         if (typeof window !== 'undefined' && navigator.mediaDevices) {
           try {
             stream = await navigator.mediaDevices.getUserMedia({ video: true });
@@ -127,20 +132,22 @@ export function AdForm({ isOpen, onOpenChange, onSubmit, ad }: AdFormProps) {
               title: title,
               description: description,
             });
+            setImageMode('idle');
           }
         } else {
           setHasCameraPermission(false);
+          setImageMode('idle');
         }
-      };
-      getCameraPermission();
-    }
+      }
+    };
+    getCamera();
     
     return () => {
       if (stream) {
         stream.getTracks().forEach(track => track.stop());
       }
     }
-  }, [isOpen, t, toast]);
+  }, [imageMode, isOpen, t, toast]);
 
   const handleCapture = () => {
     if (videoRef.current && canvasRef.current) {
@@ -154,6 +161,7 @@ export function AdForm({ isOpen, onOpenChange, onSubmit, ad }: AdFormProps) {
         const dataUri = canvas.toDataURL('image/jpeg');
         setImagePreview(dataUri);
         form.setValue('image', dataUri, { shouldValidate: true });
+        setImageMode('idle');
       }
     }
   };
@@ -174,6 +182,7 @@ export function AdForm({ isOpen, onOpenChange, onSubmit, ad }: AdFormProps) {
   const handleRemoveImage = () => {
     setImagePreview(null);
     form.setValue('image', undefined, { shouldValidate: true });
+    setImageMode('idle');
     if (fileInputRef.current) {
       fileInputRef.current.value = "";
     }
@@ -258,7 +267,7 @@ export function AdForm({ isOpen, onOpenChange, onSubmit, ad }: AdFormProps) {
                        <div className="w-full aspect-video bg-muted rounded-md overflow-hidden flex items-center justify-center relative">
                           {imagePreview ? (
                             <img src={imagePreview} alt="Preview" className="w-full h-full object-cover" />
-                          ) : (
+                          ) : imageMode === 'camera' ? (
                             <>
                               <video ref={videoRef} className="w-full h-full object-cover" autoPlay muted playsInline />
                               {hasCameraPermission === false && (
@@ -268,10 +277,15 @@ export function AdForm({ isOpen, onOpenChange, onSubmit, ad }: AdFormProps) {
                                 </div>
                               )}
                             </>
+                          ) : (
+                             <div className="flex flex-col items-center p-4 text-center text-muted-foreground">
+                               <Upload className="w-12 h-12 mb-2" />
+                               <p>{t('classifiedsManagement.form.uploadOrCapture')}</p>
+                             </div>
                           )}
                         </div>
 
-                        {hasCameraPermission === false && !imagePreview && (
+                        {hasCameraPermission === false && imageMode === 'camera' && (
                           <Alert variant="destructive">
                             <AlertTitle>{t('classifiedsManagement.camera.accessRequired')}</AlertTitle>
                             <AlertDescription>
@@ -286,9 +300,19 @@ export function AdForm({ isOpen, onOpenChange, onSubmit, ad }: AdFormProps) {
                                <Trash2 className="mr-2 h-4 w-4" />
                               {t('classifiedsManagement.form.removePicture')}
                             </Button>
+                          ) : imageMode === 'camera' ? (
+                            <>
+                              <Button type="button" onClick={handleCapture} disabled={hasCameraPermission === false}>
+                                <Camera className="mr-2 h-4 w-4" />
+                                {t('classifiedsManagement.form.capture')}
+                              </Button>
+                              <Button type="button" variant="secondary" onClick={() => setImageMode('idle')}>
+                                {t('classifiedsManagement.form.cancel')}
+                              </Button>
+                            </>
                           ) : (
                             <>
-                              <Button type="button" onClick={handleCapture} disabled={!hasCameraPermission}>
+                              <Button type="button" onClick={() => setImageMode('camera')}>
                                 <Camera className="mr-2 h-4 w-4" />
                                 {t('classifiedsManagement.form.takePicture')}
                               </Button>

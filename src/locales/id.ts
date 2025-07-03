@@ -335,6 +335,9 @@ const id = {
       removePicture: 'Hapus Gambar',
       uploadFile: 'Unggah File',
       noImagePlaceholder: 'Tampilan kamera tidak tersedia',
+      uploadOrCapture: 'Unggah foto atau gunakan kamera untuk menambahkan gambar.',
+      capture: 'Ambil',
+      cancel: 'Batal',
     },
     statuses: {
       active: 'Aktif',

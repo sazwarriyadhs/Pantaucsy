@@ -335,6 +335,9 @@ const en = {
       removePicture: 'Remove Picture',
       uploadFile: 'Upload File',
       noImagePlaceholder: 'Camera feed unavailable',
+      uploadOrCapture: 'Upload a photo or use the camera to add an image.',
+      capture: 'Capture',
+      cancel: 'Cancel',
     },
     statuses: {
       active: 'Active',
