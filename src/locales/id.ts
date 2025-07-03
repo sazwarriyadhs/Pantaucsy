@@ -36,7 +36,8 @@ const id = {
       passwordLabel: 'Kata Sandi',
       button: 'Masuk',
       noAccount: 'Belum punya akun?',
-      register: 'Daftar'
+      register: 'Daftar',
+      demoHint: 'Untuk keperluan demo, kolom sudah terisi. Anda dapat mendaftarkan akun baru.'
     },
     register: {
       title: 'Daftar',

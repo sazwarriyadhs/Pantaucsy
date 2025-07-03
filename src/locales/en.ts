@@ -36,7 +36,8 @@ const en = {
       passwordLabel: 'Password',
       button: 'Login',
       noAccount: "Don't have an account?",
-      register: 'Register'
+      register: 'Register',
+      demoHint: 'For demo purposes, the fields are pre-filled. You can register a new account.'
     },
     register: {
       title: 'Register',

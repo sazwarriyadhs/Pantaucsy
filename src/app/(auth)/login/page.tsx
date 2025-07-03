@@ -46,8 +46,8 @@ export default function LoginPage() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      email: "",
-      password: "",
+      email: "john.doe@example.com",
+      password: "password",
     },
   })
 
@@ -79,6 +79,9 @@ export default function LoginPage() {
       <CardHeader>
         <CardTitle>{t('auth.login.title')}</CardTitle>
         <CardDescription>{t('auth.login.description')}</CardDescription>
+        <CardDescription className="pt-2 text-sm text-primary/80">
+          {t('auth.login.demoHint')}
+        </CardDescription>
         {firebaseNotConfigured && (
             <CardDescription className="text-destructive pt-2">
                 Firebase is not configured. Please add your credentials to a .env.local file.
