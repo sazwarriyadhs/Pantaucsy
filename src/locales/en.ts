@@ -431,6 +431,12 @@ const en = {
           required: 'Please select a resident.',
           placeholder: 'Select resident name',
         },
+        paymentMethod: {
+          label: 'Payment Method',
+          required: 'Please select a payment method.',
+          transfer: 'Bank Transfer',
+          cash: 'Cash',
+        },
         paymentMonth: {
           label: 'Payment Month',
           required: 'Please select the payment month.',
@@ -448,7 +454,13 @@ const en = {
         proof: {
           label: 'Proof of Payment',
           required: 'Proof of payment is required.',
+          requiredTransfer: 'Proof of payment is required for bank transfers.',
           description: 'Upload a screenshot or photo of your transfer receipt.',
+          cashDescription: 'Optional: Upload a photo of the cash payment receipt.',
+        },
+        notes: {
+          label: 'Notes (Optional)',
+          placeholder: 'Add any additional notes here...',
         },
         submit: 'Submit Confirmation',
       },

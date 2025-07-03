@@ -431,6 +431,12 @@ const id = {
           required: 'Silakan pilih nama warga.',
           placeholder: 'Pilih nama warga',
         },
+        paymentMethod: {
+          label: 'Metode Pembayaran',
+          required: 'Harap pilih metode pembayaran.',
+          transfer: 'Transfer Bank',
+          cash: 'Tunai',
+        },
         paymentMonth: {
           label: 'Bulan Pembayaran',
           required: 'Silakan pilih bulan pembayaran.',
@@ -448,7 +454,13 @@ const id = {
         proof: {
           label: 'Bukti Pembayaran',
           required: 'Bukti pembayaran harus diunggah.',
+          requiredTransfer: 'Bukti pembayaran wajib diunggah untuk transfer bank.',
           description: 'Unggah tangkapan layar atau foto bukti transfer Anda.',
+          cashDescription: 'Opsional: Unggah foto struk pembayaran tunai.',
+        },
+        notes: {
+          label: 'Catatan (Opsional)',
+          placeholder: 'Tambahkan catatan tambahan di sini...',
         },
         submit: 'Kirim Konfirmasi',
       },

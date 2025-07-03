@@ -32,6 +32,8 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { Calendar } from "@/components/ui/calendar"
 import { cn } from "@/lib/utils"
 import { useToast } from "@/hooks/use-toast"
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
+import { Textarea } from "@/components/ui/textarea"
 
 export default function PaymentConfirmationPage() {
   const { t } = useI18n()
@@ -39,15 +41,32 @@ export default function PaymentConfirmationPage() {
   
   const paymentFormSchema = z.object({
     residentEmail: z.string().email({ message: t('finance.confirmation.form.residentEmail.required') }),
+    paymentMethod: z.enum(['transfer', 'cash'], {
+      required_error: t('finance.confirmation.form.paymentMethod.required'),
+    }),
     paymentMonth: z.string().min(1, { message: t('finance.confirmation.form.paymentMonth.required') }),
     paymentDate: z.date({ required_error: t('finance.confirmation.form.paymentDate.required') }),
     amount: z.coerce.number().min(1, { message: t('finance.confirmation.form.amount.required') }),
-    proof: z.any().refine(files => files?.length === 1, t('finance.confirmation.form.proof.required')),
-  })
+    proof: z.any().optional(),
+    notes: z.string().optional(),
+  }).refine((data) => {
+    if (data.paymentMethod === 'transfer') {
+      return data.proof && data.proof.length === 1;
+    }
+    return true;
+  }, {
+    message: t('finance.confirmation.form.proof.requiredTransfer'),
+    path: ['proof'],
+  });
   
   const form = useForm<z.infer<typeof paymentFormSchema>>({
     resolver: zodResolver(paymentFormSchema),
+    defaultValues: {
+      paymentMethod: 'transfer',
+    }
   })
+
+  const paymentMethod = form.watch('paymentMethod');
 
   const onSubmit = (data: z.infer<typeof paymentFormSchema>) => {
     console.log(data)
@@ -55,7 +74,9 @@ export default function PaymentConfirmationPage() {
       title: t('finance.confirmation.toast.title'),
       description: t('finance.confirmation.toast.description'),
     })
-    form.reset()
+    form.reset({
+      paymentMethod: 'transfer'
+    })
   }
 
   const copyToClipboard = (text: string) => {
@@ -100,6 +121,37 @@ export default function PaymentConfirmationPage() {
                           {residents.map(r => <SelectItem key={r.email} value={r.email}>{r.name} - {r.address}</SelectItem>)}
                         </SelectContent>
                       </Select>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                <FormField
+                  control={form.control}
+                  name="paymentMethod"
+                  render={({ field }) => (
+                    <FormItem className="space-y-3">
+                      <FormLabel>{t('finance.confirmation.form.paymentMethod.label')}</FormLabel>
+                      <FormControl>
+                        <RadioGroup
+                          onValueChange={field.onChange}
+                          defaultValue={field.value}
+                          className="flex items-center gap-x-6"
+                        >
+                          <FormItem className="flex items-center space-x-2 space-y-0">
+                            <FormControl>
+                              <RadioGroupItem value="transfer" />
+                            </FormControl>
+                            <FormLabel className="font-normal">{t('finance.confirmation.form.paymentMethod.transfer')}</FormLabel>
+                          </FormItem>
+                          <FormItem className="flex items-center space-x-2 space-y-0">
+                            <FormControl>
+                              <RadioGroupItem value="cash" />
+                            </FormControl>
+                            <FormLabel className="font-normal">{t('finance.confirmation.form.paymentMethod.cash')}</FormLabel>
+                          </FormItem>
+                        </RadioGroup>
+                      </FormControl>
                       <FormMessage />
                     </FormItem>
                   )}
@@ -190,45 +242,65 @@ export default function PaymentConfirmationPage() {
                       <FormControl>
                         <Input type="file" accept="image/*,.pdf" onChange={(e) => onChange(e.target.files)} {...field} />
                       </FormControl>
-                      <FormDescription>{t('finance.confirmation.form.proof.description')}</FormDescription>
+                      <FormDescription>
+                        {paymentMethod === 'transfer' ? 
+                          t('finance.confirmation.form.proof.description') :
+                          t('finance.confirmation.form.proof.cashDescription')}
+                      </FormDescription>
                       <FormMessage />
                     </FormItem>
                   )}
                 />
                 
+                <FormField
+                  control={form.control}
+                  name="notes"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>{t('finance.confirmation.form.notes.label')}</FormLabel>
+                      <FormControl>
+                        <Textarea placeholder={t('finance.confirmation.form.notes.placeholder')} {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
                 <Button type="submit">{t('finance.confirmation.form.submit')}</Button>
               </form>
             </Form>
           </CardContent>
         </Card>
 
-        <Card>
-          <CardHeader>
-            <CardTitle>{t('finance.confirmation.paymentInfo.title')}</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="p-4 rounded-lg bg-muted">
-              <p className="font-semibold text-muted-foreground">BCA</p>
-              <div className="flex items-center justify-between">
-                <p className="text-lg font-bold">123-456-7890</p>
-                <Button variant="ghost" size="icon" onClick={() => copyToClipboard('1234567890')}>
-                  <ClipboardCopy className="w-4 h-4"/>
-                </Button>
+        {paymentMethod === 'transfer' && (
+          <Card>
+            <CardHeader>
+              <CardTitle>{t('finance.confirmation.paymentInfo.title')}</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="p-4 rounded-lg bg-muted">
+                <p className="font-semibold text-muted-foreground">BCA</p>
+                <div className="flex items-center justify-between">
+                  <p className="text-lg font-bold">123-456-7890</p>
+                  <Button variant="ghost" size="icon" onClick={() => copyToClipboard('1234567890')}>
+                    <ClipboardCopy className="w-4 h-4"/>
+                  </Button>
+                </div>
+                <p className="text-sm">a/n Paguyuban Warga Cimahpar</p>
               </div>
-              <p className="text-sm">a/n Paguyuban Warga Cimahpar</p>
-            </div>
-             <div className="p-4 rounded-lg bg-muted">
-              <p className="font-semibold text-muted-foreground">Mandiri</p>
-              <div className="flex items-center justify-between">
-                <p className="text-lg font-bold">098-765-4321</p>
-                 <Button variant="ghost" size="icon" onClick={() => copyToClipboard('0987654321')}>
-                  <ClipboardCopy className="w-4 h-4"/>
-                </Button>
+               <div className="p-4 rounded-lg bg-muted">
+                <p className="font-semibold text-muted-foreground">Mandiri</p>
+                <div className="flex items-center justify-between">
+                  <p className="text-lg font-bold">098-765-4321</p>
+                   <Button variant="ghost" size="icon" onClick={() => copyToClipboard('0987654321')}>
+                    <ClipboardCopy className="w-4 h-4"/>
+                  </Button>
+                </div>
+                <p className="text-sm">a/n Paguyuban Warga Cimahpar</p>
               </div>
-              <p className="text-sm">a/n Paguyuban Warga Cimahpar</p>
-            </div>
-          </CardContent>
-        </Card>
+            </CardContent>
+          </Card>
+        )}
       </div>
     </div>
   )
