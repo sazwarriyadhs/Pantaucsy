@@ -9,6 +9,7 @@ import {
   Shield,
   ShoppingBag,
   Users,
+  DollarSign,
 } from 'lucide-react';
 import {
   SidebarProvider,
@@ -61,6 +62,12 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
               <SidebarMenuButton href="/association-management" isActive={isActive('/association-management')}>
                 <Briefcase />
                 Pengurus Paguyuban
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+            <SidebarMenuItem>
+              <SidebarMenuButton href="/ipl-management" isActive={isActive('/ipl-management')}>
+                <DollarSign />
+                Iuran IPL
               </SidebarMenuButton>
             </SidebarMenuItem>
             <SidebarMenuItem>

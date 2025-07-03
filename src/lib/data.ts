@@ -167,3 +167,46 @@ export const associationManagement = [
         email: "bendahara@cimahpar.com",
     },
 ];
+
+export const iplManagement = [
+  {
+    residentName: "John Doe",
+    address: "123 Stoneyard Lane",
+    month: "Juli",
+    year: 2024,
+    amount: "150,000",
+    status: "Lunas",
+  },
+  {
+    residentName: "Jane Smith",
+    address: "456 Cimahpar Circle",
+    month: "Juli",
+    year: 2024,
+    amount: "150,000",
+    status: "Lunas",
+  },
+  {
+    residentName: "Ahmad Subarjo",
+    address: "789 Green Valley Rd",
+    month: "Juli",
+    year: 2024,
+    amount: "150,000",
+    status: "Belum Lunas",
+  },
+  {
+    residentName: "Siti Rahayu",
+    address: "101 Suburbia Ave",
+    month: "Juli",
+    year: 2024,
+    amount: "150,000",
+    status: "Lunas",
+  },
+    {
+    residentName: "John Doe",
+    address: "123 Stoneyard Lane",
+    month: "Juni",
+    year: 2024,
+    amount: "150,000",
+    status: "Lunas",
+  },
+];
