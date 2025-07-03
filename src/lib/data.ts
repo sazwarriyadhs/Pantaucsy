@@ -139,35 +139,43 @@ export const residents: Resident[] = [
 export const classifieds = [
   {
     id: '1',
-    title: "Mountain Bike",
-    price: 250,
-    description: "Slightly used mountain bike, great condition. Perfect for trails around the neighborhood.",
+    titleKey: "mountain_bike",
+    price: 2500000,
     image: "https://placehold.co/600x400.png",
     imageHint: "mountain bike",
+    phone: "6281234567890", // Example phone number
   },
   {
     id: '2',
-    title: "Toddler Car Seat",
-    price: 50,
-    description: "Clean and safe toddler car seat. Our child has outgrown it. All straps and buckles included.",
+    titleKey: "toddler_car_seat",
+    price: 500000,
     image: "https://placehold.co/600x400.png",
     imageHint: "car seat",
+    phone: "6281234567890",
   },
   {
     id: '3',
-    title: "Patio Furniture Set",
-    price: 150,
-    description: "Wicker patio set with two chairs and a small table. Cushions included. Great for a small balcony or porch.",
+    titleKey: "patio_furniture_set",
+    price: 1500000,
     image: "https://placehold.co/600x400.png",
     imageHint: "patio furniture",
+    phone: "6281234567890",
   },
   {
     id: '4',
-    title: "Assorted House Plants",
-    price: 10,
-    description: "Various house plants for sale. Snake plants, pothos, and succulents available. Brighten up your home!",
+    titleKey: "assorted_house_plants",
+    price: 100000,
     image: "https://placehold.co/600x400.png",
     imageHint: "house plants",
+    phone: "6281234567890",
+  },
+  {
+    id: '5',
+    titleKey: "advertise_here",
+    price: 50000,
+    image: "https://placehold.co/600x400.png",
+    imageHint: "advertisement marketing",
+    phone: "6281200000000", // Admin phone number
   },
 ];
 

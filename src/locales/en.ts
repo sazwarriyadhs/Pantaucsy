@@ -202,7 +202,7 @@ const en = {
   classifieds: {
     title: 'Classifieds',
     description: 'Buy, sell, or trade items with your neighbors.',
-    contactSeller: 'Contact Seller',
+    contactViaWhatsapp: 'Message on WhatsApp',
     items: {
       mountain_bike: {
         title: 'Mountain Bike',
@@ -219,6 +219,10 @@ const en = {
       assorted_house_plants: {
         title: 'Assorted House Plants',
         description: 'Various house plants for sale. Snake plants, pothos, and succulents available. Brighten up your home!'
+      },
+      advertise_here: {
+        title: 'Advertise Here',
+        description: 'Promote your business for one month for just {price}. Contact management for more details.'
       }
     }
   },

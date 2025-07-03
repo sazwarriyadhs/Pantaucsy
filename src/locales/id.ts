@@ -202,7 +202,7 @@ const id = {
   classifieds: {
     title: 'Iklan Baris',
     description: 'Jual, beli, atau tukar barang dengan tetangga Anda.',
-    contactSeller: 'Hubungi Penjual',
+    contactViaWhatsapp: 'Pesan via WhatsApp',
     items: {
       mountain_bike: {
         title: 'Sepeda Gunung',
@@ -219,6 +219,10 @@ const id = {
       assorted_house_plants: {
         title: 'Berbagai Tanaman Hias',
         description: 'Berbagai tanaman hias dijual. Tersedia lidah mertua, sirih gading, dan sukulen. Cerahkan rumah Anda!'
+      },
+       advertise_here: {
+        title: 'Pasang Iklan Di Sini',
+        description: 'Promosikan usaha Anda selama satu bulan hanya dengan {price}. Hubungi pengurus untuk info lebih lanjut.'
       }
     }
   },
