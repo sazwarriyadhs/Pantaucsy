@@ -39,6 +39,39 @@ const id = {
       status: 'Status',
       paid: 'Lunas',
       unpaid: 'Belum Lunas',
+  },
+  residents: {
+    title: 'Direktori Warga',
+    description: 'Informasi kontak untuk warga Cimahpar Stoneyard.',
+    tableTitle: 'Warga',
+    tableDescription: 'Daftar semua warga di dalam komunitas.',
+    addResident: 'Tambah Warga',
+    name: 'Nama',
+    address: 'Alamat',
+    phone: 'Telepon',
+    email: 'Email',
+    actions: 'Aksi',
+    edit: 'Ubah',
+    delete: {
+      button: 'Hapus',
+      title: 'Apakah Anda benar-benar yakin?',
+      description: 'Tindakan ini tidak dapat dibatalkan. Ini akan menghapus warga "{name}" secara permanen dari direktori.',
+      cancel: 'Batal',
+      confirm: 'Lanjutkan',
+    },
+    form: {
+      addTitle: 'Tambah Warga Baru',
+      addDescription: 'Isi detail untuk menambahkan warga baru ke direktori.',
+      editTitle: 'Ubah Data Warga',
+      editDescription: 'Perbarui detail warga. Email tidak dapat diubah.',
+      name: 'Nama Lengkap',
+      block: 'Blok',
+      number: 'Nomor',
+      phone: 'Nomor Telepon',
+      email: 'Alamat Email',
+      submitAdd: 'Tambah Warga',
+      submitEdit: 'Simpan Perubahan',
+    }
   }
 };
 export default id;

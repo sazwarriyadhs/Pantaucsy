@@ -39,6 +39,39 @@ const en = {
       status: 'Status',
       paid: 'Paid',
       unpaid: 'Unpaid',
+  },
+  residents: {
+    title: 'Resident Directory',
+    description: 'Contact information for residents of Cimahpar Stoneyard.',
+    tableTitle: 'Residents',
+    tableDescription: 'A list of all residents in the community.',
+    addResident: 'Add Resident',
+    name: 'Name',
+    address: 'Address',
+    phone: 'Phone',
+    email: 'Email',
+    actions: 'Actions',
+    edit: 'Edit',
+    delete: {
+      button: 'Delete',
+      title: 'Are you absolutely sure?',
+      description: 'This action cannot be undone. This will permanently delete the resident "{name}" and remove their data from our servers.',
+      cancel: 'Cancel',
+      confirm: 'Continue',
+    },
+    form: {
+      addTitle: 'Add New Resident',
+      addDescription: 'Fill in the details to add a new resident to the directory.',
+      editTitle: 'Edit Resident',
+      editDescription: "Update the resident's details. Email cannot be changed.",
+      name: 'Full Name',
+      block: 'Block',
+      number: 'Number',
+      phone: 'Phone Number',
+      email: 'Email Address',
+      submitAdd: 'Add Resident',
+      submitEdit: 'Save Changes',
+    }
   }
 };
 export default en;

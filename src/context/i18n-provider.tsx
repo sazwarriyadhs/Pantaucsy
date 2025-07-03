@@ -13,7 +13,7 @@ interface I18nContextType {
   setLocale: (locale: Locale) => void;
   currency: Currency;
   setCurrency: (currency: Currency) => void;
-  t: (key: string) => string;
+  t: (key: string, values?: Record<string, string | number>) => string;
   formatCurrency: (amount: number) => string;
 }
 
@@ -25,14 +25,22 @@ export const I18nProvider = ({ children }: { children: ReactNode }) => {
   const [locale, setLocale] = useState<Locale>('id');
   const [currency, setCurrency] = useState<Currency>('IDR');
 
-  const t = (key: string): string => {
+  const t = (key: string, values?: Record<string, string | number>): string => {
     const keys = key.split('.');
     // Try to get translation from current locale
     let text = keys.reduce((obj, k) => (obj as any)?.[k], translations[locale]);
     // Fallback to English if not found
-    if (!text) {
+    if (typeof text !== 'string') {
       text = keys.reduce((obj, k) => (obj as any)?.[k], translations.en);
     }
+    
+    if (typeof text === 'string' && values) {
+      Object.keys(values).forEach(valueKey => {
+        const regex = new RegExp(`{${valueKey}}`, 'g');
+        text = text.replace(regex, String(values[valueKey]));
+      });
+    }
+
     return text || key;
   };
 

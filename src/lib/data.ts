@@ -1,4 +1,11 @@
 
+export type Resident = {
+  name: string;
+  address: string;
+  phone: string;
+  email: string;
+};
+
 export const announcements = [
   {
     title: "Community Garden Meeting",
@@ -22,7 +29,7 @@ export const announcements = [
   },
 ];
 
-export const residents = [
+export const residents: Resident[] = [
   {
     name: "John Doe",
     address: "Blok A No. 1",
