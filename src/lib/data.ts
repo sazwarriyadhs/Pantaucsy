@@ -21,7 +21,7 @@ export const announcements = [
   {
     titleKey: "tpq_congratulations",
     date: "2024-08-16",
-    image: "/images/Mumtaz.jpg",
+    image: "/images/mumtaz.jpg",
     imageHint: "children students",
   },
   {
