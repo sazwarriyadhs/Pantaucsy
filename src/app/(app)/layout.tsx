@@ -14,7 +14,8 @@ import {
   ClipboardCheck,
   LineChart,
   CalendarClock,
-  ShieldCheck
+  ShieldCheck,
+  Trash2
 } from 'lucide-react';
 import {
   SidebarProvider,
@@ -114,6 +115,12 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
               <SidebarMenuButton href="/report-issue" isActive={isActive('/report-issue')} tooltip={t('sidebar.reportIssue')}>
                 <FileWarning />
                 {t('sidebar.reportIssue')}
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+             <SidebarMenuItem>
+              <SidebarMenuButton href="/waste-management" isActive={isActive('/waste-management')} tooltip={t('sidebar.wasteManagement')}>
+                <Trash2 />
+                {t('sidebar.wasteManagement')}
               </SidebarMenuButton>
             </SidebarMenuItem>
             <SidebarMenuItem>

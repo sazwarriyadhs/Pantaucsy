@@ -16,6 +16,7 @@ const en = {
     finance: 'Finance',
     paymentConfirmation: 'Payment Confirmation',
     financialReport: 'Financial Report',
+    wasteManagement: 'Waste Management',
   },
   userNav: {
     profile: 'Profile',
@@ -261,6 +262,15 @@ const en = {
         description: "Something went wrong. Please try again.",
       }
     }
+  },
+  wasteManagement: {
+    title: 'Waste Management',
+    description: 'Schedule and information about waste collection.',
+    scheduleTitle: 'Collection Schedule',
+    scheduleDescription: 'Weekly schedule for household waste collection.',
+    day: 'Day',
+    area: 'Area',
+    type: 'Type of Waste',
   }
 };
 export default en;

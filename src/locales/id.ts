@@ -16,6 +16,7 @@ const id = {
     finance: 'Keuangan',
     paymentConfirmation: 'Konfirmasi Pembayaran',
     financialReport: 'Laporan Keuangan',
+    wasteManagement: 'Manajemen Sampah',
   },
   userNav: {
     profile: 'Profil',
@@ -261,6 +262,15 @@ const id = {
         description: "Terjadi masalah. Silakan coba lagi.",
       }
     }
+  },
+  wasteManagement: {
+    title: 'Manajemen Sampah',
+    description: 'Jadwal dan informasi mengenai pengangkutan sampah.',
+    scheduleTitle: 'Jadwal Pengangkutan',
+    scheduleDescription: 'Jadwal mingguan untuk pengangkutan sampah rumah tangga.',
+    day: 'Hari',
+    area: 'Area',
+    type: 'Jenis Sampah',
   }
 };
 export default id;

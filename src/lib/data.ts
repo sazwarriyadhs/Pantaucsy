@@ -364,3 +364,21 @@ export const gallery = [
     imageHint: "children performance",
   },
 ];
+
+export const wasteManagementSchedule = [
+  {
+    day: "Monday & Thursday",
+    area: "North Sector (Blok A, B)",
+    type: "General & Recyclable Waste",
+  },
+  {
+    day: "Tuesday & Friday",
+    area: "South Sector (Blok C, D)",
+    type: "General & Recyclable Waste",
+  },
+  {
+    day: "First Saturday of the month",
+    area: "All Sectors",
+    type: "Garden & Bulky Waste",
+  },
+];
