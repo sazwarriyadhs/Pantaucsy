@@ -125,7 +125,7 @@ export const classifieds = [
   {
     id: '1',
     title: "Mountain Bike",
-    price: "250.00",
+    price: 250,
     description: "Slightly used mountain bike, great condition. Perfect for trails around the neighborhood.",
     image: "https://placehold.co/600x400.png",
     imageHint: "mountain bike",
@@ -133,7 +133,7 @@ export const classifieds = [
   {
     id: '2',
     title: "Toddler Car Seat",
-    price: "50.00",
+    price: 50,
     description: "Clean and safe toddler car seat. Our child has outgrown it. All straps and buckles included.",
     image: "https://placehold.co/600x400.png",
     imageHint: "car seat",
@@ -141,7 +141,7 @@ export const classifieds = [
   {
     id: '3',
     title: "Patio Furniture Set",
-    price: "150.00",
+    price: 150,
     description: "Wicker patio set with two chairs and a small table. Cushions included. Great for a small balcony or porch.",
     image: "https://placehold.co/600x400.png",
     imageHint: "patio furniture",
@@ -149,7 +149,7 @@ export const classifieds = [
   {
     id: '4',
     title: "Assorted House Plants",
-    price: "10.00 each",
+    price: 10,
     description: "Various house plants for sale. Snake plants, pothos, and succulents available. Brighten up your home!",
     image: "https://placehold.co/600x400.png",
     imageHint: "house plants",
@@ -247,7 +247,7 @@ export const iplManagement = [
     address: "Blok A No. 1",
     month: "Juli",
     year: 2024,
-    amount: "150,000",
+    amount: 150000,
     status: "Lunas",
   },
   {
@@ -255,7 +255,7 @@ export const iplManagement = [
     address: "Blok A No. 2",
     month: "Juli",
     year: 2024,
-    amount: "150,000",
+    amount: 150000,
     status: "Lunas",
   },
   {
@@ -263,7 +263,7 @@ export const iplManagement = [
     address: "Blok A No. 3",
     month: "Juli",
     year: 2024,
-    amount: "150,000",
+    amount: 150000,
     status: "Belum Lunas",
   },
   {
@@ -271,7 +271,7 @@ export const iplManagement = [
     address: "Blok A No. 4",
     month: "Juli",
     year: 2024,
-    amount: "150,000",
+    amount: 150000,
     status: "Lunas",
   },
     {
@@ -279,7 +279,7 @@ export const iplManagement = [
     address: "Blok A No. 1",
     month: "Juni",
     year: 2024,
-    amount: "150,000",
+    amount: 150000,
     status: "Lunas",
   },
 ];

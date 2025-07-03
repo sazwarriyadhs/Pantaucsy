@@ -28,9 +28,11 @@ import {
   SidebarMenuSubButton,
 } from '@/components/ui/sidebar';
 import { UserNav } from '@/components/user-nav';
+import { useI18n } from '@/context/i18n-provider';
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
+  const { t } = useI18n();
 
   const isActive = (path: string, exact = false) => {
     return exact ? pathname === path : pathname.startsWith(path);
@@ -49,58 +51,58 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
             <SidebarMenuItem>
               <SidebarMenuButton href="/" isActive={isActive('/', true)}>
                 <LayoutDashboard />
-                Announcements
+                {t('sidebar.announcements')}
               </SidebarMenuButton>
             </SidebarMenuItem>
             <SidebarMenuItem>
               <SidebarMenuButton href="/residents" isActive={isActive('/residents')}>
                 <Users />
-                Residents
+                {t('sidebar.residents')}
               </SidebarMenuButton>
             </SidebarMenuItem>
             <SidebarMenuItem>
               <SidebarMenuButton href="/association-management" isActive={isActive('/association-management')}>
                 <Briefcase />
-                Pengurus Paguyuban
+                {t('sidebar.associationManagement')}
               </SidebarMenuButton>
             </SidebarMenuItem>
             <SidebarMenuItem>
               <SidebarMenuButton href="/ipl-management" isActive={isActive('/ipl-management')}>
                 <DollarSign />
-                Iuran IPL
+                {t('sidebar.iplManagement')}
               </SidebarMenuButton>
             </SidebarMenuItem>
             <SidebarMenuItem>
               <SidebarMenuButton href="/classifieds" isActive={isActive('/classifieds')}>
                 <ShoppingBag />
-                Classifieds
+                {t('sidebar.classifieds')}
               </SidebarMenuButton>
             </SidebarMenuItem>
             <SidebarMenuItem>
               <SidebarMenuButton href="/events" isActive={isActive('/events')}>
                 <Calendar />
-                Events
+                {t('sidebar.events')}
               </SidebarMenuButton>
             </SidebarMenuItem>
             <SidebarMenuItem>
               <SidebarMenuButton href="/report-issue" isActive={isActive('/report-issue')}>
                 <FileWarning />
-                Report Issue
+                {t('sidebar.reportIssue')}
               </SidebarMenuButton>
             </SidebarMenuItem>
             <SidebarGroup>
               <SidebarMenuButton>
-                <Shield /> Security
+                <Shield /> {t('sidebar.security')}
               </SidebarMenuButton>
               <SidebarMenuSub>
                 <SidebarMenuSubItem>
                   <SidebarMenuSubButton href="/security/schedule" isActive={isActive('/security/schedule')}>
-                    Schedule
+                    {t('sidebar.schedule')}
                   </SidebarMenuSubButton>
                 </SidebarMenuSubItem>
                 <SidebarMenuSubItem>
                   <SidebarMenuSubButton href="/security/management" isActive={isActive('/security/management')}>
-                    Management
+                    {t('sidebar.management')}
                   </SidebarMenuSubButton>
                 </SidebarMenuSubItem>
               </SidebarMenuSub>

@@ -11,9 +11,18 @@ import {
   DropdownMenuSeparator,
   DropdownMenuShortcut,
   DropdownMenuTrigger,
+  DropdownMenuSub,
+  DropdownMenuSubTrigger,
+  DropdownMenuPortal,
+  DropdownMenuSubContent,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
 } from "@/components/ui/dropdown-menu"
+import { useI18n } from "@/context/i18n-provider"
 
 export function UserNav() {
+  const { t, locale, setLocale, currency, setCurrency } = useI18n();
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -36,17 +45,45 @@ export function UserNav() {
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
           <DropdownMenuItem>
-            Profile
+            {t('userNav.profile')}
             <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
           </DropdownMenuItem>
           <DropdownMenuItem>
-            Settings
+            {t('userNav.settings')}
             <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
           </DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
+
+        <DropdownMenuGroup>
+          <DropdownMenuSub>
+            <DropdownMenuSubTrigger>{t('userNav.language')}</DropdownMenuSubTrigger>
+            <DropdownMenuPortal>
+              <DropdownMenuSubContent>
+                <DropdownMenuRadioGroup value={locale} onValueChange={(value) => setLocale(value as 'id' | 'en')}>
+                  <DropdownMenuRadioItem value="id">{t('userNav.indonesian')}</DropdownMenuRadioItem>
+                  <DropdownMenuRadioItem value="en">{t('userNav.english')}</DropdownMenuRadioItem>
+                </DropdownMenuRadioGroup>
+              </DropdownMenuSubContent>
+            </DropdownMenuPortal>
+          </DropdownMenuSub>
+
+          <DropdownMenuSub>
+            <DropdownMenuSubTrigger>{t('userNav.currency')}</DropdownMenuSubTrigger>
+            <DropdownMenuPortal>
+              <DropdownMenuSubContent>
+                <DropdownMenuRadioGroup value={currency} onValueChange={(value) => setCurrency(value as 'IDR' | 'USD')}>
+                  <DropdownMenuRadioItem value="IDR">IDR</DropdownMenuRadioItem>
+                  <DropdownMenuRadioItem value="USD">USD</DropdownMenuRadioItem>
+                </DropdownMenuRadioGroup>
+              </DropdownMenuSubContent>
+            </DropdownMenuPortal>
+          </DropdownMenuSub>
+        </DropdownMenuGroup>
+
+        <DropdownMenuSeparator />
         <DropdownMenuItem>
-          Log out
+          {t('userNav.logout')}
           <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
         </DropdownMenuItem>
       </DropdownMenuContent>

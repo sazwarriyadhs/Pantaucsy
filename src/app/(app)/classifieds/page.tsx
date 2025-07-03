@@ -1,3 +1,5 @@
+"use client"
+
 import Image from 'next/image'
 import {
   Card,
@@ -9,14 +11,17 @@ import {
 } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { classifieds } from "@/lib/data"
+import { useI18n } from '@/context/i18n-provider'
 
 export default function ClassifiedsPage() {
+  const { t, formatCurrency } = useI18n();
+
   return (
     <div className="flex flex-col gap-8">
       <div>
-        <h1 className="text-3xl font-bold tracking-tight font-headline">Classifieds</h1>
+        <h1 className="text-3xl font-bold tracking-tight font-headline">{t('classifieds.title')}</h1>
         <p className="text-muted-foreground">
-          Buy, sell, or trade items with your neighbors.
+          {t('classifieds.description')}
         </p>
       </div>
 
@@ -35,11 +40,11 @@ export default function ClassifiedsPage() {
             </CardHeader>
             <CardContent className="flex-1 pt-6">
               <CardTitle className="text-xl font-headline">{item.title}</CardTitle>
-              <p className="mt-2 text-2xl font-semibold text-primary">${item.price}</p>
+              <p className="mt-2 text-2xl font-semibold text-primary">{formatCurrency(item.price)}</p>
               <CardDescription className="mt-4">{item.description}</CardDescription>
             </CardContent>
             <CardFooter>
-              <Button className="w-full">Contact Seller</Button>
+              <Button className="w-full">{t('classifieds.contactSeller')}</Button>
             </CardFooter>
           </Card>
         ))}

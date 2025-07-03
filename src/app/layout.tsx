@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Toaster } from "@/components/ui/toaster"
 import './globals.css';
+import { I18nProvider } from '@/context/i18n-provider';
 
 export const metadata: Metadata = {
   title: 'Cimahpar Stoneyard Community Hub',
@@ -20,7 +21,9 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet" />
       </head>
       <body className="font-body antialiased">
-        {children}
+        <I18nProvider>
+          {children}
+        </I18nProvider>
         <Toaster />
       </body>
     </html>
