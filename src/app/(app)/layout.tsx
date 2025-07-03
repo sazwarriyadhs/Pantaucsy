@@ -11,6 +11,7 @@ import {
   ShoppingBag,
   Users,
   Banknote,
+  Camera,
 } from 'lucide-react';
 import {
   SidebarProvider,
@@ -100,6 +101,12 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
                 <Calendar />
                 {t('sidebar.events')}
               </SidebarMenuButton>
+            </SidebarMenuItem>
+            <SidebarMenuItem>
+                <SidebarMenuButton href="/gallery" isActive={isActive('/gallery')}>
+                  <Camera />
+                  {t('sidebar.gallery')}
+                </SidebarMenuButton>
             </SidebarMenuItem>
             <SidebarMenuItem>
               <SidebarMenuButton href="/report-issue" isActive={isActive('/report-issue')}>

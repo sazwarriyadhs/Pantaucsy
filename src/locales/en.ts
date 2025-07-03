@@ -7,6 +7,7 @@ const en = {
     iplManagement: 'IPL Dues',
     classifieds: 'Classifieds',
     events: 'Events',
+    gallery: 'Photo Gallery',
     reportIssue: 'Report Issue',
     security: 'Security',
     schedule: 'Schedule',
@@ -28,6 +29,10 @@ const en = {
     title: 'Classifieds',
     description: 'Buy, sell, or trade items with your neighbors.',
     contactSeller: 'Contact Seller',
+  },
+  gallery: {
+    title: 'Photo Gallery',
+    description: 'Photo documentation of Cimahpar Stoneyard resident activities.',
   },
   ipl: {
       title: 'Resident IPL Dues',

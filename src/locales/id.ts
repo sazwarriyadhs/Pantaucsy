@@ -7,6 +7,7 @@ const id = {
     iplManagement: 'Iuran IPL',
     classifieds: 'Iklan Baris',
     events: 'Acara',
+    gallery: 'Galeri Foto',
     reportIssue: 'Lapor Masalah',
     security: 'Keamanan',
     schedule: 'Jadwal',
@@ -28,6 +29,10 @@ const id = {
     title: 'Iklan Baris',
     description: 'Jual, beli, atau tukar barang dengan tetangga Anda.',
     contactSeller: 'Hubungi Penjual',
+  },
+  gallery: {
+    title: 'Galeri Foto',
+    description: 'Dokumentasi foto kegiatan warga Cimahpar Stoneyard.',
   },
   ipl: {
       title: 'Iuran IPL Warga',

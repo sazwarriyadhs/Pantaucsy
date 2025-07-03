@@ -313,3 +313,54 @@ export const financialReportData = {
     { id: 5, date: "2024-07-15", description: "Sewa Fasilitas (Hall)", type: "income", amount: 500000 },
   ],
 };
+
+export const gallery = [
+  {
+    id: '1',
+    title: "Lomba 17 Agustus",
+    image: "https://placehold.co/600x400.png",
+    imageHint: "community celebration",
+  },
+  {
+    id: '2',
+    title: "Kerja Bakti Lingkungan",
+    image: "https://placehold.co/600x400.png",
+    imageHint: "community service",
+  },
+  {
+    id: '3',
+    title: "Rapat Warga",
+    image: "https://placehold.co/600x400.png",
+    imageHint: "community meeting",
+  },
+  {
+    id: '4',
+    title: "Buka Puasa Bersama",
+    image: "https://placehold.co/600x400.png",
+    imageHint: "community gathering",
+  },
+  {
+    id: '5',
+    title: "Acara Halal Bihalal",
+    image: "https://placehold.co/600x400.png",
+    imageHint: "traditional celebration",
+  },
+  {
+    id: '6',
+    title: "Senam Pagi Bersama",
+    image: "https://placehold.co/600x400.png",
+    imageHint: "morning exercise",
+  },
+  {
+    id: '7',
+    title: "Bazar Warga",
+    image: "https://placehold.co/600x400.png",
+    imageHint: "local market",
+  },
+  {
+    id: '8',
+    title: "Pentas Seni Anak",
+    image: "https://placehold.co/600x400.png",
+    imageHint: "children performance",
+  },
+];
