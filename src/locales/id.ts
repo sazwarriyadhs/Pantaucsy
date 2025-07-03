@@ -33,7 +33,8 @@ const id = {
     items: {
       obituary_aswin: {
         title: 'Berita Duka',
-        content: 'Telah meninggal dunia Bapak Aswin, warga Blok C No. 16, pada tanggal 24 Juni 2025 pukul 04.35 WIB. Segenap pengurus dan warga Cimahpar Stoneyard turut berduka cita. Semoga almarhum diberikan tempat terbaik dan keluarga yang ditinggalkan diberi ketabahan.'
+        content: 'Telah meninggal dunia Bapak Aswin, warga Blok C No. 16, pada tanggal 24 Juni 2025 pukul 04.35 WIB. Segenap pengurus dan warga Cimahpar Stoneyard turut berduka cita. Semoga almarhum diberikan tempat terbaik dan keluarga yang ditinggalkan diberi ketabahan.',
+        address: 'Rumah duka: Jl. Stoneyard Boulevard No. 1. Jenazah akan dimakamkan pada tanggal 25 Juni 2025 di TPU Pondok Ranggon.'
       },
       garden_meeting: {
         title: 'Rapat Taman Komunitas',

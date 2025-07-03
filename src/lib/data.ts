@@ -10,6 +10,8 @@ export const announcements = [
   {
     titleKey: "obituary_aswin",
     date: "2025-06-24",
+    image: "https://storage.googleapis.com/stablediffusion-182202-uploads/7c28f1cc-8c63-424a-89a3-5c7f21273934.png",
+    imageHint: "condolence flowers",
   },
   {
     titleKey: "garden_meeting",
