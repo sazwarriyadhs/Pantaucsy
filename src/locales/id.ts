@@ -57,7 +57,7 @@ const id = {
         login: 'Gagal masuk. Silakan periksa kredensial Anda.',
         login_demo: 'Gagal masuk. Jika Anda mencoba menggunakan akun demo, silakan daftarkan akun tersebut terlebih dahulu.',
         register: 'Pendaftaran gagal. Email mungkin sudah digunakan.',
-        not_configured: 'Firebase tidak dikonfigurasi. Harap tambahkan kredensial Anda ke file .env.',
+        not_configured: 'Firebase tidak dikonfigurasi. Harap tambahkan kredensial Anda ke file .env untuk mengaktifkan autentikasi.',
         invalid_api_key: 'Kesalahan Konfigurasi: Kunci API Firebase tidak valid. Silakan periksa file .env Anda.'
     }
   },

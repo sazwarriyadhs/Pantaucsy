@@ -26,7 +26,7 @@ let auth: Auth | null = null;
 let firebaseReady = false;
 
 // Check if the keys are just placeholders
-const isPlaceholder = (value?: string) => !value || value.startsWith('YOUR_');
+const isPlaceholder = (value?: string) => !value || value.includes('your-project-id') || value.endsWith('...');
 
 if (
   !isPlaceholder(firebaseConfig.apiKey) &&
