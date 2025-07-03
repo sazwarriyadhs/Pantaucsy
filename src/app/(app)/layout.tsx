@@ -1,6 +1,8 @@
 "use client"
 
 import { usePathname } from 'next/navigation';
+import Image from 'next/image';
+import Link from 'next/link';
 import {
   Briefcase,
   Calendar,
@@ -46,10 +48,16 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
     <SidebarProvider>
       <Sidebar>
         <SidebarContent>
-          <SidebarHeader className="p-4">
-            <h1 className="text-2xl font-bold text-primary font-headline">
-              Cimahpar Hub
-            </h1>
+          <SidebarHeader className="p-4 flex items-center justify-center">
+            <Link href="/">
+              <Image
+                src="https://placehold.co/150x50.png"
+                width={150}
+                height={50}
+                alt="Cimahpar Hub Logo"
+                data-ai-hint="logo"
+              />
+            </Link>
           </SidebarHeader>
           <SidebarMenu>
             <SidebarMenuItem>
