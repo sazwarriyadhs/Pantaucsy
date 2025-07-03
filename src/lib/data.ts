@@ -16,7 +16,7 @@ export const announcements = [
   {
     titleKey: "obituary_aswin",
     date: "2025-06-24",
-    image: "https://placehold.co/600x400.png",
+    image: "/images/obituary_aswin.jpg",
     imageHint: "condolence flowers",
   },
   {
@@ -394,3 +394,4 @@ export const wasteManagementSchedule = [
     
 
     
+
