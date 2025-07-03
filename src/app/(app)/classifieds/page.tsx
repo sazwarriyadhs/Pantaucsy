@@ -31,7 +31,7 @@ export default function ClassifiedsPage() {
             <CardHeader className="p-0">
               <Image
                 src={item.image}
-                alt={item.title}
+                alt={t(`classifieds.items.${item.title.toLowerCase().replace(/ /g, '_')}.title`)}
                 width={600}
                 height={400}
                 className="object-cover w-full rounded-t-lg aspect-video"
@@ -39,9 +39,9 @@ export default function ClassifiedsPage() {
               />
             </CardHeader>
             <CardContent className="flex-1 pt-6">
-              <CardTitle className="text-xl font-headline">{item.title}</CardTitle>
+              <CardTitle className="text-xl font-headline">{t(`classifieds.items.${item.title.toLowerCase().replace(/ /g, '_')}.title`)}</CardTitle>
               <p className="mt-2 text-2xl font-semibold text-primary">{formatCurrency(item.price)}</p>
-              <CardDescription className="mt-4">{item.description}</CardDescription>
+              <CardDescription className="mt-4">{t(`classifieds.items.${item.title.toLowerCase().replace(/ /g, '_')}.description`)}</CardDescription>
             </CardContent>
             <CardFooter>
               <Button className="w-full">{t('classifieds.contactSeller')}</Button>

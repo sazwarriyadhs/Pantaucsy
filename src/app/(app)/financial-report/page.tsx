@@ -1,4 +1,3 @@
-
 "use client"
 
 import {
@@ -63,7 +62,7 @@ export default function FinancialReportPage() {
         </CardHeader>
         <CardContent>
           <ChartContainer config={{}} className="h-[300px] w-full">
-            <BarChart data={monthlyOverview} accessibilityLayer>
+            <BarChart data={monthlyOverview.map(d => ({ ...d, month: t(`finance.report.months.${d.monthKey}`) }))} accessibilityLayer>
               <CartesianGrid vertical={false} />
               <XAxis
                 dataKey="month"
@@ -79,14 +78,14 @@ export default function FinancialReportPage() {
                 content={<ChartTooltipContent
                   formatter={(value, name) => (
                     <div className="flex flex-col">
-                      <span className="capitalize">{name}</span>
+                      <span className="capitalize">{t(`finance.report.${name}`)}</span>
                       <span>{formatCurrency(Number(value))}</span>
                     </div>
                   )}
                 />}
               />
-              <Bar dataKey="income" name={t('finance.report.income')} fill="hsl(var(--primary))" radius={4} />
-              <Bar dataKey="expense" name={t('finance.report.expense')} fill="hsl(var(--destructive))" radius={4} />
+              <Bar dataKey="income" name="income" fill="hsl(var(--primary))" radius={4} />
+              <Bar dataKey="expense" name="expense" fill="hsl(var(--destructive))" radius={4} />
             </BarChart>
           </ChartContainer>
         </CardContent>
@@ -111,12 +110,12 @@ export default function FinancialReportPage() {
               {transactions.map((transaction) => (
                 <TableRow key={transaction.id}>
                   <TableCell>{transaction.date}</TableCell>
-                  <TableCell>{transaction.description}</TableCell>
+                  <TableCell>{t(`finance.report.transactions.${transaction.descriptionKey}`)}</TableCell>
                   <TableCell>
                      <span className={`px-2 py-1 text-xs rounded-full ${
                        transaction.type === 'income' ? 'bg-primary/10 text-primary' : 'bg-destructive/10 text-destructive'
                      }`}>
-                       {t(`finance.report.${transaction.type}`)}
+                       {t(`finance.report.types.${transaction.type}`)}
                      </span>
                   </TableCell>
                   <TableCell className={`text-right font-medium ${

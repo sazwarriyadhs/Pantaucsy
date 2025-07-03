@@ -30,6 +30,24 @@ const id = {
   announcements: {
     title: 'Pengumuman',
     description: 'Berita dan pembaruan terkini untuk komunitas Cimahpar Stoneyard.',
+    items: {
+      garden_meeting: {
+        title: 'Rapat Taman Komunitas',
+        content: 'Bergabunglah bersama kami Sabtu ini jam 10 pagi untuk merencanakan taman komunitas baru. Semua warga dipersilakan untuk berpartisipasi dan berbagi ide.'
+      },
+      watch_update: {
+        title: 'Pembaruan Siskamling',
+        content: 'Akan ada pertemuan singkat pada Selasa malam untuk membahas peningkatan keamanan terbaru dan jadwal patroli siskamling.'
+      },
+      summer_bbq: {
+        title: 'BBQ Musim Panas Tahunan',
+        content: 'Bersiaplah untuk BBQ musim panas tahunan kita! Acara akan diadakan di taman komunitas pada tanggal 25 Agustus. Makanan, permainan, dan keseruan untuk seluruh keluarga.'
+      },
+      road_maintenance: {
+        title: 'Pemberitahuan Perbaikan Jalan',
+        content: 'Harap diperhatikan bahwa akan ada perbaikan jalan di Stoneyard Lane dari tanggal 18 hingga 20 Agustus. Diperkirakan akan ada sedikit keterlambatan.'
+      }
+    }
   },
   associationManagement: {
     title: 'Pengurus Paguyuban',
@@ -41,10 +59,32 @@ const id = {
     position: 'Jabatan',
     phone: 'Telepon',
     email: 'Email',
+    positions: {
+      chairman: 'Ketua',
+      secretary: 'Sekretaris',
+      treasurer: 'Bendahara'
+    }
   },
   events: {
     title: 'Acara Komunitas',
     description: 'Acara dan pertemuan mendatang untuk warga Cimahpar Stoneyard.',
+    recurring: {
+      every_saturday: 'Setiap Sabtu'
+    },
+    items: {
+      national_night_out: {
+        title: 'Malam Keakraban Warga',
+        description: 'Bergabunglah dengan tetangga dan aparat keamanan setempat untuk malam membangun kebersamaan.'
+      },
+      yoga_in_the_park: {
+        title: 'Yoga di Taman',
+        description: 'Awali akhir pekan Anda dengan sesi yoga yang menenangkan dan menyegarkan. Terbuka untuk semua level.'
+      },
+      garage_sale: {
+        title: 'Garage Sale Cimahpar Stoneyard',
+        description: 'Bazar garasi di seluruh lingkungan. Temukan barang-barang berharga dan temui tetangga Anda.'
+      }
+    }
   },
   reportIssue: {
     title: 'Lapor Masalah',
@@ -112,9 +152,6 @@ const id = {
       type: 'Jenis',
       summary: 'Ringkasan',
       status: 'Status',
-      resolved: 'Terselesaikan',
-      closed: 'Ditutup',
-      investigation: 'Dalam Investigasi',
     },
     schedule: {
       title: 'Jadwal Patroli Keamanan',
@@ -124,16 +161,71 @@ const id = {
       shift: 'Shift',
       area: 'Area Cakupan',
       personnel: 'Personel Bertugas',
+      shifts: {
+        morning: 'Patroli Pagi (06.00 - 14.00)',
+        afternoon: 'Patroli Sore (14.00 - 22.00)',
+        night: 'Patroli Malam (22.00 - 06.00)',
+        weekend: 'Patroli Akhir Pekan'
+      }
+    },
+    shifts: {
+      morning: 'Pagi',
+      afternoon: 'Sore',
+      night: 'Malam',
+      weekend: 'Akhir Pekan'
+    },
+    status: {
+      resolved: 'Terselesaikan',
+      closed: 'Ditutup',
+      investigation: 'Dalam Investigasi',
+    },
+    incidents: {
+      suspicious_vehicle: 'Kendaraan Mencurigakan',
+      suspicious_vehicle_summary: 'Kendaraan mencurigakan dilaporkan di dekat taman. Petugas menyelidiki dan memastikan milik kerabat yang berkunjung.',
+      noise_complaint: 'Keluhan Kebisingan',
+      noise_complaint_summary: 'Musik keras dilaporkan pukul 11 malam. Petugas menasihati penghuni untuk mengecilkan volume.',
+      stray_animal: 'Hewan Liar',
+      stray_animal_summary: 'Seekor anjing hilang ditemukan dan dikembalikan dengan selamat ke pemiliknya di Cimahpar Circle.',
+      vandalism: 'Vandalisme',
+      vandalism_summary: 'Grafiti ditemukan di dinding pusat komunitas. Menunggu tinjauan rekaman kamera keamanan.'
     }
   },
   classifieds: {
     title: 'Iklan Baris',
     description: 'Jual, beli, atau tukar barang dengan tetangga Anda.',
     contactSeller: 'Hubungi Penjual',
+    items: {
+      mountain_bike: {
+        title: 'Sepeda Gunung',
+        description: 'Sepeda gunung bekas, kondisi bagus. Sempurna untuk jalur di sekitar lingkungan.'
+      },
+      toddler_car_seat: {
+        title: 'Kursi Mobil Balita',
+        description: 'Kursi mobil balita bersih dan aman. Anak kami sudah tidak muat lagi. Semua tali dan gesper lengkap.'
+      },
+      patio_furniture_set: {
+        title: 'Set Mebel Teras',
+        description: 'Set rotan teras dengan dua kursi dan meja kecil. Termasuk bantal. Cocok untuk balkon atau teras kecil.'
+      },
+      assorted_house_plants: {
+        title: 'Berbagai Tanaman Hias',
+        description: 'Berbagai tanaman hias dijual. Tersedia lidah mertua, sirih gading, dan sukulen. Cerahkan rumah Anda!'
+      }
+    }
   },
   gallery: {
     title: 'Galeri Foto',
     description: 'Dokumentasi foto kegiatan warga Cimahpar Stoneyard.',
+    items: {
+      independence_day_race: "Lomba 17 Agustus",
+      community_cleanup: "Kerja Bakti Lingkungan",
+      resident_meeting: "Rapat Warga",
+      iftar_gathering: "Buka Puasa Bersama",
+      eid_celebration: "Acara Halal Bihalal",
+      morning_aerobics: "Senam Pagi Bersama",
+      community_bazaar: "Bazar Warga",
+      kids_art_performance: "Pentas Seni Anak",
+    }
   },
   ipl: {
       title: 'Iuran IPL Warga',
@@ -240,6 +332,25 @@ const id = {
       descriptionColumn: 'Keterangan',
       type: 'Tipe',
       amount: 'Jumlah',
+      types: {
+        income: 'Pemasukan',
+        expense: 'Pengeluaran',
+      },
+      transactions: {
+        security_salary: 'Gaji Keamanan - Juli',
+        ipl_dues: 'Penerimaan Iuran IPL - Juli',
+        cleaning_fee: 'Biaya Kebersihan',
+        street_light_repair: 'Perbaikan Lampu Jalan',
+        facility_rental: 'Sewa Fasilitas (Aula)'
+      },
+      months: {
+        mar: 'Mar',
+        apr: 'Apr',
+        may: 'Mei',
+        jun: 'Jun',
+        jul: 'Jul',
+        aug: 'Agu',
+      }
     }
   },
   curhatWarga: {
@@ -278,6 +389,20 @@ const id = {
     day: 'Hari',
     area: 'Area',
     type: 'Jenis Sampah',
+    days: {
+      mon_thu: 'Senin & Kamis',
+      tue_fri: 'Selasa & Jumat',
+      first_saturday: 'Sabtu Pertama setiap bulan'
+    },
+    areas: {
+      north_sector: 'Sektor Utara (Blok A, B)',
+      south_sector: 'Sektor Selatan (Blok C, D)',
+      all_sectors: 'Semua Sektor'
+    },
+    types: {
+      general_recyclable: 'Sampah Umum & Daur Ulang',
+      garden_bulky: 'Sampah Kebun & Ukuran Besar'
+    }
   }
 };
 export default id;

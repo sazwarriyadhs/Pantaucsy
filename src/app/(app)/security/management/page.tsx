@@ -19,7 +19,7 @@ import { useI18n } from "@/context/i18n-provider"
 export default function SecurityManagementPage() {
   const { t } = useI18n()
 
-  const getStatusVariant = (status: string) => {
+  const getStatusVariant = (status: string): "default" | "secondary" | "outline" | "destructive" | null | undefined => {
     switch (status) {
       case 'resolved':
       case 'closed':
@@ -77,7 +77,7 @@ export default function SecurityManagementPage() {
                       <TableCell className="font-mono">{person.id}</TableCell>
                       <TableCell className="font-medium">{person.name}</TableCell>
                       <TableCell>{person.phone}</TableCell>
-                      <TableCell>{person.shift}</TableCell>
+                      <TableCell>{t(`security.shifts.${person.shift.toLowerCase()}`)}</TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
@@ -109,10 +109,10 @@ export default function SecurityManagementPage() {
                     <TableRow key={report.id}>
                       <TableCell className="font-mono">{report.id}</TableCell>
                       <TableCell>{report.date}</TableCell>
-                      <TableCell>{report.type}</TableCell>
-                      <TableCell className="max-w-sm truncate">{report.summary}</TableCell>
+                      <TableCell>{t(`security.incidents.${report.typeKey}`)}</TableCell>
+                      <TableCell className="max-w-sm truncate">{t(`security.incidents.${report.summaryKey}`)}</TableCell>
                       <TableCell>
-                        <Badge variant={getStatusVariant(report.status)}>{t('security.management.' + report.status)}</Badge>
+                        <Badge variant={getStatusVariant(report.status)}>{t('security.status.' + report.status)}</Badge>
                       </TableCell>
                     </TableRow>
                   ))}

@@ -42,7 +42,7 @@ export default function SecuritySchedulePage() {
             <TableBody>
               {securitySchedule.map((patrol, index) => (
                 <TableRow key={index}>
-                  <TableCell className="font-medium">{patrol.shift}</TableCell>
+                  <TableCell className="font-medium">{t(`security.schedule.shifts.${patrol.shiftKey}`)}</TableCell>
                   <TableCell>{patrol.area}</TableCell>
                   <TableCell>{patrol.personnel}</TableCell>
                 </TableRow>

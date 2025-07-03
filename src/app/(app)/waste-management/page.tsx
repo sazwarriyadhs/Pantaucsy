@@ -42,9 +42,9 @@ export default function WasteManagementPage() {
             <TableBody>
               {wasteManagementSchedule.map((schedule, index) => (
                 <TableRow key={index}>
-                  <TableCell className="font-medium">{schedule.day}</TableCell>
-                  <TableCell>{schedule.area}</TableCell>
-                  <TableCell>{schedule.type}</TableCell>
+                  <TableCell className="font-medium">{t(`wasteManagement.days.${schedule.dayKey}`)}</TableCell>
+                  <TableCell>{t(`wasteManagement.areas.${schedule.areaKey}`)}</TableCell>
+                  <TableCell>{t(`wasteManagement.types.${schedule.typeKey}`)}</TableCell>
                 </TableRow>
               ))}
             </TableBody>

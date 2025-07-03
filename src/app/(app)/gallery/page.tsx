@@ -1,4 +1,3 @@
-
 "use client"
 
 import Image from 'next/image'
@@ -29,7 +28,7 @@ export default function GalleryPage() {
             <CardContent className="p-0">
               <Image
                 src={item.image}
-                alt={item.title}
+                alt={t(`gallery.items.${item.titleKey}`)}
                 width={600}
                 height={400}
                 className="object-cover w-full aspect-video"
@@ -37,7 +36,7 @@ export default function GalleryPage() {
               />
             </CardContent>
             <CardFooter className="p-4">
-              <CardTitle className="text-lg font-headline">{item.title}</CardTitle>
+              <CardTitle className="text-lg font-headline">{t(`gallery.items.${item.titleKey}`)}</CardTitle>
             </CardFooter>
           </Card>
         ))}

@@ -52,7 +52,7 @@ export default function AssociationManagementPage() {
               {associationManagement.map((person, index) => (
                 <TableRow key={index}>
                   <TableCell className="font-medium">{person.name}</TableCell>
-                  <TableCell>{person.position}</TableCell>
+                  <TableCell>{t(`associationManagement.positions.${person.position.toLowerCase()}`)}</TableCell>
                   <TableCell>{person.phone}</TableCell>
                   <TableCell>{person.email}</TableCell>
                 </TableRow>

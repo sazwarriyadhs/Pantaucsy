@@ -30,6 +30,24 @@ const en = {
   announcements: {
     title: 'Announcements',
     description: 'Latest news and updates for the Cimahpar Stoneyard community.',
+    items: {
+      garden_meeting: {
+        title: 'Community Garden Meeting',
+        content: 'Join us this Saturday at 10 AM to plan the new community garden. All residents are welcome to participate and share their ideas.'
+      },
+      watch_update: {
+        title: 'Neighborhood Watch Update',
+        content: 'There will be a brief meeting on Tuesday evening to discuss recent security enhancements and neighborhood watch patrol schedules.'
+      },
+      summer_bbq: {
+        title: 'Annual Summer BBQ',
+        content: 'Get ready for our annual summer BBQ! It will be held at the community park on August 25th. Food, games, and fun for the whole family.'
+      },
+      road_maintenance: {
+        title: 'Road Maintenance Notice',
+        content: 'Please be aware that road maintenance will be conducted on Stoneyard Lane from August 18th to 20th. Expect minor delays.'
+      }
+    }
   },
   associationManagement: {
     title: 'Association Management',
@@ -41,10 +59,32 @@ const en = {
     position: 'Position',
     phone: 'Phone',
     email: 'Email',
+    positions: {
+      chairman: 'Chairman',
+      secretary: 'Secretary',
+      treasurer: 'Treasurer'
+    }
   },
   events: {
     title: 'Community Events',
     description: 'Upcoming events and gatherings for Cimahpar Stoneyard residents.',
+    recurring: {
+      every_saturday: 'Every Saturday'
+    },
+    items: {
+      national_night_out: {
+        title: 'National Night Out',
+        description: 'Join your neighbors and local law enforcement for an evening of community building.'
+      },
+      yoga_in_the_park: {
+        title: 'Yoga in the Park',
+        description: 'Start your weekend with a relaxing and rejuvenating yoga session. All levels welcome.'
+      },
+      garage_sale: {
+        title: 'Cimahpar Stoneyard Garage Sale',
+        description: 'Community-wide garage sale. Find hidden treasures and meet your neighbors.'
+      }
+    }
   },
   reportIssue: {
     title: 'Report an Issue',
@@ -112,9 +152,6 @@ const en = {
       type: 'Type',
       summary: 'Summary',
       status: 'Status',
-      resolved: 'Resolved',
-      closed: 'Closed',
-      investigation: 'Under Investigation',
     },
     schedule: {
       title: 'Security Patrol Schedule',
@@ -124,16 +161,71 @@ const en = {
       shift: 'Shift',
       area: 'Area Covered',
       personnel: 'Assigned Personnel',
+      shifts: {
+        morning: 'Morning Patrol (6 AM - 2 PM)',
+        afternoon: 'Afternoon Patrol (2 PM - 10 PM)',
+        night: 'Night Patrol (10 PM - 6 AM)',
+        weekend: 'Weekend Rover'
+      }
+    },
+    shifts: {
+      morning: 'Morning',
+      afternoon: 'Afternoon',
+      night: 'Night',
+      weekend: 'Weekend'
+    },
+    status: {
+      resolved: 'Resolved',
+      closed: 'Closed',
+      investigation: 'Under Investigation',
+    },
+    incidents: {
+      suspicious_vehicle: 'Suspicious Vehicle',
+      suspicious_vehicle_summary: 'A suspicious vehicle was reported near the park. Officers investigated and confirmed it belonged to a visiting relative.',
+      noise_complaint: 'Noise Complaint',
+      noise_complaint_summary: 'Loud music reported at 11 PM. Officers advised the resident to lower the volume.',
+      stray_animal: 'Stray Animal',
+      stray_animal_summary: 'A lost dog was found and safely returned to its owner on Cimahpar Circle.',
+      vandalism: 'Vandalism',
+      vandalism_summary: 'Graffiti found on the community center wall. Awaiting security camera footage review.'
     }
   },
   classifieds: {
     title: 'Classifieds',
     description: 'Buy, sell, or trade items with your neighbors.',
     contactSeller: 'Contact Seller',
+    items: {
+      mountain_bike: {
+        title: 'Mountain Bike',
+        description: 'Slightly used mountain bike, great condition. Perfect for trails around the neighborhood.'
+      },
+      toddler_car_seat: {
+        title: 'Toddler Car Seat',
+        description: 'Clean and safe toddler car seat. Our child has outgrown it. All straps and buckles included.'
+      },
+      patio_furniture_set: {
+        title: 'Patio Furniture Set',
+        description: 'Wicker patio set with two chairs and a small table. Cushions included. Great for a small balcony or porch.'
+      },
+      assorted_house_plants: {
+        title: 'Assorted House Plants',
+        description: 'Various house plants for sale. Snake plants, pothos, and succulents available. Brighten up your home!'
+      }
+    }
   },
   gallery: {
     title: 'Photo Gallery',
     description: 'Photo documentation of Cimahpar Stoneyard resident activities.',
+    items: {
+      independence_day_race: "Independence Day Race",
+      community_cleanup: "Community Cleanup",
+      resident_meeting: "Resident Meeting",
+      iftar_gathering: "Iftar Gathering",
+      eid_celebration: "Eid Celebration",
+      morning_aerobics: "Morning Aerobics",
+      community_bazaar: "Community Bazaar",
+      kids_art_performance: "Kids' Art Performance",
+    }
   },
   ipl: {
       title: 'Resident IPL Dues',
@@ -240,6 +332,25 @@ const en = {
       descriptionColumn: 'Description',
       type: 'Type',
       amount: 'Amount',
+      types: {
+        income: 'Income',
+        expense: 'Expense',
+      },
+      transactions: {
+        security_salary: 'Security Salary - July',
+        ipl_dues: 'IPL Dues Collection - July',
+        cleaning_fee: 'Cleaning Fee',
+        street_light_repair: 'Street Light Repair',
+        facility_rental: 'Facility Rental (Hall)'
+      },
+      months: {
+        mar: 'Mar',
+        apr: 'Apr',
+        may: 'May',
+        jun: 'Jun',
+        jul: 'Jul',
+        aug: 'Aug',
+      }
     }
   },
   curhatWarga: {
@@ -278,6 +389,20 @@ const en = {
     day: 'Day',
     area: 'Area',
     type: 'Type of Waste',
+    days: {
+      mon_thu: 'Monday & Thursday',
+      tue_fri: 'Tuesday & Friday',
+      first_saturday: 'First Saturday of the month'
+    },
+    areas: {
+      north_sector: 'North Sector (Blok A, B)',
+      south_sector: 'South Sector (Blok C, D)',
+      all_sectors: 'All Sectors'
+    },
+    types: {
+      general_recyclable: 'General & Recyclable Waste',
+      garden_bulky: 'Garden & Bulky Waste'
+    }
   }
 };
 export default en;

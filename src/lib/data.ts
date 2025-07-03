@@ -8,23 +8,19 @@ export type Resident = {
 
 export const announcements = [
   {
-    title: "Community Garden Meeting",
-    content: "Join us this Saturday at 10 AM to plan the new community garden. All residents are welcome to participate and share their ideas.",
+    titleKey: "garden_meeting",
     date: "2024-08-15",
   },
   {
-    title: "Neighborhood Watch Update",
-    content: "There will be a brief meeting on Tuesday evening to discuss recent security enhancements and neighborhood watch patrol schedules.",
+    titleKey: "watch_update",
     date: "2024-08-12",
   },
   {
-    title: "Annual Summer BBQ",
-    content: "Get ready for our annual summer BBQ! It will be held at the community park on August 25th. Food, games, and fun for the whole family.",
+    titleKey: "summer_bbq",
     date: "2024-08-10",
   },
    {
-    title: "Road Maintenance Notice",
-    content: "Please be aware that road maintenance will be conducted on Stoneyard Lane from August 18th to 20th. Expect minor delays.",
+    titleKey: "road_maintenance",
     date: "2024-08-09",
   },
 ];
@@ -165,46 +161,46 @@ export const classifieds = [
 
 export const events = [
   {
-    title: "National Night Out",
-    date: "August 6, 2024",
+    titleKey: "national_night_out",
+    date: "2024-08-06",
     time: "6:00 PM - 8:00 PM",
     location: "Community Park",
-    description: "Join your neighbors and local law enforcement for an evening of community building.",
+    isRecurring: false,
   },
   {
-    title: "Yoga in the Park",
-    date: "Every Saturday",
+    titleKey: "yoga_in_the_park",
+    date: "every_saturday",
     time: "9:00 AM",
     location: "Green Valley Park",
-    description: "Start your weekend with a relaxing and rejuvenating yoga session. All levels welcome.",
+    isRecurring: true,
   },
   {
-    title: "Cimahpar Stoneyard Garage Sale",
-    date: "September 14, 2024",
+    titleKey: "garage_sale",
+    date: "2024-09-14",
     time: "8:00 AM - 2:00 PM",
     location: "Throughout the neighborhood",
-    description: "Community-wide garage sale. Find hidden treasures and meet your neighbors.",
+    isRecurring: false,
   },
 ];
 
 export const securitySchedule = [
     {
-        shift: "Morning Patrol (6 AM - 2 PM)",
+        shiftKey: "morning",
         area: "North Sector (Stoneyard Lane, Green Valley Rd)",
         personnel: "Officer Budi & Officer Chandra",
     },
     {
-        shift: "Afternoon Patrol (2 PM - 10 PM)",
+        shiftKey: "afternoon",
         area: "South Sector (Cimahpar Circle, Suburbia Ave)",
         personnel: "Officer Dewi & Officer Eka",
     },
     {
-        shift: "Night Patrol (10 PM - 6 AM)",
+        shiftKey: "night",
         area: "All Sectors",
         personnel: "Officer Fajar & Officer Gita",
     },
     {
-        shift: "Weekend Rover",
+        shiftKey: "weekend",
         area: "Community Park and common areas",
         personnel: "Officer Haryono",
     },
@@ -221,28 +217,28 @@ export const securityPersonnel = [
 ]
 
 export const incidentReports = [
-    { id: "IR001", date: "2024-07-28", type: "Suspicious Vehicle", status: "resolved", summary: "A suspicious vehicle was reported near the park. Officers investigated and confirmed it belonged to a visiting relative."},
-    { id: "IR002", date: "2024-07-25", type: "Noise Complaint", status: "closed", summary: "Loud music reported at 11 PM. Officers advised the resident to lower the volume."},
-    { id: "IR003", date: "2024-07-22", type: "Stray Animal", status: "resolved", summary: "A lost dog was found and safely returned to its owner on Cimahpar Circle."},
-    { id: "IR004", date: "2024-07-20", type: "Vandalism", status: "investigation", summary: "Graffiti found on the community center wall. Awaiting security camera footage review."},
+    { id: "IR001", date: "2024-07-28", typeKey: "suspicious_vehicle", status: "resolved", summaryKey: "suspicious_vehicle_summary"},
+    { id: "IR002", date: "2024-07-25", typeKey: "noise_complaint", status: "closed", summaryKey: "noise_complaint_summary"},
+    { id: "IR003", date: "2024-07-22", typeKey: "stray_animal", status: "resolved", summaryKey: "stray_animal_summary"},
+    { id: "IR004", date: "2024-07-20", typeKey: "vandalism", status: "investigation", summaryKey: "vandalism_summary"},
 ]
 
 export const associationManagement = [
     {
         name: "Bapak Ketua RT",
-        position: "Ketua RT",
+        position: "Chairman",
         phone: "555-0101",
         email: "ketua.rt@cimahpar.com",
     },
     {
         name: "Ibu Sekretaris",
-        position: "Sekretaris",
+        position: "Secretary",
         phone: "555-0102",
         email: "sekretaris@cimahpar.com",
     },
     {
         name: "Bapak Bendahara",
-        position: "Bendahara",
+        position: "Treasurer",
         phone: "555-0103",
         email: "bendahara@cimahpar.com",
     },
@@ -298,68 +294,68 @@ export const financialReportData = {
     currentBalance: 32500000,
   },
   monthlyOverview: [
-    { month: "Mar", income: 7000000, expense: 2000000 },
-    { month: "Apr", income: 7500000, expense: 2200000 },
-    { month: "Mei", income: 7200000, expense: 2500000 },
-    { month: "Jun", income: 7800000, expense: 1800000 },
-    { month: "Jul", income: 8000000, expense: 2100000 },
-    { month: "Agu", income: 7500000, expense: 1900000 },
+    { monthKey: "mar", income: 7000000, expense: 2000000 },
+    { monthKey: "apr", income: 7500000, expense: 2200000 },
+    { monthKey: "may", income: 7200000, expense: 2500000 },
+    { monthKey: "jun", income: 7800000, expense: 1800000 },
+    { monthKey: "jul", income: 8000000, expense: 2100000 },
+    { monthKey: "aug", income: 7500000, expense: 1900000 },
   ],
   transactions: [
-    { id: 1, date: "2024-08-05", description: "Gaji Keamanan - Juli", type: "expense", amount: 5000000 },
-    { id: 2, date: "2024-08-05", description: "Iuran IPL Warga - Juli", type: "income", amount: 7500000 },
-    { id: 3, date: "2024-08-02", description: "Biaya Kebersihan", type: "expense", amount: 1200000 },
-    { id: 4, date: "2024-07-28", description: "Perbaikan Lampu Jalan", type: "expense", amount: 800000 },
-    { id: 5, date: "2024-07-15", description: "Sewa Fasilitas (Hall)", type: "income", amount: 500000 },
+    { id: 1, date: "2024-08-05", descriptionKey: "security_salary", type: "expense", amount: 5000000 },
+    { id: 2, date: "2024-08-05", descriptionKey: "ipl_dues", type: "income", amount: 7500000 },
+    { id: 3, date: "2024-08-02", descriptionKey: "cleaning_fee", type: "expense", amount: 1200000 },
+    { id: 4, date: "2024-07-28", descriptionKey: "street_light_repair", type: "expense", amount: 800000 },
+    { id: 5, date: "2024-07-15", descriptionKey: "facility_rental", type: "income", amount: 500000 },
   ],
 };
 
 export const gallery = [
   {
     id: '1',
-    title: "Lomba 17 Agustus",
+    titleKey: "independence_day_race",
     image: "https://placehold.co/600x400.png",
     imageHint: "community celebration",
   },
   {
     id: '2',
-    title: "Kerja Bakti Lingkungan",
+    titleKey: "community_cleanup",
     image: "https://placehold.co/600x400.png",
     imageHint: "community service",
   },
   {
     id: '3',
-    title: "Rapat Warga",
+    titleKey: "resident_meeting",
     image: "https://placehold.co/600x400.png",
     imageHint: "community meeting",
   },
   {
     id: '4',
-    title: "Buka Puasa Bersama",
+    titleKey: "iftar_gathering",
     image: "https://placehold.co/600x400.png",
     imageHint: "community gathering",
   },
   {
     id: '5',
-    title: "Acara Halal Bihalal",
+    titleKey: "eid_celebration",
     image: "https://placehold.co/600x400.png",
     imageHint: "traditional celebration",
   },
   {
     id: '6',
-    title: "Senam Pagi Bersama",
+    titleKey: "morning_aerobics",
     image: "https://placehold.co/600x400.png",
     imageHint: "morning exercise",
   },
   {
     id: '7',
-    title: "Bazar Warga",
+    titleKey: "community_bazaar",
     image: "https://placehold.co/600x400.png",
     imageHint: "local market",
   },
   {
     id: '8',
-    title: "Pentas Seni Anak",
+    titleKey: "kids_art_performance",
     image: "https://placehold.co/600x400.png",
     imageHint: "children performance",
   },
@@ -367,18 +363,18 @@ export const gallery = [
 
 export const wasteManagementSchedule = [
   {
-    day: "Monday & Thursday",
-    area: "North Sector (Blok A, B)",
-    type: "General & Recyclable Waste",
+    dayKey: "mon_thu",
+    areaKey: "north_sector",
+    typeKey: "general_recyclable",
   },
   {
-    day: "Tuesday & Friday",
-    area: "South Sector (Blok C, D)",
-    type: "General & Recyclable Waste",
+    dayKey: "tue_fri",
+    areaKey: "south_sector",
+    typeKey: "general_recyclable",
   },
   {
-    day: "First Saturday of the month",
-    area: "All Sectors",
-    type: "Garden & Bulky Waste",
+    dayKey: "first_saturday",
+    areaKey: "all_sectors",
+    typeKey: "garden_bulky",
   },
 ];

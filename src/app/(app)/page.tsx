@@ -25,12 +25,12 @@ export default function AnnouncementsPage() {
                 <Bell className="w-6 h-6" />
               </div>
               <div className="flex-1">
-                <CardTitle className="text-xl font-headline">{announcement.title}</CardTitle>
+                <CardTitle className="text-xl font-headline">{t(`announcements.items.${announcement.titleKey}.title`)}</CardTitle>
                 <CardDescription>{new Date(announcement.date).toLocaleDateString(locale, { year: 'numeric', month: 'long', day: 'numeric' })}</CardDescription>
               </div>
             </CardHeader>
             <CardContent>
-              <p className="text-muted-foreground">{announcement.content}</p>
+              <p className="text-muted-foreground">{t(`announcements.items.${announcement.titleKey}.content`)}</p>
             </CardContent>
           </Card>
         ))}
