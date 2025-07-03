@@ -6,6 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
 import { format } from "date-fns"
 import { CalendarIcon, ClipboardCopy } from "lucide-react"
+import { useEffect } from "react"
 
 import { Button } from "@/components/ui/button"
 import {
@@ -34,10 +35,12 @@ import { cn } from "@/lib/utils"
 import { useToast } from "@/hooks/use-toast"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Textarea } from "@/components/ui/textarea"
+import { useAuth } from "@/context/auth-provider"
 
 export default function PaymentConfirmationPage() {
   const { t } = useI18n()
   const { toast } = useToast()
+  const { user, role } = useAuth()
   
   const paymentFormSchema = z.object({
     residentEmail: z.string().email({ message: t('finance.confirmation.form.residentEmail.required') }),
@@ -63,8 +66,15 @@ export default function PaymentConfirmationPage() {
     resolver: zodResolver(paymentFormSchema),
     defaultValues: {
       paymentMethod: 'transfer',
+      residentEmail: '',
     }
   })
+
+  useEffect(() => {
+    if (role === 'warga' && user?.email) {
+      form.setValue('residentEmail', user.email);
+    }
+  }, [role, user, form]);
 
   const paymentMethod = form.watch('paymentMethod');
 
@@ -75,7 +85,8 @@ export default function PaymentConfirmationPage() {
       description: t('finance.confirmation.toast.description'),
     })
     form.reset({
-      paymentMethod: 'transfer'
+      paymentMethod: 'transfer',
+      residentEmail: role === 'warga' ? user?.email : '',
     })
   }
 
@@ -111,20 +122,31 @@ export default function PaymentConfirmationPage() {
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>{t('residents.name')}</FormLabel>
-                      <Select onValueChange={field.onChange} defaultValue={field.value}>
+                      {role === 'warga' && user ? (
                         <FormControl>
-                          <SelectTrigger>
-                            <SelectValue placeholder={t('finance.confirmation.form.residentEmail.placeholder')} />
-                          </SelectTrigger>
+                          <Input
+                            readOnly
+                            value={`${user.displayName || ''} (${user.email || ''})`}
+                            className="bg-muted cursor-not-allowed"
+                          />
                         </FormControl>
-                        <SelectContent>
-                          {residents.map(r => <SelectItem key={r.email} value={r.email}>{r.name} - {r.address}</SelectItem>)}
-                        </SelectContent>
-                      </Select>
+                      ) : (
+                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                          <FormControl>
+                            <SelectTrigger>
+                              <SelectValue placeholder={t('finance.confirmation.form.residentEmail.placeholder')} />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent>
+                            {residents.map(r => <SelectItem key={r.email} value={r.email}>{r.name} - {r.address}</SelectItem>)}
+                          </SelectContent>
+                        </Select>
+                      )}
                       <FormMessage />
                     </FormItem>
                   )}
                 />
+
 
                 <FormField
                   control={form.control}
