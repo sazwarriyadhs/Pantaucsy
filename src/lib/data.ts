@@ -10,7 +10,7 @@ export const announcements = [
   {
     titleKey: "tpq_congratulations",
     date: "2024-08-16",
-    image: "https://placehold.co/600x400.png",
+    image: "/images/Mumtaz.jpg",
     imageHint: "children students",
   },
   {
