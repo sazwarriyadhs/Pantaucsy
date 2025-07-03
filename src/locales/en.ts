@@ -237,6 +237,9 @@ const en = {
       imageDescription: 'Enter a URL for the ad image.',
       submitAdd: 'Create Ad',
       submitEdit: 'Save Changes',
+      addPhoto: 'Ad Photo',
+      takePicture: 'Take Picture',
+      retakePicture: 'Retake Picture',
     },
     statuses: {
       active: 'Active',
@@ -244,6 +247,14 @@ const en = {
     },
     toast: {
       error: 'An ad with this title already exists.',
+    },
+    camera: {
+      accessRequired: 'Camera Access Required',
+      permissionDenied: 'Please allow camera access to use this feature.',
+      toast: {
+        deniedTitle: 'Camera Access Denied',
+        deniedDescription: 'Please enable camera permissions in your browser settings.',
+      },
     },
   },
   gallery: {

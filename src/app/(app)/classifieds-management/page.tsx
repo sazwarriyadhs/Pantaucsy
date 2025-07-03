@@ -125,7 +125,7 @@ export default function ClassifiedsManagementPage() {
         isOpen={isFormOpen}
         onOpenChange={setIsFormOpen}
         onSubmit={handleFormSubmit}
-        resident={selectedAd}
+        ad={selectedAd}
       />
 
       <AlertDialog open={isDeleteDialogOpen} onOpenChange={setIsDeleteDialogOpen}>

@@ -237,6 +237,9 @@ const id = {
       imageDescription: 'Masukkan URL untuk gambar iklan.',
       submitAdd: 'Buat Iklan',
       submitEdit: 'Simpan Perubahan',
+      addPhoto: 'Foto Iklan',
+      takePicture: 'Ambil Gambar',
+      retakePicture: 'Ambil Ulang',
     },
     statuses: {
       active: 'Aktif',
@@ -244,6 +247,14 @@ const id = {
     },
     toast: {
       error: 'Iklan dengan judul ini sudah ada.',
+    },
+    camera: {
+      accessRequired: 'Akses Kamera Diperlukan',
+      permissionDenied: 'Mohon izinkan akses kamera untuk menggunakan fitur ini.',
+      toast: {
+        deniedTitle: 'Akses Kamera Ditolak',
+        deniedDescription: 'Mohon aktifkan izin kamera di pengaturan browser Anda.',
+      },
     },
   },
   gallery: {
