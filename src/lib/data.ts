@@ -10,7 +10,7 @@ export const announcements = [
   {
     titleKey: "tpq_congratulations",
     date: "2024-08-16",
-    image: "/images/tpq_congratulations.jpeg",
+    image: "/images/tpq_congratulations.jpg",
     imageHint: "children students",
   },
   {
@@ -390,3 +390,5 @@ export const wasteManagementSchedule = [
     typeKey: "garden_bulky",
   },
 ];
+
+    
