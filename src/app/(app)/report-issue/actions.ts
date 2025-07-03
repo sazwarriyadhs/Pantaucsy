@@ -2,6 +2,8 @@
 
 import { z } from "zod"
 import { summarizeIssueReport, type SummarizeIssueReportOutput as FlowOutput } from "@/ai/flows/summarize-issue-report"
+import { sendNotification } from "@/services/gotify"
+import { i18n } from "@/lib/i18n"
 
 const formSchema = z.object({
   reportText: z.string().min(10),
@@ -21,6 +23,14 @@ export async function handleReportIssue(
 
   try {
     const summary = await summarizeIssueReport(validation.data)
+
+    if (summary.summary && summary.category) {
+      // Send notification via Gotify
+      const { t } = i18n('id'); // Default to Indonesian for notifications or get from user session
+      const notificationTitle = `${t('reportIssue.summary.category')}: ${t(`reportIssue.category.${summary.category}`)}`;
+      await sendNotification(notificationTitle, summary.summary);
+    }
+    
     return summary
   } catch (error) {
     console.error("Error summarizing issue report:", error)
