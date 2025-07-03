@@ -18,6 +18,7 @@ const en = {
     paymentConfirmation: 'Payment Confirmation',
     financialReport: 'Financial Report',
     wasteManagement: 'Waste Management',
+    landingPage: 'Home Page',
   },
   userNav: {
     profile: 'Profile',
@@ -27,6 +28,35 @@ const en = {
     currency: 'Currency',
     english: 'English',
     indonesian: 'Indonesian'
+  },
+  landing: {
+    header: {
+      title: 'Cimahpar Hub',
+      login: 'Enter Hub'
+    },
+    hero: {
+      title: 'Cimahpar Stoneyard Community Hub',
+      subtitle: 'Connecting Neighbors, Building Community. All your community information in one place.',
+      cta: 'Explore the Hub'
+    },
+    features: {
+      title: 'Core Features',
+      announcements: {
+        title: 'Stay Informed',
+        description: 'Get the latest official announcements and news from the community management.'
+      },
+      classifieds: {
+        title: 'Neighbor-to-Neighbor',
+        description: 'A marketplace just for residents. Buy, sell, and trade with people you trust.'
+      },
+      reporting: {
+        title: 'Report Issues',
+        description: 'Easily report maintenance, security, or other issues for quick resolution.'
+      }
+    },
+    footer: {
+      copyright: '© {year} Cimahpar Stoneyard. All Rights Reserved.'
+    }
   },
   announcements: {
     title: 'Announcements',

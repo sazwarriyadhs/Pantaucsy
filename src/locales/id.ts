@@ -18,6 +18,7 @@ const id = {
     paymentConfirmation: 'Konfirmasi Pembayaran',
     financialReport: 'Laporan Keuangan',
     wasteManagement: 'Manajemen Sampah',
+    landingPage: 'Halaman Utama',
   },
   userNav: {
     profile: 'Profil',
@@ -27,6 +28,35 @@ const id = {
     currency: 'Mata Uang',
     english: 'Inggris',
     indonesian: 'Indonesia'
+  },
+  landing: {
+    header: {
+      title: 'Cimahpar Hub',
+      login: 'Masuk ke Hub'
+    },
+    hero: {
+      title: 'Pusat Komunitas Cimahpar Stoneyard',
+      subtitle: 'Menghubungkan Tetangga, Membangun Komunitas. Semua informasi komunitas Anda di satu tempat.',
+      cta: 'Jelajahi Hub'
+    },
+    features: {
+      title: 'Fitur Utama',
+      announcements: {
+        title: 'Tetap Terinformasi',
+        description: 'Dapatkan pengumuman dan berita resmi terbaru dari pengurus paguyuban.'
+      },
+      classifieds: {
+        title: 'Antar Tetangga',
+        description: 'Pasar khusus untuk warga. Jual, beli, dan tukar dengan orang yang Anda percaya.'
+      },
+      reporting: {
+        title: 'Lapor Masalah',
+        description: 'Laporkan masalah pemeliharaan, keamanan, atau lainnya dengan mudah untuk penyelesaian cepat.'
+      }
+    },
+    footer: {
+      copyright: '© {year} Cimahpar Stoneyard. Hak Cipta Dilindungi.'
+    }
   },
   announcements: {
     title: 'Pengumuman',

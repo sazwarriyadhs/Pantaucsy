@@ -19,6 +19,7 @@ import {
   ShieldCheck,
   Trash2,
   ClipboardList,
+  Home,
 } from 'lucide-react';
 import {
   SidebarProvider,
@@ -42,15 +43,25 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
   const { t } = useI18n();
 
   const isActive = (path: string, exact = false) => {
-    return exact ? pathname === path : pathname.startsWith(path);
+    if (exact) {
+      return pathname === path;
+    }
+    // For non-exact matches, ensure we don't accidentally match the root for everything.
+    if (path === '/') return pathname === '/';
+    return pathname.startsWith(path);
   };
+  
+  // The root path "/" is now the public landing page and should not have the sidebar layout.
+  if (pathname === '/') {
+    return <>{children}</>
+  }
 
   return (
     <SidebarProvider>
       <Sidebar>
         <SidebarContent>
           <SidebarHeader className="p-4 flex items-center justify-center">
-            <Link href="/">
+            <Link href="/announcements">
               <Image
                 src="https://placehold.co/150x50.png"
                 width={150}
@@ -62,7 +73,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
           </SidebarHeader>
           <SidebarMenu>
             <SidebarMenuItem>
-              <SidebarMenuButton href="/" isActive={isActive('/', true)} tooltip={t('sidebar.announcements')}>
+              <SidebarMenuButton href="/announcements" isActive={isActive('/announcements', true)} tooltip={t('sidebar.announcements')}>
                 <LayoutDashboard />
                 {t('sidebar.announcements')}
               </SidebarMenuButton>
@@ -162,7 +173,16 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
             </SidebarGroup>
           </SidebarMenu>
         </SidebarContent>
-        <SidebarFooter></SidebarFooter>
+        <SidebarFooter>
+           <SidebarMenu>
+             <SidebarMenuItem>
+                <SidebarMenuButton href="/" tooltip={t('sidebar.landingPage')}>
+                    <Home />
+                    {t('sidebar.landingPage')}
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+           </SidebarMenu>
+        </SidebarFooter>
       </Sidebar>
       <SidebarInset>
         <header className="flex items-center justify-between p-4 bg-background border-b">
