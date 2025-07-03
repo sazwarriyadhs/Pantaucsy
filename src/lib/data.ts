@@ -221,10 +221,10 @@ export const securityPersonnel = [
 ]
 
 export const incidentReports = [
-    { id: "IR001", date: "2024-07-28", type: "Suspicious Vehicle", status: "Resolved", summary: "A suspicious vehicle was reported near the park. Officers investigated and confirmed it belonged to a visiting relative."},
-    { id: "IR002", date: "2024-07-25", type: "Noise Complaint", status: "Closed", summary: "Loud music reported at 11 PM. Officers advised the resident to lower the volume."},
-    { id: "IR003", date: "2024-07-22", type: "Stray Animal", status: "Resolved", summary: "A lost dog was found and safely returned to its owner on Cimahpar Circle."},
-    { id: "IR004", date: "2024-07-20", type: "Vandalism", status: "Under Investigation", summary: "Graffiti found on the community center wall. Awaiting security camera footage review."},
+    { id: "IR001", date: "2024-07-28", type: "Suspicious Vehicle", status: "resolved", summary: "A suspicious vehicle was reported near the park. Officers investigated and confirmed it belonged to a visiting relative."},
+    { id: "IR002", date: "2024-07-25", type: "Noise Complaint", status: "closed", summary: "Loud music reported at 11 PM. Officers advised the resident to lower the volume."},
+    { id: "IR003", date: "2024-07-22", type: "Stray Animal", status: "resolved", summary: "A lost dog was found and safely returned to its owner on Cimahpar Circle."},
+    { id: "IR004", date: "2024-07-20", type: "Vandalism", status: "investigation", summary: "Graffiti found on the community center wall. Awaiting security camera footage review."},
 ]
 
 export const associationManagement = [
@@ -255,7 +255,7 @@ export const iplManagement = [
     month: "Juli",
     year: 2024,
     amount: 150000,
-    status: "Lunas",
+    status: "paid",
   },
   {
     residentName: "Jane Smith",
@@ -263,7 +263,7 @@ export const iplManagement = [
     month: "Juli",
     year: 2024,
     amount: 150000,
-    status: "Lunas",
+    status: "paid",
   },
   {
     residentName: "Ahmad Subarjo",
@@ -271,7 +271,7 @@ export const iplManagement = [
     month: "Juli",
     year: 2024,
     amount: 150000,
-    status: "Belum Lunas",
+    status: "unpaid",
   },
   {
     residentName: "Siti Rahayu",
@@ -279,7 +279,7 @@ export const iplManagement = [
     month: "Juli",
     year: 2024,
     amount: 150000,
-    status: "Lunas",
+    status: "paid",
   },
     {
     residentName: "John Doe",
@@ -287,7 +287,7 @@ export const iplManagement = [
     month: "Juni",
     year: 2024,
     amount: 150000,
-    status: "Lunas",
+    status: "paid",
   },
 ];
 

@@ -1,3 +1,5 @@
+"use client"
+
 import {
   Table,
   TableBody,
@@ -8,30 +10,33 @@ import {
 } from "@/components/ui/table"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { securitySchedule } from "@/lib/data"
+import { useI18n } from "@/context/i18n-provider"
 
 export default function SecuritySchedulePage() {
+  const { t } = useI18n()
+
   return (
     <div className="flex flex-col gap-8">
       <div>
-        <h1 className="text-3xl font-bold tracking-tight font-headline">Security Patrol Schedule</h1>
+        <h1 className="text-3xl font-bold tracking-tight font-headline">{t('security.schedule.title')}</h1>
         <p className="text-muted-foreground">
-          Weekly schedule for security patrols in the neighborhood.
+          {t('security.schedule.description')}
         </p>
       </div>
       <Card>
         <CardHeader>
-          <CardTitle>Patrol Roster</CardTitle>
+          <CardTitle>{t('security.schedule.rosterTitle')}</CardTitle>
           <CardDescription>
-            Shifts and areas covered by our security team.
+            {t('security.schedule.rosterDescription')}
           </CardDescription>
         </CardHeader>
         <CardContent>
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Shift</TableHead>
-                <TableHead>Area Covered</TableHead>
-                <TableHead>Assigned Personnel</TableHead>
+                <TableHead>{t('security.schedule.shift')}</TableHead>
+                <TableHead>{t('security.schedule.area')}</TableHead>
+                <TableHead>{t('security.schedule.personnel')}</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>

@@ -85,8 +85,8 @@ export default function FinancialReportPage() {
                   )}
                 />}
               />
-              <Bar dataKey="income" name={t('finance.report.income')} fill="var(--color-primary)" radius={4} />
-              <Bar dataKey="expense" name={t('finance.report.expense')} fill="var(--color-destructive)" radius={4} />
+              <Bar dataKey="income" name={t('finance.report.income')} fill="hsl(var(--primary))" radius={4} />
+              <Bar dataKey="expense" name={t('finance.report.expense')} fill="hsl(var(--destructive))" radius={4} />
             </BarChart>
           </ChartContainer>
         </CardContent>
@@ -114,13 +114,13 @@ export default function FinancialReportPage() {
                   <TableCell>{transaction.description}</TableCell>
                   <TableCell>
                      <span className={`px-2 py-1 text-xs rounded-full ${
-                       transaction.type === 'income' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
+                       transaction.type === 'income' ? 'bg-primary/10 text-primary' : 'bg-destructive/10 text-destructive'
                      }`}>
                        {t(`finance.report.${transaction.type}`)}
                      </span>
                   </TableCell>
                   <TableCell className={`text-right font-medium ${
-                    transaction.type === 'income' ? 'text-green-600' : 'text-red-600'
+                    transaction.type === 'income' ? 'text-primary' : 'text-destructive'
                   }`}>
                     {transaction.type === 'income' ? '+' : '-'} {formatCurrency(transaction.amount)}
                   </TableCell>

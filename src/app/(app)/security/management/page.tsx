@@ -1,3 +1,5 @@
+"use client"
+
 import {
   Table,
   TableBody,
@@ -12,14 +14,17 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { securityPersonnel, incidentReports } from "@/lib/data"
 import { Button } from "@/components/ui/button"
 import { PlusCircle } from "lucide-react"
+import { useI18n } from "@/context/i18n-provider"
 
 export default function SecurityManagementPage() {
+  const { t } = useI18n()
+
   const getStatusVariant = (status: string) => {
-    switch (status.toLowerCase()) {
+    switch (status) {
       case 'resolved':
       case 'closed':
         return 'default'
-      case 'under investigation':
+      case 'investigation':
         return 'secondary'
       default:
         return 'outline'
@@ -29,30 +34,30 @@ export default function SecurityManagementPage() {
   return (
     <div className="flex flex-col gap-8">
       <div>
-        <h1 className="text-3xl font-bold tracking-tight font-headline">Security Management</h1>
+        <h1 className="text-3xl font-bold tracking-tight font-headline">{t('security.management.title')}</h1>
         <p className="text-muted-foreground">
-          Manage security personnel, shifts, and incident reports.
+          {t('security.management.description')}
         </p>
       </div>
 
       <Tabs defaultValue="personnel" className="w-full">
         <TabsList>
-          <TabsTrigger value="personnel">Personnel</TabsTrigger>
-          <TabsTrigger value="incidents">Incident Reports</TabsTrigger>
+          <TabsTrigger value="personnel">{t('security.management.personnel')}</TabsTrigger>
+          <TabsTrigger value="incidents">{t('security.management.incidents')}</TabsTrigger>
         </TabsList>
         <TabsContent value="personnel" className="mt-4">
           <Card>
             <CardHeader>
               <div className="flex items-center justify-between">
                 <div>
-                  <CardTitle>Security Personnel</CardTitle>
+                  <CardTitle>{t('security.management.personnelTitle')}</CardTitle>
                   <CardDescription>
-                    List of all security staff.
+                    {t('security.management.personnelDescription')}
                   </CardDescription>
                 </div>
                 <Button>
                   <PlusCircle className="mr-2 h-4 w-4" />
-                  Add Personnel
+                  {t('security.management.addPersonnel')}
                 </Button>
               </div>
             </CardHeader>
@@ -60,10 +65,10 @@ export default function SecurityManagementPage() {
               <Table>
                 <TableHeader>
                   <TableRow>
-                    <TableHead>ID</TableHead>
-                    <TableHead>Name</TableHead>
-                    <TableHead>Phone</TableHead>
-                    <TableHead>Shift</TableHead>
+                    <TableHead>{t('security.management.id')}</TableHead>
+                    <TableHead>{t('security.management.name')}</TableHead>
+                    <TableHead>{t('security.management.phone')}</TableHead>
+                    <TableHead>{t('security.management.shift')}</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
@@ -83,20 +88,20 @@ export default function SecurityManagementPage() {
         <TabsContent value="incidents" className="mt-4">
           <Card>
             <CardHeader>
-              <CardTitle>Incident Reports</CardTitle>
+              <CardTitle>{t('security.management.incidentsTitle')}</CardTitle>
               <CardDescription>
-                Log of all reported incidents.
+                {t('security.management.incidentsDescription')}
               </CardDescription>
             </CardHeader>
             <CardContent>
               <Table>
                 <TableHeader>
                   <TableRow>
-                    <TableHead>ID</TableHead>
-                    <TableHead>Date</TableHead>
-                    <TableHead>Type</TableHead>
-                    <TableHead>Summary</TableHead>
-                    <TableHead>Status</TableHead>
+                    <TableHead>{t('security.management.id')}</TableHead>
+                    <TableHead>{t('security.management.date')}</TableHead>
+                    <TableHead>{t('security.management.type')}</TableHead>
+                    <TableHead>{t('security.management.summary')}</TableHead>
+                    <TableHead>{t('security.management.status')}</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
@@ -107,7 +112,7 @@ export default function SecurityManagementPage() {
                       <TableCell>{report.type}</TableCell>
                       <TableCell className="max-w-sm truncate">{report.summary}</TableCell>
                       <TableCell>
-                        <Badge variant={getStatusVariant(report.status)}>{report.status}</Badge>
+                        <Badge variant={getStatusVariant(report.status)}>{t('security.management.' + report.status)}</Badge>
                       </TableCell>
                     </TableRow>
                   ))}

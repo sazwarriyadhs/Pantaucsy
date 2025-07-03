@@ -26,6 +26,87 @@ const id = {
     english: 'Inggris',
     indonesian: 'Indonesia'
   },
+  announcements: {
+    title: 'Pengumuman',
+    description: 'Berita dan pembaruan terkini untuk komunitas Cimahpar Stoneyard.',
+  },
+  associationManagement: {
+    title: 'Pengurus Paguyuban',
+    description: 'Daftar pengurus paguyuban warga Cimahpar Stoneyard.',
+    tableTitle: 'Pengurus',
+    tableDescription: 'Daftar semua pengurus di paguyuban.',
+    addManager: 'Tambah Pengurus',
+    name: 'Nama',
+    position: 'Jabatan',
+    phone: 'Telepon',
+    email: 'Email',
+  },
+  events: {
+    title: 'Acara Komunitas',
+    description: 'Acara dan pertemuan mendatang untuk warga Cimahpar Stoneyard.',
+  },
+  reportIssue: {
+    title: 'Lapor Masalah',
+    description: 'Laporkan masalah keamanan, pemeliharaan, atau lainnya di lingkungan.',
+    form: {
+      title: 'Laporan Masalah Baru',
+      description: 'Harap berikan deskripsi rinci tentang masalah tersebut. Asisten AI kami akan merangkumnya untuk pemrosesan yang lebih cepat.',
+      label: 'Deskripsi Masalah',
+      placeholder: 'Contoh: Lampu jalan di sudut Stoneyard Lane dan Cimahpar Circle berkedip...',
+      description2: 'Jelaskan sedetail mungkin untuk hasil terbaik.',
+      validation: 'Laporan harus minimal 10 karakter.',
+      submit: 'Kirim Laporan',
+      submitting: 'Meringkas...',
+    },
+    summary: {
+      title: 'Ringkasan AI',
+      description: 'Ini adalah ringkasan yang akan dikirim ke tim manajemen kami.',
+      loading: 'Menghasilkan ringkasan...',
+    },
+    toast: {
+      success: {
+        title: 'Laporan Terkirim',
+        description: 'Masalah Anda telah diringkas dan berhasil dikirim.',
+      },
+      error: {
+        title: 'Pengiriman Gagal',
+        description: 'Terjadi kesalahan saat memproses laporan Anda. Silakan coba lagi.',
+      },
+    }
+  },
+  security: {
+    management: {
+      title: 'Manajemen Keamanan',
+      description: 'Kelola personel keamanan, shift, dan laporan insiden.',
+      personnel: 'Personel',
+      incidents: 'Laporan Insiden',
+      personnelTitle: 'Personel Keamanan',
+      personnelDescription: 'Daftar semua staf keamanan.',
+      addPersonnel: 'Tambah Personel',
+      id: 'ID',
+      name: 'Nama',
+      phone: 'Telepon',
+      shift: 'Shift',
+      incidentsTitle: 'Laporan Insiden',
+      incidentsDescription: 'Catatan semua insiden yang dilaporkan.',
+      date: 'Tanggal',
+      type: 'Jenis',
+      summary: 'Ringkasan',
+      status: 'Status',
+      resolved: 'Terselesaikan',
+      closed: 'Ditutup',
+      investigation: 'Dalam Investigasi',
+    },
+    schedule: {
+      title: 'Jadwal Patroli Keamanan',
+      description: 'Jadwal mingguan patroli keamanan di lingkungan.',
+      rosterTitle: 'Daftar Jaga Patroli',
+      rosterDescription: 'Shift dan area yang dicakup oleh tim keamanan kami.',
+      shift: 'Shift',
+      area: 'Area Cakupan',
+      personnel: 'Personel Bertugas',
+    }
+  },
   classifieds: {
     title: 'Iklan Baris',
     description: 'Jual, beli, atau tukar barang dengan tetangga Anda.',

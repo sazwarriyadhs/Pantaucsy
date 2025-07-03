@@ -26,6 +26,87 @@ const en = {
     english: 'English',
     indonesian: 'Indonesian'
   },
+  announcements: {
+    title: 'Announcements',
+    description: 'Latest news and updates for the Cimahpar Stoneyard community.',
+  },
+  associationManagement: {
+    title: 'Association Management',
+    description: 'List of association managers for Cimahpar Stoneyard.',
+    tableTitle: 'Managers',
+    tableDescription: 'List of all managers in the association.',
+    addManager: 'Add Manager',
+    name: 'Name',
+    position: 'Position',
+    phone: 'Phone',
+    email: 'Email',
+  },
+  events: {
+    title: 'Community Events',
+    description: 'Upcoming events and gatherings for Cimahpar Stoneyard residents.',
+  },
+  reportIssue: {
+    title: 'Report an Issue',
+    description: 'Report security, maintenance, or other issues in the neighborhood.',
+    form: {
+      title: 'New Issue Report',
+      description: 'Please provide a detailed description of the issue. Our AI assistant will summarize it for faster processing.',
+      label: 'Issue Description',
+      placeholder: 'e.g., The streetlight on the corner of Stoneyard Lane and Cimahpar Circle is flickering...',
+      description2: 'Be as specific as possible for the best results.',
+      validation: 'Report must be at least 10 characters.',
+      submit: 'Submit Report',
+      submitting: 'Summarizing...',
+    },
+    summary: {
+      title: 'AI Summary',
+      description: 'This is the summary that will be sent to our management team.',
+      loading: 'Generating summary...',
+    },
+    toast: {
+      success: {
+        title: 'Report Submitted',
+        description: 'Your issue has been summarized and submitted successfully.',
+      },
+      error: {
+        title: 'Submission Failed',
+        description: 'There was an error processing your report. Please try again.',
+      },
+    }
+  },
+  security: {
+    management: {
+      title: 'Security Management',
+      description: 'Manage security personnel, shifts, and incident reports.',
+      personnel: 'Personnel',
+      incidents: 'Incident Reports',
+      personnelTitle: 'Security Personnel',
+      personnelDescription: 'List of all security staff.',
+      addPersonnel: 'Add Personnel',
+      id: 'ID',
+      name: 'Name',
+      phone: 'Phone',
+      shift: 'Shift',
+      incidentsTitle: 'Incident Reports',
+      incidentsDescription: 'Log of all reported incidents.',
+      date: 'Date',
+      type: 'Type',
+      summary: 'Summary',
+      status: 'Status',
+      resolved: 'Resolved',
+      closed: 'Closed',
+      investigation: 'Under Investigation',
+    },
+    schedule: {
+      title: 'Security Patrol Schedule',
+      description: 'Weekly schedule for security patrols in the neighborhood.',
+      rosterTitle: 'Patrol Roster',
+      rosterDescription: 'Shifts and areas covered by our security team.',
+      shift: 'Shift',
+      area: 'Area Covered',
+      personnel: 'Assigned Personnel',
+    }
+  },
   classifieds: {
     title: 'Classifieds',
     description: 'Buy, sell, or trade items with your neighbors.',

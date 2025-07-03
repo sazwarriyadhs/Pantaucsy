@@ -1,14 +1,19 @@
+"use client"
+
 import { Calendar, MapPin } from 'lucide-react'
 import { Card, CardHeader, CardTitle, CardContent, CardDescription } from '@/components/ui/card'
 import { events } from '@/lib/data'
+import { useI18n } from '@/context/i18n-provider'
 
 export default function EventsPage() {
+  const { t } = useI18n()
+
   return (
     <div className="flex flex-col gap-8">
       <div>
-        <h1 className="text-3xl font-bold tracking-tight font-headline">Community Events</h1>
+        <h1 className="text-3xl font-bold tracking-tight font-headline">{t('events.title')}</h1>
         <p className="text-muted-foreground">
-          Upcoming events and gatherings for Cimahpar Stoneyard residents.
+          {t('events.description')}
         </p>
       </div>
 

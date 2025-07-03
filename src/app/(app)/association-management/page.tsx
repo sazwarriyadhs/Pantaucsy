@@ -1,3 +1,5 @@
+"use client"
+
 import {
   Table,
   TableBody,
@@ -10,26 +12,29 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { associationManagement } from "@/lib/data"
 import { Button } from "@/components/ui/button"
 import { PlusCircle } from "lucide-react"
+import { useI18n } from "@/context/i18n-provider"
 
 export default function AssociationManagementPage() {
+  const { t } = useI18n();
+  
   return (
     <div className="flex flex-col gap-8">
       <div>
-        <h1 className="text-3xl font-bold tracking-tight font-headline">Pengurus Paguyuban</h1>
+        <h1 className="text-3xl font-bold tracking-tight font-headline">{t('associationManagement.title')}</h1>
         <p className="text-muted-foreground">
-          Daftar pengurus paguyuban warga Cimahpar Stoneyard.
+          {t('associationManagement.description')}
         </p>
       </div>
       <Card>
         <CardHeader>
           <div className="flex items-center justify-between">
             <div>
-              <CardTitle>Pengurus</CardTitle>
-              <CardDescription>Daftar semua pengurus di paguyuban.</CardDescription>
+              <CardTitle>{t('associationManagement.tableTitle')}</CardTitle>
+              <CardDescription>{t('associationManagement.tableDescription')}</CardDescription>
             </div>
             <Button>
               <PlusCircle className="mr-2 h-4 w-4" />
-              Tambah Pengurus
+              {t('associationManagement.addManager')}
             </Button>
           </div>
         </CardHeader>
@@ -37,10 +42,10 @@ export default function AssociationManagementPage() {
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Nama</TableHead>
-                <TableHead>Jabatan</TableHead>
-                <TableHead>Telepon</TableHead>
-                <TableHead>Email</TableHead>
+                <TableHead>{t('associationManagement.name')}</TableHead>
+                <TableHead>{t('associationManagement.position')}</TableHead>
+                <TableHead>{t('associationManagement.phone')}</TableHead>
+                <TableHead>{t('associationManagement.email')}</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>

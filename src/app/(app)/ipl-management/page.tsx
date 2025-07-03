@@ -21,26 +21,13 @@ export default function IplManagementPage() {
   const { t, formatCurrency } = useI18n()
 
   const getStatusVariant = (status: string) => {
-    switch (status.toLowerCase()) {
-      case 'lunas':
+    switch (status) {
       case 'paid':
         return 'default'
-      case 'belum lunas':
       case 'unpaid':
         return 'destructive'
       default:
         return 'outline'
-    }
-  }
-
-  const getStatusTranslation = (status: string) => {
-    switch (status.toLowerCase()) {
-      case 'lunas':
-        return t('ipl.paid')
-      case 'belum lunas':
-        return t('ipl.unpaid')
-      default:
-        return status
     }
   }
 
@@ -92,7 +79,7 @@ export default function IplManagementPage() {
                   <TableCell>{payment.month} {payment.year}</TableCell>
                   <TableCell className="text-right">{formatCurrency(payment.amount)}</TableCell>
                   <TableCell className="text-center">
-                    <Badge variant={getStatusVariant(payment.status)}>{getStatusTranslation(payment.status)}</Badge>
+                    <Badge variant={getStatusVariant(payment.status)}>{t('ipl.' + payment.status)}</Badge>
                   </TableCell>
                 </TableRow>
               ))}
