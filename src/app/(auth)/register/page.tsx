@@ -95,7 +95,7 @@ export default function RegisterPage() {
         <CardDescription>{t('auth.register.description')}</CardDescription>
         {firebaseNotConfigured && (
             <CardDescription className="text-destructive pt-2">
-                Firebase is not configured. Please add your credentials to a .env.local file.
+                Firebase is not configured. Please add your credentials to your .env file.
             </CardDescription>
         )}
       </CardHeader>
