@@ -31,6 +31,10 @@ const en = {
     title: 'Announcements',
     description: 'Latest news and updates for the Cimahpar Stoneyard community.',
     items: {
+      tpq_congratulations: {
+        title: 'Congratulations to the New Management of TPA Al-Mumtaz',
+        content: 'The entire Cimahpar Stoneyard community congratulates the formation of the new management of TPA Al-Mumtaz. May you carry out your mandate well and bring blessings to our community.'
+      },
       obituary_aswin: {
         title: 'Obituary Notice',
         content: 'With deep sorrow, we announce the passing of Mr. Aswin, resident of Block C No. 16, on June 24, 2025, at 04:35 AM. The entire Cimahpar Stoneyard community extends its heartfelt condolences. May he rest in peace and his family be granted strength.',

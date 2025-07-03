@@ -31,6 +31,10 @@ const id = {
     title: 'Pengumuman',
     description: 'Berita dan pembaruan terkini untuk komunitas Cimahpar Stoneyard.',
     items: {
+      tpq_congratulations: {
+        title: 'Selamat Atas Kepengurusan Baru TPA Al-Mumtaz',
+        content: 'Segenap warga Cimahpar Stoneyard mengucapkan selamat atas terbentuknya kepengurusan baru TPA Al-Mumtaz. Semoga dapat menjalankan amanah dengan baik dan membawa keberkahan bagi lingkungan kita.'
+      },
       obituary_aswin: {
         title: 'Berita Duka',
         content: 'Telah meninggal dunia Bapak Aswin, warga Blok C No. 16, pada tanggal 24 Juni 2025 pukul 04.35 WIB. Segenap pengurus dan warga Cimahpar Stoneyard turut berduka cita. Semoga almarhum diberikan tempat terbaik dan keluarga yang ditinggalkan diberi ketabahan.',

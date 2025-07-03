@@ -8,6 +8,12 @@ export type Resident = {
 
 export const announcements = [
   {
+    titleKey: "tpq_congratulations",
+    date: "2024-08-16",
+    image: "https://storage.googleapis.com/stablediffusion-182202-uploads/1bb95123-61b4-4e4b-8495-2c81a2886f4b.jpeg",
+    imageHint: "children students",
+  },
+  {
     titleKey: "obituary_aswin",
     date: "2025-06-24",
     image: "https://storage.googleapis.com/stablediffusion-182202-uploads/7c28f1cc-8c63-424a-89a3-5c7f21273934.jpeg",
