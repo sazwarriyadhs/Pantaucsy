@@ -8,6 +8,10 @@ export type Resident = {
 
 export const announcements = [
   {
+    titleKey: "obituary_aswin",
+    date: "2025-06-24",
+  },
+  {
     titleKey: "garden_meeting",
     date: "2024-08-15",
   },
