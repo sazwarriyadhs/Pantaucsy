@@ -71,9 +71,11 @@ export function AdForm({ isOpen, onOpenChange, onSubmit, ad }: AdFormProps) {
   useEffect(() => {
     if (isOpen) {
       if (ad) {
+        const adTitle = t(`classifieds.items.${ad.titleKey}.title`);
+        const adDescription = t(`classifieds.items.${ad.titleKey}.description`);
         form.reset({
-          title: ad.title,
-          description: ad.description,
+          title: adTitle,
+          description: adDescription,
           price: ad.price,
           phone: ad.phone,
           image: ad.image,
@@ -94,7 +96,7 @@ export function AdForm({ isOpen, onOpenChange, onSubmit, ad }: AdFormProps) {
         setCapturedImage(null)
       }
     }
-  }, [ad, form, isOpen])
+  }, [ad, form, isOpen, t])
 
   useEffect(() => {
     let stream: MediaStream | null = null;

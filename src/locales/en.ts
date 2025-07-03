@@ -54,6 +54,14 @@ const en = {
         description: 'Easily report maintenance, security, or other issues for quick resolution.'
       }
     },
+    latestNews: {
+      title: 'Latest News & Announcements',
+      cta: 'View All Announcements'
+    },
+    marketplace: {
+      title: 'Community Marketplace',
+      cta: 'Browse All Ads'
+    },
     footer: {
       copyright: '© {year} Cimahpar Stoneyard. All Rights Reserved.'
     }
@@ -234,6 +242,28 @@ const en = {
     title: 'Classifieds',
     description: 'Buy, sell, or trade items with your neighbors.',
     contactViaWhatsapp: 'Message on WhatsApp',
+    items: {
+      sepeda_gunung: {
+        title: 'Mountain Bike',
+        description: 'Used mountain bike, great condition. Perfect for the trails around the neighborhood.'
+      },
+      kursi_mobil_balita: {
+        title: 'Toddler Car Seat',
+        description: 'Clean and safe toddler car seat. Our child has outgrown it. All straps and buckles included.'
+      },
+      set_mebel_teras: {
+        title: 'Patio Furniture Set',
+        description: 'Rattan patio set with two chairs and a small table. Cushions included. Great for a balcony or small patio.'
+      },
+      berbagai_tanaman_hias: {
+        title: 'Various House Plants',
+        description: 'Various house plants for sale. Snake plants, pothos, and succulents available. Brighten up your home!'
+      },
+      pasang_iklan_di_sini: {
+        title: 'Advertise Here',
+        description: 'Promote your business for one month for only {price}. Contact management for more info.'
+      }
+    }
   },
   classifiedsManagement: {
     title: 'Ads Management',

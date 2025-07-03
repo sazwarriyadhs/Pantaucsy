@@ -25,7 +25,8 @@ import { MessageSquare } from 'lucide-react'
 export default function ClassifiedsPage() {
   const { t, formatCurrency } = useI18n();
 
-  const generateWhatsAppLink = (phone: string, title: string) => {
+  const generateWhatsAppLink = (phone: string, titleKey: string) => {
+    const title = t(`classifieds.items.${titleKey}.title`);
     const message = encodeURIComponent(`Halo, saya tertarik dengan "${title}" yang Anda iklankan.`);
     return `https://wa.me/${phone}?text=${message}`;
   }
@@ -56,7 +57,7 @@ export default function ClassifiedsPage() {
                   <CardHeader className="p-0">
                     <Image
                       src={item.image}
-                      alt={item.title}
+                      alt={t(`classifieds.items.${item.titleKey}.title`)}
                       width={600}
                       height={400}
                       className="object-cover w-full rounded-t-lg aspect-video"
@@ -64,13 +65,13 @@ export default function ClassifiedsPage() {
                     />
                   </CardHeader>
                   <CardContent className="flex-1 pt-6">
-                    <CardTitle className="text-xl font-headline">{item.title}</CardTitle>
+                    <CardTitle className="text-xl font-headline">{t(`classifieds.items.${item.titleKey}.title`)}</CardTitle>
                     <p className="mt-2 text-2xl font-semibold text-primary">{formatCurrency(item.price)}</p>
-                    <CardDescription className="mt-4">{item.description.replace('{price}', formatCurrency(item.price))}</CardDescription>
+                    <CardDescription className="mt-4">{t(`classifieds.items.${item.titleKey}.description`).replace('{price}', formatCurrency(item.price))}</CardDescription>
                   </CardContent>
                   <CardFooter>
                     <Button asChild className="w-full">
-                      <Link href={generateWhatsAppLink(item.phone, item.title)}>
+                      <Link href={generateWhatsAppLink(item.phone, item.titleKey)}>
                         <MessageSquare className="mr-2" /> {t('classifieds.contactViaWhatsapp')}
                       </Link>
                     </Button>

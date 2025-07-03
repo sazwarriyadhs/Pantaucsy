@@ -8,8 +8,7 @@ export type Resident = {
 
 export type ClassifiedAd = {
   id: string;
-  title: string;
-  description: string;
+  titleKey: string;
   price: number;
   image: string;
   imageHint: string;
@@ -151,8 +150,7 @@ export const residents: Resident[] = [
 export const classifieds: ClassifiedAd[] = [
   {
     id: '1',
-    title: 'Sepeda Gunung',
-    description: 'Sepeda gunung bekas, kondisi bagus. Sempurna untuk jalur di sekitar lingkungan.',
+    titleKey: 'sepeda_gunung',
     price: 2500000,
     image: "https://placehold.co/600x400.png",
     imageHint: "mountain bike",
@@ -162,8 +160,7 @@ export const classifieds: ClassifiedAd[] = [
   },
   {
     id: '2',
-    title: 'Kursi Mobil Balita',
-    description: 'Kursi mobil balita bersih dan aman. Anak kami sudah tidak muat lagi. Semua tali dan gesper lengkap.',
+    titleKey: 'kursi_mobil_balita',
     price: 500000,
     image: "https://placehold.co/600x400.png",
     imageHint: "car seat",
@@ -173,8 +170,7 @@ export const classifieds: ClassifiedAd[] = [
   },
   {
     id: '3',
-    title: 'Set Mebel Teras',
-    description: 'Set rotan teras dengan dua kursi dan meja kecil. Termasuk bantal. Cocok untuk balkon atau teras kecil.',
+    titleKey: 'set_mebel_teras',
     price: 1500000,
     image: "https://placehold.co/600x400.png",
     imageHint: "patio furniture",
@@ -184,8 +180,7 @@ export const classifieds: ClassifiedAd[] = [
   },
   {
     id: '4',
-    title: 'Berbagai Tanaman Hias',
-    description: 'Berbagai tanaman hias dijual. Tersedia lidah mertua, sirih gading, dan sukulen. Cerahkan rumah Anda!',
+    titleKey: 'berbagai_tanaman_hias',
     price: 100000,
     image: "https://placehold.co/600x400.png",
     imageHint: "house plants",
@@ -195,8 +190,7 @@ export const classifieds: ClassifiedAd[] = [
   },
   {
     id: '5',
-    title: 'Pasang Iklan Di Sini',
-    description: 'Promosikan usaha Anda selama satu bulan hanya dengan {price}. Hubungi pengurus untuk info lebih lanjut.',
+    titleKey: 'pasang_iklan_di_sini',
     price: 50000,
     image: "https://placehold.co/600x400.png",
     imageHint: "advertisement marketing",
@@ -432,4 +426,5 @@ export const wasteManagementSchedule = [
 
 
     
+
 

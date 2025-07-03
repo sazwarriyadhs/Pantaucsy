@@ -68,17 +68,20 @@ export default function ClassifiedsManagementPage() {
   }
 
   const handleFormSubmit = (data: z.infer<typeof adFormSchema>) => {
+    const titleKey = data.title.toLowerCase().replace(/\s+/g, '_');
+    
     if (selectedAd) {
       // Update
       const updatedAd: ClassifiedAd = { 
         ...selectedAd,
         ...data,
+        titleKey,
         image: data.image || 'https://placehold.co/600x400.png'
       }
       setAds(ads.map(ad => ad.id === selectedAd.id ? updatedAd : ad))
     } else {
       // Create
-      if (ads.some(ad => ad.title.toLowerCase() === data.title.toLowerCase())) {
+      if (ads.some(ad => ad.titleKey === titleKey)) {
         toast({
           variant: "destructive",
           title: "Error",
@@ -92,6 +95,7 @@ export default function ClassifiedsManagementPage() {
         expiryDate: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], // 30 days from now
         imageHint: "advertisement marketing",
         ...data,
+        titleKey,
         image: data.image || 'https://placehold.co/600x400.png',
       }
       setAds([...ads, newAd])
@@ -133,7 +137,7 @@ export default function ClassifiedsManagementPage() {
           <AlertDialogHeader>
             <AlertDialogTitle>{t('classifiedsManagement.delete.title')}</AlertDialogTitle>
             <AlertDialogDescription>
-              {t('classifiedsManagement.delete.description', { title: adToDelete?.title || '' })}
+              {t('classifiedsManagement.delete.description', { title: adToDelete ? t(`classifieds.items.${adToDelete.titleKey}.title`) : '' })}
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
@@ -177,7 +181,7 @@ export default function ClassifiedsManagementPage() {
               <TableBody>
                 {ads.map((ad) => (
                   <TableRow key={ad.id}>
-                    <TableCell className="font-medium">{ad.title}</TableCell>
+                    <TableCell className="font-medium">{t(`classifieds.items.${ad.titleKey}.title`)}</TableCell>
                     <TableCell>{formatCurrency(ad.price)}</TableCell>
                     <TableCell>
                       <Badge variant={getStatusVariant(ad.status)}>

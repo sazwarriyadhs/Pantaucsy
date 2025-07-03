@@ -54,6 +54,14 @@ const id = {
         description: 'Laporkan masalah pemeliharaan, keamanan, atau lainnya dengan mudah untuk penyelesaian cepat.'
       }
     },
+    latestNews: {
+      title: 'Berita & Pengumuman Terbaru',
+      cta: 'Lihat Semua Pengumuman'
+    },
+    marketplace: {
+      title: 'Pasar Komunitas',
+      cta: 'Lihat Semua Iklan'
+    },
     footer: {
       copyright: '© {year} Cimahpar Stoneyard. Hak Cipta Dilindungi.'
     }
@@ -234,6 +242,28 @@ const id = {
     title: 'Iklan Baris',
     description: 'Jual, beli, atau tukar barang dengan tetangga Anda.',
     contactViaWhatsapp: 'Pesan via WhatsApp',
+    items: {
+      sepeda_gunung: {
+        title: 'Sepeda Gunung',
+        description: 'Sepeda gunung bekas, kondisi bagus. Sempurna untuk jalur di sekitar lingkungan.'
+      },
+      kursi_mobil_balita: {
+        title: 'Kursi Mobil Balita',
+        description: 'Kursi mobil balita bersih dan aman. Anak kami sudah tidak muat lagi. Semua tali dan gesper lengkap.'
+      },
+      set_mebel_teras: {
+        title: 'Set Mebel Teras',
+        description: 'Set rotan teras dengan dua kursi dan meja kecil. Termasuk bantal. Cocok untuk balkon atau teras kecil.'
+      },
+      berbagai_tanaman_hias: {
+        title: 'Berbagai Tanaman Hias',
+        description: 'Berbagai tanaman hias dijual. Tersedia lidah mertua, sirih gading, dan sukulen. Cerahkan rumah Anda!'
+      },
+      pasang_iklan_di_sini: {
+        title: 'Pasang Iklan Di Sini',
+        description: 'Promosikan usaha Anda selama satu bulan hanya dengan {price}. Hubungi pengurus untuk info lebih lanjut.'
+      }
+    }
   },
   classifiedsManagement: {
     title: 'Manajemen Iklan',
