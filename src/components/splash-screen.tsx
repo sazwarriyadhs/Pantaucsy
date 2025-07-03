@@ -7,7 +7,7 @@ export function SplashScreen() {
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-background">
       <div className="animate-pulse-and-fade">
         <Image
-          src="https://placehold.co/128x128.png"
+          src="/images/logo.png"
           width={128}
           height={128}
           alt="Cimahpar Hub Logo"
