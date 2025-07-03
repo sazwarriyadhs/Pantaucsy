@@ -1,18 +1,11 @@
+
 "use client"
 
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table"
+import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { associationManagement } from "@/lib/data"
-import { Button } from "@/components/ui/button"
-import { PlusCircle } from "lucide-react"
 import { useI18n } from "@/context/i18n-provider"
+import { Phone, Mail } from 'lucide-react';
 
 export default function AssociationManagementPage() {
   const { t } = useI18n();
@@ -25,42 +18,36 @@ export default function AssociationManagementPage() {
           {t('associationManagement.description')}
         </p>
       </div>
-      <Card>
-        <CardHeader>
-          <div className="flex items-center justify-between">
-            <div>
-              <CardTitle>{t('associationManagement.tableTitle')}</CardTitle>
-              <CardDescription>{t('associationManagement.tableDescription')}</CardDescription>
-            </div>
-            <Button>
-              <PlusCircle className="mr-2 h-4 w-4" />
-              {t('associationManagement.addManager')}
-            </Button>
-          </div>
-        </CardHeader>
-        <CardContent>
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead>{t('associationManagement.name')}</TableHead>
-                <TableHead>{t('associationManagement.position')}</TableHead>
-                <TableHead>{t('associationManagement.phone')}</TableHead>
-                <TableHead>{t('associationManagement.email')}</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {associationManagement.map((person, index) => (
-                <TableRow key={index}>
-                  <TableCell className="font-medium">{person.name}</TableCell>
-                  <TableCell>{t(`associationManagement.positions.${person.position.toLowerCase()}`)}</TableCell>
-                  <TableCell>{person.phone}</TableCell>
-                  <TableCell>{person.email}</TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </CardContent>
-      </Card>
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {associationManagement.map((person, index) => (
+          <Card key={index} className="flex flex-col text-center transition-all duration-300 hover:shadow-lg">
+            <CardHeader className="p-0">
+              <Image
+                src={person.photo}
+                alt={person.name}
+                width={400}
+                height={400}
+                className="object-cover w-full rounded-t-lg aspect-square"
+                data-ai-hint={person.photoHint}
+              />
+            </CardHeader>
+            <CardContent className="flex flex-col flex-1 p-6">
+              <CardTitle className="text-xl font-headline">{person.name}</CardTitle>
+              <CardDescription>{t(`associationManagement.positions.${person.position.toLowerCase()}`)}</CardDescription>
+              <div className="flex-1 mt-4 space-y-2 text-sm text-left text-muted-foreground">
+                <div className="flex items-center">
+                  <Phone className="w-4 h-4 mr-2" />
+                  <a href={`tel:${person.phone}`} className="hover:underline">{person.phone}</a>
+                </div>
+                <div className="flex items-center">
+                  <Mail className="w-4 h-4 mr-2" />
+                  <a href={`mailto:${person.email}`} className="hover:underline">{person.email}</a>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
     </div>
   )
 }

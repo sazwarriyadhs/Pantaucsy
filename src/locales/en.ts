@@ -141,6 +141,7 @@ const en = {
     email: 'Email',
     positions: {
       chairman: 'Chairman',
+      vice_chairman: 'Vice Chairman',
       secretary: 'Secretary',
       treasurer: 'Treasurer'
     }

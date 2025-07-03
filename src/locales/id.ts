@@ -141,6 +141,7 @@ const id = {
     email: 'Email',
     positions: {
       chairman: 'Ketua',
+      vice_chairman: 'Wakil Ketua',
       secretary: 'Sekretaris',
       treasurer: 'Bendahara'
     }

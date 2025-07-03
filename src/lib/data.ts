@@ -270,18 +270,32 @@ export const associationManagement = [
         position: "Chairman",
         phone: "555-0101",
         email: "ketua.rt@cimahpar.com",
+        photo: "https://placehold.co/400x400.png",
+        photoHint: "man portrait",
+    },
+    {
+        name: "Bapak Wakil Ketua",
+        position: "Vice_Chairman",
+        phone: "555-0104",
+        email: "wakil.ketua@cimahpar.com",
+        photo: "https://placehold.co/400x400.png",
+        photoHint: "man portrait",
     },
     {
         name: "Ibu Sekretaris",
         position: "Secretary",
         phone: "555-0102",
         email: "sekretaris@cimahpar.com",
+        photo: "https://placehold.co/400x400.png",
+        photoHint: "woman portrait",
     },
     {
         name: "Bapak Bendahara",
         position: "Treasurer",
         phone: "555-0103",
         email: "bendahara@cimahpar.com",
+        photo: "https://placehold.co/400x400.png",
+        photoHint: "man portrait",
     },
 ];
 
@@ -426,5 +440,6 @@ export const wasteManagementSchedule = [
 
 
     
+
 
 
