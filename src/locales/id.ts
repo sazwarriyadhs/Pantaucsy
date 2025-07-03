@@ -23,16 +23,44 @@ const id = {
   userNav: {
     profile: 'Profil',
     settings: 'Pengaturan',
-    logout: 'Keluar',
     language: 'Bahasa',
     currency: 'Mata Uang',
     english: 'Inggris',
     indonesian: 'Indonesia'
   },
+  auth: {
+    login: {
+      title: 'Masuk',
+      description: 'Masukkan kredensial Anda untuk mengakses hub.',
+      emailLabel: 'Email',
+      passwordLabel: 'Kata Sandi',
+      button: 'Masuk',
+      noAccount: 'Belum punya akun?',
+      register: 'Daftar'
+    },
+    register: {
+      title: 'Daftar',
+      description: 'Buat akun baru untuk bergabung dengan komunitas.',
+      nameLabel: 'Nama Lengkap',
+      emailLabel: 'Email',
+      passwordLabel: 'Kata Sandi',
+      button: 'Buat Akun',
+      haveAccount: 'Sudah punya akun?',
+      login: 'Masuk'
+    },
+    logout: 'Keluar',
+    success: {
+        register: 'Pendaftaran berhasil! Silakan masuk.'
+    },
+    error: {
+        login: 'Gagal masuk. Silakan periksa kredensial Anda.',
+        register: 'Pendaftaran gagal. Email mungkin sudah digunakan.'
+    }
+  },
   landing: {
     header: {
       title: 'Cimahpar Hub',
-      login: 'Masuk ke Hub'
+      login: 'Masuk'
     },
     hero: {
       title: 'Pusat Komunitas Cimahpar Stoneyard',

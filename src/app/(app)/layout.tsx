@@ -1,6 +1,6 @@
 "use client"
 
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import {
@@ -37,24 +37,33 @@ import {
 } from '@/components/ui/sidebar';
 import { UserNav } from '@/components/user-nav';
 import { useI18n } from '@/context/i18n-provider';
+import { useAuth } from '@/context/auth-provider';
+import { useEffect } from 'react';
+import { SplashScreen } from '@/components/splash-screen';
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const { t } = useI18n();
+  const { user, loading } = useAuth();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!loading && !user) {
+      router.push('/login');
+    }
+  }, [user, loading, router]);
+  
+  if (loading || !user) {
+    return <SplashScreen />;
+  }
 
   const isActive = (path: string, exact = false) => {
     if (exact) {
       return pathname === path;
     }
-    // For non-exact matches, ensure we don't accidentally match the root for everything.
     if (path === '/') return pathname === '/';
     return pathname.startsWith(path);
   };
-  
-  // The root path "/" is now the public landing page and should not have the sidebar layout.
-  if (pathname === '/') {
-    return <>{children}</>
-  }
 
   return (
     <SidebarProvider>
@@ -63,7 +72,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
           <SidebarHeader className="p-4 flex items-center justify-center">
             <Link href="/announcements">
               <Image
-                src="https://placehold.co/150x50.png"
+                src="/images/logo.png"
                 width={150}
                 height={50}
                 alt="Cimahpar Hub Logo"

@@ -23,16 +23,44 @@ const en = {
   userNav: {
     profile: 'Profile',
     settings: 'Settings',
-    logout: 'Log out',
     language: 'Language',
     currency: 'Currency',
     english: 'English',
     indonesian: 'Indonesian'
   },
+  auth: {
+    login: {
+      title: 'Login',
+      description: 'Enter your credentials to access the hub.',
+      emailLabel: 'Email',
+      passwordLabel: 'Password',
+      button: 'Login',
+      noAccount: "Don't have an account?",
+      register: 'Register'
+    },
+    register: {
+      title: 'Register',
+      description: 'Create a new account to join the community.',
+      nameLabel: 'Full Name',
+      emailLabel: 'Email',
+      passwordLabel: 'Password',
+      button: 'Create Account',
+      haveAccount: 'Already have an account?',
+      login: 'Login'
+    },
+    logout: 'Log out',
+    success: {
+        register: 'Registration successful! Please log in.'
+    },
+    error: {
+        login: 'Login failed. Please check your credentials.',
+        register: 'Registration failed. The email might already be in use.'
+    }
+  },
   landing: {
     header: {
       title: 'Cimahpar Hub',
-      login: 'Enter Hub'
+      login: 'Login'
     },
     hero: {
       title: 'Cimahpar Stoneyard Community Hub',
