@@ -566,7 +566,18 @@ const en = {
     types: {
       general_recyclable: 'General & Recyclable Waste',
       garden_bulky: 'Garden & Bulky Waste'
-    }
+    },
+    statusTitle: 'Your Waste Collection Status',
+    statusCheckDescription: 'This status is updated based on your IPL dues payment history.',
+    statusActive: {
+      title: 'Service Active',
+      description: 'Your waste will be collected according to the schedule below.'
+    },
+    statusSuspended: {
+      title: 'Service Suspended',
+      description: 'Overdue IPL dues were detected. Please complete your payment to reactivate waste collection services.'
+    },
+    confirmPaymentButton: 'Confirm payment here.'
   }
 };
 export default en;

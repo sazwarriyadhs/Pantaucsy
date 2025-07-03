@@ -566,7 +566,18 @@ const id = {
     types: {
       general_recyclable: 'Sampah Umum & Daur Ulang',
       garden_bulky: 'Sampah Kebun & Ukuran Besar'
-    }
+    },
+    statusTitle: 'Status Pengangkutan Sampah Anda',
+    statusCheckDescription: 'Status ini diperbarui berdasarkan riwayat pembayaran iuran IPL Anda.',
+    statusActive: {
+      title: 'Layanan Aktif',
+      description: 'Sampah Anda akan diangkut sesuai jadwal yang tertera di bawah ini.'
+    },
+    statusSuspended: {
+      title: 'Layanan Ditangguhkan',
+      description: 'Terdeteksi ada iuran IPL yang tertunggak. Mohon segera selesaikan pembayaran untuk mengaktifkan kembali layanan pengangkutan sampah.'
+    },
+    confirmPaymentButton: 'Konfirmasi Pembayaran di sini.'
   }
 };
 export default id;
