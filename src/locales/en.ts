@@ -57,6 +57,9 @@ const en = {
       validation: 'Report must be at least 10 characters.',
       submit: 'Submit Report',
       submitting: 'Summarizing...',
+      addPhoto: 'Add Photo',
+      takePicture: 'Take Picture',
+      retakePicture: 'Retake Picture',
     },
     summary: {
       title: 'AI Summary',
@@ -71,6 +74,14 @@ const en = {
       error: {
         title: 'Submission Failed',
         description: 'There was an error processing your report. Please try again.',
+      },
+    },
+    camera: {
+      accessRequired: 'Camera Access Required',
+      permissionDenied: 'Please allow camera access to use this feature.',
+      toast: {
+        deniedTitle: 'Camera Access Denied',
+        deniedDescription: 'Please enable camera permissions in your browser settings.',
       },
     }
   },

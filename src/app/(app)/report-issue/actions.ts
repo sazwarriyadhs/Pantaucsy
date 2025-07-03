@@ -5,6 +5,7 @@ import { summarizeIssueReport, type SummarizeIssueReportOutput } from "@/ai/flow
 
 const formSchema = z.object({
   reportText: z.string().min(10),
+  photoDataUri: z.string().optional(),
 })
 
 export async function handleReportIssue(
@@ -16,7 +17,7 @@ export async function handleReportIssue(
   }
 
   try {
-    const summary = await summarizeIssueReport({ reportText: validation.data.reportText })
+    const summary = await summarizeIssueReport(validation.data)
     return summary
   } catch (error) {
     console.error("Error summarizing issue report:", error)

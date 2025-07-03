@@ -57,6 +57,9 @@ const id = {
       validation: 'Laporan harus minimal 10 karakter.',
       submit: 'Kirim Laporan',
       submitting: 'Meringkas...',
+      addPhoto: 'Tambah Foto',
+      takePicture: 'Ambil Gambar',
+      retakePicture: 'Ambil Ulang',
     },
     summary: {
       title: 'Ringkasan AI',
@@ -71,6 +74,14 @@ const id = {
       error: {
         title: 'Pengiriman Gagal',
         description: 'Terjadi kesalahan saat memproses laporan Anda. Silakan coba lagi.',
+      },
+    },
+    camera: {
+      accessRequired: 'Akses Kamera Diperlukan',
+      permissionDenied: 'Mohon izinkan akses kamera untuk menggunakan fitur ini.',
+      toast: {
+        deniedTitle: 'Akses Kamera Ditolak',
+        deniedDescription: 'Mohon aktifkan izin kamera di pengaturan browser Anda.',
       },
     }
   },
