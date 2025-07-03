@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
-import { handleReportIssue } from "./actions"
+import { handleReportIssue, type SummarizeIssueReportOutput } from "./actions"
 import { Button } from "@/components/ui/button"
 import {
   Form,
@@ -21,10 +21,11 @@ import { useToast } from "@/hooks/use-toast"
 import { Loader2, Wand2, Camera, Trash2 } from "lucide-react"
 import { useI18n } from "@/context/i18n-provider"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
+import { Badge } from "@/components/ui/badge"
 
 export default function ReportIssuePage() {
   const { t } = useI18n()
-  const [summary, setSummary] = useState("")
+  const [reportResult, setReportResult] = useState<SummarizeIssueReportOutput | null>(null)
   const [isLoading, setIsLoading] = useState(false)
   const { toast } = useToast()
   
@@ -96,11 +97,11 @@ export default function ReportIssuePage() {
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsLoading(true)
-    setSummary("")
+    setReportResult(null)
     try {
       const result = await handleReportIssue(values)
-      if (result.summary) {
-        setSummary(result.summary)
+      if (result) {
+        setReportResult(result)
         toast({
           title: t('reportIssue.toast.success.title'),
           description: t('reportIssue.toast.success.description'),
@@ -173,7 +174,7 @@ export default function ReportIssuePage() {
                 </CardContent>
               </Card>
 
-              {(isLoading || summary) && (
+              {(isLoading || reportResult) && (
                 <Card className="flex flex-col">
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
@@ -184,13 +185,23 @@ export default function ReportIssuePage() {
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="flex-1 flex items-center justify-center">
-                    {isLoading && !summary ? (
+                    {isLoading && !reportResult ? (
                       <div className="flex flex-col items-center gap-2 text-muted-foreground">
                         <Loader2 className="h-8 w-8 animate-spin text-primary" />
                         <p>{t('reportIssue.summary.loading')}</p>
                       </div>
                     ) : (
-                      <p className="text-sm p-4 bg-secondary rounded-lg">{summary}</p>
+                      reportResult && (
+                        <div className="text-sm p-4 bg-secondary rounded-lg w-full space-y-3">
+                          <p className="italic">"{reportResult.summary}"</p>
+                          {reportResult.category && (
+                            <div className="flex items-center gap-2 pt-3 border-t">
+                              <span className="font-semibold">{t('reportIssue.summary.category')}:</span>
+                              <Badge variant="outline">{t(`reportIssue.category.${reportResult.category}`)}</Badge>
+                            </div>
+                          )}
+                        </div>
+                      )
                     )}
                   </CardContent>
                 </Card>

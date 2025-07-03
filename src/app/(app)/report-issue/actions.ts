@@ -1,12 +1,15 @@
 "use server"
 
 import { z } from "zod"
-import { summarizeIssueReport, type SummarizeIssueReportOutput } from "@/ai/flows/summarize-issue-report"
+import { summarizeIssueReport, type SummarizeIssueReportOutput as FlowOutput } from "@/ai/flows/summarize-issue-report"
 
 const formSchema = z.object({
   reportText: z.string().min(10),
   photoDataUri: z.string().optional(),
 })
+
+// Re-export the type for use in the client component
+export type SummarizeIssueReportOutput = FlowOutput
 
 export async function handleReportIssue(
   input: z.infer<typeof formSchema>

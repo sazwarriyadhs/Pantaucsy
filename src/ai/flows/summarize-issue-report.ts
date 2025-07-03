@@ -1,9 +1,9 @@
 'use server';
 
 /**
- * @fileOverview Summarizes issue reports to assist in categorization and routing.
+ * @fileOverview Summarizes and categorizes issue reports to assist in routing.
  *
- * - summarizeIssueReport - A function that summarizes the content of an issue report.
+ * - summarizeIssueReport - A function that summarizes and categorizes the content of an issue report.
  * - SummarizeIssueReportInput - The input type for the summarizeIssueReport function.
  * - SummarizeIssueReportOutput - The return type for the summarizeIssueReport function.
  */
@@ -24,6 +24,7 @@ export type SummarizeIssueReportInput = z.infer<typeof SummarizeIssueReportInput
 
 const SummarizeIssueReportOutputSchema = z.object({
   summary: z.string().describe('A concise summary of the issue report.'),
+  category: z.enum(['security', 'maintenance', 'waste', 'other']).describe("The category of the issue: 'security', 'maintenance', 'waste', or 'other'."),
 });
 export type SummarizeIssueReportOutput = z.infer<typeof SummarizeIssueReportOutputSchema>;
 
@@ -35,9 +36,10 @@ const prompt = ai.definePrompt({
   name: 'summarizeIssueReportPrompt',
   input: {schema: SummarizeIssueReportInputSchema},
   output: {schema: SummarizeIssueReportOutputSchema},
-  prompt: `You are an AI assistant helping security managers quickly understand issue reports.
-  Summarize the following issue report in a concise manner, highlighting the key problem and any important details.
-  If a photo is provided, use it as additional context for the summary.
+  prompt: `You are an AI assistant helping a community manager to quickly understand and categorize issue reports.
+  1. Analyze the issue report text and any provided photo.
+  2. Summarize the report concisely, highlighting the key problem.
+  3. Categorize the report into one of the following categories: 'security', 'maintenance', 'waste', or 'other'.
 
   Issue Report:
   {{reportText}}
