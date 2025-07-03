@@ -19,6 +19,8 @@ const id = {
     financialReport: 'Laporan Keuangan',
     wasteManagement: 'Manajemen Sampah',
     landingPage: 'Halaman Utama',
+    general: 'Umum',
+    management_tools: 'Alat Manajemen',
   },
   userNav: {
     profile: 'Profil',
@@ -26,7 +28,13 @@ const id = {
     language: 'Bahasa',
     currency: 'Mata Uang',
     english: 'Inggris',
-    indonesian: 'Indonesia'
+    indonesian: 'Indonesia',
+    role: 'Peran',
+    roles: {
+      superadmin: 'Super Admin',
+      admin: 'Admin',
+      warga: 'Warga'
+    }
   },
   auth: {
     login: {

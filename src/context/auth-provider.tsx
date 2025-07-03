@@ -30,11 +30,17 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       if (user) {
         setUser(user);
         // In a real application, the user's role would be retrieved from
-        // Firebase Auth Custom Claims, which must be set securely from a server
-        // (e.g., using a Cloud Function).
-        // For this prototype, we will default all registered users to the 'warga' role.
-        // Assigning 'admin' or 'superadmin' would require a separate backend process.
-        setRole('warga');
+        // Firebase Auth Custom Claims, which must be set securely from a server.
+        // For this prototype, we simulate roles based on email for demonstration.
+        // You can register accounts with these emails to test different roles.
+        const email = user.email || '';
+        if (email.startsWith('superadmin@')) {
+            setRole('superadmin');
+        } else if (email.startsWith('admin@')) {
+            setRole('admin');
+        } else {
+            setRole('warga');
+        }
       } else {
         setUser(null);
         setRole(null);
@@ -47,7 +53,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   return (
     <AuthContext.Provider value={{ user, loading, role }}>
-      {loading ? <SplashScreen /> : children}
+      {children}
     </AuthContext.Provider>
   );
 };

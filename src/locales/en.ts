@@ -19,6 +19,8 @@ const en = {
     financialReport: 'Financial Report',
     wasteManagement: 'Waste Management',
     landingPage: 'Home Page',
+    general: 'General',
+    management_tools: 'Management Tools',
   },
   userNav: {
     profile: 'Profile',
@@ -26,7 +28,13 @@ const en = {
     language: 'Language',
     currency: 'Currency',
     english: 'English',
-    indonesian: 'Indonesian'
+    indonesian: 'Indonesian',
+    role: 'Role',
+    roles: {
+      superadmin: 'Super Admin',
+      admin: 'Admin',
+      warga: 'Resident'
+    }
   },
   auth: {
     login: {

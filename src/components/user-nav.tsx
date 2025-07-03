@@ -25,6 +25,7 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { useI18n } from "@/context/i18n-provider"
 import { useAuth } from "@/context/auth-provider";
+import { Badge } from "./ui/badge";
 
 export function UserNav() {
   const { t, locale, setLocale, currency, setCurrency } = useI18n();
@@ -73,11 +74,19 @@ export function UserNav() {
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56" align="end" forceMount>
         <DropdownMenuLabel className="font-normal">
-          <div className="flex flex-col space-y-1">
-            <p className="text-sm font-medium leading-none">{user.displayName || 'Resident'}</p>
-            <p className="text-xs leading-none text-muted-foreground">
-              {user.email}
-            </p>
+          <div className="flex flex-col space-y-2">
+            <div>
+              <p className="text-sm font-medium leading-none">{user.displayName || 'Resident'}</p>
+              <p className="text-xs leading-none text-muted-foreground">
+                {user.email}
+              </p>
+            </div>
+             {role && (
+                <div className="flex items-center gap-2">
+                    <span className="text-xs text-muted-foreground">{t('userNav.role')}:</span>
+                    <Badge variant="secondary" className="px-2 py-0.5 text-xs">{t(`userNav.roles.${role}`)}</Badge>
+                </div>
+            )}
           </div>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />

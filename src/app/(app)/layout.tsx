@@ -44,7 +44,7 @@ import { SplashScreen } from '@/components/splash-screen';
 export default function AppLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const { t } = useI18n();
-  const { user, loading } = useAuth();
+  const { user, loading, role } = useAuth();
   const router = useRouter();
 
   useEffect(() => {
@@ -53,7 +53,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
     }
   }, [user, loading, router]);
   
-  if (loading || !user) {
+  if (loading || !user || !role) {
     return <SplashScreen />;
   }
 
@@ -64,6 +64,9 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
     if (path === '/') return pathname === '/';
     return pathname.startsWith(path);
   };
+  
+  const hasAdminAccess = role === 'admin' || role === 'superadmin';
+  const hasSuperAdminAccess = role === 'superadmin';
 
   return (
     <SidebarProvider>
@@ -81,105 +84,119 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
             </Link>
           </SidebarHeader>
           <SidebarMenu>
-            <SidebarMenuItem>
-              <SidebarMenuButton href="/announcements" isActive={isActive('/announcements', true)} tooltip={t('sidebar.announcements')}>
-                <LayoutDashboard />
-                {t('sidebar.announcements')}
-              </SidebarMenuButton>
-            </SidebarMenuItem>
-            <SidebarMenuItem>
-              <SidebarMenuButton href="/residents" isActive={isActive('/residents')} tooltip={t('sidebar.residents')}>
-                <Users />
-                {t('sidebar.residents')}
-              </SidebarMenuButton>
-            </SidebarMenuItem>
-            <SidebarMenuItem>
-              <SidebarMenuButton href="/association-management" isActive={isActive('/association-management')} tooltip={t('sidebar.associationManagement')}>
-                <Briefcase />
-                {t('sidebar.associationManagement')}
-              </SidebarMenuButton>
-            </SidebarMenuItem>
-
-            <SidebarGroup className="pt-4">
+            <SidebarGroup>
+                <SidebarGroupLabel>{t('sidebar.general')}</SidebarGroupLabel>
+                <SidebarMenuItem>
+                  <SidebarMenuButton href="/announcements" isActive={isActive('/announcements', true)} tooltip={t('sidebar.announcements')}>
+                    <LayoutDashboard />
+                    {t('sidebar.announcements')}
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+                <SidebarMenuItem>
+                  <SidebarMenuButton href="/classifieds" isActive={isActive('/classifieds')} tooltip={t('sidebar.classifieds')}>
+                    <ShoppingBag />
+                    {t('sidebar.classifieds')}
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+                 <SidebarMenuItem>
+                  <SidebarMenuButton href="/events" isActive={isActive('/events')} tooltip={t('sidebar.events')}>
+                    <Calendar />
+                    {t('sidebar.events')}
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+                <SidebarMenuItem>
+                    <SidebarMenuButton href="/gallery" isActive={isActive('/gallery')} tooltip={t('sidebar.gallery')}>
+                      <Camera />
+                      {t('sidebar.gallery')}
+                    </SidebarMenuButton>
+                </SidebarMenuItem>
+                <SidebarMenuItem>
+                  <SidebarMenuButton href="/report-issue" isActive={isActive('/report-issue')} tooltip={t('sidebar.reportIssue')}>
+                    <FileWarning />
+                    {t('sidebar.reportIssue')}
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+                 <SidebarMenuItem>
+                  <SidebarMenuButton href="/curhat-warga" isActive={isActive('/curhat-warga')} tooltip={t('sidebar.curhatWarga')}>
+                    <HeartHandshake />
+                    {t('sidebar.curhatWarga')}
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+            </SidebarGroup>
+            
+            <SidebarGroup>
               <SidebarGroupLabel>{t('sidebar.finance')}</SidebarGroupLabel>
-              <SidebarMenuItem>
-                <SidebarMenuButton href="/ipl-management" isActive={isActive('/ipl-management')} tooltip={t('sidebar.iplManagement')}>
-                  <Receipt />
-                  {t('sidebar.iplManagement')}
-                </SidebarMenuButton>
-              </SidebarMenuItem>
               <SidebarMenuItem>
                 <SidebarMenuButton href="/payment-confirmation" isActive={isActive('/payment-confirmation')} tooltip={t('sidebar.paymentConfirmation')}>
                   <ClipboardCheck />
                   {t('sidebar.paymentConfirmation')}
                 </SidebarMenuButton>
               </SidebarMenuItem>
-              <SidebarMenuItem>
-                <SidebarMenuButton href="/financial-report" isActive={isActive('/financial-report')} tooltip={t('sidebar.financialReport')}>
-                  <LineChart />
-                  {t('sidebar.financialReport')}
-                </SidebarMenuButton>
-              </SidebarMenuItem>
+              {hasAdminAccess && (
+                <>
+                  <SidebarMenuItem>
+                    <SidebarMenuButton href="/ipl-management" isActive={isActive('/ipl-management')} tooltip={t('sidebar.iplManagement')}>
+                      <Receipt />
+                      {t('sidebar.iplManagement')}
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                  <SidebarMenuItem>
+                    <SidebarMenuButton href="/financial-report" isActive={isActive('/financial-report')} tooltip={t('sidebar.financialReport')}>
+                      <LineChart />
+                      {t('sidebar.financialReport')}
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                </>
+              )}
             </SidebarGroup>
 
-            <SidebarMenuItem>
-              <SidebarMenuButton href="/classifieds" isActive={isActive('/classifieds')} tooltip={t('sidebar.classifieds')}>
-                <ShoppingBag />
-                {t('sidebar.classifieds')}
-              </SidebarMenuButton>
-            </SidebarMenuItem>
-            <SidebarMenuItem>
-                <SidebarMenuButton href="/classifieds-management" isActive={isActive('/classifieds-management')} tooltip={t('sidebar.classifiedsManagement')}>
-                  <ClipboardList />
-                  {t('sidebar.classifiedsManagement')}
-                </SidebarMenuButton>
-            </SidebarMenuItem>
-            <SidebarMenuItem>
-              <SidebarMenuButton href="/events" isActive={isActive('/events')} tooltip={t('sidebar.events')}>
-                <Calendar />
-                {t('sidebar.events')}
-              </SidebarMenuButton>
-            </SidebarMenuItem>
-            <SidebarMenuItem>
-                <SidebarMenuButton href="/gallery" isActive={isActive('/gallery')} tooltip={t('sidebar.gallery')}>
-                  <Camera />
-                  {t('sidebar.gallery')}
-                </SidebarMenuButton>
-            </SidebarMenuItem>
-            <SidebarMenuItem>
-              <SidebarMenuButton href="/report-issue" isActive={isActive('/report-issue')} tooltip={t('sidebar.reportIssue')}>
-                <FileWarning />
-                {t('sidebar.reportIssue')}
-              </SidebarMenuButton>
-            </SidebarMenuItem>
-             <SidebarMenuItem>
-              <SidebarMenuButton href="/waste-management" isActive={isActive('/waste-management')} tooltip={t('sidebar.wasteManagement')}>
-                <Trash2 />
-                {t('sidebar.wasteManagement')}
-              </SidebarMenuButton>
-            </SidebarMenuItem>
-            <SidebarMenuItem>
-              <SidebarMenuButton href="/curhat-warga" isActive={isActive('/curhat-warga')} tooltip={t('sidebar.curhatWarga')}>
-                <HeartHandshake />
-                {t('sidebar.curhatWarga')}
-              </SidebarMenuButton>
-            </SidebarMenuItem>
+            {hasAdminAccess && (
+              <>
+                <SidebarGroup>
+                  <SidebarGroupLabel>{t('sidebar.management_tools')}</SidebarGroupLabel>
+                   <SidebarMenuItem>
+                    <SidebarMenuButton href="/residents" isActive={isActive('/residents')} tooltip={t('sidebar.residents')}>
+                      <Users />
+                      {t('sidebar.residents')}
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                  <SidebarMenuItem>
+                    <SidebarMenuButton href="/association-management" isActive={isActive('/association-management')} tooltip={t('sidebar.associationManagement')}>
+                      <Briefcase />
+                      {t('sidebar.associationManagement')}
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                  <SidebarMenuItem>
+                      <SidebarMenuButton href="/classifieds-management" isActive={isActive('/classifieds-management')} tooltip={t('sidebar.classifiedsManagement')}>
+                        <ClipboardList />
+                        {t('sidebar.classifiedsManagement')}
+                      </SidebarMenuButton>
+                  </SidebarMenuItem>
+                  <SidebarMenuItem>
+                    <SidebarMenuButton href="/waste-management" isActive={isActive('/waste-management')} tooltip={t('sidebar.wasteManagement')}>
+                      <Trash2 />
+                      {t('sidebar.wasteManagement')}
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                </SidebarGroup>
 
-            <SidebarGroup className="pt-4">
-              <SidebarGroupLabel>{t('sidebar.security')}</SidebarGroupLabel>
-              <SidebarMenuItem>
-                <SidebarMenuButton href="/security/schedule" isActive={isActive('/security/schedule')} tooltip={t('sidebar.schedule')}>
-                  <CalendarClock />
-                  {t('sidebar.schedule')}
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-              <SidebarMenuItem>
-                <SidebarMenuButton href="/security/management" isActive={isActive('/security/management')} tooltip={t('sidebar.management')}>
-                  <ShieldCheck />
-                  {t('sidebar.management')}
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-            </SidebarGroup>
+                <SidebarGroup>
+                  <SidebarGroupLabel>{t('sidebar.security')}</SidebarGroupLabel>
+                  <SidebarMenuItem>
+                    <SidebarMenuButton href="/security/schedule" isActive={isActive('/security/schedule')} tooltip={t('sidebar.schedule')}>
+                      <CalendarClock />
+                      {t('sidebar.schedule')}
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                  <SidebarMenuItem>
+                    <SidebarMenuButton href="/security/management" isActive={isActive('/security/management')} tooltip={t('sidebar.management')}>
+                      <ShieldCheck />
+                      {t('sidebar.management')}
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                </SidebarGroup>
+              </>
+            )}
           </SidebarMenu>
         </SidebarContent>
         <SidebarFooter>
