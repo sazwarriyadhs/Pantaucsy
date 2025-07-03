@@ -11,6 +11,9 @@ const id = {
     security: 'Keamanan',
     schedule: 'Jadwal',
     management: 'Manajemen',
+    finance: 'Keuangan',
+    paymentConfirmation: 'Konfirmasi Pembayaran',
+    financialReport: 'Laporan Keuangan',
   },
   userNav: {
     profile: 'Profil',
@@ -32,10 +35,11 @@ const id = {
       tableTitle: 'Daftar Iuran',
       tableDescription: 'Daftar status pembayaran iuran IPL semua warga.',
       addPayment: 'Tambah Pembayaran',
+      confirmPayment: 'Konfirmasi Bayar',
       residentName: 'Nama Warga',
       address: 'Alamat',
       period: 'Periode',
-      amount: 'Jumlah (Rp)',
+      amount: 'Jumlah',
       status: 'Status',
       paid: 'Lunas',
       unpaid: 'Belum Lunas',
@@ -71,6 +75,65 @@ const id = {
       email: 'Alamat Email',
       submitAdd: 'Tambah Warga',
       submitEdit: 'Simpan Perubahan',
+    }
+  },
+  finance: {
+    confirmation: {
+      title: 'Konfirmasi Pembayaran',
+      description: 'Kirimkan konfirmasi pembayaran iuran IPL Anda di sini.',
+      copied: 'Nomor rekening disalin!',
+      form: {
+        title: 'Formulir Konfirmasi',
+        description: 'Isi formulir di bawah ini dan unggah bukti pembayaran Anda.',
+        residentEmail: {
+          required: 'Silakan pilih nama warga.',
+          placeholder: 'Pilih nama warga',
+        },
+        paymentMonth: {
+          label: 'Bulan Pembayaran',
+          required: 'Silakan pilih bulan pembayaran.',
+          placeholder: 'Pilih bulan',
+        },
+        paymentDate: {
+          label: 'Tanggal Pembayaran',
+          required: 'Tanggal pembayaran harus diisi.',
+          placeholder: 'Pilih tanggal',
+        },
+        amount: {
+          label: 'Jumlah Dibayar',
+          required: 'Silakan masukkan jumlah yang dibayar.',
+        },
+        proof: {
+          label: 'Bukti Pembayaran',
+          required: 'Bukti pembayaran harus diunggah.',
+          description: 'Unggah tangkapan layar atau foto bukti transfer Anda.',
+        },
+        submit: 'Kirim Konfirmasi',
+      },
+      paymentInfo: {
+        title: 'Informasi Pembayaran',
+      },
+      toast: {
+        title: 'Konfirmasi Terkirim',
+        description: 'Konfirmasi pembayaran Anda telah diterima dan akan segera diverifikasi.',
+      },
+    },
+    report: {
+      title: 'Laporan Keuangan',
+      description: 'Ringkasan keuangan paguyuban warga.',
+      totalIncome: 'Total Pemasukan',
+      totalExpense: 'Total Pengeluaran',
+      currentBalance: 'Saldo Saat Ini',
+      monthlyOverview: 'Tinjauan Bulanan',
+      monthlyOverviewDescription: 'Pemasukan vs. Pengeluaran selama 6 bulan terakhir.',
+      income: 'Pemasukan',
+      expense: 'Pengeluaran',
+      transactionHistory: 'Riwayat Transaksi',
+      transactionHistoryDescription: 'Daftar transaksi keuangan terkini.',
+      date: 'Tanggal',
+      descriptionColumn: 'Keterangan',
+      type: 'Tipe',
+      amount: 'Jumlah',
     }
   }
 };

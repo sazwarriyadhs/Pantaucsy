@@ -1,3 +1,4 @@
+
 "use client"
 
 import { usePathname } from 'next/navigation';
@@ -9,7 +10,7 @@ import {
   Shield,
   ShoppingBag,
   Users,
-  DollarSign,
+  Banknote,
 } from 'lucide-react';
 import {
   SidebarProvider,
@@ -66,12 +67,28 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
                 {t('sidebar.associationManagement')}
               </SidebarMenuButton>
             </SidebarMenuItem>
-            <SidebarMenuItem>
-              <SidebarMenuButton href="/ipl-management" isActive={isActive('/ipl-management')}>
-                <DollarSign />
-                {t('sidebar.iplManagement')}
+            <SidebarGroup>
+              <SidebarMenuButton>
+                <Banknote /> {t('sidebar.finance')}
               </SidebarMenuButton>
-            </SidebarMenuItem>
+              <SidebarMenuSub>
+                <SidebarMenuSubItem>
+                  <SidebarMenuSubButton href="/ipl-management" isActive={isActive('/ipl-management')}>
+                    {t('sidebar.iplManagement')}
+                  </SidebarMenuSubButton>
+                </SidebarMenuSubItem>
+                <SidebarMenuSubItem>
+                  <SidebarMenuSubButton href="/payment-confirmation" isActive={isActive('/payment-confirmation')}>
+                    {t('sidebar.paymentConfirmation')}
+                  </SidebarMenuSubButton>
+                </SidebarMenuSubItem>
+                <SidebarMenuSubItem>
+                  <SidebarMenuSubButton href="/financial-report" isActive={isActive('/financial-report')}>
+                    {t('sidebar.financialReport')}
+                  </SidebarMenuSubButton>
+                </SidebarMenuSubItem>
+              </SidebarMenuSub>
+            </SidebarGroup>
             <SidebarMenuItem>
               <SidebarMenuButton href="/classifieds" isActive={isActive('/classifieds')}>
                 <ShoppingBag />

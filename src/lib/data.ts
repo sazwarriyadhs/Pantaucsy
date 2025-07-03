@@ -290,3 +290,26 @@ export const iplManagement = [
     status: "Lunas",
   },
 ];
+
+export const financialReportData = {
+  summary: {
+    totalIncome: 45000000,
+    totalExpense: 12500000,
+    currentBalance: 32500000,
+  },
+  monthlyOverview: [
+    { month: "Mar", income: 7000000, expense: 2000000 },
+    { month: "Apr", income: 7500000, expense: 2200000 },
+    { month: "Mei", income: 7200000, expense: 2500000 },
+    { month: "Jun", income: 7800000, expense: 1800000 },
+    { month: "Jul", income: 8000000, expense: 2100000 },
+    { month: "Agu", income: 7500000, expense: 1900000 },
+  ],
+  transactions: [
+    { id: 1, date: "2024-08-05", description: "Gaji Keamanan - Juli", type: "expense", amount: 5000000 },
+    { id: 2, date: "2024-08-05", description: "Iuran IPL Warga - Juli", type: "income", amount: 7500000 },
+    { id: 3, date: "2024-08-02", description: "Biaya Kebersihan", type: "expense", amount: 1200000 },
+    { id: 4, date: "2024-07-28", description: "Perbaikan Lampu Jalan", type: "expense", amount: 800000 },
+    { id: 5, date: "2024-07-15", description: "Sewa Fasilitas (Hall)", type: "income", amount: 500000 },
+  ],
+};

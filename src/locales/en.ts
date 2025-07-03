@@ -11,6 +11,9 @@ const en = {
     security: 'Security',
     schedule: 'Schedule',
     management: 'Management',
+    finance: 'Finance',
+    paymentConfirmation: 'Payment Confirmation',
+    financialReport: 'Financial Report',
   },
   userNav: {
     profile: 'Profile',
@@ -32,6 +35,7 @@ const en = {
       tableTitle: 'Dues List',
       tableDescription: 'List of payment statuses for all resident IPL dues.',
       addPayment: 'Add Payment',
+      confirmPayment: 'Confirm Payment',
       residentName: 'Resident Name',
       address: 'Address',
       period: 'Period',
@@ -71,6 +75,65 @@ const en = {
       email: 'Email Address',
       submitAdd: 'Add Resident',
       submitEdit: 'Save Changes',
+    }
+  },
+  finance: {
+    confirmation: {
+      title: 'Payment Confirmation',
+      description: 'Submit your IPL payment confirmation here.',
+      copied: 'Account number copied!',
+      form: {
+        title: 'Confirmation Form',
+        description: 'Fill out the form below and upload your proof of payment.',
+        residentEmail: {
+          required: 'Please select a resident.',
+          placeholder: 'Select resident name',
+        },
+        paymentMonth: {
+          label: 'Payment Month',
+          required: 'Please select the payment month.',
+          placeholder: 'Select month',
+        },
+        paymentDate: {
+          label: 'Payment Date',
+          required: 'A payment date is required.',
+          placeholder: 'Pick a date',
+        },
+        amount: {
+          label: 'Amount Paid',
+          required: 'Please enter the amount paid.',
+        },
+        proof: {
+          label: 'Proof of Payment',
+          required: 'Proof of payment is required.',
+          description: 'Upload a screenshot or photo of your transfer receipt.',
+        },
+        submit: 'Submit Confirmation',
+      },
+      paymentInfo: {
+        title: 'Payment Information',
+      },
+      toast: {
+        title: 'Confirmation Submitted',
+        description: 'Your payment confirmation has been received and will be verified shortly.',
+      },
+    },
+    report: {
+      title: 'Financial Report',
+      description: "Overview of the community's finances.",
+      totalIncome: 'Total Income',
+      totalExpense: 'Total Expense',
+      currentBalance: 'Current Balance',
+      monthlyOverview: 'Monthly Overview',
+      monthlyOverviewDescription: 'Income vs. Expense for the last 6 months.',
+      income: 'Income',
+      expense: 'Expense',
+      transactionHistory: 'Transaction History',
+      transactionHistoryDescription: 'List of recent financial transactions.',
+      date: 'Date',
+      descriptionColumn: 'Description',
+      type: 'Type',
+      amount: 'Amount',
     }
   }
 };

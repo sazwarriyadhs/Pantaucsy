@@ -1,5 +1,7 @@
+
 "use client"
 
+import Link from 'next/link'
 import {
   Table,
   TableBody,
@@ -12,7 +14,7 @@ import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { iplManagement } from "@/lib/data"
 import { Button } from "@/components/ui/button"
-import { PlusCircle } from "lucide-react"
+import { PlusCircle, Receipt } from "lucide-react"
 import { useI18n } from "@/context/i18n-provider"
 
 export default function IplManagementPage() {
@@ -57,10 +59,18 @@ export default function IplManagementPage() {
               <CardTitle>{t('ipl.tableTitle')}</CardTitle>
               <CardDescription>{t('ipl.tableDescription')}</CardDescription>
             </div>
-            <Button>
-              <PlusCircle className="mr-2 h-4 w-4" />
-              {t('ipl.addPayment')}
-            </Button>
+            <div className="flex items-center gap-2">
+              <Link href="/payment-confirmation">
+                <Button variant="outline">
+                  <Receipt className="mr-2 h-4 w-4" />
+                  {t('ipl.confirmPayment')}
+                </Button>
+              </Link>
+              <Button>
+                <PlusCircle className="mr-2 h-4 w-4" />
+                {t('ipl.addPayment')}
+              </Button>
+            </div>
           </div>
         </CardHeader>
         <CardContent>
