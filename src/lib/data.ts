@@ -152,7 +152,7 @@ export const classifieds: ClassifiedAd[] = [
     id: '1',
     titleKey: 'sepeda_gunung',
     price: 2500000,
-    image: "https://placehold.co/600x400.png",
+    image: "/images/sepeda.jpg",
     imageHint: "mountain bike",
     phone: "6281234567890",
     status: 'active',
@@ -440,6 +440,7 @@ export const wasteManagementSchedule = [
 
 
     
+
 
 
 
