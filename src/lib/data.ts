@@ -1,3 +1,4 @@
+
 export const announcements = [
   {
     title: "Community Garden Meeting",
@@ -24,27 +25,99 @@ export const announcements = [
 export const residents = [
   {
     name: "John Doe",
-    address: "123 Stoneyard Lane",
+    address: "Blok A No. 1",
     phone: "555-1234",
     email: "john.doe@example.com",
   },
   {
     name: "Jane Smith",
-    address: "456 Cimahpar Circle",
+    address: "Blok A No. 2",
     phone: "555-5678",
     email: "jane.smith@example.com",
   },
   {
     name: "Ahmad Subarjo",
-    address: "789 Green Valley Rd",
+    address: "Blok A No. 3",
     phone: "555-9012",
     email: "ahmad.subarjo@example.com",
   },
   {
     name: "Siti Rahayu",
-    address: "101 Suburbia Ave",
+    address: "Blok A No. 4",
     phone: "555-3456",
     email: "siti.rahayu@example.com",
+  },
+  {
+    name: "Budi Santoso",
+    address: "Blok B No. 1",
+    phone: "0812-3333-4444",
+    email: "budi.santoso@example.com",
+  },
+  {
+    name: "Citra Lestari",
+    address: "Blok B No. 2",
+    phone: "0812-5555-6666",
+    email: "citra.lestari@example.com",
+  },
+  {
+    name: "Doni Hidayat",
+    address: "Blok B No. 3",
+    phone: "0812-7777-8888",
+    email: "doni.hidayat@example.com",
+  },
+  {
+    name: "Eka Putri",
+    address: "Blok B No. 4",
+    phone: "0813-1111-2222",
+    email: "eka.putri@example.com",
+  },
+  {
+    name: "Fajar Nugraha",
+    address: "Blok C No. 1",
+    phone: "0813-3333-4444",
+    email: "fajar.nugraha@example.com",
+  },
+  {
+    name: "Gita Permata",
+    address: "Blok C No. 2",
+    phone: "0813-5555-6666",
+    email: "gita.permata@example.com",
+  },
+  {
+    name: "Hendra Wijaya",
+    address: "Blok C No. 3",
+    phone: "0813-7777-8888",
+    email: "hendra.wijaya@example.com",
+  },
+  {
+    name: "Indah Sari",
+    address: "Blok C No. 4",
+    phone: "0815-1111-2222",
+    email: "indah.sari@example.com",
+  },
+  {
+    name: "Joko Susanto",
+    address: "Blok D No. 1",
+    phone: "0815-3333-4444",
+    email: "joko.susanto@example.com",
+  },
+  {
+    name: "Kartika Dewi",
+    address: "Blok D No. 2",
+    phone: "0815-5555-6666",
+    email: "kartika.dewi@example.com",
+  },
+  {
+    name: "Lutfi Hakim",
+    address: "Blok D No. 3",
+    phone: "0815-7777-8888",
+    email: "lutfi.hakim@example.com",
+  },
+   {
+    name: "Maria Yuliana",
+    address: "Blok D No. 4",
+    phone: "0816-1111-2222",
+    email: "maria.yuliana@example.com",
   },
 ];
 
@@ -171,7 +244,7 @@ export const associationManagement = [
 export const iplManagement = [
   {
     residentName: "John Doe",
-    address: "123 Stoneyard Lane",
+    address: "Blok A No. 1",
     month: "Juli",
     year: 2024,
     amount: "150,000",
@@ -179,7 +252,7 @@ export const iplManagement = [
   },
   {
     residentName: "Jane Smith",
-    address: "456 Cimahpar Circle",
+    address: "Blok A No. 2",
     month: "Juli",
     year: 2024,
     amount: "150,000",
@@ -187,7 +260,7 @@ export const iplManagement = [
   },
   {
     residentName: "Ahmad Subarjo",
-    address: "789 Green Valley Rd",
+    address: "Blok A No. 3",
     month: "Juli",
     year: 2024,
     amount: "150,000",
@@ -195,7 +268,7 @@ export const iplManagement = [
   },
   {
     residentName: "Siti Rahayu",
-    address: "101 Suburbia Ave",
+    address: "Blok A No. 4",
     month: "Juli",
     year: 2024,
     amount: "150,000",
@@ -203,7 +276,7 @@ export const iplManagement = [
   },
     {
     residentName: "John Doe",
-    address: "123 Stoneyard Lane",
+    address: "Blok A No. 1",
     month: "Juni",
     year: 2024,
     amount: "150,000",
