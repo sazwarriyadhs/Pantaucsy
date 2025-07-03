@@ -84,7 +84,7 @@ export default function RegisterPage() {
       console.error("Registration error:", error)
       let description = t('auth.error.register');
 
-      if (error.code === 'auth/invalid-api-key') {
+      if (error.code === 'auth/invalid-api-key' || error.code === 'auth/api-key-not-valid') {
         description = t('auth.error.invalid_api_key');
       }
 
