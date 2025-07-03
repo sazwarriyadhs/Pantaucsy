@@ -57,13 +57,22 @@ export default function ReportIssuePage() {
           if (videoRef.current) {
             videoRef.current.srcObject = stream;
           }
-        } catch (error) {
+        } catch (error: any) {
           console.error('Error accessing camera:', error);
           setHasCameraPermission(false);
+          
+          let title = t('reportIssue.camera.toast.deniedTitle');
+          let description = t('reportIssue.camera.toast.deniedDescription');
+
+          if (error.name === 'NotFoundError' || error.name === 'DevicesNotFoundError') {
+            title = t('reportIssue.camera.toast.notFoundTitle');
+            description = t('reportIssue.camera.toast.notFoundDescription');
+          }
+
           toast({
             variant: 'destructive',
-            title: t('reportIssue.camera.toast.deniedTitle'),
-            description: t('reportIssue.camera.toast.deniedDescription'),
+            title: title,
+            description: description,
           });
         }
       } else {

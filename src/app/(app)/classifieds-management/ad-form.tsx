@@ -109,13 +109,22 @@ export function AdForm({ isOpen, onOpenChange, onSubmit, ad }: AdFormProps) {
             if (videoRef.current) {
               videoRef.current.srcObject = stream;
             }
-          } catch (error) {
+          } catch (error: any) {
             console.error('Error accessing camera:', error);
             setHasCameraPermission(false);
+            
+            let title = t('classifiedsManagement.camera.toast.deniedTitle');
+            let description = t('classifiedsManagement.camera.toast.deniedDescription');
+
+            if (error.name === 'NotFoundError' || error.name === 'DevicesNotFoundError') {
+              title = t('classifiedsManagement.camera.toast.notFoundTitle');
+              description = t('classifiedsManagement.camera.toast.notFoundDescription');
+            }
+
             toast({
               variant: 'destructive',
-              title: t('classifiedsManagement.camera.toast.deniedTitle'),
-              description: t('classifiedsManagement.camera.toast.deniedDescription'),
+              title: title,
+              description: description,
             });
           }
         } else {

@@ -210,6 +210,8 @@ const en = {
       toast: {
         deniedTitle: 'Camera Access Denied',
         deniedDescription: 'Please enable camera permissions in your browser settings.',
+        notFoundTitle: 'Camera Not Found',
+        notFoundDescription: 'No camera device could be found. Please connect one to use this feature.',
       },
     }
   },
@@ -346,6 +348,8 @@ const en = {
       toast: {
         deniedTitle: 'Camera Access Denied',
         deniedDescription: 'Please enable camera permissions in your browser settings.',
+        notFoundTitle: 'Camera Not Found',
+        notFoundDescription: 'No camera device could be found. Please connect one to use this feature.',
       },
     },
   },

@@ -210,6 +210,8 @@ const id = {
       toast: {
         deniedTitle: 'Akses Kamera Ditolak',
         deniedDescription: 'Mohon aktifkan izin kamera di pengaturan browser Anda.',
+        notFoundTitle: 'Kamera Tidak Ditemukan',
+        notFoundDescription: 'Tidak ada perangkat kamera yang ditemukan. Harap sambungkan kamera untuk menggunakan fitur ini.',
       },
     }
   },
@@ -346,6 +348,8 @@ const id = {
       toast: {
         deniedTitle: 'Akses Kamera Ditolak',
         deniedDescription: 'Mohon aktifkan izin kamera di pengaturan browser Anda.',
+        notFoundTitle: 'Kamera Tidak Ditemukan',
+        notFoundDescription: 'Tidak ada perangkat kamera yang ditemukan. Harap sambungkan kamera untuk menggunakan fitur ini.',
       },
     },
   },
