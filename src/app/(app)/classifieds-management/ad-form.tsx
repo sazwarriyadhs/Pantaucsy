@@ -61,6 +61,7 @@ export function AdForm({ isOpen, onOpenChange, onSubmit, ad }: AdFormProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const streamRef = useRef<MediaStream | null>(null);
 
   const form = useForm<AdFormValues>({
     resolver: zodResolver(adFormSchema),
@@ -105,48 +106,51 @@ export function AdForm({ isOpen, onOpenChange, onSubmit, ad }: AdFormProps) {
   }, [ad, form, isOpen, t])
 
   useEffect(() => {
-    let stream: MediaStream | null = null;
-    const getCamera = async () => {
-      if (imageMode === 'camera' && isOpen) {
-        if (typeof window !== 'undefined' && navigator.mediaDevices) {
-          try {
-            stream = await navigator.mediaDevices.getUserMedia({ video: true });
-            setHasCameraPermission(true);
-            if (videoRef.current) {
-              videoRef.current.srcObject = stream;
-            }
-          } catch (error: any) {
-            console.error('Error accessing camera:', error);
-            setHasCameraPermission(false);
-            
-            let title = t('classifiedsManagement.camera.toast.deniedTitle');
-            let description = t('classifiedsManagement.camera.toast.deniedDescription');
-
-            if (error.name === 'NotFoundError' || error.name === 'DevicesNotFoundError') {
-              title = t('classifiedsManagement.camera.toast.notFoundTitle');
-              description = t('classifiedsManagement.camera.toast.notFoundDescription');
-            }
-
-            toast({
-              variant: 'destructive',
-              title: title,
-              description: description,
-            });
-            setImageMode('idle');
-          }
-        } else {
-          setHasCameraPermission(false);
-          setImageMode('idle');
+    const enableStream = async () => {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+        streamRef.current = stream;
+        setHasCameraPermission(true);
+        if (videoRef.current) {
+          videoRef.current.srcObject = stream;
         }
+      } catch (error: any) {
+        console.error('Error accessing camera:', error);
+        setHasCameraPermission(false);
+        
+        let title = t('classifiedsManagement.camera.toast.deniedTitle');
+        let description = t('classifiedsManagement.camera.toast.deniedDescription');
+
+        if (error.name === 'NotFoundError' || error.name === 'DevicesNotFoundError') {
+          title = t('classifiedsManagement.camera.toast.notFoundTitle');
+          description = t('classifiedsManagement.camera.toast.notFoundDescription');
+        }
+
+        toast({
+          variant: 'destructive',
+          title: title,
+          description: description,
+        });
+        setImageMode('idle');
       }
     };
-    getCamera();
-    
-    return () => {
-      if (stream) {
-        stream.getTracks().forEach(track => track.stop());
+
+    const disableStream = () => {
+      if (streamRef.current) {
+        streamRef.current.getTracks().forEach(track => track.stop());
+        streamRef.current = null;
       }
+    };
+
+    if (imageMode === 'camera' && isOpen) {
+      enableStream();
+    } else {
+      disableStream();
     }
+
+    return () => {
+      disableStream();
+    };
   }, [imageMode, isOpen, t, toast]);
 
   const handleCapture = () => {
