@@ -6,12 +6,15 @@ import {
   Calendar,
   FileWarning,
   LayoutDashboard,
-  Shield,
   ShoppingBag,
   Users,
-  Banknote,
   Camera,
   HeartHandshake,
+  Receipt,
+  ClipboardCheck,
+  LineChart,
+  CalendarClock,
+  ShieldCheck
 } from 'lucide-react';
 import {
   SidebarProvider,
@@ -25,9 +28,7 @@ import {
   SidebarTrigger,
   SidebarFooter,
   SidebarGroup,
-  SidebarMenuSub,
-  SidebarMenuSubItem,
-  SidebarMenuSubButton,
+  SidebarGroupLabel,
 } from '@/components/ui/sidebar';
 import { UserNav } from '@/components/user-nav';
 import { useI18n } from '@/context/i18n-provider';
@@ -51,91 +52,91 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
           </SidebarHeader>
           <SidebarMenu>
             <SidebarMenuItem>
-              <SidebarMenuButton href="/" isActive={isActive('/', true)}>
+              <SidebarMenuButton href="/" isActive={isActive('/', true)} tooltip={t('sidebar.announcements')}>
                 <LayoutDashboard />
                 {t('sidebar.announcements')}
               </SidebarMenuButton>
             </SidebarMenuItem>
             <SidebarMenuItem>
-              <SidebarMenuButton href="/residents" isActive={isActive('/residents')}>
+              <SidebarMenuButton href="/residents" isActive={isActive('/residents')} tooltip={t('sidebar.residents')}>
                 <Users />
                 {t('sidebar.residents')}
               </SidebarMenuButton>
             </SidebarMenuItem>
             <SidebarMenuItem>
-              <SidebarMenuButton href="/association-management" isActive={isActive('/association-management')}>
+              <SidebarMenuButton href="/association-management" isActive={isActive('/association-management')} tooltip={t('sidebar.associationManagement')}>
                 <Briefcase />
                 {t('sidebar.associationManagement')}
               </SidebarMenuButton>
             </SidebarMenuItem>
-            <SidebarGroup>
-              <SidebarMenuButton>
-                <Banknote /> {t('sidebar.finance')}
-              </SidebarMenuButton>
-              <SidebarMenuSub>
-                <SidebarMenuSubItem>
-                  <SidebarMenuSubButton href="/ipl-management" isActive={isActive('/ipl-management')}>
-                    {t('sidebar.iplManagement')}
-                  </SidebarMenuSubButton>
-                </SidebarMenuSubItem>
-                <SidebarMenuSubItem>
-                  <SidebarMenuSubButton href="/payment-confirmation" isActive={isActive('/payment-confirmation')}>
-                    {t('sidebar.paymentConfirmation')}
-                  </SidebarMenuSubButton>
-                </SidebarMenuSubItem>
-                <SidebarMenuSubItem>
-                  <SidebarMenuSubButton href="/financial-report" isActive={isActive('/financial-report')}>
-                    {t('sidebar.financialReport')}
-                  </SidebarMenuSubButton>
-                </SidebarMenuSubItem>
-              </SidebarMenuSub>
+
+            <SidebarGroup className="pt-4">
+              <SidebarGroupLabel>{t('sidebar.finance')}</SidebarGroupLabel>
+              <SidebarMenuItem>
+                <SidebarMenuButton href="/ipl-management" isActive={isActive('/ipl-management')} tooltip={t('sidebar.iplManagement')}>
+                  <Receipt />
+                  {t('sidebar.iplManagement')}
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton href="/payment-confirmation" isActive={isActive('/payment-confirmation')} tooltip={t('sidebar.paymentConfirmation')}>
+                  <ClipboardCheck />
+                  {t('sidebar.paymentConfirmation')}
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton href="/financial-report" isActive={isActive('/financial-report')} tooltip={t('sidebar.financialReport')}>
+                  <LineChart />
+                  {t('sidebar.financialReport')}
+                </SidebarMenuButton>
+              </SidebarMenuItem>
             </SidebarGroup>
+
             <SidebarMenuItem>
-              <SidebarMenuButton href="/classifieds" isActive={isActive('/classifieds')}>
+              <SidebarMenuButton href="/classifieds" isActive={isActive('/classifieds')} tooltip={t('sidebar.classifieds')}>
                 <ShoppingBag />
                 {t('sidebar.classifieds')}
               </SidebarMenuButton>
             </SidebarMenuItem>
             <SidebarMenuItem>
-              <SidebarMenuButton href="/events" isActive={isActive('/events')}>
+              <SidebarMenuButton href="/events" isActive={isActive('/events')} tooltip={t('sidebar.events')}>
                 <Calendar />
                 {t('sidebar.events')}
               </SidebarMenuButton>
             </SidebarMenuItem>
             <SidebarMenuItem>
-                <SidebarMenuButton href="/gallery" isActive={isActive('/gallery')}>
+                <SidebarMenuButton href="/gallery" isActive={isActive('/gallery')} tooltip={t('sidebar.gallery')}>
                   <Camera />
                   {t('sidebar.gallery')}
                 </SidebarMenuButton>
             </SidebarMenuItem>
             <SidebarMenuItem>
-              <SidebarMenuButton href="/report-issue" isActive={isActive('/report-issue')}>
+              <SidebarMenuButton href="/report-issue" isActive={isActive('/report-issue')} tooltip={t('sidebar.reportIssue')}>
                 <FileWarning />
                 {t('sidebar.reportIssue')}
               </SidebarMenuButton>
             </SidebarMenuItem>
             <SidebarMenuItem>
-              <SidebarMenuButton href="/curhat-warga" isActive={isActive('/curhat-warga')}>
+              <SidebarMenuButton href="/curhat-warga" isActive={isActive('/curhat-warga')} tooltip={t('sidebar.curhatWarga')}>
                 <HeartHandshake />
                 {t('sidebar.curhatWarga')}
               </SidebarMenuButton>
             </SidebarMenuItem>
-            <SidebarGroup>
-              <SidebarMenuButton>
-                <Shield /> {t('sidebar.security')}
-              </SidebarMenuButton>
-              <SidebarMenuSub>
-                <SidebarMenuSubItem>
-                  <SidebarMenuSubButton href="/security/schedule" isActive={isActive('/security/schedule')}>
-                    {t('sidebar.schedule')}
-                  </SidebarMenuSubButton>
-                </SidebarMenuSubItem>
-                <SidebarMenuSubItem>
-                  <SidebarMenuSubButton href="/security/management" isActive={isActive('/security/management')}>
-                    {t('sidebar.management')}
-                  </SidebarMenuSubButton>
-                </SidebarMenuSubItem>
-              </SidebarMenuSub>
+
+            <SidebarGroup className="pt-4">
+              <SidebarGroupLabel>{t('sidebar.security')}</SidebarGroupLabel>
+              <SidebarMenuItem>
+                <SidebarMenuButton href="/security/schedule" isActive={isActive('/security/schedule')} tooltip={t('sidebar.schedule')}>
+                  <CalendarClock />
+                  {t('sidebar.schedule')}
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton href="/security/management" isActive={isActive('/security/management')} tooltip={t('sidebar.management')}>
+                  <ShieldCheck />
+                  {t('sidebar.management')}
+                </SidebarMenuButton>
+              </SidebarMenuItem>
             </SidebarGroup>
           </SidebarMenu>
         </SidebarContent>
