@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
-import { Camera, Trash2 } from "lucide-react"
+import { Camera, Trash2, Upload } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import {
@@ -53,9 +53,10 @@ export function AdForm({ isOpen, onOpenChange, onSubmit, ad }: AdFormProps) {
   const { toast } = useToast()
 
   const [hasCameraPermission, setHasCameraPermission] = useState<boolean | null>(null);
-  const [capturedImage, setCapturedImage] = useState<string | null>(null);
+  const [imagePreview, setImagePreview] = useState<string | null>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const form = useForm<AdFormValues>({
     resolver: zodResolver(adFormSchema),
@@ -81,9 +82,9 @@ export function AdForm({ isOpen, onOpenChange, onSubmit, ad }: AdFormProps) {
           image: ad.image,
         })
         if (ad.image && !ad.image.startsWith('https://placehold.co')) {
-          setCapturedImage(ad.image)
+          setImagePreview(ad.image)
         } else {
-          setCapturedImage(null)
+          setImagePreview(null)
         }
       } else {
         form.reset({
@@ -93,7 +94,7 @@ export function AdForm({ isOpen, onOpenChange, onSubmit, ad }: AdFormProps) {
           phone: "",
           image: "",
         })
-        setCapturedImage(null)
+        setImagePreview(null)
       }
     }
   }, [ad, form, isOpen, t])
@@ -151,15 +152,31 @@ export function AdForm({ isOpen, onOpenChange, onSubmit, ad }: AdFormProps) {
       if (context) {
         context.drawImage(video, 0, 0, canvas.width, canvas.height);
         const dataUri = canvas.toDataURL('image/jpeg');
-        setCapturedImage(dataUri);
+        setImagePreview(dataUri);
         form.setValue('image', dataUri, { shouldValidate: true });
       }
     }
   };
+  
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        const dataUri = reader.result as string;
+        setImagePreview(dataUri);
+        form.setValue('image', dataUri, { shouldValidate: true });
+      };
+      reader.readAsDataURL(file);
+    }
+  };
 
-  const handleRetake = () => {
-    setCapturedImage(null);
+  const handleRemoveImage = () => {
+    setImagePreview(null);
     form.setValue('image', undefined, { shouldValidate: true });
+    if (fileInputRef.current) {
+      fileInputRef.current.value = "";
+    }
   };
 
 
@@ -235,18 +252,26 @@ export function AdForm({ isOpen, onOpenChange, onSubmit, ad }: AdFormProps) {
               name="image"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>{t('classifiedsManagement.form.addPhoto')}</FormLabel>
+                  <FormLabel>{t('classifiedsManagement.form.adPhoto')}</FormLabel>
                   <Card>
                     <CardContent className="flex flex-col items-center justify-center gap-4 p-4">
                        <div className="w-full aspect-video bg-muted rounded-md overflow-hidden flex items-center justify-center relative">
-                          {capturedImage ? (
-                            <img src={capturedImage} alt="Captured" className="w-full h-full object-cover" />
+                          {imagePreview ? (
+                            <img src={imagePreview} alt="Preview" className="w-full h-full object-cover" />
                           ) : (
-                            <video ref={videoRef} className="w-full h-full object-cover" autoPlay muted playsInline />
+                            <>
+                              <video ref={videoRef} className="w-full h-full object-cover" autoPlay muted playsInline />
+                              {hasCameraPermission === false && (
+                                <div className="absolute flex flex-col items-center text-muted-foreground">
+                                   <Camera className="h-12 w-12" />
+                                   <p>{t('classifiedsManagement.form.noImagePlaceholder')}</p>
+                                </div>
+                              )}
+                            </>
                           )}
                         </div>
 
-                        {hasCameraPermission === false && (
+                        {hasCameraPermission === false && !imagePreview && (
                           <Alert variant="destructive">
                             <AlertTitle>{t('classifiedsManagement.camera.accessRequired')}</AlertTitle>
                             <AlertDescription>
@@ -256,19 +281,32 @@ export function AdForm({ isOpen, onOpenChange, onSubmit, ad }: AdFormProps) {
                         )}
 
                         <div className="flex gap-2">
-                          {capturedImage ? (
-                            <Button type="button" variant="outline" onClick={handleRetake}>
+                          {imagePreview ? (
+                            <Button type="button" variant="outline" onClick={handleRemoveImage}>
                                <Trash2 className="mr-2 h-4 w-4" />
-                              {t('classifiedsManagement.form.retakePicture')}
+                              {t('classifiedsManagement.form.removePicture')}
                             </Button>
                           ) : (
-                            <Button type="button" onClick={handleCapture} disabled={!hasCameraPermission}>
-                              <Camera className="mr-2 h-4 w-4" />
-                              {t('classifiedsManagement.form.takePicture')}
-                            </Button>
+                            <>
+                              <Button type="button" onClick={handleCapture} disabled={!hasCameraPermission}>
+                                <Camera className="mr-2 h-4 w-4" />
+                                {t('classifiedsManagement.form.takePicture')}
+                              </Button>
+                              <Button type="button" variant="secondary" onClick={() => fileInputRef.current?.click()}>
+                                <Upload className="mr-2 h-4 w-4" />
+                                {t('classifiedsManagement.form.uploadFile')}
+                              </Button>
+                            </>
                           )}
                         </div>
                         <canvas ref={canvasRef} className="hidden"></canvas>
+                        <Input 
+                          type="file" 
+                          ref={fileInputRef} 
+                          className="hidden" 
+                          accept="image/*"
+                          onChange={handleFileChange}
+                        />
                     </CardContent>
                   </Card>
                   <FormMessage />
