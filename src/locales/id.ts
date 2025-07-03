@@ -55,6 +55,7 @@ const id = {
     },
     error: {
         login: 'Gagal masuk. Silakan periksa kredensial Anda.',
+        login_demo: 'Gagal masuk. Jika Anda mencoba menggunakan akun demo, silakan daftarkan akun tersebut terlebih dahulu.',
         register: 'Pendaftaran gagal. Email mungkin sudah digunakan.'
     }
   },

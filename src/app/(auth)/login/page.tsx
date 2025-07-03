@@ -60,12 +60,17 @@ export default function LoginPage() {
     try {
       await signInWithEmailAndPassword(auth, values.email, values.password)
       router.push('/announcements')
-    } catch (error) {
+    } catch (error: any) {
       console.error("Login error:", error)
+      let description = t('auth.error.login');
+      // Firebase error code for invalid credentials (wrong email/password) is 'auth/invalid-credential'
+      if (values.email === 'john.doe@example.com' && error.code === 'auth/invalid-credential') {
+        description = t('auth.error.login_demo');
+      }
       toast({
         variant: "destructive",
         title: "Error",
-        description: t('auth.error.login'),
+        description: description,
       })
     } finally {
       setIsLoading(false)

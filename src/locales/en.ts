@@ -55,6 +55,7 @@ const en = {
     },
     error: {
         login: 'Login failed. Please check your credentials.',
+        login_demo: 'Login failed. If you are trying to use the demo account, please register it first.',
         register: 'Registration failed. The email might already be in use.'
     }
   },
