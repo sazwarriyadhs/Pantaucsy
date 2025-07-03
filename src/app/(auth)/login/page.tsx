@@ -1,3 +1,4 @@
+
 "use client"
 
 import { useState } from "react"
@@ -54,6 +55,11 @@ export default function LoginPage() {
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsLoading(true)
     if (!firebaseReady || !auth) {
+        toast({
+            variant: "destructive",
+            title: "Error",
+            description: "Firebase is not configured.",
+        });
         setIsLoading(false);
         return;
     }
