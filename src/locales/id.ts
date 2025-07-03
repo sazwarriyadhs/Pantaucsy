@@ -9,6 +9,7 @@ const id = {
     events: 'Acara',
     gallery: 'Galeri Foto',
     reportIssue: 'Lapor Masalah',
+    curhatWarga: 'Curhat Warga',
     security: 'Keamanan',
     schedule: 'Jadwal',
     management: 'Manajemen',
@@ -139,6 +140,34 @@ const id = {
       descriptionColumn: 'Keterangan',
       type: 'Tipe',
       amount: 'Jumlah',
+    }
+  },
+  curhatWarga: {
+    title: "Ruang Curhat Warga",
+    description: "Ruang aman untuk berbagi pikiran dan perasaan Anda. Teman AI kami siap mendengarkan.",
+    form: {
+      title: "Bagikan Isi Hati Anda",
+      description: "Tuliskan apa pun yang ada di pikiran Anda. Ruang ini bersifat pribadi dan anonim.",
+      label: "Cerita Anda",
+      placeholder: "Silakan bagikan apa saja...",
+      submit: "Kirim",
+      submitting: "Mengirim...",
+      validation: "Curhatan harus minimal 10 karakter.",
+    },
+    response: {
+      title: "Catatan dari Tetangga AI Anda",
+      description: "Berikut adalah tanggapan suportif untuk Anda.",
+      loading: "Memikirkan tanggapan...",
+    },
+    toast: {
+      success: {
+        title: "Pesan Terkirim",
+        description: "Anda telah menerima tanggapan dari tetangga AI Anda.",
+      },
+      error: {
+        title: "Terjadi Kesalahan",
+        description: "Terjadi masalah. Silakan coba lagi.",
+      }
     }
   }
 };

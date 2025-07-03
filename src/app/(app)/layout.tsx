@@ -11,6 +11,7 @@ import {
   Users,
   Banknote,
   Camera,
+  HeartHandshake,
 } from 'lucide-react';
 import {
   SidebarProvider,
@@ -111,6 +112,12 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
               <SidebarMenuButton href="/report-issue" isActive={isActive('/report-issue')}>
                 <FileWarning />
                 {t('sidebar.reportIssue')}
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+            <SidebarMenuItem>
+              <SidebarMenuButton href="/curhat-warga" isActive={isActive('/curhat-warga')}>
+                <HeartHandshake />
+                {t('sidebar.curhatWarga')}
               </SidebarMenuButton>
             </SidebarMenuItem>
             <SidebarGroup>

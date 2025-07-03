@@ -9,6 +9,7 @@ const en = {
     events: 'Events',
     gallery: 'Photo Gallery',
     reportIssue: 'Report Issue',
+    curhatWarga: 'Resident Venting',
     security: 'Security',
     schedule: 'Schedule',
     management: 'Management',
@@ -139,6 +140,34 @@ const en = {
       descriptionColumn: 'Description',
       type: 'Type',
       amount: 'Amount',
+    }
+  },
+  curhatWarga: {
+    title: "Resident Venting Space",
+    description: "A safe space to share your thoughts and feelings. Our AI friend is here to listen.",
+    form: {
+      title: "Share Your Thoughts",
+      description: "Write down whatever is on your mind. This is a private and anonymous space.",
+      label: "Your story",
+      placeholder: "Feel free to share anything...",
+      submit: "Send",
+      submitting: "Sending...",
+      validation: "Message must be at least 10 characters.",
+    },
+    response: {
+      title: "A Note from Your AI Neighbor",
+      description: "Here is a supportive response for you.",
+      loading: "Thinking of a response...",
+    },
+    toast: {
+      success: {
+        title: "Message Sent",
+        description: "You've received a response from your AI neighbor.",
+      },
+      error: {
+        title: "Error",
+        description: "Something went wrong. Please try again.",
+      }
     }
   }
 };
