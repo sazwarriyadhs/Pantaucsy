@@ -54,25 +54,28 @@ export default function LoginPage() {
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsLoading(true)
-    if (!firebaseReady || !auth) {
+    if (!firebaseReady) {
         toast({
             variant: "destructive",
             title: "Error",
-            description: "Firebase is not configured.",
+            description: t('auth.error.not_configured'),
         });
         setIsLoading(false);
         return;
     }
     try {
-      await signInWithEmailAndPassword(auth, values.email, values.password)
+      await signInWithEmailAndPassword(auth!, values.email, values.password)
       router.push('/announcements')
     } catch (error: any) {
       console.error("Login error:", error)
       let description = t('auth.error.login');
-      // Firebase error code for invalid credentials (wrong email/password) is 'auth/invalid-credential'
-      if (values.email === 'john.doe@example.com' && error.code === 'auth/invalid-credential') {
+      
+      if (error.code === 'auth/invalid-api-key') {
+        description = t('auth.error.invalid_api_key');
+      } else if (values.email === 'john.doe@example.com' && error.code === 'auth/invalid-credential') {
         description = t('auth.error.login_demo');
       }
+
       toast({
         variant: "destructive",
         title: "Error",
@@ -95,7 +98,7 @@ export default function LoginPage() {
         </CardDescription>
         {firebaseNotConfigured && (
             <CardDescription className="text-destructive pt-2">
-                Firebase is not configured. Please replace the placeholder values in your .env file.
+                {t('auth.error.not_configured')}
             </CardDescription>
         )}
       </CardHeader>

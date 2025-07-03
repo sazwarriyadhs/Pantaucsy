@@ -1,3 +1,4 @@
+
 "use client"
 
 import { useState } from "react"
@@ -55,12 +56,17 @@ export default function RegisterPage() {
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsLoading(true)
-    if (!firebaseReady || !auth) {
+    if (!firebaseReady) {
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: t('auth.error.not_configured'),
+      });
       setIsLoading(false)
       return
     }
     try {
-      const userCredential = await createUserWithEmailAndPassword(auth, values.email, values.password)
+      const userCredential = await createUserWithEmailAndPassword(auth!, values.email, values.password)
       await updateProfile(userCredential.user, {
         displayName: values.name,
       });
@@ -74,12 +80,18 @@ export default function RegisterPage() {
       });
       router.push('/login');
 
-    } catch (error) {
+    } catch (error: any) {
       console.error("Registration error:", error)
+      let description = t('auth.error.register');
+
+      if (error.code === 'auth/invalid-api-key') {
+        description = t('auth.error.invalid_api_key');
+      }
+
       toast({
         variant: "destructive",
         title: "Error",
-        description: t('auth.error.register'),
+        description: description,
       })
     } finally {
       setIsLoading(false)
@@ -95,7 +107,7 @@ export default function RegisterPage() {
         <CardDescription>{t('auth.register.description')}</CardDescription>
         {firebaseNotConfigured && (
             <CardDescription className="text-destructive pt-2">
-                Firebase is not configured. Please replace the placeholder values in your .env file.
+                {t('auth.error.not_configured')}
             </CardDescription>
         )}
       </CardHeader>

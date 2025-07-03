@@ -56,7 +56,9 @@ const en = {
     error: {
         login: 'Login failed. Please check your credentials.',
         login_demo: 'Login failed. If you are trying to use the demo account, please register it first.',
-        register: 'Registration failed. The email might already be in use.'
+        register: 'Registration failed. The email might already be in use.',
+        not_configured: 'Firebase is not configured. Please add your credentials to the .env file.',
+        invalid_api_key: 'Configuration error: The Firebase API key is not valid. Please check your .env file.'
     }
   },
   landing: {
@@ -171,7 +173,7 @@ const en = {
       title: 'New Issue Report',
       description: 'Please provide a detailed description of the issue. Our AI assistant will summarize and categorize it for faster processing.',
       label: 'Issue Description',
-      placeholder: 'e.g., The garbage bin in front of block C is overflowing and hasn\'t been collected for 3 days...',
+      placeholder: 'e.g., The garbage bin in front of block C is overflowing and has not been collected for 3 days...',
       description2: 'Be as specific as possible for the best results.',
       validation: 'Report must be at least 10 characters.',
       submit: 'Submit Report',
