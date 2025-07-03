@@ -17,7 +17,8 @@ import {
   LineChart,
   CalendarClock,
   ShieldCheck,
-  Trash2
+  Trash2,
+  ClipboardList,
 } from 'lucide-react';
 import {
   SidebarProvider,
@@ -106,6 +107,12 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
                 <ShoppingBag />
                 {t('sidebar.classifieds')}
               </SidebarMenuButton>
+            </SidebarMenuItem>
+            <SidebarMenuItem>
+                <SidebarMenuButton href="/classifieds-management" isActive={isActive('/classifieds-management')} tooltip={t('sidebar.classifiedsManagement')}>
+                  <ClipboardList />
+                  {t('sidebar.classifiedsManagement')}
+                </SidebarMenuButton>
             </SidebarMenuItem>
             <SidebarMenuItem>
               <SidebarMenuButton href="/events" isActive={isActive('/events')} tooltip={t('sidebar.events')}>

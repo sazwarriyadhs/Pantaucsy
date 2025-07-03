@@ -6,6 +6,7 @@ const en = {
     associationManagement: 'Association Management',
     iplManagement: 'IPL Dues',
     classifieds: 'Classifieds',
+    classifiedsManagement: 'Ads Management',
     events: 'Events',
     gallery: 'Photo Gallery',
     reportIssue: 'Report Issue',
@@ -203,28 +204,47 @@ const en = {
     title: 'Classifieds',
     description: 'Buy, sell, or trade items with your neighbors.',
     contactViaWhatsapp: 'Message on WhatsApp',
-    items: {
-      mountain_bike: {
-        title: 'Mountain Bike',
-        description: 'Slightly used mountain bike, great condition. Perfect for trails around the neighborhood.'
-      },
-      toddler_car_seat: {
-        title: 'Toddler Car Seat',
-        description: 'Clean and safe toddler car seat. Our child has outgrown it. All straps and buckles included.'
-      },
-      patio_furniture_set: {
-        title: 'Patio Furniture Set',
-        description: 'Wicker patio set with two chairs and a small table. Cushions included. Great for a small balcony or porch.'
-      },
-      assorted_house_plants: {
-        title: 'Assorted House Plants',
-        description: 'Various house plants for sale. Snake plants, pothos, and succulents available. Brighten up your home!'
-      },
-      advertise_here: {
-        title: 'Advertise Here',
-        description: 'Promote your business for one month for just {price}. Contact management for more details.'
-      }
-    }
+  },
+  classifiedsManagement: {
+    title: 'Ads Management',
+    description: 'Manage classified ads for the community.',
+    tableTitle: 'Ads List',
+    tableDescription: 'List of all active and expired ads.',
+    addAd: 'Add Ad',
+    titleColumn: 'Title',
+    price: 'Price',
+    status: 'Status',
+    expiryDate: 'Expires On',
+    actions: 'Actions',
+    edit: 'Edit',
+    delete: {
+      button: 'Delete',
+      title: 'Are you sure?',
+      description: 'This will permanently delete the ad "{title}".',
+      cancel: 'Cancel',
+      confirm: 'Delete Ad',
+    },
+    form: {
+      addTitle: 'Add New Ad',
+      addDescription: 'Fill in the details for the new classified ad.',
+      editTitle: 'Edit Ad',
+      editDescription: "Update the ad's details.",
+      title: 'Ad Title',
+      description: 'Ad Description',
+      price: 'Price',
+      phone: 'WhatsApp Number',
+      image: 'Ad Image URL',
+      imageDescription: 'Enter a URL for the ad image.',
+      submitAdd: 'Create Ad',
+      submitEdit: 'Save Changes',
+    },
+    statuses: {
+      active: 'Active',
+      expired: 'Expired',
+    },
+    toast: {
+      error: 'An ad with this title already exists.',
+    },
   },
   gallery: {
     title: 'Photo Gallery',

@@ -6,6 +6,18 @@ export type Resident = {
   email: string;
 };
 
+export type ClassifiedAd = {
+  id: string;
+  title: string;
+  description: string;
+  price: number;
+  image: string;
+  imageHint: string;
+  phone: string;
+  status: "active" | "expired";
+  expiryDate: string;
+};
+
 export const announcements = [
   {
     titleKey: "tpq_congratulations",
@@ -136,46 +148,61 @@ export const residents: Resident[] = [
   },
 ];
 
-export const classifieds = [
+export const classifieds: ClassifiedAd[] = [
   {
     id: '1',
-    titleKey: "mountain_bike",
+    title: 'Sepeda Gunung',
+    description: 'Sepeda gunung bekas, kondisi bagus. Sempurna untuk jalur di sekitar lingkungan.',
     price: 2500000,
     image: "https://placehold.co/600x400.png",
     imageHint: "mountain bike",
-    phone: "6281234567890", // Example phone number
+    phone: "6281234567890",
+    status: 'active',
+    expiryDate: '2024-09-30'
   },
   {
     id: '2',
-    titleKey: "toddler_car_seat",
+    title: 'Kursi Mobil Balita',
+    description: 'Kursi mobil balita bersih dan aman. Anak kami sudah tidak muat lagi. Semua tali dan gesper lengkap.',
     price: 500000,
     image: "https://placehold.co/600x400.png",
     imageHint: "car seat",
     phone: "6281234567890",
+    status: 'active',
+    expiryDate: '2024-09-25'
   },
   {
     id: '3',
-    titleKey: "patio_furniture_set",
+    title: 'Set Mebel Teras',
+    description: 'Set rotan teras dengan dua kursi dan meja kecil. Termasuk bantal. Cocok untuk balkon atau teras kecil.',
     price: 1500000,
     image: "https://placehold.co/600x400.png",
     imageHint: "patio furniture",
     phone: "6281234567890",
+    status: 'expired',
+    expiryDate: '2024-08-01'
   },
   {
     id: '4',
-    titleKey: "assorted_house_plants",
+    title: 'Berbagai Tanaman Hias',
+    description: 'Berbagai tanaman hias dijual. Tersedia lidah mertua, sirih gading, dan sukulen. Cerahkan rumah Anda!',
     price: 100000,
     image: "https://placehold.co/600x400.png",
     imageHint: "house plants",
     phone: "6281234567890",
+    status: 'active',
+    expiryDate: '2024-09-28'
   },
   {
     id: '5',
-    titleKey: "advertise_here",
+    title: 'Pasang Iklan Di Sini',
+    description: 'Promosikan usaha Anda selama satu bulan hanya dengan {price}. Hubungi pengurus untuk info lebih lanjut.',
     price: 50000,
     image: "https://placehold.co/600x400.png",
     imageHint: "advertisement marketing",
-    phone: "6281200000000", // Admin phone number
+    phone: "6281200000000",
+    status: 'active',
+    expiryDate: '2025-12-31'
   },
 ];
 
@@ -405,3 +432,4 @@ export const wasteManagementSchedule = [
 
 
     
+

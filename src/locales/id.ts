@@ -6,6 +6,7 @@ const id = {
     associationManagement: 'Pengurus Paguyuban',
     iplManagement: 'Iuran IPL',
     classifieds: 'Iklan Baris',
+    classifiedsManagement: 'Manajemen Iklan',
     events: 'Acara',
     gallery: 'Galeri Foto',
     reportIssue: 'Lapor Masalah',
@@ -203,28 +204,47 @@ const id = {
     title: 'Iklan Baris',
     description: 'Jual, beli, atau tukar barang dengan tetangga Anda.',
     contactViaWhatsapp: 'Pesan via WhatsApp',
-    items: {
-      mountain_bike: {
-        title: 'Sepeda Gunung',
-        description: 'Sepeda gunung bekas, kondisi bagus. Sempurna untuk jalur di sekitar lingkungan.'
-      },
-      toddler_car_seat: {
-        title: 'Kursi Mobil Balita',
-        description: 'Kursi mobil balita bersih dan aman. Anak kami sudah tidak muat lagi. Semua tali dan gesper lengkap.'
-      },
-      patio_furniture_set: {
-        title: 'Set Mebel Teras',
-        description: 'Set rotan teras dengan dua kursi dan meja kecil. Termasuk bantal. Cocok untuk balkon atau teras kecil.'
-      },
-      assorted_house_plants: {
-        title: 'Berbagai Tanaman Hias',
-        description: 'Berbagai tanaman hias dijual. Tersedia lidah mertua, sirih gading, dan sukulen. Cerahkan rumah Anda!'
-      },
-       advertise_here: {
-        title: 'Pasang Iklan Di Sini',
-        description: 'Promosikan usaha Anda selama satu bulan hanya dengan {price}. Hubungi pengurus untuk info lebih lanjut.'
-      }
-    }
+  },
+  classifiedsManagement: {
+    title: 'Manajemen Iklan',
+    description: 'Kelola iklan baris untuk komunitas.',
+    tableTitle: 'Daftar Iklan',
+    tableDescription: 'Daftar semua iklan aktif dan kedaluwarsa.',
+    addAd: 'Tambah Iklan',
+    titleColumn: 'Judul',
+    price: 'Harga',
+    status: 'Status',
+    expiryDate: 'Tanggal Kedaluwarsa',
+    actions: 'Aksi',
+    edit: 'Ubah',
+    delete: {
+      button: 'Hapus',
+      title: 'Apakah Anda yakin?',
+      description: 'Tindakan ini akan menghapus iklan "{title}" secara permanen.',
+      cancel: 'Batal',
+      confirm: 'Hapus Iklan',
+    },
+    form: {
+      addTitle: 'Tambah Iklan Baru',
+      addDescription: 'Isi detail untuk iklan baris yang baru.',
+      editTitle: 'Ubah Iklan',
+      editDescription: 'Perbarui detail iklan.',
+      title: 'Judul Iklan',
+      description: 'Deskripsi Iklan',
+      price: 'Harga',
+      phone: 'Nomor WhatsApp',
+      image: 'URL Gambar Iklan',
+      imageDescription: 'Masukkan URL untuk gambar iklan.',
+      submitAdd: 'Buat Iklan',
+      submitEdit: 'Simpan Perubahan',
+    },
+    statuses: {
+      active: 'Aktif',
+      expired: 'Kedaluwarsa',
+    },
+    toast: {
+      error: 'Iklan dengan judul ini sudah ada.',
+    },
   },
   gallery: {
     title: 'Galeri Foto',

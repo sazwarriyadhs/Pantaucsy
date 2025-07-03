@@ -29,6 +29,8 @@ export default function ClassifiedsPage() {
     const message = encodeURIComponent(`Halo, saya tertarik dengan "${title}" yang Anda iklankan.`);
     return `https://wa.me/${phone}?text=${message}`;
   }
+  
+  const activeClassifieds = classifieds.filter(ad => ad.status === 'active');
 
   return (
     <div className="flex flex-col gap-8">
@@ -47,39 +49,36 @@ export default function ClassifiedsPage() {
         className="w-full"
       >
         <CarouselContent>
-          {classifieds.map((item) => {
-            const itemTitle = t(`classifieds.items.${item.titleKey}.title`);
-            return (
-              <CarouselItem key={item.id} className="md:basis-1/2 lg:basis-1/3 xl:basis-1/4">
-                <div className="p-1">
-                  <Card className="flex flex-col h-full transition-all duration-300 hover:shadow-lg">
-                    <CardHeader className="p-0">
-                      <Image
-                        src={item.image}
-                        alt={itemTitle}
-                        width={600}
-                        height={400}
-                        className="object-cover w-full rounded-t-lg aspect-video"
-                        data-ai-hint={item.imageHint}
-                      />
-                    </CardHeader>
-                    <CardContent className="flex-1 pt-6">
-                      <CardTitle className="text-xl font-headline">{itemTitle}</CardTitle>
-                      <p className="mt-2 text-2xl font-semibold text-primary">{formatCurrency(item.price)}</p>
-                      <CardDescription className="mt-4">{t(`classifieds.items.${item.titleKey}.description`, { price: formatCurrency(item.price) })}</CardDescription>
-                    </CardContent>
-                    <CardFooter>
-                      <Button asChild className="w-full">
-                        <Link href={generateWhatsAppLink(item.phone, itemTitle)}>
-                          <MessageSquare className="mr-2" /> {t('classifieds.contactViaWhatsapp')}
-                        </Link>
-                      </Button>
-                    </CardFooter>
-                  </Card>
-                </div>
-              </CarouselItem>
-            );
-          })}
+          {activeClassifieds.map((item) => (
+            <CarouselItem key={item.id} className="md:basis-1/2 lg:basis-1/3 xl:basis-1/4">
+              <div className="p-1">
+                <Card className="flex flex-col h-full transition-all duration-300 hover:shadow-lg">
+                  <CardHeader className="p-0">
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      width={600}
+                      height={400}
+                      className="object-cover w-full rounded-t-lg aspect-video"
+                      data-ai-hint={item.imageHint}
+                    />
+                  </CardHeader>
+                  <CardContent className="flex-1 pt-6">
+                    <CardTitle className="text-xl font-headline">{item.title}</CardTitle>
+                    <p className="mt-2 text-2xl font-semibold text-primary">{formatCurrency(item.price)}</p>
+                    <CardDescription className="mt-4">{item.description.replace('{price}', formatCurrency(item.price))}</CardDescription>
+                  </CardContent>
+                  <CardFooter>
+                    <Button asChild className="w-full">
+                      <Link href={generateWhatsAppLink(item.phone, item.title)}>
+                        <MessageSquare className="mr-2" /> {t('classifieds.contactViaWhatsapp')}
+                      </Link>
+                    </Button>
+                  </CardFooter>
+                </Card>
+              </div>
+            </CarouselItem>
+          ))}
         </CarouselContent>
         <CarouselPrevious className="hidden ml-12 sm:flex" />
         <CarouselNext className="hidden mr-12 sm:flex" />
