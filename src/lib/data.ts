@@ -146,3 +146,24 @@ export const incidentReports = [
     { id: "IR003", date: "2024-07-22", type: "Stray Animal", status: "Resolved", summary: "A lost dog was found and safely returned to its owner on Cimahpar Circle."},
     { id: "IR004", date: "2024-07-20", type: "Vandalism", status: "Under Investigation", summary: "Graffiti found on the community center wall. Awaiting security camera footage review."},
 ]
+
+export const associationManagement = [
+    {
+        name: "Bapak Ketua RT",
+        position: "Ketua RT",
+        phone: "555-0101",
+        email: "ketua.rt@cimahpar.com",
+    },
+    {
+        name: "Ibu Sekretaris",
+        position: "Sekretaris",
+        phone: "555-0102",
+        email: "sekretaris@cimahpar.com",
+    },
+    {
+        name: "Bapak Bendahara",
+        position: "Bendahara",
+        phone: "555-0103",
+        email: "bendahara@cimahpar.com",
+    },
+];

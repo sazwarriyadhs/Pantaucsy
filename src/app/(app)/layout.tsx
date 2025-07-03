@@ -2,6 +2,7 @@
 
 import { usePathname } from 'next/navigation';
 import {
+  Briefcase,
   Calendar,
   FileWarning,
   LayoutDashboard,
@@ -54,6 +55,12 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
               <SidebarMenuButton href="/residents" isActive={isActive('/residents')}>
                 <Users />
                 Residents
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+            <SidebarMenuItem>
+              <SidebarMenuButton href="/association-management" isActive={isActive('/association-management')}>
+                <Briefcase />
+                Pengurus Paguyuban
               </SidebarMenuButton>
             </SidebarMenuItem>
             <SidebarMenuItem>
