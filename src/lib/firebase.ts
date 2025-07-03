@@ -25,7 +25,14 @@ let app: FirebaseApp | null = null;
 let auth: Auth | null = null;
 let firebaseReady = false;
 
-if (firebaseConfig.apiKey && firebaseConfig.authDomain && firebaseConfig.projectId) {
+// Check if the keys are just placeholders
+const isPlaceholder = (value?: string) => !value || value.startsWith('YOUR_');
+
+if (
+  !isPlaceholder(firebaseConfig.apiKey) &&
+  firebaseConfig.authDomain &&
+  firebaseConfig.projectId
+) {
   try {
     app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
     auth = getAuth(app);
@@ -35,7 +42,7 @@ if (firebaseConfig.apiKey && firebaseConfig.authDomain && firebaseConfig.project
     firebaseReady = false; 
   }
 } else {
-  console.warn("Firebase configuration is missing or incomplete. Please check your .env.local file.");
+  console.warn("Firebase configuration is missing or contains placeholder values. Please check your .env file.");
 }
 
 
