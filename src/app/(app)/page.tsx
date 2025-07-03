@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -16,10 +16,15 @@ import {
   CarouselNext, 
   CarouselPrevious 
 } from '@/components/ui/carousel';
+import Autoplay from "embla-carousel-autoplay"
 
 export default function LandingPage() {
   const [loading, setLoading] = useState(true);
   const { t, locale, formatCurrency } = useI18n();
+  
+  const autoplayPlugin = useRef(
+    Autoplay({ delay: 3000, stopOnInteraction: true, stopOnMouseEnter: true })
+  );
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -190,6 +195,7 @@ export default function LandingPage() {
                 align: "start",
                 loop: true,
               }}
+              plugins={[autoplayPlugin.current]}
               className="w-full mt-12"
             >
               <CarouselContent>
@@ -200,7 +206,7 @@ export default function LandingPage() {
                         <CardHeader className="p-0">
                           <Image
                             src={item.image}
-                            alt={t(`classifieds.items.${item.titleKey}`)}
+                            alt={t(`classifieds.items.${item.titleKey}.title`)}
                             width={600}
                             height={400}
                             className="object-cover w-full rounded-t-lg aspect-video"
