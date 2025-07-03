@@ -16,7 +16,7 @@ export const announcements = [
   {
     titleKey: "obituary_aswin",
     date: "2025-06-24",
-    image: "/images/obituary_aswin.jpeg",
+    image: "/images/obituary_aswin.jpg",
     imageHint: "condolence flowers",
   },
   {
