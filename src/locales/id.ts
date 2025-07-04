@@ -754,6 +754,18 @@ const id = {
       },
     },
   },
+  notifications: {
+    ipl: {
+      dueSoon: {
+        title: "Pengingat Pembayaran IPL",
+        message: "Iuran IPL bulan ini akan jatuh tempo dalam 5 hari (tanggal 28). Mohon segera lakukan pembayaran. Terima kasih.",
+      },
+      overdue: {
+        title: "Pemberitahuan Tunggakan IPL",
+        message: "Yth. Bpk/Ibu {name}, tercatat Anda memiliki tunggakan iuran IPL. Mohon untuk segera menyelesaikannya untuk menghindari penangguhan layanan. Terima kasih.",
+      }
+    }
+  },
 };
 export default id;
 

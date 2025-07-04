@@ -754,6 +754,18 @@ const en = {
       },
     },
   },
+  notifications: {
+    ipl: {
+      dueSoon: {
+        title: "IPL Dues Reminder",
+        message: "This month's IPL dues will be due in 5 days (on the 28th). Please make your payment soon. Thank you.",
+      },
+      overdue: {
+        title: "Overdue IPL Dues Notice",
+        message: "Dear {name}, our records show you have an overdue IPL payment. Please settle it soon to avoid service suspension. Thank you.",
+      }
+    }
+  },
 };
 export default en;
 
