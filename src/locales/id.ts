@@ -116,6 +116,30 @@ const id = {
   announcements: {
     title: 'Pengumuman',
     description: 'Berita dan pembaruan terkini untuk komunitas Cimahpar Stoneyard.',
+    addAnnouncement: 'Tambah Pengumuman',
+    edit: 'Ubah',
+    delete: {
+      button: 'Hapus',
+      title: 'Apakah Anda yakin?',
+      description: 'Tindakan ini akan menghapus pengumuman "{title}" secara permanen.',
+      cancel: 'Batal',
+      confirm: 'Hapus Pengumuman'
+    },
+    form: {
+      addTitle: 'Tambah Pengumuman Baru',
+      addDescription: 'Isi detail untuk pengumuman baru.',
+      editTitle: 'Ubah Pengumuman',
+      editDescription: 'Perbarui detail pengumuman.',
+      submitAdd: 'Buat Pengumuman',
+      submitEdit: 'Simpan Perubahan',
+      title: 'Judul',
+      content: 'Isi',
+      date: 'Tanggal',
+      image: 'URL Gambar (Opsional)',
+      address: 'Alamat (Opsional)',
+      pickDate: 'Pilih tanggal',
+      imagePlaceholder: 'https://placehold.co/600x400.png'
+    }
   },
   associationManagement: {
     title: 'Pengurus Paguyuban',
@@ -189,6 +213,32 @@ const id = {
     recurring: {
       every_saturday: 'Setiap Sabtu'
     },
+    addEvent: 'Tambah Acara',
+    edit: 'Ubah',
+    delete: {
+      button: 'Hapus',
+      title: 'Apakah Anda yakin?',
+      description: 'Tindakan ini akan menghapus acara "{title}" secara permanen.',
+      cancel: 'Batal',
+      confirm: 'Hapus Acara'
+    },
+    form: {
+      addTitle: 'Tambah Acara Baru',
+      addDescription: 'Isi detail untuk acara baru.',
+      editTitle: 'Ubah Acara',
+      editDescription: 'Perbarui detail acara.',
+      submitAdd: 'Buat Acara',
+      submitEdit: 'Simpan Perubahan',
+      title: 'Judul',
+      description: 'Deskripsi',
+      date: 'Tanggal',
+      time: 'Waktu',
+      location: 'Lokasi',
+      recurring: 'Acara Berulang',
+      recurringDescription: 'Apakah ini acara yang dijadwalkan secara teratur?',
+      datePlaceholder: 'cth., 2024-09-14 atau setiap_sabtu',
+      timePlaceholder: 'cth., 8:00 - 14:00'
+    }
   },
   reportIssue: {
     title: 'Lapor Masalah',
@@ -459,7 +509,8 @@ const id = {
       household: 'Rumah Tangga',
       services: 'Jasa',
       other: 'Lainnya'
-    }
+    },
+    noPendingAds: 'Saat ini tidak ada iklan yang menunggu tinjauan.'
   },
   gallery: {
     title: 'Galeri Foto',

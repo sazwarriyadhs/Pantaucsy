@@ -116,6 +116,30 @@ const en = {
   announcements: {
     title: 'Announcements',
     description: 'Latest news and updates for the Cimahpar Stoneyard community.',
+    addAnnouncement: 'Add Announcement',
+    edit: 'Edit',
+    delete: {
+      button: 'Delete',
+      title: 'Are you sure?',
+      description: 'This will permanently delete the announcement "{title}".',
+      cancel: 'Cancel',
+      confirm: 'Delete Announcement'
+    },
+    form: {
+      addTitle: 'Add New Announcement',
+      addDescription: 'Fill in the details for the new announcement.',
+      editTitle: 'Edit Announcement',
+      editDescription: "Update the announcement's details.",
+      submitAdd: 'Create Announcement',
+      submitEdit: 'Save Changes',
+      title: 'Title',
+      content: 'Content',
+      date: 'Date',
+      image: 'Image URL (Optional)',
+      address: 'Address (Optional)',
+      pickDate: 'Pick a date',
+      imagePlaceholder: 'https://placehold.co/600x400.png'
+    }
   },
   associationManagement: {
     title: 'Association Management',
@@ -189,6 +213,32 @@ const en = {
     recurring: {
       every_saturday: 'Every Saturday'
     },
+    addEvent: 'Add Event',
+    edit: 'Edit',
+    delete: {
+      button: 'Delete',
+      title: 'Are you sure?',
+      description: 'This will permanently delete the event "{title}".',
+      cancel: 'Cancel',
+      confirm: 'Delete Event'
+    },
+    form: {
+      addTitle: 'Add New Event',
+      addDescription: 'Fill in the details for the new event.',
+      editTitle: 'Edit Event',
+      editDescription: "Update the event's details.",
+      submitAdd: 'Create Event',
+      submitEdit: 'Save Changes',
+      title: 'Title',
+      description: 'Description',
+      date: 'Date',
+      time: 'Time',
+      location: 'Location',
+      recurring: 'Recurring Event',
+      recurringDescription: 'Is this a regularly scheduled event?',
+      datePlaceholder: 'e.g., 2024-09-14 or every_saturday',
+      timePlaceholder: 'e.g., 8:00 AM - 2:00 PM'
+    }
   },
   reportIssue: {
     title: 'Report an Issue',
@@ -459,7 +509,8 @@ const en = {
       household: 'Household',
       services: 'Services',
       other: 'Other'
-    }
+    },
+    noPendingAds: 'No ads are currently pending review.'
   },
   gallery: {
     title: 'Photo Gallery',

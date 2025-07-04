@@ -82,9 +82,9 @@ export function AnnouncementForm({ isOpen, onOpenChange, onSubmit, announcement 
     }
   }, [announcement, form, isOpen])
 
-  const title = announcement ? "Edit Announcement" : "Add New Announcement"
-  const description = announcement ? "Update the announcement's details." : "Fill in the details for the new announcement."
-  const submitText = announcement ? "Save Changes" : "Create Announcement"
+  const title = announcement ? t('announcements.form.editTitle') : t('announcements.form.addTitle')
+  const description = announcement ? t('announcements.form.editDescription') : t('announcements.form.addDescription')
+  const submitText = announcement ? t('announcements.form.submitEdit') : t('announcements.form.submitAdd')
 
   return (
     <Dialog open={isOpen} onOpenChange={onOpenChange}>
@@ -100,7 +100,7 @@ export function AnnouncementForm({ isOpen, onOpenChange, onSubmit, announcement 
               name="title"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Title</FormLabel>
+                  <FormLabel>{t('announcements.form.title')}</FormLabel>
                   <FormControl>
                     <Input {...field} />
                   </FormControl>
@@ -113,7 +113,7 @@ export function AnnouncementForm({ isOpen, onOpenChange, onSubmit, announcement 
               name="content"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Content</FormLabel>
+                  <FormLabel>{t('announcements.form.content')}</FormLabel>
                   <FormControl>
                     <Textarea className="min-h-[120px]" {...field} />
                   </FormControl>
@@ -126,7 +126,7 @@ export function AnnouncementForm({ isOpen, onOpenChange, onSubmit, announcement 
               name="date"
               render={({ field }) => (
                 <FormItem className="flex flex-col">
-                  <FormLabel>Date</FormLabel>
+                  <FormLabel>{t('announcements.form.date')}</FormLabel>
                   <Popover>
                     <PopoverTrigger asChild>
                       <FormControl>
@@ -140,7 +140,7 @@ export function AnnouncementForm({ isOpen, onOpenChange, onSubmit, announcement 
                           {field.value ? (
                             format(field.value, "PPP")
                           ) : (
-                            <span>Pick a date</span>
+                            <span>{t('announcements.form.pickDate')}</span>
                           )}
                           <CalendarIcon className="w-4 h-4 ml-auto opacity-50" />
                         </Button>
@@ -164,9 +164,9 @@ export function AnnouncementForm({ isOpen, onOpenChange, onSubmit, announcement 
               name="image"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Image URL (Optional)</FormLabel>
+                  <FormLabel>{t('announcements.form.image')}</FormLabel>
                   <FormControl>
-                    <Input placeholder="https://placehold.co/600x400.png" {...field} />
+                    <Input placeholder={t('announcements.form.imagePlaceholder')} {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -177,7 +177,7 @@ export function AnnouncementForm({ isOpen, onOpenChange, onSubmit, announcement 
               name="address"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Address (Optional)</FormLabel>
+                  <FormLabel>{t('announcements.form.address')}</FormLabel>
                   <FormControl>
                     <Input {...field} />
                   </FormControl>

@@ -22,6 +22,7 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
+  FormDescription,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Switch } from "@/components/ui/switch"
@@ -79,9 +80,9 @@ export function EventForm({ isOpen, onOpenChange, onSubmit, event }: EventFormPr
     }
   }, [event, form, isOpen])
 
-  const title = event ? "Edit Event" : "Add New Event"
-  const description = event ? "Update the event's details." : "Fill in the details for the new event."
-  const submitText = event ? "Save Changes" : "Create Event"
+  const title = event ? t('events.form.editTitle') : t('events.form.addTitle')
+  const description = event ? t('events.form.editDescription') : t('events.form.addDescription')
+  const submitText = event ? t('events.form.submitEdit') : t('events.form.submitAdd')
 
   return (
     <Dialog open={isOpen} onOpenChange={onOpenChange}>
@@ -97,7 +98,7 @@ export function EventForm({ isOpen, onOpenChange, onSubmit, event }: EventFormPr
               name="title"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Title</FormLabel>
+                  <FormLabel>{t('events.form.title')}</FormLabel>
                   <FormControl>
                     <Input {...field} />
                   </FormControl>
@@ -110,7 +111,7 @@ export function EventForm({ isOpen, onOpenChange, onSubmit, event }: EventFormPr
               name="description"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Description</FormLabel>
+                  <FormLabel>{t('events.form.description')}</FormLabel>
                   <FormControl>
                     <Textarea {...field} />
                   </FormControl>
@@ -124,9 +125,9 @@ export function EventForm({ isOpen, onOpenChange, onSubmit, event }: EventFormPr
                 name="date"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Date</FormLabel>
+                    <FormLabel>{t('events.form.date')}</FormLabel>
                     <FormControl>
-                      <Input placeholder="e.g., 2024-09-14 or every_saturday" {...field} />
+                      <Input placeholder={t('events.form.datePlaceholder')} {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -137,9 +138,9 @@ export function EventForm({ isOpen, onOpenChange, onSubmit, event }: EventFormPr
                 name="time"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Time</FormLabel>
+                    <FormLabel>{t('events.form.time')}</FormLabel>
                     <FormControl>
-                      <Input placeholder="e.g., 8:00 AM - 2:00 PM" {...field} />
+                      <Input placeholder={t('events.form.timePlaceholder')} {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -151,7 +152,7 @@ export function EventForm({ isOpen, onOpenChange, onSubmit, event }: EventFormPr
               name="location"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Location</FormLabel>
+                  <FormLabel>{t('events.form.location')}</FormLabel>
                   <FormControl>
                     <Input {...field} />
                   </FormControl>
@@ -165,9 +166,9 @@ export function EventForm({ isOpen, onOpenChange, onSubmit, event }: EventFormPr
               render={({ field }) => (
                 <FormItem className="flex flex-row items-center justify-between rounded-lg border p-3 shadow-sm">
                   <div className="space-y-0.5">
-                    <FormLabel>Recurring Event</FormLabel>
+                    <FormLabel>{t('events.form.recurring')}</FormLabel>
                     <FormDescription>
-                      Is this a regularly scheduled event?
+                      {t('events.form.recurringDescription')}
                     </FormDescription>
                   </div>
                   <FormControl>

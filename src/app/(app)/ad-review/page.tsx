@@ -219,7 +219,7 @@ export default function AdReviewPage() {
                 )) : (
                   <TableRow>
                     <TableCell colSpan={3} className="h-24 text-center text-muted-foreground">
-                      No ads are currently pending review.
+                      {t('adReview.noPendingAds')}
                     </TableCell>
                   </TableRow>
                 )}

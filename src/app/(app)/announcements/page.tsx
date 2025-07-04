@@ -106,14 +106,14 @@ export default function AnnouncementsPage() {
         <AlertDialog open={isDeleteDialogOpen} onOpenChange={setIsDeleteDialogOpen}>
           <AlertDialogContent>
             <AlertDialogHeader>
-              <AlertDialogTitle>Are you sure?</AlertDialogTitle>
+              <AlertDialogTitle>{t('announcements.delete.title')}</AlertDialogTitle>
               <AlertDialogDescription>
-                This will permanently delete the announcement "{announcementToDelete?.title}".
+                {t('announcements.delete.description', { title: announcementToDelete?.title || '' })}
               </AlertDialogDescription>
             </AlertDialogHeader>
             <AlertDialogFooter>
-              <AlertDialogCancel onClick={() => setAnnouncementToDelete(null)}>Cancel</AlertDialogCancel>
-              <AlertDialogAction onClick={handleDelete} className="bg-destructive hover:bg-destructive/90">Delete Announcement</AlertDialogAction>
+              <AlertDialogCancel onClick={() => setAnnouncementToDelete(null)}>{t('announcements.delete.cancel')}</AlertDialogCancel>
+              <AlertDialogAction onClick={handleDelete} className="bg-destructive hover:bg-destructive/90">{t('announcements.delete.confirm')}</AlertDialogAction>
             </AlertDialogFooter>
           </AlertDialogContent>
         </AlertDialog>
@@ -130,7 +130,7 @@ export default function AnnouncementsPage() {
           {hasAdminAccess && (
             <Button onClick={handleAdd}>
               <PlusCircle className="mr-2" />
-              Add Announcement
+              {t('announcements.addAnnouncement')}
             </Button>
           )}
         </div>
@@ -169,10 +169,10 @@ export default function AnnouncementsPage() {
                       </DropdownMenuTrigger>
                       <DropdownMenuContent align="end">
                         <DropdownMenuItem onClick={() => handleEdit(announcement)}>
-                          <Pencil className="mr-2" /> Edit
+                          <Pencil className="mr-2" /> {t('announcements.edit')}
                         </DropdownMenuItem>
                         <DropdownMenuItem onClick={() => handleDeleteConfirm(announcement)} className="text-destructive">
-                          <Trash2 className="mr-2" /> Delete
+                          <Trash2 className="mr-2" /> {t('announcements.delete.button')}
                         </DropdownMenuItem>
                       </DropdownMenuContent>
                     </DropdownMenu>
@@ -195,10 +195,10 @@ export default function AnnouncementsPage() {
                           </DropdownMenuTrigger>
                           <DropdownMenuContent align="end">
                             <DropdownMenuItem onClick={() => handleEdit(announcement)}>
-                              <Pencil className="mr-2" /> Edit
+                              <Pencil className="mr-2" /> {t('announcements.edit')}
                             </DropdownMenuItem>
                             <DropdownMenuItem onClick={() => handleDeleteConfirm(announcement)} className="text-destructive">
-                              <Trash2 className="mr-2" /> Delete
+                              <Trash2 className="mr-2" /> {t('announcements.delete.button')}
                             </DropdownMenuItem>
                           </DropdownMenuContent>
                         </DropdownMenu>

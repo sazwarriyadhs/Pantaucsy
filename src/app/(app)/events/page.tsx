@@ -112,14 +112,14 @@ export default function EventsPage() {
         <AlertDialog open={isDeleteDialogOpen} onOpenChange={setIsDeleteDialogOpen}>
           <AlertDialogContent>
             <AlertDialogHeader>
-              <AlertDialogTitle>Are you sure?</AlertDialogTitle>
+              <AlertDialogTitle>{t('events.delete.title')}</AlertDialogTitle>
               <AlertDialogDescription>
-                This will permanently delete the event "{eventToDelete?.title}".
+                {t('events.delete.description', { title: eventToDelete?.title || '' })}
               </AlertDialogDescription>
             </AlertDialogHeader>
             <AlertDialogFooter>
-              <AlertDialogCancel onClick={() => setEventToDelete(null)}>Cancel</AlertDialogCancel>
-              <AlertDialogAction onClick={handleDelete} className="bg-destructive hover:bg-destructive/90">Delete Event</AlertDialogAction>
+              <AlertDialogCancel onClick={() => setEventToDelete(null)}>{t('events.delete.cancel')}</AlertDialogCancel>
+              <AlertDialogAction onClick={handleDelete} className="bg-destructive hover:bg-destructive/90">{t('events.delete.confirm')}</AlertDialogAction>
             </AlertDialogFooter>
           </AlertDialogContent>
         </AlertDialog>
@@ -136,7 +136,7 @@ export default function EventsPage() {
           {hasAdminAccess && (
             <Button onClick={handleAdd}>
               <PlusCircle className="mr-2" />
-              Add Event
+              {t('events.addEvent')}
             </Button>
           )}
         </div>
@@ -158,10 +158,10 @@ export default function EventsPage() {
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end">
                       <DropdownMenuItem onClick={() => handleEdit(event)}>
-                        <Pencil className="mr-2" /> Edit
+                        <Pencil className="mr-2" /> {t('events.edit')}
                       </DropdownMenuItem>
                       <DropdownMenuItem onClick={() => handleDeleteConfirm(event)} className="text-destructive">
-                        <Trash2 className="mr-2" /> Delete
+                        <Trash2 className="mr-2" /> {t('events.delete.button')}
                       </DropdownMenuItem>
                     </DropdownMenuContent>
                   </DropdownMenu>
