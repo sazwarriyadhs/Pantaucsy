@@ -1,3 +1,4 @@
+
 "use client"
 
 import { usePathname, useRouter } from 'next/navigation';
@@ -20,6 +21,7 @@ import {
   Trash2,
   ClipboardList,
   Home,
+  PlusSquare,
 } from 'lucide-react';
 import {
   SidebarProvider,
@@ -96,6 +98,12 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
                   <SidebarMenuButton href="/classifieds" isActive={isActive('/classifieds')} tooltip={t('sidebar.classifieds')}>
                     <ShoppingBag />
                     {t('sidebar.classifieds')}
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+                <SidebarMenuItem>
+                  <SidebarMenuButton href="/post-ad" isActive={isActive('/post-ad')} tooltip={t('sidebar.postAd')}>
+                    <PlusSquare />
+                    {t('sidebar.postAd')}
                   </SidebarMenuButton>
                 </SidebarMenuItem>
                  <SidebarMenuItem>

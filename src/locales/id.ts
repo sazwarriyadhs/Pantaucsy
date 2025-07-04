@@ -6,6 +6,7 @@ const id = {
     associationManagement: 'Pengurus Paguyuban',
     iplManagement: 'Iuran IPL',
     classifieds: 'Iklan Kita',
+    postAd: 'Pasang Iklan',
     classifiedsManagement: 'Manajemen Iklan',
     events: 'Acara',
     gallery: 'Galeri Foto',
@@ -306,6 +307,37 @@ const id = {
         title: 'Pasang Iklan Di Sini',
         description: 'Promosikan usaha Anda selama satu bulan hanya dengan {price}. Hubungi pengurus untuk info lebih lanjut.'
       }
+    }
+  },
+  postAd: {
+    title: 'Pasang Iklan Baru',
+    description: 'Isi formulir di bawah untuk memasang iklan Anda di pasar komunitas.',
+    form: {
+      title: 'Detail Iklan',
+      submit: 'Kirim Iklan untuk Ditinjau',
+      submitting: 'Mengirim...',
+    },
+    pricing: {
+      title: 'Informasi Harga',
+      description: 'Per iklan untuk 30 hari.',
+      note1: 'Iklan Anda akan ditinjau oleh pengurus sebelum dipublikasikan.',
+      note2: 'Instruksi pembayaran akan diberikan setelah iklan Anda disetujui.'
+    },
+    toast: {
+      success: {
+        title: 'Iklan Terkirim',
+        description: 'Iklan Anda telah dikirim untuk ditinjau. Anda akan diberitahu setelah disetujui.',
+      },
+      error: {
+        title: 'Gagal Mengirim',
+        description: 'Terjadi kesalahan saat mengirim iklan Anda. Silakan coba lagi.'
+      }
+    },
+    validation: {
+        title: "Judul harus minimal 3 karakter.",
+        description: "Deskripsi harus minimal 10 karakter.",
+        price: "Harga harus diisi.",
+        phone: "Nomor telepon harus minimal 10 digit.",
     }
   },
   classifiedsManagement: {

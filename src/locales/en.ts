@@ -6,6 +6,7 @@ const en = {
     associationManagement: 'Association Management',
     iplManagement: 'IPL Dues',
     classifieds: 'Classifieds',
+    postAd: 'Post Ad',
     classifiedsManagement: 'Ads Management',
     events: 'Events',
     gallery: 'Photo Gallery',
@@ -116,7 +117,7 @@ const en = {
       },
       obituary_aswin: {
         title: 'Obituary Notice',
-        content: 'With deep sorrow, we announce the passing of one of our residents on June 24, 2025, at 04:35 AM. The entire Cimahpar Stoneyard community extends its heartfelt condolences. May he rest in peace and his family be granted strength.',
+        content: 'With deep sorrow, we announce the passing of one of our residents on June 24, 2025, at 04:35 AM. The entire Cimahpar Stoneyard community extends its heartfelt condolences. May they rest in peace and their family be granted strength.',
         address: 'Funeral home: Jl. Stoneyard Boulevard No. 1. The burial will take place on June 25, 2025, at Pondok Ranggon Cemetery.'
       },
       garden_meeting: {
@@ -306,6 +307,37 @@ const en = {
         title: 'Advertise Here',
         description: 'Promote your business for one month for only {price}. Contact management for more info.'
       }
+    }
+  },
+  postAd: {
+    title: 'Post a New Ad',
+    description: 'Fill out the form below to post your ad in the community marketplace.',
+     form: {
+      title: 'Ad Details',
+      submit: 'Submit Ad for Review',
+      submitting: 'Submitting...',
+    },
+    pricing: {
+      title: 'Pricing Information',
+      description: 'Per ad for 30 days.',
+      note1: 'Your ad will be reviewed by management before it is published.',
+      note2: 'Payment instructions will be provided after your ad is approved.'
+    },
+    toast: {
+      success: {
+        title: 'Ad Submitted',
+        description: 'Your ad has been submitted for review. You will be notified once it is approved.',
+      },
+      error: {
+        title: 'Submission Failed',
+        description: 'There was an error submitting your ad. Please try again.'
+      }
+    },
+    validation: {
+      title: 'Title must be at least 3 characters.',
+      description: 'Description must be at least 10 characters.',
+      price: 'Price is required.',
+      phone: 'Phone number must be at least 10 digits.'
     }
   },
   classifiedsManagement: {

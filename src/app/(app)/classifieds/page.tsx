@@ -1,3 +1,4 @@
+
 "use client"
 
 import Image from 'next/image'
@@ -20,7 +21,7 @@ import {
   CarouselNext, 
   CarouselPrevious 
 } from '@/components/ui/carousel'
-import { MessageSquare } from 'lucide-react'
+import { MessageSquare, PlusSquare } from 'lucide-react'
 
 export default function ClassifiedsPage() {
   const { t, formatCurrency } = useI18n();
@@ -35,11 +36,19 @@ export default function ClassifiedsPage() {
 
   return (
     <div className="flex flex-col gap-8">
-      <div>
-        <h1 className="text-3xl font-bold tracking-tight font-headline">{t('classifieds.title')}</h1>
-        <p className="text-muted-foreground">
-          {t('classifieds.description')}
-        </p>
+      <div className="flex items-center justify-between">
+        <div>
+          <h1 className="text-3xl font-bold tracking-tight font-headline">{t('classifieds.title')}</h1>
+          <p className="text-muted-foreground">
+            {t('classifieds.description')}
+          </p>
+        </div>
+        <Button asChild>
+          <Link href="/post-ad">
+            <PlusSquare className="mr-2" />
+            {t('sidebar.postAd')}
+          </Link>
+        </Button>
       </div>
 
       <Carousel
