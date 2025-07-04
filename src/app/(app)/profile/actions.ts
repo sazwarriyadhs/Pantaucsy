@@ -4,7 +4,7 @@
 import { z } from "zod"
 import { i18n } from "@/lib/i18n"
 
-export const profileFormSchema = z.object({
+const profileFormSchema = z.object({
   name: z.string(),
   email: z.string().email(),
   block: z.string().length(1, { message: "Block must be a single letter." }).regex(/^[A-Z]$/i, "Block must be a single letter."),

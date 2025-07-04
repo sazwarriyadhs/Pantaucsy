@@ -12,7 +12,7 @@ import { useI18n } from "@/context/i18n-provider"
 import { useToast } from "@/hooks/use-toast"
 import { residents as initialResidents } from "@/lib/data"
 import type { Resident } from "@/lib/data"
-import { updateUserProfile, profileFormSchema } from "./actions"
+import { updateUserProfile } from "./actions"
 
 import { Button } from "@/components/ui/button"
 import {
@@ -28,6 +28,18 @@ import { Textarea } from "@/components/ui/textarea"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { Skeleton } from "@/components/ui/skeleton"
+
+const profileFormSchema = z.object({
+  name: z.string(),
+  email: z.string().email(),
+  block: z.string().length(1, { message: "Block must be a single letter." }).regex(/^[A-Z]$/i, "Block must be a single letter."),
+  number: z.string().min(1, { message: "Number is required." }),
+  phone: z.string().min(10, { message: "Phone number must be at least 10 digits." }),
+  photo: z.string().optional(),
+  familyMembers: z.string().optional(),
+  latitude: z.coerce.number().optional(),
+  longitude: z.coerce.number().optional(),
+})
 
 type ProfileFormValues = z.infer<typeof profileFormSchema>
 
