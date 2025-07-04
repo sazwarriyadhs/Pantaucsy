@@ -288,7 +288,7 @@ export const classifieds: ClassifiedAd[] = [
     id: '7',
     titleKey: 'iguana_hilang',
     price: 100000,
-    image: "/images/iguana.jpg",
+    image: "/images/iguana.jpeg",
     imageHint: "iguana pet",
     phone: "6281277778888",
     status: 'active',
@@ -603,6 +603,7 @@ export const whatsappFeed: WhatsAppMessage[] = [
     
 
     
+
 
 
 
