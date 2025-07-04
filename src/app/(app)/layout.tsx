@@ -24,7 +24,8 @@ import {
   PlusSquare,
   MessagesSquare,
   BadgeCheck,
-  UserCog
+  UserCog,
+  Car
 } from 'lucide-react';
 import {
   SidebarProvider,
@@ -205,6 +206,12 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
                     <SidebarMenuButton href="/waste-management" isActive={isActive('/waste-management')} tooltip={t('sidebar.wasteManagement')}>
                       <Trash2 />
                       {t('sidebar.wasteManagement')}
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                  <SidebarMenuItem>
+                    <SidebarMenuButton href="/vehicle-management" isActive={isActive('/vehicle-management')} tooltip={t('sidebar.vehicleManagement')}>
+                      <Car />
+                      {t('sidebar.vehicleManagement')}
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                 </SidebarGroup>

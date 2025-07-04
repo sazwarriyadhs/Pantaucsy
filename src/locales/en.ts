@@ -22,6 +22,7 @@ const en = {
     paymentConfirmation: 'Payment Confirmation',
     financialReport: 'Financial Report',
     wasteManagement: 'Waste Management',
+    vehicleManagement: 'Vehicle Management',
     landingPage: 'Home Page',
     general: 'General',
     management_tools: 'Management Tools',
@@ -824,6 +825,49 @@ const en = {
       overdue: {
         title: "Overdue IPL Dues Notice",
         message: "Dear {name}, our records show you have an overdue IPL payment. Please settle it soon to avoid service suspension. Thank you.",
+      }
+    }
+  },
+  vehicleManagement: {
+    title: 'Vehicle Management',
+    description: 'Manage resident vehicle data for security and administration purposes.',
+    tableTitle: 'Vehicle List',
+    tableDescription: 'A list of all resident vehicles registered in the system.',
+    addVehicle: 'Add Vehicle',
+    resident: 'Resident',
+    type: 'Type',
+    vehicleInfo: 'Vehicle Information',
+    licensePlate: 'License Plate',
+    actions: 'Actions',
+    types: {
+      car: 'Car',
+      motorcycle: 'Motorcycle'
+    },
+    edit: 'Edit',
+    delete: {
+      button: 'Delete',
+      title: 'Are you sure?',
+      description: 'This action will permanently delete the vehicle with license plate {plate}.',
+      cancel: 'Cancel',
+      confirm: 'Delete Vehicle',
+    },
+    form: {
+      addTitle: 'Add New Vehicle',
+      addDescription: 'Fill in the details for the new vehicle.',
+      editTitle: 'Edit Vehicle',
+      editDescription: "Update the vehicle's details.",
+      resident: 'Resident',
+      residentPlaceholder: 'Select a resident',
+      type: 'Vehicle Type',
+      brand: 'Brand',
+      model: 'Model',
+      color: 'Color',
+      licensePlate: 'License Plate',
+      submitAdd: 'Add Vehicle',
+      submitEdit: 'Save Changes',
+      toast: {
+        addSuccess: 'New vehicle has been added.',
+        editSuccess: 'Vehicle data has been updated.',
       }
     }
   },

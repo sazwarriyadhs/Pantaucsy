@@ -74,6 +74,16 @@ export type GalleryItem = {
   imageHint: string;
 };
 
+export type Vehicle = {
+  id: string;
+  residentName: string;
+  type: 'car' | 'motorcycle';
+  brand: string;
+  model: string;
+  color: string;
+  licensePlate: string;
+};
+
 export const announcements: Announcement[] = [
   {
     id: "1",
@@ -593,6 +603,45 @@ export const whatsappFeed: WhatsAppMessage[] = [
   { id: '6', sender: 'Budi Santoso', isMe: false, message: 'Saya ada beberapa gerobak dorong yang tidak terpakai, nanti saya bawa untuk membantu angkut sampah.', timestamp: '08:20' },
   { id: '7', sender: 'Admin Paguyuban', isMe: false, message: 'Wah, bagus sekali Pak Budi. Sangat membantu. Terima kasih banyak!', timestamp: '08:21' },
   { id: '8', sender: 'You', isMe: true, message: 'Luar biasa! Sampai jumpa besok pagi semua.', timestamp: '08:25' },
+];
+
+export const vehicles: Vehicle[] = [
+  {
+    id: "v1",
+    residentName: "John Doe",
+    type: 'car',
+    brand: "Toyota",
+    model: "Camry",
+    color: "Black",
+    licensePlate: "B 1234 ABC"
+  },
+  {
+    id: "v2",
+    residentName: "Jane Smith",
+    type: 'motorcycle',
+    brand: "Honda",
+    model: "Vario 150",
+    color: "Red",
+    licensePlate: "B 5678 DEF"
+  },
+  {
+    id: "v3",
+    residentName: "Budi Santoso",
+    type: 'car',
+    brand: "Mitsubishi",
+    model: "Pajero Sport",
+    color: "White",
+    licensePlate: "F 1111 GHI"
+  },
+  {
+    id: "v4",
+    residentName: "Citra Lestari",
+    type: 'car',
+    brand: "Honda",
+    model: "Brio",
+    color: "Yellow",
+    licensePlate: "F 2222 JKL"
+  }
 ];
     
 

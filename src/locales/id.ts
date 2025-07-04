@@ -22,6 +22,7 @@ const id = {
     paymentConfirmation: 'Konfirmasi Pembayaran',
     financialReport: 'Laporan Keuangan',
     wasteManagement: 'Manajemen Sampah',
+    vehicleManagement: 'Manajemen Kendaraan',
     landingPage: 'Halaman Utama',
     general: 'Umum',
     management_tools: 'Alat Manajemen',
@@ -824,6 +825,49 @@ const id = {
       overdue: {
         title: "Pemberitahuan Tunggakan IPL",
         message: "Yth. Bpk/Ibu {name}, tercatat Anda memiliki tunggakan iuran IPL. Mohon untuk segera menyelesaikannya untuk menghindari penangguhan layanan. Terima kasih.",
+      }
+    }
+  },
+  vehicleManagement: {
+    title: 'Manajemen Kendaraan',
+    description: 'Kelola data kendaraan warga untuk keperluan keamanan dan administrasi.',
+    tableTitle: 'Daftar Kendaraan',
+    tableDescription: 'Daftar semua kendaraan warga yang terdaftar di sistem.',
+    addVehicle: 'Tambah Kendaraan',
+    resident: 'Warga',
+    type: 'Jenis',
+    vehicleInfo: 'Informasi Kendaraan',
+    licensePlate: 'Nomor Polisi',
+    actions: 'Aksi',
+    types: {
+      car: 'Mobil',
+      motorcycle: 'Motor'
+    },
+    edit: 'Ubah',
+    delete: {
+      button: 'Hapus',
+      title: 'Apakah Anda yakin?',
+      description: 'Tindakan ini akan menghapus kendaraan dengan nomor polisi {plate} secara permanen.',
+      cancel: 'Batal',
+      confirm: 'Hapus Kendaraan',
+    },
+    form: {
+      addTitle: 'Tambah Kendaraan Baru',
+      addDescription: 'Isi detail untuk kendaraan baru.',
+      editTitle: 'Ubah Kendaraan',
+      editDescription: 'Perbarui detail kendaraan.',
+      resident: 'Warga',
+      residentPlaceholder: 'Pilih seorang warga',
+      type: 'Jenis Kendaraan',
+      brand: 'Merek',
+      model: 'Model',
+      color: 'Warna',
+      licensePlate: 'Nomor Polisi',
+      submitAdd: 'Tambah Kendaraan',
+      submitEdit: 'Simpan Perubahan',
+      toast: {
+        addSuccess: 'Kendaraan baru telah ditambahkan.',
+        editSuccess: 'Data kendaraan telah diperbarui.',
       }
     }
   },
