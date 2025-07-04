@@ -1,5 +1,6 @@
 import { initializeApp, getApps, getApp, type FirebaseApp } from "firebase/app";
 import { getAuth, type Auth } from "firebase/auth";
+import { getAnalytics, type Analytics } from "firebase/analytics";
 
 // IMPORTANT: Create a .env.local file in the root of your project
 // and add your Firebase project's configuration there.
@@ -18,11 +19,13 @@ const firebaseConfig = {
   storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
   messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+  measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
 };
 
 // Conditionally initialize Firebase
 let app: FirebaseApp | null = null;
 let auth: Auth | null = null;
+let analytics: Analytics | null = null;
 let firebaseReady = false;
 
 // Check if the keys are just placeholders
@@ -36,6 +39,9 @@ if (
   try {
     app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
     auth = getAuth(app);
+    if (typeof window !== "undefined") {
+      analytics = getAnalytics(app);
+    }
     firebaseReady = true;
   } catch (error) {
     console.error("Firebase initialization error:", error);
@@ -46,4 +52,4 @@ if (
 }
 
 
-export { app, auth, firebaseReady };
+export { app, auth, analytics, firebaseReady };
