@@ -25,6 +25,13 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog"
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from '@/components/ui/dialog';
 import { announcements as initialAnnouncements, type Announcement } from '@/lib/data';
 import { useI18n } from '@/context/i18n-provider';
 import { useAuth } from '@/context/auth-provider';
@@ -39,6 +46,9 @@ export default function AnnouncementsPage() {
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
   const [announcementToDelete, setAnnouncementToDelete] = useState<Announcement | null>(null);
+
+  const [isDetailOpen, setIsDetailOpen] = useState(false);
+  const [selectedAnnouncementDetail, setSelectedAnnouncementDetail] = useState<Announcement | null>(null);
 
   const autoplayPlugin = useRef(
     Autoplay({ delay: 3000, stopOnInteraction: true, stopOnMouseEnter: true })
@@ -92,6 +102,11 @@ export default function AnnouncementsPage() {
     setSelectedAnnouncement(null);
   };
   
+  const handleViewDetail = (announcement: Announcement) => {
+    setSelectedAnnouncementDetail(announcement);
+    setIsDetailOpen(true);
+  };
+
   return (
     <>
       {hasAdminAccess && (
@@ -119,6 +134,40 @@ export default function AnnouncementsPage() {
         </AlertDialog>
       )}
 
+      <Dialog open={isDetailOpen} onOpenChange={setIsDetailOpen}>
+        <DialogContent className="max-w-2xl">
+          {selectedAnnouncementDetail && (
+            <>
+              <DialogHeader>
+                <DialogTitle>{selectedAnnouncementDetail.title}</DialogTitle>
+                <DialogDescription>
+                  {new Date(selectedAnnouncementDetail.date).toLocaleDateString(locale, { year: 'numeric', month: 'long', day: 'numeric' })}
+                </DialogDescription>
+              </DialogHeader>
+              <div className="py-4 space-y-4 max-h-[80vh] overflow-y-auto">
+                {selectedAnnouncementDetail.image && (
+                  <Image
+                    src={selectedAnnouncementDetail.image}
+                    alt={selectedAnnouncementDetail.title}
+                    width={600}
+                    height={400}
+                    className="object-cover w-full rounded-lg aspect-video"
+                    data-ai-hint={selectedAnnouncementDetail.imageHint}
+                  />
+                )}
+                <p className="text-sm text-muted-foreground whitespace-pre-wrap">{selectedAnnouncementDetail.content}</p>
+                {selectedAnnouncementDetail.address && (
+                   <div className="flex items-start gap-2 pt-4 mt-4 text-sm border-t text-muted-foreground">
+                     <MapPin className="w-4 h-4 mt-1 shrink-0" />
+                     <span>{selectedAnnouncementDetail.address}</span>
+                   </div>
+                )}
+              </div>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
+
       <div className="flex flex-col gap-8">
         <div className="flex items-center justify-between">
           <div>
@@ -140,14 +189,16 @@ export default function AnnouncementsPage() {
             <Card key={announcement.id} className="flex flex-col transition-all duration-300 hover:shadow-lg">
               {announcement.image ? (
                 <CardHeader className="p-0">
-                  <Image
-                    src={announcement.image}
-                    alt={announcement.title}
-                    width={600}
-                    height={400}
-                    className="object-cover w-full rounded-t-lg aspect-video"
-                    data-ai-hint={announcement.imageHint}
-                  />
+                  <div className="cursor-pointer" onClick={() => handleViewDetail(announcement)}>
+                    <Image
+                      src={announcement.image}
+                      alt={announcement.title}
+                      width={600}
+                      height={400}
+                      className="object-cover w-full rounded-t-lg aspect-video"
+                      data-ai-hint={announcement.imageHint}
+                    />
+                  </div>
                 </CardHeader>
               ) : (
                 <CardHeader className="flex flex-row items-start justify-between pb-4">

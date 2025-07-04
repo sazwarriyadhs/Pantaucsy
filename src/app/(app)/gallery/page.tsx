@@ -28,6 +28,12 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog"
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from '@/components/ui/dialog';
 import { gallery as initialGallery, type GalleryItem } from "@/lib/data"
 import { useI18n } from '@/context/i18n-provider'
 import { useAuth } from '@/context/auth-provider';
@@ -44,6 +50,9 @@ export default function GalleryPage() {
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
   const [photoToDelete, setPhotoToDelete] = useState<GalleryItem | null>(null);
+
+  const [isImageDialogOpen, setIsImageDialogOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState<GalleryItem | null>(null);
 
   const hasAdminAccess = role === 'admin' || role === 'superadmin';
 
@@ -98,6 +107,11 @@ export default function GalleryPage() {
     setSelectedPhoto(null);
   };
 
+  const handleImageClick = (item: GalleryItem) => {
+    setSelectedImage(item);
+    setIsImageDialogOpen(true);
+  };
+
   return (
     <>
       {hasAdminAccess && (
@@ -125,6 +139,28 @@ export default function GalleryPage() {
         </AlertDialog>
       )}
 
+      <Dialog open={isImageDialogOpen} onOpenChange={setIsImageDialogOpen}>
+        <DialogContent className="max-w-3xl">
+          {selectedImage && (
+            <>
+              <DialogHeader>
+                <DialogTitle>{t(`gallery.items.${selectedImage.titleKey}`)}</DialogTitle>
+              </DialogHeader>
+              <div className="py-4">
+                <Image
+                  src={selectedImage.image}
+                  alt={t(`gallery.items.${selectedImage.titleKey}`)}
+                  width={800}
+                  height={600}
+                  className="w-full h-auto object-contain rounded-md"
+                  data-ai-hint={selectedImage.imageHint}
+                />
+              </div>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
+
       <div className="flex flex-col gap-8">
         <div className="flex items-center justify-between">
           <div>
@@ -144,7 +180,7 @@ export default function GalleryPage() {
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {galleryItems.map((item) => (
             <Card key={item.id} className="overflow-hidden transition-all duration-300 group hover:shadow-lg">
-              <CardContent className="relative p-0">
+              <CardContent className="relative p-0 cursor-pointer" onClick={() => handleImageClick(item)}>
                 <Image
                   src={item.image}
                   alt={t(`gallery.items.${item.titleKey}`)}
@@ -156,7 +192,7 @@ export default function GalleryPage() {
                  {hasAdminAccess && (
                     <DropdownMenu>
                       <DropdownMenuTrigger asChild>
-                        <Button variant="secondary" size="icon" className="absolute top-2 right-2 h-8 w-8 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <Button variant="secondary" size="icon" className="absolute top-2 right-2 h-8 w-8 opacity-0 group-hover:opacity-100 transition-opacity" onClick={(e) => e.stopPropagation()}>
                           <MoreVertical className="w-4 h-4" />
                         </Button>
                       </DropdownMenuTrigger>
