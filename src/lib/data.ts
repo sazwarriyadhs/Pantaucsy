@@ -57,6 +57,13 @@ export type Staff = {
   performanceSummary: string;
 };
 
+export type GalleryItem = {
+  id: string;
+  titleKey: string;
+  image: string;
+  imageHint: string;
+};
+
 export const announcements: Announcement[] = [
   {
     id: "1",
@@ -429,7 +436,7 @@ export const financialReportData = {
   ],
 };
 
-export const gallery = [
+export const gallery: GalleryItem[] = [
   {
     id: '1',
     titleKey: "independence_day_race",
@@ -560,5 +567,6 @@ export const whatsappFeed: WhatsAppMessage[] = [
     
 
     
+
 
 
