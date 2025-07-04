@@ -571,6 +571,7 @@ const id = {
     tableTitle: 'Warga',
     tableDescription: 'Daftar semua warga di dalam komunitas.',
     addResident: 'Tambah Warga',
+    searchPlaceholder: 'Cari berdasarkan nama, email, atau telepon...',
     name: 'Nama',
     address: 'Alamat',
     phone: 'Telepon',
@@ -596,6 +597,11 @@ const id = {
       email: 'Alamat Email',
       submitAdd: 'Tambah Warga',
       submitEdit: 'Simpan Perubahan',
+    },
+    filter: {
+      placeholder: 'Filter berdasarkan blok',
+      allBlocks: 'Semua Blok',
+      noResults: 'Warga tidak ditemukan.'
     }
   },
   finance: {

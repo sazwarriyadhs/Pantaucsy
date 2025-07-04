@@ -1,7 +1,7 @@
 
 "use client"
 
-import { useState } from "react"
+import { useState, useMemo } from "react"
 import { z } from "zod"
 import {
   Table,
@@ -14,7 +14,7 @@ import {
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { residents as initialResidents, type Resident } from "@/lib/data"
 import { Button } from "@/components/ui/button"
-import { MoreHorizontal, PlusCircle, Pencil, Trash2 } from "lucide-react"
+import { MoreHorizontal, PlusCircle, Pencil, Trash2, Search } from "lucide-react"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -34,6 +34,14 @@ import {
 import { ResidentForm, residentFormSchema } from "./resident-form"
 import { useI18n } from "@/context/i18n-provider"
 import { useToast } from "@/hooks/use-toast"
+import { Input } from "@/components/ui/input"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
 
 export default function ResidentsPage() {
   const { t } = useI18n()
@@ -43,6 +51,9 @@ export default function ResidentsPage() {
   const [isFormOpen, setIsFormOpen] = useState(false)
   const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false)
   const [residentToDelete, setResidentToDelete] = useState<Resident | null>(null)
+
+  const [searchTerm, setSearchTerm] = useState("")
+  const [filterBlock, setFilterBlock] = useState("all")
 
   const handleAdd = () => {
     setSelectedResident(null)
@@ -95,6 +106,24 @@ export default function ResidentsPage() {
     setSelectedResident(null)
   }
 
+  const uniqueBlocks = useMemo(() => {
+    const blocks = residents.map(r => r.address.split(' ')[1])
+    return ['all', ...Array.from(new Set(blocks)).sort()]
+  }, [residents])
+
+  const filteredResidents = useMemo(() => {
+    return residents.filter(resident => {
+      const matchesSearch = searchTerm.toLowerCase() === '' ||
+        resident.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        resident.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        resident.phone.includes(searchTerm)
+
+      const matchesBlock = filterBlock === 'all' || resident.address.startsWith(`Blok ${filterBlock}`)
+
+      return matchesSearch && matchesBlock
+    })
+  }, [residents, searchTerm, filterBlock])
+
   return (
     <>
       <ResidentForm
@@ -133,7 +162,30 @@ export default function ResidentsPage() {
                 <CardTitle>{t('residents.tableTitle')}</CardTitle>
                 <CardDescription>{t('residents.tableDescription')}</CardDescription>
               </div>
-              <Button onClick={handleAdd} className="w-full sm:w-auto">
+            </div>
+            <div className="flex flex-col gap-4 mt-4 sm:flex-row">
+              <div className="relative w-full sm:max-w-xs">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                <Input
+                  placeholder={t('residents.searchPlaceholder')}
+                  className="pl-9"
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                />
+              </div>
+              <Select value={filterBlock} onValueChange={setFilterBlock}>
+                <SelectTrigger className="w-full sm:w-[180px]">
+                  <SelectValue placeholder={t('residents.filter.placeholder')} />
+                </SelectTrigger>
+                <SelectContent>
+                  {uniqueBlocks.map(block => (
+                    <SelectItem key={block} value={block}>
+                      {block === 'all' ? t('residents.filter.allBlocks') : `${t('residents.form.block')} ${block}`}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+               <Button onClick={handleAdd} className="w-full sm:w-auto sm:ml-auto">
                 <PlusCircle className="mr-2 h-4 w-4" />
                 {t('residents.addResident')}
               </Button>
@@ -151,34 +203,42 @@ export default function ResidentsPage() {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {residents.map((resident) => (
-                  <TableRow key={resident.email}>
-                    <TableCell className="font-medium">{resident.name}</TableCell>
-                    <TableCell>{resident.address}</TableCell>
-                    <TableCell>{resident.phone}</TableCell>
-                    <TableCell>{resident.email}</TableCell>
-                    <TableCell className="text-right">
-                      <DropdownMenu>
-                        <DropdownMenuTrigger asChild>
-                          <Button variant="ghost" className="h-8 w-8 p-0">
-                            <span className="sr-only">Open menu</span>
-                            <MoreHorizontal className="h-4 w-4" />
-                          </Button>
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent align="end">
-                          <DropdownMenuItem onClick={() => handleEdit(resident)}>
-                            <Pencil className="mr-2 h-4 w-4" />
-                            <span>{t('residents.edit')}</span>
-                          </DropdownMenuItem>
-                          <DropdownMenuItem onClick={() => handleDeleteConfirm(resident)} className="text-destructive focus:text-destructive focus:bg-destructive/10">
-                            <Trash2 className="mr-2 h-4 w-4" />
-                            <span>{t('residents.delete.button')}</span>
-                          </DropdownMenuItem>
-                        </DropdownMenuContent>
-                      </DropdownMenu>
+                {filteredResidents.length > 0 ? (
+                  filteredResidents.map((resident) => (
+                    <TableRow key={resident.email}>
+                      <TableCell className="font-medium">{resident.name}</TableCell>
+                      <TableCell>{resident.address}</TableCell>
+                      <TableCell>{resident.phone}</TableCell>
+                      <TableCell>{resident.email}</TableCell>
+                      <TableCell className="text-right">
+                        <DropdownMenu>
+                          <DropdownMenuTrigger asChild>
+                            <Button variant="ghost" className="h-8 w-8 p-0">
+                              <span className="sr-only">Open menu</span>
+                              <MoreHorizontal className="h-4 w-4" />
+                            </Button>
+                          </DropdownMenuTrigger>
+                          <DropdownMenuContent align="end">
+                            <DropdownMenuItem onClick={() => handleEdit(resident)}>
+                              <Pencil className="mr-2 h-4 w-4" />
+                              <span>{t('residents.edit')}</span>
+                            </DropdownMenuItem>
+                            <DropdownMenuItem onClick={() => handleDeleteConfirm(resident)} className="text-destructive focus:text-destructive focus:bg-destructive/10">
+                              <Trash2 className="mr-2 h-4 w-4" />
+                              <span>{t('residents.delete.button')}</span>
+                            </DropdownMenuItem>
+                          </DropdownMenuContent>
+                        </DropdownMenu>
+                      </TableCell>
+                    </TableRow>
+                  ))
+                ) : (
+                  <TableRow>
+                    <TableCell colSpan={5} className="h-24 text-center">
+                      {t('residents.filter.noResults')}
                     </TableCell>
                   </TableRow>
-                ))}
+                )}
               </TableBody>
             </Table>
           </CardContent>

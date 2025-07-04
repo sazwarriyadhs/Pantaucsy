@@ -571,6 +571,7 @@ const en = {
     tableTitle: 'Residents',
     tableDescription: 'A list of all residents in the community.',
     addResident: 'Add Resident',
+    searchPlaceholder: 'Search by name, email, or phone...',
     name: 'Name',
     address: 'Address',
     phone: 'Phone',
@@ -596,6 +597,11 @@ const en = {
       email: 'Email Address',
       submitAdd: 'Add Resident',
       submitEdit: 'Save Changes',
+    },
+    filter: {
+      placeholder: 'Filter by block',
+      allBlocks: 'All Blocks',
+      noResults: 'No residents found.'
     }
   },
   finance: {
