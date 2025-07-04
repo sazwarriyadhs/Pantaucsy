@@ -14,7 +14,7 @@ import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { iplManagement } from "@/lib/data"
 import { Button } from "@/components/ui/button"
-import { PlusCircleIcon, ReceiptPercentIcon } from "@heroicons/react/24/outline"
+import { PlusCircle, Receipt } from "lucide-react"
 import { useI18n } from "@/context/i18n-provider"
 
 export default function IplManagementPage() {
@@ -49,12 +49,12 @@ export default function IplManagementPage() {
             <div className="flex flex-col sm:flex-row items-center gap-2">
               <Link href="/payment-confirmation" className="w-full sm:w-auto">
                 <Button variant="outline" className="w-full">
-                  <ReceiptPercentIcon className="mr-2 h-4 w-4" />
+                  <Receipt className="mr-2 h-4 w-4" />
                   {t('ipl.confirmPayment')}
                 </Button>
               </Link>
               <Button className="w-full sm:w-auto">
-                <PlusCircleIcon className="mr-2 h-4 w-4" />
+                <PlusCircle className="mr-2 h-4 w-4" />
                 {t('ipl.addPayment')}
               </Button>
             </div>

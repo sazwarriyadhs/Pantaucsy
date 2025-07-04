@@ -1,7 +1,7 @@
 
 "use client"
 
-import { BellIcon, MapPinIcon, EllipsisVerticalIcon, PlusCircleIcon, TrashIcon, PencilSquareIcon } from '@heroicons/react/24/outline';
+import { Bell, MapPin, MoreVertical, PlusCircle, Trash2, Pencil } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRef, useState } from 'react';
@@ -129,7 +129,7 @@ export default function AnnouncementsPage() {
           </div>
           {hasAdminAccess && (
             <Button onClick={handleAdd}>
-              <PlusCircleIcon className="mr-2" />
+              <PlusCircle className="mr-2" />
               Add Announcement
             </Button>
           )}
@@ -153,7 +153,7 @@ export default function AnnouncementsPage() {
                 <CardHeader className="flex flex-row items-start justify-between pb-4">
                   <div className="flex items-center gap-4">
                     <div className="p-3 rounded-full bg-primary/10 text-primary">
-                      <BellIcon className="w-6 h-6" />
+                      <Bell className="w-6 h-6" />
                     </div>
                     <div className="flex-1">
                       <CardTitle className="text-xl font-headline">{announcement.title}</CardTitle>
@@ -164,15 +164,15 @@ export default function AnnouncementsPage() {
                     <DropdownMenu>
                       <DropdownMenuTrigger asChild>
                         <Button variant="ghost" className="w-8 h-8 p-0">
-                          <EllipsisVerticalIcon className="w-4 h-4" />
+                          <MoreVertical className="w-4 h-4" />
                         </Button>
                       </DropdownMenuTrigger>
                       <DropdownMenuContent align="end">
                         <DropdownMenuItem onClick={() => handleEdit(announcement)}>
-                          <PencilSquareIcon className="mr-2" /> Edit
+                          <Pencil className="mr-2" /> Edit
                         </DropdownMenuItem>
                         <DropdownMenuItem onClick={() => handleDeleteConfirm(announcement)} className="text-destructive">
-                          <TrashIcon className="mr-2" /> Delete
+                          <Trash2 className="mr-2" /> Delete
                         </DropdownMenuItem>
                       </DropdownMenuContent>
                     </DropdownMenu>
@@ -190,15 +190,15 @@ export default function AnnouncementsPage() {
                         <DropdownMenu>
                           <DropdownMenuTrigger asChild>
                             <Button variant="ghost" className="w-8 h-8 p-0">
-                              <EllipsisVerticalIcon className="w-4 h-4" />
+                              <MoreVertical className="w-4 h-4" />
                             </Button>
                           </DropdownMenuTrigger>
                           <DropdownMenuContent align="end">
                             <DropdownMenuItem onClick={() => handleEdit(announcement)}>
-                              <PencilSquareIcon className="mr-2" /> Edit
+                              <Pencil className="mr-2" /> Edit
                             </DropdownMenuItem>
                             <DropdownMenuItem onClick={() => handleDeleteConfirm(announcement)} className="text-destructive">
-                              <TrashIcon className="mr-2" /> Delete
+                              <Trash2 className="mr-2" /> Delete
                             </DropdownMenuItem>
                           </DropdownMenuContent>
                         </DropdownMenu>
@@ -208,7 +208,7 @@ export default function AnnouncementsPage() {
                 <p className="flex-1 text-muted-foreground">{announcement.content}</p>
                 {announcement.address && (
                    <div className="flex items-start gap-2 pt-4 mt-4 text-sm border-t text-muted-foreground">
-                     <MapPinIcon className="w-4 h-4 mt-1 shrink-0" />
+                     <MapPin className="w-4 h-4 mt-1 shrink-0" />
                      <span>{announcement.address}</span>
                    </div>
                 )}

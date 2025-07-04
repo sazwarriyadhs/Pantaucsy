@@ -15,7 +15,7 @@ import {
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { staff as initialStaff, type Staff } from "@/lib/data"
 import { Button } from "@/components/ui/button"
-import { EllipsisHorizontalIcon, PlusCircleIcon, PencilSquareIcon, TrashIcon, DocumentTextIcon } from "@heroicons/react/24/outline"
+import { MoreHorizontal, PlusCircle, Pencil, Trash2, FileText } from "lucide-react"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -171,7 +171,7 @@ export default function StaffManagementPage() {
                 <CardDescription>{t('staffManagement.tableDescription')}</CardDescription>
               </div>
               <Button onClick={handleAdd} className="w-full sm:w-auto">
-                <PlusCircleIcon className="mr-2 h-4 w-4" />
+                <PlusCircle className="mr-2 h-4 w-4" />
                 {t('staffManagement.addStaff')}
               </Button>
             </div>
@@ -209,20 +209,20 @@ export default function StaffManagementPage() {
                         <DropdownMenuTrigger asChild>
                           <Button variant="ghost" className="h-8 w-8 p-0">
                             <span className="sr-only">Open menu</span>
-                            <EllipsisHorizontalIcon className="h-4 w-4" />
+                            <MoreHorizontal className="h-4 w-4" />
                           </Button>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent align="end">
                           <DropdownMenuItem onClick={() => handleViewReport(person)}>
-                            <DocumentTextIcon className="mr-2 h-4 w-4" />
+                            <FileText className="mr-2 h-4 w-4" />
                             <span>{t('staffManagement.viewReport')}</span>
                           </DropdownMenuItem>
                           <DropdownMenuItem onClick={() => handleEdit(person)}>
-                            <PencilSquareIcon className="mr-2 h-4 w-4" />
+                            <Pencil className="mr-2 h-4 w-4" />
                             <span>{t('staffManagement.edit')}</span>
                           </DropdownMenuItem>
                           <DropdownMenuItem onClick={() => handleDeleteConfirm(person)} className="text-destructive focus:text-destructive focus:bg-destructive/10">
-                            <TrashIcon className="mr-2 h-4 w-4" />
+                            <Trash2 className="mr-2 h-4 w-4" />
                             <span>{t('staffManagement.delete.button')}</span>
                           </DropdownMenuItem>
                         </DropdownMenuContent>

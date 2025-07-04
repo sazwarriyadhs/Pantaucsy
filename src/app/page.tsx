@@ -7,7 +7,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { BellIcon, ShoppingBagIcon, ExclamationTriangleIcon } from '@heroicons/react/24/outline';
+import { Bell, ShoppingBag, AlertTriangle } from 'lucide-react';
 import { useI18n } from '@/context/i18n-provider';
 import { useAuth } from '@/context/auth-provider';
 import { SplashScreen } from '@/components/splash-screen';
@@ -75,7 +75,7 @@ export default function LandingPage() {
               <Card>
                 <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">
                   <CardTitle className="text-sm font-medium">{t('landing.features.announcements.title')}</CardTitle>
-                  <BellIcon className="w-4 h-4 text-muted-foreground" />
+                  <Bell className="w-4 h-4 text-muted-foreground" />
                 </CardHeader>
                 <CardContent>
                   <div className="text-lg font-bold">{t('landing.features.announcements.value')}</div>
@@ -85,7 +85,7 @@ export default function LandingPage() {
               <Card>
                 <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">
                   <CardTitle className="text-sm font-medium">{t('landing.features.classifieds.title')}</CardTitle>
-                  <ShoppingBagIcon className="w-4 h-4 text-muted-foreground" />
+                  <ShoppingBag className="w-4 h-4 text-muted-foreground" />
                 </CardHeader>
                 <CardContent>
                    <div className="text-lg font-bold">{t('landing.features.classifieds.value')}</div>
@@ -95,7 +95,7 @@ export default function LandingPage() {
               <Card>
                 <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">
                   <CardTitle className="text-sm font-medium">{t('landing.features.reporting.title')}</CardTitle>
-                  <ExclamationTriangleIcon className="w-4 h-4 text-muted-foreground" />
+                  <AlertTriangle className="w-4 h-4 text-muted-foreground" />
                 </CardHeader>
                 <CardContent>
                    <div className="text-lg font-bold">{t('landing.features.reporting.value')}</div>

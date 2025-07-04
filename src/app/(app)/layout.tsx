@@ -5,27 +5,27 @@ import { usePathname, useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import {
-  BriefcaseIcon,
-  CalendarIcon,
-  ExclamationTriangleIcon,
-  Squares2X2Icon,
-  ShoppingBagIcon,
-  UsersIcon,
-  CameraIcon,
-  HeartIcon,
-  ReceiptPercentIcon,
-  ClipboardDocumentCheckIcon,
-  ChartBarIcon,
-  ClockIcon,
-  ShieldCheckIcon,
-  TrashIcon,
-  ClipboardDocumentListIcon,
-  HomeIcon,
-  PlusSquareIcon,
-  ChatBubbleLeftRightIcon,
-  CheckBadgeIcon,
-  UserGroupIcon
-} from '@heroicons/react/24/outline';
+  Briefcase,
+  Calendar,
+  AlertTriangle,
+  LayoutGrid,
+  ShoppingBag,
+  Users,
+  Camera,
+  Heart,
+  Receipt,
+  ClipboardCheck,
+  BarChart,
+  Clock,
+  ShieldCheck,
+  Trash2,
+  ClipboardList,
+  Home,
+  PlusSquare,
+  MessagesSquare,
+  BadgeCheck,
+  UserCog
+} from 'lucide-react';
 import {
   SidebarProvider,
   Sidebar,
@@ -93,49 +93,49 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
                 <SidebarGroupLabel>{t('sidebar.general')}</SidebarGroupLabel>
                 <SidebarMenuItem>
                   <SidebarMenuButton href="/announcements" isActive={isActive('/announcements', true)} tooltip={t('sidebar.announcements')}>
-                    <Squares2X2Icon />
+                    <LayoutGrid />
                     {t('sidebar.announcements')}
                   </SidebarMenuButton>
                 </SidebarMenuItem>
                 <SidebarMenuItem>
                   <SidebarMenuButton href="/classifieds" isActive={isActive('/classifieds')} tooltip={t('sidebar.classifieds')}>
-                    <ShoppingBagIcon />
+                    <ShoppingBag />
                     {t('sidebar.classifieds')}
                   </SidebarMenuButton>
                 </SidebarMenuItem>
                 <SidebarMenuItem>
                   <SidebarMenuButton href="/post-ad" isActive={isActive('/post-ad')} tooltip={t('sidebar.postAd')}>
-                    <PlusSquareIcon />
+                    <PlusSquare />
                     {t('sidebar.postAd')}
                   </SidebarMenuButton>
                 </SidebarMenuItem>
                  <SidebarMenuItem>
                   <SidebarMenuButton href="/events" isActive={isActive('/events')} tooltip={t('sidebar.events')}>
-                    <CalendarIcon />
+                    <Calendar />
                     {t('sidebar.events')}
                   </SidebarMenuButton>
                 </SidebarMenuItem>
                 <SidebarMenuItem>
                     <SidebarMenuButton href="/gallery" isActive={isActive('/gallery')} tooltip={t('sidebar.gallery')}>
-                      <CameraIcon />
+                      <Camera />
                       {t('sidebar.gallery')}
                     </SidebarMenuButton>
                 </SidebarMenuItem>
                 <SidebarMenuItem>
                   <SidebarMenuButton href="/report-issue" isActive={isActive('/report-issue')} tooltip={t('sidebar.reportIssue')}>
-                    <ExclamationTriangleIcon />
+                    <AlertTriangle />
                     {t('sidebar.reportIssue')}
                   </SidebarMenuButton>
                 </SidebarMenuItem>
                  <SidebarMenuItem>
                   <SidebarMenuButton href="/curhat-warga" isActive={isActive('/curhat-warga')} tooltip={t('sidebar.curhatWarga')}>
-                    <HeartIcon />
+                    <Heart />
                     {t('sidebar.curhatWarga')}
                   </SidebarMenuButton>
                 </SidebarMenuItem>
                 <SidebarMenuItem>
                   <SidebarMenuButton href="/whatsapp-feed" isActive={isActive('/whatsapp-feed')} tooltip={t('sidebar.whatsappFeed')}>
-                    <ChatBubbleLeftRightIcon />
+                    <MessagesSquare />
                     {t('sidebar.whatsappFeed')}
                   </SidebarMenuButton>
                 </SidebarMenuItem>
@@ -145,7 +145,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
               <SidebarGroupLabel>{t('sidebar.finance')}</SidebarGroupLabel>
               <SidebarMenuItem>
                 <SidebarMenuButton href="/payment-confirmation" isActive={isActive('/payment-confirmation')} tooltip={t('sidebar.paymentConfirmation')}>
-                  <ClipboardDocumentCheckIcon />
+                  <ClipboardCheck />
                   {t('sidebar.paymentConfirmation')}
                 </SidebarMenuButton>
               </SidebarMenuItem>
@@ -153,13 +153,13 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
                 <>
                   <SidebarMenuItem>
                     <SidebarMenuButton href="/ipl-management" isActive={isActive('/ipl-management')} tooltip={t('sidebar.iplManagement')}>
-                      <ReceiptPercentIcon />
+                      <Receipt />
                       {t('sidebar.iplManagement')}
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                   <SidebarMenuItem>
                     <SidebarMenuButton href="/financial-report" isActive={isActive('/financial-report')} tooltip={t('sidebar.financialReport')}>
-                      <ChartBarIcon />
+                      <BarChart />
                       {t('sidebar.financialReport')}
                     </SidebarMenuButton>
                   </SidebarMenuItem>
@@ -173,37 +173,37 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
                   <SidebarGroupLabel>{t('sidebar.management_tools')}</SidebarGroupLabel>
                    <SidebarMenuItem>
                     <SidebarMenuButton href="/residents" isActive={isActive('/residents')} tooltip={t('sidebar.residents')}>
-                      <UsersIcon />
+                      <Users />
                       {t('sidebar.residents')}
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                   <SidebarMenuItem>
                     <SidebarMenuButton href="/association-management" isActive={isActive('/association-management')} tooltip={t('sidebar.associationManagement')}>
-                      <BriefcaseIcon />
+                      <Briefcase />
                       {t('sidebar.associationManagement')}
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                   <SidebarMenuItem>
                     <SidebarMenuButton href="/staff-management" isActive={isActive('/staff-management')} tooltip={t('sidebar.staffManagement')}>
-                        <UserGroupIcon />
+                        <UserCog />
                         {t('sidebar.staffManagement')}
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                   <SidebarMenuItem>
                       <SidebarMenuButton href="/classifieds-management" isActive={isActive('/classifieds-management')} tooltip={t('sidebar.classifiedsManagement')}>
-                        <ClipboardDocumentListIcon />
+                        <ClipboardList />
                         {t('sidebar.classifiedsManagement')}
                       </SidebarMenuButton>
                   </SidebarMenuItem>
                   <SidebarMenuItem>
                       <SidebarMenuButton href="/ad-review" isActive={isActive('/ad-review')} tooltip={t('sidebar.adReview')}>
-                        <CheckBadgeIcon />
+                        <BadgeCheck />
                         {t('sidebar.adReview')}
                       </SidebarMenuButton>
                   </SidebarMenuItem>
                   <SidebarMenuItem>
                     <SidebarMenuButton href="/waste-management" isActive={isActive('/waste-management')} tooltip={t('sidebar.wasteManagement')}>
-                      <TrashIcon />
+                      <Trash2 />
                       {t('sidebar.wasteManagement')}
                     </SidebarMenuButton>
                   </SidebarMenuItem>
@@ -213,13 +213,13 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
                   <SidebarGroupLabel>{t('sidebar.security')}</SidebarGroupLabel>
                   <SidebarMenuItem>
                     <SidebarMenuButton href="/security/schedule" isActive={isActive('/security/schedule')} tooltip={t('sidebar.schedule')}>
-                      <ClockIcon />
+                      <Clock />
                       {t('sidebar.schedule')}
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                   <SidebarMenuItem>
                     <SidebarMenuButton href="/security/management" isActive={isActive('/security/management')} tooltip={t('sidebar.management')}>
-                      <ShieldCheckIcon />
+                      <ShieldCheck />
                       {t('sidebar.management')}
                     </SidebarMenuButton>
                   </SidebarMenuItem>
@@ -232,7 +232,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
            <SidebarMenu>
              <SidebarMenuItem>
                 <SidebarMenuButton href="/" tooltip={t('sidebar.landingPage')}>
-                    <HomeIcon />
+                    <Home />
                     {t('sidebar.landingPage')}
                 </SidebarMenuButton>
               </SidebarMenuItem>

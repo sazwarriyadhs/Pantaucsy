@@ -4,7 +4,7 @@
 import { useState } from 'react';
 import { z } from 'zod';
 import Image from 'next/image'
-import { EllipsisVerticalIcon, PlusCircleIcon, PencilSquareIcon, TrashIcon } from '@heroicons/react/24/outline';
+import { MoreVertical, PlusCircle, Pencil, Trash2 } from 'lucide-react';
 import {
   Card,
   CardContent,
@@ -135,7 +135,7 @@ export default function GalleryPage() {
           </div>
           {hasAdminAccess && (
             <Button onClick={handleAdd}>
-              <PlusCircleIcon className="mr-2" />
+              <PlusCircle className="mr-2" />
               {t('gallery.form.addPhoto')}
             </Button>
           )}
@@ -157,15 +157,15 @@ export default function GalleryPage() {
                     <DropdownMenu>
                       <DropdownMenuTrigger asChild>
                         <Button variant="secondary" size="icon" className="absolute top-2 right-2 h-8 w-8 opacity-0 group-hover:opacity-100 transition-opacity">
-                          <EllipsisVerticalIcon className="w-4 h-4" />
+                          <MoreVertical className="w-4 h-4" />
                         </Button>
                       </DropdownMenuTrigger>
                       <DropdownMenuContent align="end">
                         <DropdownMenuItem onClick={() => handleEdit(item)}>
-                          <PencilSquareIcon className="mr-2" /> {t('gallery.edit')}
+                          <Pencil className="mr-2" /> {t('gallery.edit')}
                         </DropdownMenuItem>
                         <DropdownMenuItem onClick={() => handleDeleteConfirm(item)} className="text-destructive">
-                          <TrashIcon className="mr-2" /> {t('gallery.delete.button')}
+                          <Trash2 className="mr-2" /> {t('gallery.delete.button')}
                         </DropdownMenuItem>
                       </DropdownMenuContent>
                     </DropdownMenu>

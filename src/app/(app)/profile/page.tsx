@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
 import Image from "next/image"
-import { CameraIcon, ArrowUpTrayIcon, ArrowPathIcon, MapPinIcon } from "@heroicons/react/24/outline"
+import { Camera, Upload, LoaderCircle, MapPin } from "lucide-react"
 import { useAuth } from "@/context/auth-provider"
 import { useI18n } from "@/context/i18n-provider"
 import { useToast } from "@/hooks/use-toast"
@@ -253,7 +253,7 @@ export default function ProfilePage() {
                        {imageMode === 'camera' ? (
                           <>
                            <Button type="button" size="sm" onClick={handleCapturePhoto} disabled={hasCameraPermission === false}>
-                               <CameraIcon className="mr-2" /> {t('classifiedsManagement.form.capture')}
+                               <Camera className="mr-2" /> {t('classifiedsManagement.form.capture')}
                            </Button>
                            <Button type="button" size="sm" variant="secondary" onClick={() => setImageMode('idle')}>
                                {t('classifiedsManagement.form.cancel')}
@@ -262,10 +262,10 @@ export default function ProfilePage() {
                        ) : (
                           <>
                            <Button type="button" size="sm" variant="outline" onClick={() => setImageMode('camera')}>
-                               <CameraIcon className="mr-2" /> {t('profile.form.photo.change')}
+                               <Camera className="mr-2" /> {t('profile.form.photo.change')}
                            </Button>
                            <Button type="button" size="sm" variant="ghost" onClick={() => fileInputRef.current?.click()}>
-                               <ArrowUpTrayIcon className="mr-2" />
+                               <Upload className="mr-2" />
                            </Button>
                           </>
                        )}
@@ -408,12 +408,12 @@ export default function ProfilePage() {
                 <Button type="button" variant="outline" onClick={handleCaptureLocation} disabled={isCapturingLocation}>
                     {isCapturingLocation ? (
                         <>
-                            <ArrowPathIcon className="mr-2 animate-spin" />
+                            <LoaderCircle className="mr-2 animate-spin" />
                             {t('profile.form.location.capturing')}
                         </>
                     ) : (
                         <>
-                            <MapPinIcon className="mr-2" />
+                            <MapPin className="mr-2" />
                             {t('profile.form.location.capture')}
                         </>
                     )}
@@ -425,7 +425,7 @@ export default function ProfilePage() {
             <Button type="submit" disabled={isLoading}>
                 {isLoading ? (
                 <>
-                    <ArrowPathIcon className="mr-2 h-4 w-4 animate-spin" />
+                    <LoaderCircle className="mr-2 h-4 w-4 animate-spin" />
                     {t('profile.form.submitting')}
                 </>
                 ) : (

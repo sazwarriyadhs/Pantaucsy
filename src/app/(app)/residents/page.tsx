@@ -14,7 +14,7 @@ import {
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { residents as initialResidents, type Resident } from "@/lib/data"
 import { Button } from "@/components/ui/button"
-import { EllipsisHorizontalIcon, PlusCircleIcon, PencilSquareIcon, TrashIcon } from "@heroicons/react/24/outline"
+import { MoreHorizontal, PlusCircle, Pencil, Trash2 } from "lucide-react"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -134,7 +134,7 @@ export default function ResidentsPage() {
                 <CardDescription>{t('residents.tableDescription')}</CardDescription>
               </div>
               <Button onClick={handleAdd} className="w-full sm:w-auto">
-                <PlusCircleIcon className="mr-2 h-4 w-4" />
+                <PlusCircle className="mr-2 h-4 w-4" />
                 {t('residents.addResident')}
               </Button>
             </div>
@@ -162,16 +162,16 @@ export default function ResidentsPage() {
                         <DropdownMenuTrigger asChild>
                           <Button variant="ghost" className="h-8 w-8 p-0">
                             <span className="sr-only">Open menu</span>
-                            <EllipsisHorizontalIcon className="h-4 w-4" />
+                            <MoreHorizontal className="h-4 w-4" />
                           </Button>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent align="end">
                           <DropdownMenuItem onClick={() => handleEdit(resident)}>
-                            <PencilSquareIcon className="mr-2 h-4 w-4" />
+                            <Pencil className="mr-2 h-4 w-4" />
                             <span>{t('residents.edit')}</span>
                           </DropdownMenuItem>
                           <DropdownMenuItem onClick={() => handleDeleteConfirm(resident)} className="text-destructive focus:text-destructive focus:bg-destructive/10">
-                            <TrashIcon className="mr-2 h-4 w-4" />
+                            <Trash2 className="mr-2 h-4 w-4" />
                             <span>{t('residents.delete.button')}</span>
                           </DropdownMenuItem>
                         </DropdownMenuContent>

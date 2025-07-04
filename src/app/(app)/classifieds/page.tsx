@@ -21,7 +21,7 @@ import {
   CarouselNext, 
   CarouselPrevious 
 } from '@/components/ui/carousel'
-import { ChatBubbleOvalLeftEllipsisIcon, PlusSquareIcon } from '@heroicons/react/24/outline'
+import { MessageSquare, PlusSquare } from 'lucide-react'
 
 export default function ClassifiedsPage() {
   const { t, formatCurrency } = useI18n();
@@ -45,7 +45,7 @@ export default function ClassifiedsPage() {
         </div>
         <Button asChild>
           <Link href="/post-ad">
-            <PlusSquareIcon className="mr-2" />
+            <PlusSquare className="mr-2" />
             {t('sidebar.postAd')}
           </Link>
         </Button>
@@ -81,7 +81,7 @@ export default function ClassifiedsPage() {
                   <CardFooter>
                     <Button asChild className="w-full">
                       <Link href={generateWhatsAppLink(item.phone, item.titleKey)}>
-                        <ChatBubbleOvalLeftEllipsisIcon className="mr-2" /> {t('classifieds.contactViaWhatsapp')}
+                        <MessageSquare className="mr-2" /> {t('classifieds.contactViaWhatsapp')}
                       </Link>
                     </Button>
                   </CardFooter>

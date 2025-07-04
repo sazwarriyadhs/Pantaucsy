@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
 import { format } from "date-fns"
-import { CalendarIcon, ClipboardDocumentIcon } from "@heroicons/react/24/outline"
+import { Calendar as CalendarIcon, Clipboard } from "lucide-react"
 import { useEffect } from "react"
 
 import { Button } from "@/components/ui/button"
@@ -305,7 +305,7 @@ export default function PaymentConfirmationPage() {
                 <div className="flex items-center justify-between">
                   <p className="text-lg font-bold">123-456-7890</p>
                   <Button variant="ghost" size="icon" onClick={() => copyToClipboard('1234567890')}>
-                    <ClipboardDocumentIcon className="w-4 h-4"/>
+                    <Clipboard className="w-4 h-4"/>
                   </Button>
                 </div>
                 <p className="text-sm">a/n Paguyuban Warga Cimahpar</p>
@@ -315,7 +315,7 @@ export default function PaymentConfirmationPage() {
                 <div className="flex items-center justify-between">
                   <p className="text-lg font-bold">098-765-4321</p>
                    <Button variant="ghost" size="icon" onClick={() => copyToClipboard('0987654321')}>
-                    <ClipboardDocumentIcon className="w-4 h-4"/>
+                    <Clipboard className="w-4 h-4"/>
                   </Button>
                 </div>
                 <p className="text-sm">a/n Paguyuban Warga Cimahpar</p>

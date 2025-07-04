@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
-import { CameraIcon, TrashIcon, ArrowUpTrayIcon } from "@heroicons/react/24/outline"
+import { Camera, Trash2, Upload } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import {
@@ -276,14 +276,14 @@ export function AdForm({ isOpen, onOpenChange, onSubmit, ad }: AdFormProps) {
                               <video ref={videoRef} className="w-full h-full object-cover" autoPlay muted playsInline />
                               {hasCameraPermission === false && (
                                 <div className="absolute flex flex-col items-center text-muted-foreground">
-                                   <CameraIcon className="h-12 w-12" />
+                                   <Camera className="h-12 w-12" />
                                    <p>{t('classifiedsManagement.form.noImagePlaceholder')}</p>
                                 </div>
                               )}
                             </>
                           ) : (
                              <div className="flex flex-col items-center p-4 text-center text-muted-foreground">
-                               <ArrowUpTrayIcon className="w-12 h-12 mb-2" />
+                               <Upload className="w-12 h-12 mb-2" />
                                <p>{t('classifiedsManagement.form.uploadOrCapture')}</p>
                              </div>
                           )}
@@ -301,13 +301,13 @@ export function AdForm({ isOpen, onOpenChange, onSubmit, ad }: AdFormProps) {
                         <div className="flex gap-2">
                           {imagePreview ? (
                             <Button type="button" variant="outline" onClick={handleRemoveImage}>
-                               <TrashIcon className="mr-2 h-4 w-4" />
+                               <Trash2 className="mr-2 h-4 w-4" />
                               {t('classifiedsManagement.form.removePicture')}
                             </Button>
                           ) : imageMode === 'camera' ? (
                             <>
                               <Button type="button" onClick={handleCapture} disabled={hasCameraPermission === false}>
-                                <CameraIcon className="mr-2 h-4 w-4" />
+                                <Camera className="mr-2 h-4 w-4" />
                                 {t('classifiedsManagement.form.capture')}
                               </Button>
                               <Button type="button" variant="secondary" onClick={() => setImageMode('idle')}>
@@ -317,11 +317,11 @@ export function AdForm({ isOpen, onOpenChange, onSubmit, ad }: AdFormProps) {
                           ) : (
                             <>
                               <Button type="button" onClick={() => setImageMode('camera')}>
-                                <CameraIcon className="mr-2 h-4 w-4" />
+                                <Camera className="mr-2 h-4 w-4" />
                                 {t('classifiedsManagement.form.takePicture')}
                               </Button>
                               <Button type="button" variant="secondary" onClick={() => fileInputRef.current?.click()}>
-                                <ArrowUpTrayIcon className="mr-2 h-4 w-4" />
+                                <Upload className="mr-2 h-4 w-4" />
                                 {t('classifiedsManagement.form.uploadFile')}
                               </Button>
                             </>

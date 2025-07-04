@@ -3,7 +3,7 @@
 
 import { useState } from 'react';
 import { z } from 'zod';
-import { CalendarIcon, MapPinIcon, EllipsisVerticalIcon, PlusCircleIcon, PencilSquareIcon, TrashIcon } from '@heroicons/react/24/outline'
+import { Calendar, MapPin, MoreVertical, PlusCircle, Pencil, Trash2 } from 'lucide-react'
 import { Card, CardHeader, CardTitle, CardContent, CardDescription } from '@/components/ui/card'
 import { Button } from '@/components/ui/button';
 import {
@@ -135,7 +135,7 @@ export default function EventsPage() {
           </div>
           {hasAdminAccess && (
             <Button onClick={handleAdd}>
-              <PlusCircleIcon className="mr-2" />
+              <PlusCircle className="mr-2" />
               Add Event
             </Button>
           )}
@@ -153,15 +153,15 @@ export default function EventsPage() {
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
                       <Button variant="ghost" className="w-8 h-8 p-0">
-                        <EllipsisVerticalIcon className="w-4 h-4" />
+                        <MoreVertical className="w-4 h-4" />
                       </Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end">
                       <DropdownMenuItem onClick={() => handleEdit(event)}>
-                        <PencilSquareIcon className="mr-2" /> Edit
+                        <Pencil className="mr-2" /> Edit
                       </DropdownMenuItem>
                       <DropdownMenuItem onClick={() => handleDeleteConfirm(event)} className="text-destructive">
-                        <TrashIcon className="mr-2" /> Delete
+                        <Trash2 className="mr-2" /> Delete
                       </DropdownMenuItem>
                     </DropdownMenuContent>
                   </DropdownMenu>
@@ -170,11 +170,11 @@ export default function EventsPage() {
               <CardContent className="flex-1">
                 <div className="space-y-4 text-sm text-muted-foreground">
                   <div className="flex items-center">
-                    <CalendarIcon className="w-4 h-4 mr-2" />
+                    <Calendar className="w-4 h-4 mr-2" />
                     <span>{formatDate(event.date)} at {event.time}</span>
                   </div>
                   <div className="flex items-center">
-                    <MapPinIcon className="w-4 h-4 mr-2" />
+                    <MapPin className="w-4 h-4 mr-2" />
                     <span>{event.location}</span>
                   </div>
                 </div>
