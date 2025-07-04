@@ -476,25 +476,25 @@ export const gallery: GalleryItem[] = [
   {
     id: '1',
     titleKey: "independence_day_race",
-    image: "https://placehold.co/600x400.png",
+    image: "/images/lomba-17-agustus.jpg",
     imageHint: "community celebration",
   },
   {
     id: '2',
     titleKey: "community_cleanup",
-    image: "https://placehold.co/600x400.png",
+    image: "/images/kerja-bakti.jpg",
     imageHint: "community service",
   },
   {
     id: '3',
     titleKey: "resident_meeting",
-    image: "https://placehold.co/600x400.png",
+    image: "/images/rapat-warga.jpg",
     imageHint: "community meeting",
   },
   {
     id: '4',
     titleKey: "iftar_gathering",
-    image: "https://placehold.co/600x400.png",
+    image: "/images/buka-bersama.jpg",
     imageHint: "community gathering",
   },
   {
@@ -614,3 +614,6 @@ export const whatsappFeed: WhatsAppMessage[] = [
 
 
 
+
+
+    
