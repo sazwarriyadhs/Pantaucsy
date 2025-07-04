@@ -53,6 +53,8 @@ export type Staff = {
   phone: string;
   photo: string;
   photoHint: string;
+  salary: number;
+  performanceSummary: string;
 };
 
 export const announcements: Announcement[] = [
@@ -497,10 +499,46 @@ export const wasteManagementSchedule = [
 ];
 
 export const staff: Staff[] = [
-  { id: "S001", name: "Budi Santoso", role: 'security', phone: "555-1111", photo: "https://placehold.co/400x400.png", photoHint: "security guard" },
-  { id: "S002", name: "Chandra Wijaya", role: 'security', phone: "555-2222", photo: "https://placehold.co/400x400.png", photoHint: "security guard" },
-  { id: "S003", name: "Dewi Lestari", role: 'security', phone: "555-3333", photo: "https://placehold.co/400x400.png", photoHint: "security guard" },
-  { id: "S004", name: "Agus Salim", role: 'gardener', phone: "555-8888", photo: "https://placehold.co/400x400.png", photoHint: "gardener" },
+  { 
+    id: "S001", 
+    name: "Budi Santoso", 
+    role: 'security', 
+    phone: "555-1111", 
+    photo: "https://placehold.co/400x400.png", 
+    photoHint: "security guard",
+    salary: 3500000,
+    performanceSummary: "Consistent performance, always punctual and alert during patrols. Successfully handled a noise complaint on July 25th. Needs slight improvement in detailed reporting of minor incidents."
+  },
+  { 
+    id: "S002", 
+    name: "Chandra Wijaya", 
+    role: 'security', 
+    phone: "555-2222", 
+    photo: "https://placehold.co/400x400.png", 
+    photoHint: "security guard",
+    salary: 3500000,
+    performanceSummary: "Excellent communication with residents. Proactive in reporting a suspicious vehicle on July 28th, which turned out to be a visitor. No negative remarks."
+  },
+  { 
+    id: "S003", 
+    name: "Dewi Lestari", 
+    role: 'security', 
+    phone: "555-3333", 
+    photo: "https://placehold.co/400x400.png", 
+    photoHint: "security guard",
+    salary: 3200000,
+    performanceSummary: "Diligent and thorough, but needs to be more confident in making on-the-spot decisions. Patrol logs are always complete and detailed."
+  },
+  { 
+    id: "S004", 
+    name: "Agus Salim", 
+    role: 'gardener', 
+    phone: "555-8888", 
+    photo: "https://placehold.co/400x400.png", 
+    photoHint: "gardener",
+    salary: 2800000,
+    performanceSummary: "Highly skilled in maintaining the public gardens. Successfully resolved a pest issue with the main park's rose bushes. Frequently receives compliments from residents on the garden's appearance."
+  },
 ];
 
 export const whatsappFeed: WhatsAppMessage[] = [
@@ -522,4 +560,5 @@ export const whatsappFeed: WhatsAppMessage[] = [
     
 
     
+
 
