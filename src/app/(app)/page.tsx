@@ -1,2 +1,17 @@
-// This file is intentionally left blank to resolve a routing conflict with the main landing page.
-// The logic to redirect authenticated users has been moved into `src/app/page.tsx`.
+'use client';
+
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import { SplashScreen } from '@/components/splash-screen';
+
+export default function AppPage() {
+  const router = useRouter();
+
+  useEffect(() => {
+    // This page is a fallback, redirect to the main authenticated page.
+    router.replace('/announcements');
+  }, [router]);
+
+  // Return a loading state while redirecting
+  return <SplashScreen />;
+}
