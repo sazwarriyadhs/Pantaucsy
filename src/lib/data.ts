@@ -476,7 +476,7 @@ export const gallery: GalleryItem[] = [
   {
     id: '1',
     titleKey: "independence_day_race",
-    image: "/images/lomba-17-agustus.jpg",
+    image: "/images/agustus.jpeg",
     imageHint: "community celebration",
   },
   {
