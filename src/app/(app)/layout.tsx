@@ -24,6 +24,7 @@ import {
   PlusSquare,
   MessageCircle,
   CheckSquare,
+  UsersRound,
 } from 'lucide-react';
 import {
   SidebarProvider,
@@ -180,6 +181,12 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
                     <SidebarMenuButton href="/association-management" isActive={isActive('/association-management')} tooltip={t('sidebar.associationManagement')}>
                       <Briefcase />
                       {t('sidebar.associationManagement')}
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                  <SidebarMenuItem>
+                    <SidebarMenuButton href="/staff-management" isActive={isActive('/staff-management')} tooltip={t('sidebar.staffManagement')}>
+                        <UsersRound />
+                        {t('sidebar.staffManagement')}
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                   <SidebarMenuItem>

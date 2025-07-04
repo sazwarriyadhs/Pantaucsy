@@ -4,6 +4,7 @@ const id = {
     announcements: 'Pengumuman',
     residents: 'Warga',
     associationManagement: 'Pengurus Paguyuban',
+    staffManagement: 'Manajemen Staf',
     iplManagement: 'Iuran IPL',
     classifieds: 'Iklan Kita',
     postAd: 'Pasang Iklan',
@@ -128,6 +129,15 @@ const id = {
       vice_chairman: 'Wakil Ketua',
       secretary: 'Sekretaris',
       treasurer: 'Bendahara'
+    }
+  },
+  staffManagement: {
+    title: 'Manajemen Staf',
+    description: 'Kelola staf operasional untuk keamanan dan pertamanan.',
+    addStaff: 'Tambah Staf',
+    roles: {
+      security: 'Keamanan',
+      gardener: 'Taman'
     }
   },
   events: {

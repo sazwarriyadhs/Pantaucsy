@@ -46,6 +46,15 @@ export type CommunityEvent = {
   isRecurring: boolean;
 };
 
+export type Staff = {
+  id: string;
+  name: string;
+  role: 'security' | 'gardener';
+  phone: string;
+  photo: string;
+  photoHint: string;
+};
+
 export const announcements: Announcement[] = [
   {
     id: "1",
@@ -487,6 +496,13 @@ export const wasteManagementSchedule = [
   },
 ];
 
+export const staff: Staff[] = [
+  { id: "S001", name: "Budi Santoso", role: 'security', phone: "555-1111", photo: "https://placehold.co/400x400.png", photoHint: "security guard" },
+  { id: "S002", name: "Chandra Wijaya", role: 'security', phone: "555-2222", photo: "https://placehold.co/400x400.png", photoHint: "security guard" },
+  { id: "S003", name: "Dewi Lestari", role: 'security', phone: "555-3333", photo: "https://placehold.co/400x400.png", photoHint: "security guard" },
+  { id: "S004", name: "Agus Salim", role: 'gardener', phone: "555-8888", photo: "https://placehold.co/400x400.png", photoHint: "gardener" },
+];
+
 export const whatsappFeed: WhatsAppMessage[] = [
   { id: '1', sender: 'Admin Paguyuban', isMe: false, message: 'Selamat pagi warga, jangan lupa besok ada kerja bakti jam 8 pagi ya.', timestamp: '08:00' },
   { id: '2', sender: 'John Doe', isMe: false, message: 'Siap, Pak Admin! Saya akan ikut serta.', timestamp: '08:05' },
@@ -506,3 +522,4 @@ export const whatsappFeed: WhatsAppMessage[] = [
     
 
     
+

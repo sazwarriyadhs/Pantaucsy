@@ -4,6 +4,7 @@ const en = {
     announcements: 'Announcements',
     residents: 'Residents',
     associationManagement: 'Association Management',
+    staffManagement: 'Staff Management',
     iplManagement: 'IPL Dues',
     classifieds: 'Classifieds',
     postAd: 'Post Ad',
@@ -128,6 +129,15 @@ const en = {
       vice_chairman: 'Vice Chairman',
       secretary: 'Secretary',
       treasurer: 'Treasurer'
+    }
+  },
+  staffManagement: {
+    title: 'Staff Management',
+    description: 'Manage operational staff for security and gardening.',
+    addStaff: 'Add Staff',
+    roles: {
+      security: 'Security',
+      gardener: 'Gardener'
     }
   },
   events: {
