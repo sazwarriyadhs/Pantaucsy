@@ -1,3 +1,4 @@
+
 "use client"
 
 import { useState } from "react"
@@ -127,12 +128,12 @@ export default function ResidentsPage() {
         </div>
         <Card>
           <CardHeader>
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <CardTitle>{t('residents.tableTitle')}</CardTitle>
                 <CardDescription>{t('residents.tableDescription')}</CardDescription>
               </div>
-              <Button onClick={handleAdd}>
+              <Button onClick={handleAdd} className="w-full sm:w-auto">
                 <PlusCircle className="mr-2 h-4 w-4" />
                 {t('residents.addResident')}
               </Button>
