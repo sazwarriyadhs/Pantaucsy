@@ -8,6 +8,7 @@ const id = {
     classifieds: 'Iklan Kita',
     postAd: 'Pasang Iklan',
     classifiedsManagement: 'Manajemen Iklan',
+    adReview: 'Tinjauan Iklan',
     events: 'Acara',
     gallery: 'Galeri Foto',
     reportIssue: 'Lapor Masalah',
@@ -304,9 +305,9 @@ const id = {
         title: 'Berbagai Tanaman Hias',
         description: 'Berbagai tanaman hias dijual. Tersedia lidah mertua, sirih gading, dan sukulen. Cerahkan rumah Anda!'
       },
-      pasang_iklan_di_sini: {
-        title: 'Pasang Iklan Di Sini',
-        description: 'Promosikan usaha Anda selama satu bulan hanya dengan {price}. Hubungi pengurus untuk info lebih lanjut.'
+      jasa_potong_rumput: {
+        title: 'Jasa Potong Rumput',
+        description: 'Menawarkan jasa potong rumput untuk blok A & B. Kerja rapi dan dapat diandalkan. Jadwal mingguan atau dua mingguan tersedia.'
       }
     }
   },
@@ -350,6 +351,7 @@ const id = {
     titleColumn: 'Judul',
     price: 'Harga',
     status: 'Status',
+    submittedBy: 'Dikirim Oleh',
     expiryDate: 'Tanggal Kedaluwarsa',
     actions: 'Aksi',
     edit: 'Ubah',
@@ -383,6 +385,7 @@ const id = {
     statuses: {
       active: 'Aktif',
       expired: 'Kedaluwarsa',
+      pending_review: 'Menunggu Tinjauan',
     },
     toast: {
       error: 'Iklan dengan judul ini sudah ada.',
@@ -397,6 +400,54 @@ const id = {
         notFoundDescription: 'Tidak ada perangkat kamera yang ditemukan. Harap sambungkan kamera untuk menggunakan fitur ini.',
       },
     },
+  },
+  adReview: {
+    title: 'Tinjauan Iklan',
+    description: 'Setujui atau tolak iklan yang dikirimkan oleh warga.',
+    tableTitle: 'Iklan Tertunda',
+    tableDescription: 'Iklan berikut sedang menunggu tinjauan Anda.',
+    columnTitle: 'Judul',
+    columnSubmittedBy: 'Dikirim Oleh',
+    columnActions: 'Aksi',
+    reviewButton: 'Tinjau',
+    dialog: {
+      title: 'Tinjau Iklan',
+      description: 'Gunakan AI untuk membantu memoderasi dan meningkatkan konten iklan.',
+      loading: 'AI sedang meninjau iklan...',
+      originalTitle: 'Iklan Asli',
+      aiReviewTitle: 'Tinjauan & Saran AI',
+      suggestion: 'Saran',
+      category: 'Kategori yang Disarankan',
+      approveButton: 'Setujui Iklan',
+      rejectButton: 'Tolak Iklan',
+      closeButton: 'Tutup',
+      rejectionReason: 'Alasan Penolakan',
+      approvedMessage: 'AI merekomendasikan untuk menyetujui iklan ini.',
+      rejectedMessage: 'AI merekomendasikan untuk menolak iklan ini.',
+    },
+    toast: {
+      approved: {
+        title: 'Iklan Disetujui',
+        description: 'Iklan "{title}" sekarang sudah tayang.',
+      },
+      rejected: {
+        title: 'Iklan Ditolak',
+        description: 'Iklan "{title}" telah ditolak dan dihapus dari antrian.',
+      },
+      error: {
+        title: 'Tinjauan AI Gagal',
+        description: 'Tidak dapat menerima respons dari AI. Silakan coba lagi.',
+      }
+    },
+    categories: {
+      electronics: 'Elektronik',
+      furniture: 'Furnitur',
+      vehicles: 'Kendaraan',
+      clothing: 'Pakaian',
+      household: 'Rumah Tangga',
+      services: 'Jasa',
+      other: 'Lainnya'
+    }
   },
   gallery: {
     title: 'Galeri Foto',

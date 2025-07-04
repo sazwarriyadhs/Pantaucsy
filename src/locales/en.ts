@@ -8,6 +8,7 @@ const en = {
     classifieds: 'Classifieds',
     postAd: 'Post Ad',
     classifiedsManagement: 'Ads Management',
+    adReview: 'Ad Review',
     events: 'Events',
     gallery: 'Photo Gallery',
     reportIssue: 'Report Issue',
@@ -304,9 +305,9 @@ const en = {
         title: 'Various House Plants',
         description: 'Various house plants for sale. Snake plants, pothos, and succulents available. Brighten up your home!'
       },
-      pasang_iklan_di_sini: {
-        title: 'Advertise Here',
-        description: 'Promote your business for one month for only {price}. Contact management for more info.'
+      jasa_potong_rumput: {
+        title: 'Lawn Mowing Service',
+        description: 'Offering lawn mowing services for blocks A & B. Reliable and neat work. Weekly or bi-weekly schedule available.'
       }
     }
   },
@@ -350,6 +351,7 @@ const en = {
     titleColumn: 'Title',
     price: 'Price',
     status: 'Status',
+    submittedBy: 'Submitted By',
     expiryDate: 'Expires On',
     actions: 'Actions',
     edit: 'Edit',
@@ -383,6 +385,7 @@ const en = {
     statuses: {
       active: 'Active',
       expired: 'Expired',
+      pending_review: 'Pending Review',
     },
     toast: {
       error: 'An ad with this title already exists.',
@@ -397,6 +400,54 @@ const en = {
         notFoundDescription: 'No camera device could be found. Please connect one to use this feature.',
       },
     },
+  },
+  adReview: {
+    title: 'Ad Review',
+    description: 'Approve or reject ads submitted by residents.',
+    tableTitle: 'Pending Ads',
+    tableDescription: 'The following ads are awaiting your review.',
+    columnTitle: 'Title',
+    columnSubmittedBy: 'Submitted By',
+    columnActions: 'Actions',
+    reviewButton: 'Review',
+    dialog: {
+      title: 'Review Ad',
+      description: 'Use AI to help moderate and improve the ad content.',
+      loading: 'AI is reviewing the ad...',
+      originalTitle: 'Original Ad',
+      aiReviewTitle: 'AI Review & Suggestions',
+      suggestion: 'Suggestion',
+      category: 'Suggested Category',
+      approveButton: 'Approve Ad',
+      rejectButton: 'Reject Ad',
+      closeButton: 'Close',
+      rejectionReason: 'Reason for Rejection',
+      approvedMessage: 'AI recommends approving this ad.',
+      rejectedMessage: 'AI recommends rejecting this ad.',
+    },
+    toast: {
+      approved: {
+        title: 'Ad Approved',
+        description: 'The ad "{title}" is now live.',
+      },
+      rejected: {
+        title: 'Ad Rejected',
+        description: 'The ad "{title}" has been rejected and removed from the queue.',
+      },
+      error: {
+        title: 'AI Review Failed',
+        description: 'Could not get a response from the AI. Please try again.',
+      }
+    },
+    categories: {
+      electronics: 'Electronics',
+      furniture: 'Furniture',
+      vehicles: 'Vehicles',
+      clothing: 'Clothing',
+      household: 'Household',
+      services: 'Services',
+      other: 'Other'
+    }
   },
   gallery: {
     title: 'Photo Gallery',

@@ -13,8 +13,9 @@ export type ClassifiedAd = {
   image: string;
   imageHint: string;
   phone:string;
-  status: "active" | "expired";
+  status: "active" | "expired" | "pending_review";
   expiryDate: string;
+  submittedBy: string;
 };
 
 export type WhatsAppMessage = {
@@ -164,7 +165,8 @@ export const classifieds: ClassifiedAd[] = [
     imageHint: "mountain bike",
     phone: "6281234567890",
     status: 'active',
-    expiryDate: '2024-09-30'
+    expiryDate: '2024-09-30',
+    submittedBy: 'Budi Santoso',
   },
   {
     id: '2',
@@ -174,7 +176,8 @@ export const classifieds: ClassifiedAd[] = [
     imageHint: "car seat",
     phone: "6281234567890",
     status: 'active',
-    expiryDate: '2024-09-25'
+    expiryDate: '2024-09-25',
+    submittedBy: 'Siti Rahayu',
   },
   {
     id: '3',
@@ -184,7 +187,8 @@ export const classifieds: ClassifiedAd[] = [
     imageHint: "patio furniture",
     phone: "6281234567890",
     status: 'expired',
-    expiryDate: '2024-08-01'
+    expiryDate: '2024-08-01',
+    submittedBy: 'Ahmad Subarjo',
   },
   {
     id: '4',
@@ -194,17 +198,19 @@ export const classifieds: ClassifiedAd[] = [
     imageHint: "house plants",
     phone: "6281234567890",
     status: 'active',
-    expiryDate: '2024-09-28'
+    expiryDate: '2024-09-28',
+    submittedBy: 'Citra Lestari',
   },
   {
     id: '5',
-    titleKey: 'pasang_iklan_di_sini',
-    price: 50000,
+    titleKey: 'jasa_potong_rumput',
+    price: 75000,
     image: "https://placehold.co/600x400.png",
-    imageHint: "advertisement marketing",
-    phone: "6281200000000",
-    status: 'active',
-    expiryDate: '2025-12-31'
+    imageHint: "lawn mower",
+    phone: "6281512345678",
+    status: 'pending_review',
+    expiryDate: '2025-12-31',
+    submittedBy: 'Fajar Nugraha',
   },
 ];
 
@@ -459,6 +465,7 @@ export const whatsappFeed: WhatsAppMessage[] = [
 
 
     
+
 
 
 

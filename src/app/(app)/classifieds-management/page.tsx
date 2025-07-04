@@ -35,10 +35,12 @@ import { AdForm, adFormSchema } from "./ad-form"
 import { useI18n } from "@/context/i18n-provider"
 import { useToast } from "@/hooks/use-toast"
 import { Badge } from "@/components/ui/badge"
+import { useAuth } from "@/context/auth-provider"
 
 export default function ClassifiedsManagementPage() {
   const { t, formatCurrency, locale } = useI18n()
   const { toast } = useToast()
+  const { user } = useAuth()
   const [ads, setAds] = useState(initialClassifieds)
   const [selectedAd, setSelectedAd] = useState<ClassifiedAd | null>(null)
   const [isFormOpen, setIsFormOpen] = useState(false)
@@ -77,7 +79,8 @@ export default function ClassifiedsManagementPage() {
         ...selectedAd,
         ...data,
         titleKey,
-        image: data.image || 'https://placehold.co/600x400.png'
+        image: data.image || 'https://placehold.co/600x400.png',
+        submittedBy: selectedAd.submittedBy,
       }
       setAds(ads.map(ad => ad.id === selectedAd.id ? updatedAd : ad))
     } else {
@@ -92,12 +95,13 @@ export default function ClassifiedsManagementPage() {
       }
       const newAd: ClassifiedAd = {
         id: (ads.length + 1).toString(),
-        status: 'active',
+        status: 'active', // Ads created by admin are active by default
         expiryDate: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], // 30 days from now
         imageHint: "advertisement marketing",
         ...data,
         titleKey,
         image: data.image || 'https://placehold.co/600x400.png',
+        submittedBy: user?.displayName || 'Admin',
       }
       setAds([...ads, newAd])
     }
@@ -110,6 +114,8 @@ export default function ClassifiedsManagementPage() {
       case 'active':
         return 'default'
       case 'expired':
+        return 'destructive'
+      case 'pending_review':
         return 'secondary'
       default:
         return 'outline'
@@ -174,6 +180,7 @@ export default function ClassifiedsManagementPage() {
                 <TableRow>
                   <TableHead>{t('classifiedsManagement.titleColumn')}</TableHead>
                   <TableHead>{t('classifiedsManagement.price')}</TableHead>
+                  <TableHead>{t('classifiedsManagement.submittedBy')}</TableHead>
                   <TableHead>{t('classifiedsManagement.status')}</TableHead>
                   <TableHead>{t('classifiedsManagement.expiryDate')}</TableHead>
                   <TableHead className="text-right">{t('classifiedsManagement.actions')}</TableHead>
@@ -184,6 +191,7 @@ export default function ClassifiedsManagementPage() {
                   <TableRow key={ad.id}>
                     <TableCell className="font-medium">{t(`classifieds.items.${ad.titleKey}.title`)}</TableCell>
                     <TableCell>{formatCurrency(ad.price)}</TableCell>
+                    <TableCell>{ad.submittedBy}</TableCell>
                     <TableCell>
                       <Badge variant={getStatusVariant(ad.status)}>
                         {t(`classifiedsManagement.statuses.${ad.status}`)}
