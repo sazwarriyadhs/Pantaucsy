@@ -106,6 +106,10 @@ const id = {
       title: 'Pasar Komunitas',
       cta: 'Lihat Semua Iklan'
     },
+    gallery: {
+      title: 'Momen Komunitas',
+      cta: 'Lihat Galeri Lengkap'
+    },
     footer: {
       copyright: '© {year} Cimahpar Stoneyard. Hak Cipta Dilindungi.'
     }

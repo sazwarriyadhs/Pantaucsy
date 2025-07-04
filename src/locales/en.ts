@@ -106,6 +106,10 @@ const en = {
       title: 'Community Marketplace',
       cta: 'Browse All Ads'
     },
+    gallery: {
+      title: 'Community Moments',
+      cta: 'View Full Gallery'
+    },
     footer: {
       copyright: '© {year} Cimahpar Stoneyard. All Rights Reserved.'
     }

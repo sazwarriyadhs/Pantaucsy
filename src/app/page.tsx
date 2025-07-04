@@ -9,7 +9,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
 import { Bell, ShoppingBag, FileWarning, MapPin, MessageSquare } from 'lucide-react';
 import { useI18n } from '@/context/i18n-provider';
-import { announcements, classifieds } from '@/lib/data';
+import { announcements, classifieds, gallery } from '@/lib/data';
 import { 
   Carousel, 
   CarouselContent, 
@@ -39,6 +39,7 @@ export default function LandingPage() {
 
   const latestAnnouncements = announcements.slice(0, 3);
   const activeClassifieds = classifieds.filter(ad => ad.status === 'active');
+  const galleryItems = gallery.slice(0, 8);
 
   const generateWhatsAppLink = (phone: string, title: string) => {
     const message = encodeURIComponent(`Halo, saya tertarik dengan "${t(`classifieds.items.${title}`)}" yang Anda iklankan.`);
@@ -135,15 +136,13 @@ export default function LandingPage() {
             </div>
             <div className="grid gap-8 mt-12 md:grid-cols-2 lg:grid-cols-3">
               {latestAnnouncements.map((announcement, index) => {
-                const addressText = t(`announcements.items.${announcement.titleKey}.address`);
-                const hasAddress = addressText !== `announcements.items.${announcement.titleKey}.address`;
                 return(
                   <Card key={index} className="flex flex-col transition-all duration-300 hover:shadow-lg">
                     {announcement.image ? (
                       <CardHeader className="p-0">
                         <Image
                           src={announcement.image}
-                          alt={t(`announcements.items.${announcement.titleKey}.title`)}
+                          alt={announcement.title}
                           width={600}
                           height={400}
                           className="object-cover w-full rounded-t-lg aspect-video"
@@ -156,7 +155,7 @@ export default function LandingPage() {
                           <Bell className="w-6 h-6" />
                         </div>
                         <div className="flex-1">
-                          <CardTitle className="text-xl font-headline">{t(`announcements.items.${announcement.titleKey}.title`)}</CardTitle>
+                          <CardTitle className="text-xl font-headline">{announcement.title}</CardTitle>
                           <CardDescription>{new Date(announcement.date).toLocaleDateString(locale, { year: 'numeric', month: 'long', day: 'numeric' })}</CardDescription>
                         </div>
                       </CardHeader>
@@ -164,15 +163,15 @@ export default function LandingPage() {
                     <CardContent className={`flex-1 flex flex-col ${announcement.image ? 'pt-6' : ''}`}>
                       {announcement.image && (
                         <>
-                          <CardTitle className="text-xl font-headline">{t(`announcements.items.${announcement.titleKey}.title`)}</CardTitle>
+                          <CardTitle className="text-xl font-headline">{announcement.title}</CardTitle>
                           <CardDescription className='mb-4'>{new Date(announcement.date).toLocaleDateString(locale, { year: 'numeric', month: 'long', day: 'numeric' })}</CardDescription>
                         </>
                       )}
-                      <p className="flex-1 text-muted-foreground">{t(`announcements.items.${announcement.titleKey}.content`)}</p>
-                      {hasAddress && (
+                      <p className="flex-1 text-muted-foreground">{announcement.content}</p>
+                      {announcement.address && (
                         <div className="flex items-start gap-2 pt-4 mt-4 text-sm border-t text-muted-foreground">
                           <MapPin className="w-4 h-4 mt-1 shrink-0" />
-                          <span>{addressText}</span>
+                          <span>{announcement.address}</span>
                         </div>
                       )}
                     </CardContent>
@@ -244,6 +243,39 @@ export default function LandingPage() {
               </Button>
             </div>
           </div>
+        </section>
+        
+        {/* Gallery Section */}
+        <section className="container py-20 md:py-32">
+            <div className="text-center">
+              <h2 className="text-3xl font-bold md:text-4xl font-headline">
+                {t('landing.gallery.title')}
+              </h2>
+            </div>
+            <div className="grid gap-6 mt-12 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+              {galleryItems.map((item) => (
+                <Card key={item.id} className="overflow-hidden transition-all duration-300 group hover:shadow-lg">
+                  <CardContent className="relative p-0">
+                    <Image
+                      src={item.image}
+                      alt={t(`gallery.items.${item.titleKey}`)}
+                      width={600}
+                      height={400}
+                      className="object-cover w-full aspect-video"
+                      data-ai-hint={item.imageHint}
+                    />
+                  </CardContent>
+                  <CardFooter className="p-4">
+                    <CardTitle className="text-lg font-headline">{t(`gallery.items.${item.titleKey}`)}</CardTitle>
+                  </CardFooter>
+                </Card>
+              ))}
+            </div>
+            <div className="mt-12 text-center">
+              <Button size="lg" asChild>
+                <Link href="/gallery">{t('landing.gallery.cta')}</Link>
+              </Button>
+            </div>
         </section>
 
       </main>
