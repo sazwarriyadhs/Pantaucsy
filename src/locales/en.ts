@@ -610,6 +610,55 @@ const en = {
       description: 'Overdue IPL dues were detected. Please complete your payment to reactivate waste collection services.'
     },
     confirmPaymentButton: 'Confirm payment here.'
-  }
+  },
+  profile: {
+    title: 'Update Profile',
+    description: 'Manage your personal information and settings.',
+    form: {
+      photo: {
+        label: 'Profile Photo',
+        change: 'Take Photo',
+        remove: 'Remove Photo',
+      },
+      name: {
+        label: 'Full Name',
+      },
+      email: {
+        label: 'Email Address',
+      },
+      address: {
+        label: 'Address',
+      },
+      phone: {
+        label: 'Phone Number',
+      },
+      location: {
+        label: 'GPS Location',
+        description: 'Capture your precise location to help with deliveries and emergency services. This is optional.',
+        capture: 'Capture Current Location',
+        capturing: 'Capturing...',
+        denied: 'Location access was denied. Please enable it in your browser settings.',
+        notSupported: 'Geolocation is not supported by your browser.',
+        latitude: 'Latitude',
+        longitude: 'Longitude',
+      },
+      family: {
+        label: 'Family Members',
+        placeholder: 'List your family members, one per line...',
+      },
+      submit: 'Save Changes',
+      submitting: 'Saving...',
+    },
+    toast: {
+      success: {
+        title: 'Profile Updated',
+        description: 'Your information has been successfully saved.',
+      },
+      error: {
+        title: 'Update Failed',
+        description: 'There was an error saving your profile. Please try again.',
+      },
+    },
+  },
 };
 export default en;

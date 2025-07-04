@@ -610,6 +610,55 @@ const id = {
       description: 'Terdeteksi ada iuran IPL yang tertunggak. Mohon segera selesaikan pembayaran untuk mengaktifkan kembali layanan pengangkutan sampah.'
     },
     confirmPaymentButton: 'Konfirmasi Pembayaran di sini.'
-  }
+  },
+    profile: {
+    title: 'Perbarui Profil',
+    description: 'Kelola informasi dan pengaturan pribadi Anda.',
+    form: {
+      photo: {
+        label: 'Foto Profil',
+        change: 'Ambil Foto',
+        remove: 'Hapus Foto',
+      },
+      name: {
+        label: 'Nama Lengkap',
+      },
+      email: {
+        label: 'Alamat Email',
+      },
+      address: {
+        label: 'Alamat',
+      },
+      phone: {
+        label: 'Nomor Telepon',
+      },
+      location: {
+        label: 'Lokasi GPS',
+        description: 'Ambil lokasi akurat Anda untuk membantu pengiriman dan layanan darurat. Ini opsional.',
+        capture: 'Ambil Lokasi Saat Ini',
+        capturing: 'Mengambil...',
+        denied: 'Akses lokasi ditolak. Mohon aktifkan di pengaturan browser Anda.',
+        notSupported: 'Geolocation tidak didukung oleh browser Anda.',
+        latitude: 'Lintang',
+        longitude: 'Bujur',
+      },
+      family: {
+        label: 'Anggota Keluarga',
+        placeholder: 'Sebutkan anggota keluarga Anda, satu per baris...',
+      },
+      submit: 'Simpan Perubahan',
+      submitting: 'Menyimpan...',
+    },
+    toast: {
+      success: {
+        title: 'Profil Diperbarui',
+        description: 'Informasi Anda telah berhasil disimpan.',
+      },
+      error: {
+        title: 'Gagal Memperbarui',
+        description: 'Terjadi kesalahan saat menyimpan profil Anda. Silakan coba lagi.',
+      },
+    },
+  },
 };
 export default id;

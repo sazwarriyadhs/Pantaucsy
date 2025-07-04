@@ -1,3 +1,4 @@
+
 "use client"
 
 import Link from "next/link";
@@ -66,7 +67,6 @@ export function UserNav() {
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" className="relative h-8 w-8 rounded-full">
           <Avatar className="h-8 w-8">
-            {/* The user object from Firebase might not have a photoURL initially */}
             <AvatarImage src={user.photoURL || `https://placehold.co/40x40/A7D1AB/000000?text=${getInitials(user.displayName)}`} alt={user.displayName || "User"} data-ai-hint="person" />
             <AvatarFallback>{getInitials(user.displayName)}</AvatarFallback>
           </Avatar>
@@ -91,10 +91,11 @@ export function UserNav() {
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
-          <DropdownMenuItem>
-            {t('userNav.profile')}
-            <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
-          </DropdownMenuItem>
+          <Link href="/profile" passHref>
+            <DropdownMenuItem asChild>
+              <a>{t('userNav.profile')}</a>
+            </DropdownMenuItem>
+          </Link>
           <DropdownMenuItem>
             {t('userNav.settings')}
             <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
