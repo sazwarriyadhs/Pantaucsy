@@ -57,7 +57,7 @@ export default function LoginPage() {
     if (!firebaseReady) {
         toast({
             variant: "destructive",
-            title: t('auth.error.title'),
+            title: t('auth.error.login_title'),
             description: t('auth.error.not_configured'),
         });
         setIsLoading(false);
@@ -67,19 +67,22 @@ export default function LoginPage() {
       await signInWithEmailAndPassword(auth!, values.email, values.password)
       router.push('/announcements')
     } catch (error: any) {
-      console.error("Login error:", error)
-      let description = t('auth.error.login');
+      let description: string;
       
-      if (error.code === 'auth/invalid-api-key' || error.code === 'auth/api-key-not-valid') {
-        description = t('auth.error.invalid_api_key');
-      } else if (error.code === 'auth/invalid-credential') {
+      if (error.code === 'auth/invalid-credential') {
         const isDemoUser = values.email.startsWith('admin@') || values.email.startsWith('superadmin@') || values.email === 'john.doe@example.com';
         description = isDemoUser ? t('auth.error.login_demo') : t('auth.error.login');
+      } else if (error.code === 'auth/invalid-api-key' || error.code === 'auth/api-key-not-valid') {
+        description = t('auth.error.invalid_api_key');
+        console.error("Firebase Auth Error:", error);
+      } else {
+        description = t('auth.error.login');
+        console.error("Login error:", error);
       }
 
       toast({
         variant: "destructive",
-        title: t('auth.error.title'),
+        title: t('auth.error.login_title'),
         description: description,
       })
     } finally {

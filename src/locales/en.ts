@@ -68,13 +68,16 @@ const en = {
     },
     logout: 'Log out',
     success: {
-        register: 'Registration successful! Please log in.'
+        register_title: 'Registration Successful',
+        register: 'Please log in with your new account.'
     },
     error: {
-        title: 'Login Error',
+        login_title: 'Login Error',
+        register_title: 'Registration Error',
         login: 'Login failed. Please check your email and password.',
         login_demo: 'Login failed. Please register this demo account first.',
-        register: 'Registration failed. The email might already be in use.',
+        register: 'Registration failed. Please try again.',
+        register_email_in_use: 'This email is already registered. Please log in instead.',
         not_configured: 'Firebase is not configured. Please add your credentials to the .env file to enable authentication.',
         invalid_api_key: 'Configuration error: The Firebase API key is not valid. Please check your .env file.'
     }

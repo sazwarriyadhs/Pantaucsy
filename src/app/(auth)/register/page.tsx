@@ -59,7 +59,7 @@ export default function RegisterPage() {
     if (!firebaseReady) {
       toast({
         variant: "destructive",
-        title: "Error",
+        title: t('auth.error.register_title'),
         description: t('auth.error.not_configured'),
       });
       setIsLoading(false)
@@ -75,22 +75,26 @@ export default function RegisterPage() {
       // to set a custom claim for the user's role (e.g., 'warga').
       
       toast({
-        title: "Success",
+        title: t('auth.success.register_title'),
         description: t('auth.success.register'),
       });
       router.push('/login');
 
     } catch (error: any) {
-      console.error("Registration error:", error)
       let description = t('auth.error.register');
 
-      if (error.code === 'auth/invalid-api-key' || error.code === 'auth/api-key-not-valid') {
+      if (error.code === 'auth/email-already-in-use') {
+        description = t('auth.error.register_email_in_use');
+      } else if (error.code === 'auth/invalid-api-key' || error.code === 'auth/api-key-not-valid') {
         description = t('auth.error.invalid_api_key');
+        console.error("Firebase Auth Error:", error);
+      } else {
+        console.error("Registration error:", error);
       }
 
       toast({
         variant: "destructive",
-        title: "Error",
+        title: t('auth.error.register_title'),
         description: description,
       })
     } finally {

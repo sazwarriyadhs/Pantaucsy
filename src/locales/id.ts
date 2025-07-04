@@ -68,13 +68,16 @@ const id = {
     },
     logout: 'Keluar',
     success: {
-        register: 'Pendaftaran berhasil! Silakan masuk.'
+        register_title: 'Pendaftaran Berhasil',
+        register: 'Silakan masuk dengan akun baru Anda.'
     },
     error: {
-        title: 'Gagal Masuk',
+        login_title: 'Gagal Masuk',
+        register_title: 'Pendaftaran Gagal',
         login: 'Gagal masuk. Silakan periksa email dan kata sandi Anda.',
         login_demo: 'Gagal masuk. Harap daftarkan akun demo ini terlebih dahulu.',
-        register: 'Pendaftaran gagal. Email mungkin sudah digunakan.',
+        register: 'Pendaftaran gagal. Silakan coba lagi.',
+        register_email_in_use: 'Email ini sudah terdaftar. Silakan masuk.',
         not_configured: 'Firebase tidak dikonfigurasi. Harap tambahkan kredensial Anda ke file .env untuk mengaktifkan autentikasi.',
         invalid_api_key: 'Kesalahan Konfigurasi: Kunci API Firebase tidak valid. Silakan periksa file .env Anda.'
     }
