@@ -57,7 +57,7 @@ export default function LoginPage() {
     if (!firebaseReady) {
         toast({
             variant: "destructive",
-            title: "Error",
+            title: t('auth.error.title'),
             description: t('auth.error.not_configured'),
         });
         setIsLoading(false);
@@ -72,13 +72,14 @@ export default function LoginPage() {
       
       if (error.code === 'auth/invalid-api-key' || error.code === 'auth/api-key-not-valid') {
         description = t('auth.error.invalid_api_key');
-      } else if ((values.email.startsWith('admin@') || values.email.startsWith('superadmin@') || values.email === 'john.doe@example.com') && error.code === 'auth/invalid-credential') {
-        description = t('auth.error.login_demo');
+      } else if (error.code === 'auth/invalid-credential') {
+        const isDemoUser = values.email.startsWith('admin@') || values.email.startsWith('superadmin@') || values.email === 'john.doe@example.com';
+        description = isDemoUser ? t('auth.error.login_demo') : t('auth.error.login');
       }
 
       toast({
         variant: "destructive",
-        title: "Error",
+        title: t('auth.error.title'),
         description: description,
       })
     } finally {

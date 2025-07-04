@@ -54,7 +54,7 @@ const en = {
       button: 'Login',
       noAccount: "Don't have an account?",
       register: 'Register',
-      demoHint: 'For demo purposes, the fields are pre-filled for an admin account. You can also use "john.doe@example.com" for a resident account or register a new user.'
+      demoHint: 'Use the pre-filled admin credentials. Please register this account via the "Register" link before logging in.'
     },
     register: {
       title: 'Register',
@@ -71,8 +71,9 @@ const en = {
         register: 'Registration successful! Please log in.'
     },
     error: {
-        login: 'Login failed. Please check your credentials.',
-        login_demo: 'Login failed. If you are trying to use a demo account (e.g., admin@, john.doe@), please register it first.',
+        title: 'Login Error',
+        login: 'Login failed. Please check your email and password.',
+        login_demo: 'Login failed. Please register this demo account first.',
         register: 'Registration failed. The email might already be in use.',
         not_configured: 'Firebase is not configured. Please add your credentials to the .env file to enable authentication.',
         invalid_api_key: 'Configuration error: The Firebase API key is not valid. Please check your .env file.'

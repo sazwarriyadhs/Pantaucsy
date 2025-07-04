@@ -54,7 +54,7 @@ const id = {
       button: 'Masuk',
       noAccount: 'Belum punya akun?',
       register: 'Daftar',
-      demoHint: 'Untuk keperluan demo, kolom sudah terisi untuk akun admin. Anda juga dapat menggunakan "john.doe@example.com" untuk akun warga atau mendaftarkan pengguna baru.'
+      demoHint: 'Gunakan kredensial admin yang sudah terisi. Harap daftarkan akun ini melalui tautan "Daftar" sebelum masuk.'
     },
     register: {
       title: 'Daftar',
@@ -71,8 +71,9 @@ const id = {
         register: 'Pendaftaran berhasil! Silakan masuk.'
     },
     error: {
-        login: 'Gagal masuk. Silakan periksa kredensial Anda.',
-        login_demo: 'Gagal masuk. Jika Anda mencoba menggunakan akun demo (misalnya admin@, john.doe@), silakan daftarkan terlebih dahulu.',
+        title: 'Gagal Masuk',
+        login: 'Gagal masuk. Silakan periksa email dan kata sandi Anda.',
+        login_demo: 'Gagal masuk. Harap daftarkan akun demo ini terlebih dahulu.',
         register: 'Pendaftaran gagal. Email mungkin sudah digunakan.',
         not_configured: 'Firebase tidak dikonfigurasi. Harap tambahkan kredensial Anda ke file .env untuk mengaktifkan autentikasi.',
         invalid_api_key: 'Kesalahan Konfigurasi: Kunci API Firebase tidak valid. Silakan periksa file .env Anda.'
