@@ -79,30 +79,23 @@ const id = {
   },
   landing: {
     header: {
-      title: 'Nextacular Community Hub',
+      title: 'Pantau Warga Cimahpar Stoneyard',
       login: 'Masuk'
     },
     hero: {
-      title: 'Cara yang lebih baik untuk mengelola komunitas Anda',
-      subtitle: 'Nextacular Community Hub adalah starter kit sumber terbuka yang membantu Anda membangun dan mengelola platform komunitas secara efisien.',
-      cta: 'Mulai'
+      title: 'Selamat Datang di Pantau Warga Cimahpar Stoneyard',
+      subtitle: 'Platform lengkap untuk terhubung dengan tetangga, mendapatkan informasi terkini, dan mengelola kegiatan warga dengan mudah.',
+      cta: 'Masuk & Jelajahi'
     },
-    features: {
-      announcements: {
-        title: 'Pengumuman',
-        value: '+1,200',
-        description: 'anggota tetap terinformasi'
-      },
-      classifieds: {
-        title: 'Pasar',
-        value: '+500',
-        description: 'barang terjual setiap bulan'
-      },
-      reporting: {
-        title: 'Laporan Masalah',
-        value: '98%',
-        description: 'tingkat penyelesaian'
-      }
+    announcements: {
+      latest: "Pengumuman Terbaru",
+      latest_description: "Tetap terinformasi dengan berita terbaru dari komunitas kami.",
+      view_all: "Lihat Semua Pengumuman",
+    },
+    classifieds: {
+      title: "Pasar Komunitas",
+      description: "Temukan penawaran menarik atau jual barang Anda kepada tetangga.",
+      view_all: "Lihat Semua Iklan",
     },
     gallery: {
       title: "Galeri Komunitas",
@@ -110,7 +103,7 @@ const id = {
       cta: "Lihat Galeri Lengkap",
     },
     footer: {
-      copyright: '© {year} Nextacular. Hak Cipta Dilindungi.'
+      copyright: '© {year} Pantau Warga. Hak Cipta Dilindungi.'
     }
   },
   announcements: {

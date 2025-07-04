@@ -6,7 +6,7 @@ import { AuthProvider } from '@/context/auth-provider';
 import { ThemeProvider } from '@/components/theme-provider';
 
 export const metadata: Metadata = {
-  title: 'Cimahpar Stoneyard Community Hub',
+  title: 'Pantau Warga Cimahpar Stoneyard',
   description: 'Community Hub for Cimahpar Stoneyard',
 };
 

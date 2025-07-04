@@ -83,7 +83,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
                 src="/images/logo.png"
                 width={150}
                 height={50}
-                alt="Cimahpar Hub Logo"
+                alt="Pantau Warga Logo"
                 data-ai-hint="logo"
               />
             </Link>

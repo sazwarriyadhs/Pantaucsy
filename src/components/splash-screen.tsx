@@ -10,7 +10,7 @@ export function SplashScreen() {
           src="/images/logo.png"
           width={128}
           height={128}
-          alt="Cimahpar Hub Logo"
+          alt="Pantau Warga Logo"
           data-ai-hint="logo"
           priority
         />

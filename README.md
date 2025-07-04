@@ -1,6 +1,6 @@
-# Nextacular Community Hub 🌙
+# Pantau Warga Cimahpar Stoneyard 🌙
 
-Welcome to the Nextacular Community Hub, a fork of the Nextacular open-source starter kit, tailored for community management. This starter kit helps you build full-stack multi-tenant SaaS platforms efficiently, allowing you to focus on developing your core SaaS features. This version has been adapted into a comprehensive web application designed to connect neighbors, streamline communication, and manage community activities efficiently.
+Welcome to Pantau Warga Cimahpar Stoneyard, a comprehensive web application designed to connect neighbors, streamline communication, and manage community activities efficiently. This project is a tailored version of the Nextacular open-source starter kit.
 
 **Features** packaged out-of-the-box: **Authentication**, **Billing & Payment**, **Database**, **Email**, **Custom Domains**, **Multi-tenancy**, **Workspaces**, and **Teams**
 
@@ -28,7 +28,7 @@ Welcome to the Nextacular Community Hub, a fork of the Nextacular open-source st
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS
 - **UI Components**: Shadcn/ui, Headless UI
-- **Icons**: HeroIcons
+- **Icons**: Lucide React
 - **AI/Generative**: Google Gemini via Genkit
 - **Authentication**: Firebase Authentication
 - **Notifications**: Gotify (optional)

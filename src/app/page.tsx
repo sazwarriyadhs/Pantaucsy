@@ -1,21 +1,34 @@
 
 "use client";
 
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Bell, ShoppingBag, AlertTriangle } from 'lucide-react';
+import { Card, CardContent, CardHeader, CardTitle, CardFooter, CardDescription } from '@/components/ui/card';
+import { Bell, MessageSquare } from 'lucide-react';
 import { useI18n } from '@/context/i18n-provider';
 import { useAuth } from '@/context/auth-provider';
 import { SplashScreen } from '@/components/splash-screen';
+import { announcements, classifieds, gallery } from '@/lib/data';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '@/components/ui/carousel';
+import Autoplay from 'embla-carousel-autoplay';
 
 export default function LandingPage() {
-  const { t } = useI18n();
+  const { t, locale, formatCurrency } = useI18n();
   const { user, loading } = useAuth();
   const router = useRouter();
+
+  const autoplayPlugin = useRef(
+    Autoplay({ delay: 5000, stopOnInteraction: true, stopOnMouseEnter: true })
+  );
 
   useEffect(() => {
     // Redirect authenticated users to the dashboard
@@ -24,9 +37,17 @@ export default function LandingPage() {
     }
   }, [user, loading, router]);
   
-  // Show splash screen while loading auth state or if user is being redirected
   if (loading || user) {
     return <SplashScreen />;
+  }
+  
+  const latestAnnouncements = announcements.slice(0, 3);
+  const activeClassifieds = classifieds.filter(ad => ad.status === 'active');
+
+  const generateWhatsAppLink = (phone: string, titleKey: string) => {
+    const title = t(`classifieds.items.${titleKey}.title`);
+    const message = encodeURIComponent(`Halo, saya tertarik dengan "${title}" yang Anda iklankan.`);
+    return `https://wa.me/${phone}?text=${message}`;
   }
 
   return (
@@ -38,7 +59,7 @@ export default function LandingPage() {
               src="/images/logo.png"
               width={30}
               height={30}
-              alt="Cimahpar Hub Logo"
+              alt="Pantau Warga Logo"
               data-ai-hint="logo"
             />
             <span className="font-headline">{t('landing.header.title')}</span>
@@ -69,40 +90,126 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/* Features Section */}
+        {/* Announcements Section */}
         <section className="container py-12">
-            <div className="grid gap-8 md:grid-cols-3">
-              <Card>
-                <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">
-                  <CardTitle className="text-sm font-medium">{t('landing.features.announcements.title')}</CardTitle>
-                  <Bell className="w-4 h-4 text-muted-foreground" />
-                </CardHeader>
-                <CardContent>
-                  <div className="text-lg font-bold">{t('landing.features.announcements.value')}</div>
-                  <p className="text-xs text-muted-foreground">{t('landing.features.announcements.description')}</p>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">
-                  <CardTitle className="text-sm font-medium">{t('landing.features.classifieds.title')}</CardTitle>
-                  <ShoppingBag className="w-4 h-4 text-muted-foreground" />
-                </CardHeader>
-                <CardContent>
-                   <div className="text-lg font-bold">{t('landing.features.classifieds.value')}</div>
-                   <p className="text-xs text-muted-foreground">{t('landing.features.classifieds.description')}</p>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">
-                  <CardTitle className="text-sm font-medium">{t('landing.features.reporting.title')}</CardTitle>
-                  <AlertTriangle className="w-4 h-4 text-muted-foreground" />
-                </CardHeader>
-                <CardContent>
-                   <div className="text-lg font-bold">{t('landing.features.reporting.value')}</div>
-                   <p className="text-xs text-muted-foreground">{t('landing.features.reporting.description')}</p>
-                </CardContent>
-              </Card>
+            <div className="mb-8 text-center">
+                <h2 className="text-3xl font-bold tracking-tight font-headline">{t('landing.announcements.latest')}</h2>
+                <p className="text-muted-foreground">{t('landing.announcements.latest_description')}</p>
             </div>
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {latestAnnouncements.map((announcement) => (
+                  <Card key={announcement.id} className="flex flex-col transition-all duration-300 hover:shadow-lg">
+                      <CardHeader>
+                        <div className="flex items-start justify-between">
+                            <div>
+                                <CardTitle className="text-xl font-headline">{announcement.title}</CardTitle>
+                                <CardDescription>{new Date(announcement.date).toLocaleDateString(locale, { year: 'numeric', month: 'long', day: 'numeric' })}</CardDescription>
+                            </div>
+                             <div className="p-3 rounded-full bg-primary/10 text-primary">
+                                <Bell className="w-6 h-6" />
+                             </div>
+                        </div>
+                      </CardHeader>
+                      <CardContent className="flex-1">
+                        <p className="text-muted-foreground line-clamp-4">{announcement.content}</p>
+                      </CardContent>
+                      <CardFooter>
+                         <Button variant="link" asChild className="p-0">
+                           <Link href="/announcements">Read More</Link>
+                         </Button>
+                      </CardFooter>
+                  </Card>
+              ))}
+            </div>
+            <div className="mt-8 text-center">
+                <Button variant="outline" asChild>
+                    <Link href="/announcements">{t('landing.announcements.view_all')}</Link>
+                </Button>
+            </div>
+        </section>
+
+        {/* Classifieds Section */}
+        <section className="w-full py-12 bg-secondary">
+          <div className="container">
+              <div className="mb-8 text-center">
+                  <h2 className="text-3xl font-bold tracking-tight font-headline">{t('landing.classifieds.title')}</h2>
+                  <p className="text-muted-foreground">{t('landing.classifieds.description')}</p>
+              </div>
+              <Carousel
+                plugins={[autoplayPlugin.current]}
+                opts={{ align: "start", loop: true, }}
+                className="w-full"
+              >
+                <CarouselContent>
+                  {activeClassifieds.map((item) => (
+                    <CarouselItem key={item.id} className="md:basis-1/2 lg:basis-1/3 xl:basis-1/4">
+                      <div className="p-1">
+                        <Card className="flex flex-col h-full transition-all duration-300 hover:shadow-lg">
+                          <CardHeader className="p-0">
+                            <Image
+                              src={item.image}
+                              alt={t(`classifieds.items.${item.titleKey}.title`)}
+                              width={600}
+                              height={400}
+                              className="object-cover w-full rounded-t-lg aspect-video"
+                              data-ai-hint={item.imageHint}
+                            />
+                          </CardHeader>
+                          <CardContent className="flex-1 pt-6">
+                            <CardTitle className="text-xl font-headline">{t(`classifieds.items.${item.titleKey}.title`)}</CardTitle>
+                            <p className="mt-2 text-2xl font-semibold text-primary">{formatCurrency(item.price)}</p>
+                          </CardContent>
+                          <CardFooter>
+                            <Button asChild className="w-full">
+                              <Link href={generateWhatsAppLink(item.phone, item.titleKey)} target="_blank">
+                                <MessageSquare className="mr-2" /> {t('classifieds.contactViaWhatsapp')}
+                              </Link>
+                            </Button>
+                          </CardFooter>
+                        </Card>
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious className="hidden ml-12 sm:flex" />
+                <CarouselNext className="hidden mr-12 sm:flex" />
+              </Carousel>
+              <div className="mt-8 text-center">
+                  <Button variant="outline" asChild>
+                      <Link href="/classifieds">{t('landing.classifieds.view_all')}</Link>
+                  </Button>
+              </div>
+          </div>
+        </section>
+
+        {/* Gallery Section */}
+        <section className="container py-12">
+          <div className="mb-8 text-center">
+            <h2 className="text-3xl font-bold tracking-tight font-headline">{t('landing.gallery.title')}</h2>
+            <p className="text-muted-foreground">{t('landing.gallery.description')}</p>
+          </div>
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+            {gallery.slice(0, 4).map((item) => (
+              <Link key={item.id} href="/gallery" className="relative block w-full overflow-hidden rounded-lg group aspect-video">
+                <Image
+                  src={item.image}
+                  alt={t(`gallery.items.${item.titleKey}`)}
+                  fill
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  data-ai-hint={item.imageHint}
+                />
+                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-colors" />
+                <div className="absolute bottom-0 left-0 p-4">
+                  <h3 className="font-bold text-white font-headline">{t(`gallery.items.${item.titleKey}`)}</h3>
+                </div>
+              </Link>
+            ))}
+          </div>
+          <div className="mt-8 text-center">
+            <Button asChild>
+              <Link href="/gallery">{t('landing.gallery.cta')}</Link>
+            </Button>
+          </div>
         </section>
       </main>
 

@@ -79,30 +79,23 @@ const en = {
   },
   landing: {
     header: {
-      title: 'Nextacular Community Hub',
+      title: 'Pantau Warga Cimahpar Stoneyard',
       login: 'Login'
     },
     hero: {
-      title: 'A better way to manage your community',
-      subtitle: 'Nextacular Community Hub is an open-source starter kit that helps you build and manage your community platform efficiently.',
-      cta: 'Get Started'
+      title: 'Welcome to Pantau Warga Cimahpar Stoneyard',
+      subtitle: 'The all-in-one platform to connect with your neighbors, stay informed about community news, and manage residential activities seamlessly.',
+      cta: 'Login & Explore'
     },
-    features: {
-      announcements: {
-        title: 'Announcements',
-        value: '+1,200',
-        description: 'members stay informed'
-      },
-      classifieds: {
-        title: 'Marketplace',
-        value: '+500',
-        description: 'items sold monthly'
-      },
-      reporting: {
-        title: 'Issue Reports',
-        value: '98%',
-        description: 'resolution rate'
-      }
+    announcements: {
+      latest: "Latest Announcements",
+      latest_description: "Stay informed with the most recent news from our community.",
+      view_all: "View All Announcements",
+    },
+    classifieds: {
+      title: "Community Marketplace",
+      description: "Find great deals or sell your items to neighbors.",
+      view_all: "View All Classifieds",
     },
     gallery: {
       title: "Community Gallery",
@@ -110,7 +103,7 @@ const en = {
       cta: "View Full Gallery",
     },
     footer: {
-      copyright: '© {year} Nextacular. All Rights Reserved.'
+      copyright: '© {year} Pantau Warga. All Rights Reserved.'
     }
   },
   announcements: {
