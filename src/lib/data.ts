@@ -494,7 +494,7 @@ export const gallery: GalleryItem[] = [
   {
     id: '4',
     titleKey: "iftar_gathering",
-    image: "/images/buka-bersama.jpg",
+    image: "/images/Buka Puasa Bersama.jpg",
     imageHint: "community gathering",
   },
   {
