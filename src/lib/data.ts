@@ -488,7 +488,7 @@ export const gallery: GalleryItem[] = [
   {
     id: '3',
     titleKey: "resident_meeting",
-    image: "/images/rapat-warga.jpg",
+    image: "/images/rapat.jpg",
     imageHint: "community meeting",
   },
   {
