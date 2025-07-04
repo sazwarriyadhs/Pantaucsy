@@ -47,7 +47,7 @@ export default function LoginPage() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      email: "john.doe@example.com",
+      email: "admin@example.com",
       password: "password",
     },
   })
@@ -72,7 +72,7 @@ export default function LoginPage() {
       
       if (error.code === 'auth/invalid-api-key' || error.code === 'auth/api-key-not-valid') {
         description = t('auth.error.invalid_api_key');
-      } else if (values.email === 'john.doe@example.com' && error.code === 'auth/invalid-credential') {
+      } else if ((values.email.startsWith('admin@') || values.email.startsWith('superadmin@') || values.email === 'john.doe@example.com') && error.code === 'auth/invalid-credential') {
         description = t('auth.error.login_demo');
       }
 
