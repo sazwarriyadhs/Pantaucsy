@@ -5,6 +5,7 @@ import Link from "next/link";
 import { signOut } from "firebase/auth";
 import { auth, firebaseReady } from "@/lib/firebase";
 import { useToast } from "@/hooks/use-toast";
+import { useTheme } from "next-themes";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
@@ -32,6 +33,7 @@ export function UserNav() {
   const { t, locale, setLocale, currency, setCurrency } = useI18n();
   const { user, role } = useAuth();
   const { toast } = useToast();
+  const { theme, setTheme } = useTheme();
 
   const handleLogout = async () => {
     if (!firebaseReady || !auth) {
@@ -102,6 +104,19 @@ export function UserNav() {
         <DropdownMenuSeparator />
 
         <DropdownMenuGroup>
+          <DropdownMenuSub>
+            <DropdownMenuSubTrigger>{t('userNav.theme')}</DropdownMenuSubTrigger>
+            <DropdownMenuPortal>
+              <DropdownMenuSubContent>
+                <DropdownMenuRadioGroup value={theme} onValueChange={setTheme}>
+                  <DropdownMenuRadioItem value="light">{t('userNav.light')}</DropdownMenuRadioItem>
+                  <DropdownMenuRadioItem value="dark">{t('userNav.dark')}</DropdownMenuRadioItem>
+                  <DropdownMenuRadioItem value="system">{t('userNav.system')}</DropdownMenuRadioItem>
+                </DropdownMenuRadioGroup>
+              </DropdownMenuSubContent>
+            </DropdownMenuPortal>
+          </DropdownMenuSub>
+          
           <DropdownMenuSub>
             <DropdownMenuSubTrigger>{t('userNav.language')}</DropdownMenuSubTrigger>
             <DropdownMenuPortal>

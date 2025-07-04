@@ -31,6 +31,10 @@ const en = {
     settings: 'Settings',
     language: 'Language',
     currency: 'Currency',
+    theme: 'Theme',
+    light: 'Light',
+    dark: 'Dark',
+    system: 'System',
     english: 'English',
     indonesian: 'Indonesian',
     role: 'Role',
@@ -100,6 +104,11 @@ const en = {
         description: 'resolution rate'
       }
     },
+    gallery: {
+      title: "Community Gallery",
+      description: "Moments from our vibrant community events.",
+      cta: "View Full Gallery",
+    },
     footer: {
       copyright: '© {year} Nextacular. All Rights Reserved.'
     }
@@ -118,6 +127,7 @@ const en = {
     position: 'Position',
     phone: 'Phone',
     email: 'Email',
+    salary: 'Salary',
     positions: {
       chairman: 'Chairman',
       vice_chairman: 'Vice Chairman',

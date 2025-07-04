@@ -31,6 +31,10 @@ const id = {
     settings: 'Pengaturan',
     language: 'Bahasa',
     currency: 'Mata Uang',
+    theme: 'Tema',
+    light: 'Terang',
+    dark: 'Gelap',
+    system: 'Sistem',
     english: 'Inggris',
     indonesian: 'Indonesia',
     role: 'Peran',
@@ -100,6 +104,11 @@ const id = {
         description: 'tingkat penyelesaian'
       }
     },
+    gallery: {
+      title: "Galeri Komunitas",
+      description: "Momen-momen dari acara komunitas kami yang semarak.",
+      cta: "Lihat Galeri Lengkap",
+    },
     footer: {
       copyright: '© {year} Nextacular. Hak Cipta Dilindungi.'
     }
@@ -118,6 +127,7 @@ const id = {
     position: 'Jabatan',
     phone: 'Telepon',
     email: 'Email',
+    salary: 'Gaji',
     positions: {
       chairman: 'Ketua',
       vice_chairman: 'Wakil Ketua',
