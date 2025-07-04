@@ -54,7 +54,7 @@ const id = {
       button: 'Masuk',
       noAccount: 'Belum punya akun?',
       register: 'Daftar',
-      demoHint: 'Gunakan kredensial admin yang sudah terisi. Harap daftarkan akun ini melalui tautan "Daftar" sebelum masuk.'
+      demoHint: 'Gunakan kredensial warga yang sudah terisi. Untuk akses admin, gunakan admin@example.com. Harap daftarkan akun sebelum masuk.'
     },
     register: {
       title: 'Daftar',

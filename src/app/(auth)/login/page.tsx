@@ -47,7 +47,7 @@ export default function LoginPage() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      email: "admin@example.com",
+      email: "john.doe@example.com",
       password: "password",
     },
   })
@@ -70,14 +70,12 @@ export default function LoginPage() {
       let description: string;
       
       if (error.code === 'auth/invalid-credential') {
-        const isDemoUser = values.email.startsWith('admin@') || values.email.startsWith('superadmin@') || values.email === 'john.doe@example.com';
+        const isDemoUser = ['admin@example.com', 'superadmin@example.com', 'john.doe@example.com'].includes(values.email);
         description = isDemoUser ? t('auth.error.login_demo') : t('auth.error.login');
       } else if (error.code === 'auth/invalid-api-key' || error.code === 'auth/api-key-not-valid') {
         description = t('auth.error.invalid_api_key');
-        console.error("Firebase Auth Error:", error);
       } else {
         description = t('auth.error.login');
-        console.error("Login error:", error);
       }
 
       toast({

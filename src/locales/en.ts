@@ -54,7 +54,7 @@ const en = {
       button: 'Login',
       noAccount: "Don't have an account?",
       register: 'Register',
-      demoHint: 'Use the pre-filled admin credentials. Please register this account via the "Register" link before logging in.'
+      demoHint: 'Use the pre-filled resident credentials. For admin access, use admin@example.com. Please register accounts before logging in.'
     },
     register: {
       title: 'Register',
