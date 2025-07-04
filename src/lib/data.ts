@@ -482,7 +482,7 @@ export const gallery: GalleryItem[] = [
   {
     id: '2',
     titleKey: "community_cleanup",
-    image: "/images/kerja-bakti.jpg",
+    image: "/images/kerjabakti.jpeg",
     imageHint: "community service",
   },
   {
