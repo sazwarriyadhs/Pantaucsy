@@ -94,7 +94,7 @@ export function UserNav() {
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
           <DropdownMenuItem asChild>
-            <Link href="/profile">{t('userNav.profile')}</Link>
+            <Link href="/main/profile">{t('userNav.profile')}</Link>
           </DropdownMenuItem>
           <DropdownMenuItem>
             {t('userNav.settings')}

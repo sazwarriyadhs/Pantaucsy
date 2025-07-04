@@ -54,7 +54,7 @@ export default function LandingPage() {
   useEffect(() => {
     // Redirect authenticated users to the dashboard
     if (!loading && user) {
-      router.push('/announcements');
+      router.push('/main/announcements');
     }
   }, [user, loading, router]);
   
@@ -278,7 +278,7 @@ export default function LandingPage() {
                         </CardContent>
                         <CardFooter>
                           <Button variant="link" asChild className="p-0">
-                            <Link href="/announcements">Read More</Link>
+                            <Link href="/main/announcements">Read More</Link>
                           </Button>
                         </CardFooter>
                     </Card>
@@ -286,7 +286,7 @@ export default function LandingPage() {
               </div>
               <div className="mt-8 text-center">
                   <Button variant="outline" asChild>
-                      <Link href="/announcements">{t('landing.announcements.view_all')}</Link>
+                      <Link href="/main/announcements">{t('landing.announcements.view_all')}</Link>
                   </Button>
               </div>
           </section>
@@ -339,7 +339,7 @@ export default function LandingPage() {
                 </Carousel>
                 <div className="mt-8 text-center">
                     <Button variant="outline" asChild>
-                        <Link href="/classifieds">{t('landing.classifieds.view_all')}</Link>
+                        <Link href="/main/classifieds">{t('landing.classifieds.view_all')}</Link>
                     </Button>
                 </div>
             </div>
@@ -370,7 +370,7 @@ export default function LandingPage() {
             </div>
             <div className="mt-8 text-center">
               <Button asChild>
-                <Link href="/gallery">{t('landing.gallery.cta')}</Link>
+                <Link href="/main/gallery">{t('landing.gallery.cta')}</Link>
               </Button>
             </div>
           </section>

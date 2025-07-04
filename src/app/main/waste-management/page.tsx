@@ -79,7 +79,7 @@ export default function WasteManagementPage() {
                 <AlertDescription>
                   {t('wasteManagement.statusSuspended.description')}{' '}
                   <Button asChild variant="link" className="p-0 h-auto font-semibold text-destructive underline">
-                    <Link href="/payment-confirmation">{t('wasteManagement.confirmPaymentButton')}</Link>
+                    <Link href="/main/payment-confirmation">{t('wasteManagement.confirmPaymentButton')}</Link>
                   </Button>
                 </AlertDescription>
               </Alert>

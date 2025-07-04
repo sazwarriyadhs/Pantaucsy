@@ -65,7 +65,7 @@ export default function LoginPage() {
     }
     try {
       await signInWithEmailAndPassword(auth!, values.email, values.password)
-      router.push('/announcements')
+      router.push('/main/announcements')
     } catch (error: any) {
       let description: string;
       

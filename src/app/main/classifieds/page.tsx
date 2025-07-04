@@ -93,7 +93,7 @@ export default function ClassifiedsPage() {
             </p>
           </div>
           <Button asChild>
-            <Link href="/post-ad">
+            <Link href="/main/post-ad">
               <PlusSquare className="mr-2" />
               {t('sidebar.postAd')}
             </Link>

@@ -47,7 +47,7 @@ export default function IplManagementPage() {
               <CardDescription>{t('ipl.tableDescription')}</CardDescription>
             </div>
             <div className="flex flex-col sm:flex-row items-center gap-2">
-              <Link href="/payment-confirmation" className="w-full sm:w-auto">
+              <Link href="/main/payment-confirmation" className="w-full sm:w-auto">
                 <Button variant="outline" className="w-full">
                   <Receipt className="mr-2 h-4 w-4" />
                   {t('ipl.confirmPayment')}
