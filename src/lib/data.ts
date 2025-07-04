@@ -273,6 +273,17 @@ export const classifieds: ClassifiedAd[] = [
     expiryDate: '2025-12-31',
     submittedBy: 'Fajar Nugraha',
   },
+  {
+    id: '6',
+    titleKey: 'pempek_mantap',
+    price: 25000,
+    image: "/images/pempek.jpg",
+    imageHint: "pempek food",
+    phone: "0816-1111-2222",
+    status: 'active',
+    expiryDate: '2024-10-15',
+    submittedBy: 'Maria Yuliana',
+  },
 ];
 
 export const events: CommunityEvent[] = [
@@ -581,6 +592,7 @@ export const whatsappFeed: WhatsAppMessage[] = [
     
 
     
+
 
 
 

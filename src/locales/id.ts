@@ -363,7 +363,11 @@ const id = {
       jasa_potong_rumput: {
         title: 'Jasa Potong Rumput',
         description: 'Menawarkan jasa potong rumput untuk blok A & B. Kerja rapi dan dapat diandalkan. Jadwal mingguan atau dua mingguan tersedia.'
-      }
+      },
+      pempek_mantap: {
+        title: 'Pempek Mantap',
+        description: 'Pempek asli Palembang, lengkap dengan cuko pedas. Harga per porsi, dijamin ketagihan!'
+      },
     }
   },
   postAd: {

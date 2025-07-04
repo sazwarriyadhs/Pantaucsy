@@ -363,7 +363,11 @@ const en = {
       jasa_potong_rumput: {
         title: 'Lawn Mowing Service',
         description: 'Offering lawn mowing services for blocks A & B. Reliable and neat work. Weekly or bi-weekly schedule available.'
-      }
+      },
+      pempek_mantap: {
+        title: 'Delicious Pempek',
+        description: 'Authentic Palembang fish cakes, complete with spicy cuko sauce. Price per portion, guaranteed to get you hooked!'
+      },
     }
   },
   postAd: {
