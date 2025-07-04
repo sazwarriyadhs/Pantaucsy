@@ -233,7 +233,7 @@ export const classifieds: ClassifiedAd[] = [
     id: '2',
     titleKey: 'kursi_mobil_balita',
     price: 500000,
-    image: "https://placehold.co/600x400.png",
+    image: "/images/kursibalita.jpg",
     imageHint: "car seat",
     phone: "6281234567890",
     status: 'active',
@@ -603,6 +603,7 @@ export const whatsappFeed: WhatsAppMessage[] = [
     
 
     
+
 
 
 
