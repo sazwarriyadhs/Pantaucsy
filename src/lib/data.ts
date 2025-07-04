@@ -501,13 +501,13 @@ export const gallery: GalleryItem[] = [
   {
     id: '7',
     titleKey: "community_bazaar",
-    image: "https://placehold.co/600x400.png",
-    imageHint: "local market",
+    image: "/images/pempek.jpg",
+    imageHint: "local market food",
   },
   {
     id: '8',
     titleKey: "kids_art_performance",
-    image: "https://placehold.co/600x400.png",
+    image: "/images/mumtaz.jpg",
     imageHint: "children performance",
   },
 ];
@@ -592,6 +592,7 @@ export const whatsappFeed: WhatsAppMessage[] = [
     
 
     
+
 
 
 
