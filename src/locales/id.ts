@@ -465,7 +465,7 @@ const id = {
   },
   ipl: {
       title: 'Iuran IPL Warga',
-      description: 'Kelola iuran pemeliharaan lingkungan bulanan warga.',
+      description: 'Kelola iuran pemeliharaan lingkungan bulanan warga. Iuran bulanan adalah Rp 125.000 (Rp 55.000 untuk layanan komunitas & Rp 70.000 untuk iuran developer).',
       tableTitle: 'Daftar Iuran',
       tableDescription: 'Daftar status pembayaran iuran IPL semua warga.',
       addPayment: 'Tambah Pembayaran',
@@ -720,3 +720,5 @@ const id = {
   },
 };
 export default id;
+
+    

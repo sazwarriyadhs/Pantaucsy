@@ -319,7 +319,7 @@ export const iplManagement = [
     address: "Blok A No. 1",
     month: "Juli",
     year: 2024,
-    amount: 150000,
+    amount: 125000,
     status: "paid",
   },
   {
@@ -327,7 +327,7 @@ export const iplManagement = [
     address: "Blok A No. 2",
     month: "Juli",
     year: 2024,
-    amount: 150000,
+    amount: 125000,
     status: "paid",
   },
   {
@@ -335,7 +335,7 @@ export const iplManagement = [
     address: "Blok A No. 3",
     month: "Juli",
     year: 2024,
-    amount: 150000,
+    amount: 125000,
     status: "unpaid",
   },
   {
@@ -343,7 +343,7 @@ export const iplManagement = [
     address: "Blok A No. 4",
     month: "Juli",
     year: 2024,
-    amount: 150000,
+    amount: 125000,
     status: "paid",
   },
     {
@@ -351,7 +351,7 @@ export const iplManagement = [
     address: "Blok A No. 1",
     month: "Juni",
     year: 2024,
-    amount: 150000,
+    amount: 125000,
     status: "paid",
   },
 ];
@@ -466,8 +466,4 @@ export const whatsappFeed: WhatsAppMessage[] = [
 
     
 
-
-
-
-
-
+    

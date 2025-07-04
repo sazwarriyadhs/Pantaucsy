@@ -248,7 +248,7 @@ export default function PaymentConfirmationPage() {
                     <FormItem>
                       <FormLabel>{t('finance.confirmation.form.amount.label')}</FormLabel>
                       <FormControl>
-                        <Input type="number" placeholder="150000" {...field} />
+                        <Input type="number" placeholder="125000" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -327,3 +327,5 @@ export default function PaymentConfirmationPage() {
     </div>
   )
 }
+
+    

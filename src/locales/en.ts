@@ -465,7 +465,7 @@ const en = {
   },
   ipl: {
       title: 'Resident IPL Dues',
-      description: 'Manage monthly environmental maintenance fees for residents.',
+      description: 'Manage monthly environmental maintenance fees for residents. The monthly fee is IDR 125,000 (IDR 55,000 for community services & IDR 70,000 for developer fees).',
       tableTitle: 'Dues List',
       tableDescription: 'List of payment statuses for all resident IPL dues.',
       addPayment: 'Add Payment',
@@ -720,3 +720,5 @@ const en = {
   },
 };
 export default en;
+
+    
