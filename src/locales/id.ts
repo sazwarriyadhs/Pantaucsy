@@ -144,7 +144,7 @@ const id = {
       gardener: 'Taman'
     },
     tableTitle: 'Daftar Staf',
-    tableDescription: 'Daftar semua staf operasional.',
+    tableDescription: 'Daftar semua staf operasional. Gaji dibayarkan setiap tanggal 28 melalui transfer bank.',
     name: 'Nama',
     role: 'Peran',
     phone: 'Telepon',

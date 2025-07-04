@@ -144,7 +144,7 @@ const en = {
       gardener: 'Gardener'
     },
     tableTitle: 'Staff List',
-    tableDescription: 'List of all operational staff.',
+    tableDescription: 'List of all operational staff. Salaries are paid on the 28th of each month via bank transfer.',
     name: 'Name',
     role: 'Role',
     phone: 'Phone',
