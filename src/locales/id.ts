@@ -102,6 +102,9 @@ const id = {
       description: "Momen-momen dari acara komunitas kami yang semarak.",
       cta: "Lihat Galeri Lengkap",
     },
+    reminders: {
+      ipl_fallback: "Jangan lupa bayar iuran IPL bulan ini ya, warga! ✨"
+    },
     footer: {
       copyright: '© {year} Pantau Warga. Hak Cipta Dilindungi.'
     }

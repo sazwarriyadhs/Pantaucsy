@@ -102,6 +102,9 @@ const en = {
       description: "Moments from our vibrant community events.",
       cta: "View Full Gallery",
     },
+    reminders: {
+      ipl_fallback: "Don't forget to pay this month's IPL dues, neighbor! ✨"
+    },
     footer: {
       copyright: '© {year} Pantau Warga. All Rights Reserved.'
     }

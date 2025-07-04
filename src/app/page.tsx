@@ -1,13 +1,13 @@
 
 "use client";
 
-import { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter, CardDescription } from '@/components/ui/card';
-import { Bell, MessageSquare, MapPin } from 'lucide-react';
+import { Bell, MessageSquare, MapPin, Sparkles } from 'lucide-react';
 import {
   Dialog,
   DialogContent,
@@ -28,6 +28,8 @@ import {
   CarouselPrevious,
 } from '@/components/ui/carousel';
 import Autoplay from 'embla-carousel-autoplay';
+import { generateIplReminder } from '@/ai/flows/generate-ipl-reminder-flow';
+
 
 export default function LandingPage() {
   const { t, locale, formatCurrency } = useI18n();
@@ -46,6 +48,8 @@ export default function LandingPage() {
 
   const [isGalleryDetailOpen, setIsGalleryDetailOpen] = useState(false);
   const [selectedGalleryItem, setSelectedGalleryItem] = useState<GalleryItem | null>(null);
+  
+  const [reminder, setReminder] = useState<string | null>(null);
 
   useEffect(() => {
     // Redirect authenticated users to the dashboard
@@ -54,6 +58,20 @@ export default function LandingPage() {
     }
   }, [user, loading, router]);
   
+  useEffect(() => {
+    const fetchReminder = async () => {
+      try {
+        const result = await generateIplReminder();
+        setReminder(result.reminderText);
+      } catch (error) {
+        console.error("Failed to fetch IPL reminder:", error);
+        setReminder(t('landing.reminders.ipl_fallback'));
+      }
+    };
+
+    fetchReminder();
+  }, [t]);
+
   if (loading || user) {
     return <SplashScreen />;
   }
@@ -210,6 +228,30 @@ export default function LandingPage() {
               </Button>
             </div>
           </section>
+
+          {/* AI Reminder Marquee Section */}
+          {reminder && (
+            <section className="relative flex overflow-x-hidden border-y bg-secondary">
+              <div className="flex w-full items-center gap-2 py-2">
+                <div className="flex animate-marquee items-center whitespace-nowrap">
+                  {[...Array(5)].map((_, i) => (
+                    <React.Fragment key={i}>
+                      <span className="mx-4 text-sm font-semibold text-muted-foreground">{reminder}</span>
+                      <Sparkles className="h-4 w-4 shrink-0 text-primary" />
+                    </React.Fragment>
+                  ))}
+                </div>
+                <div className="absolute top-0 flex h-full animate-marquee2 items-center whitespace-nowrap">
+                  {[...Array(5)].map((_, i) => (
+                    <React.Fragment key={i}>
+                      <span className="mx-4 text-sm font-semibold text-muted-foreground">{reminder}</span>
+                      <Sparkles className="h-4 w-4 shrink-0 text-primary" />
+                    </React.Fragment>
+                  ))}
+                </div>
+              </div>
+            </section>
+          )}
 
           {/* Announcements Section */}
           <section className="container py-12">
