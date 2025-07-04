@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
 import { Camera, Trash2, Upload, Loader2, Info } from "lucide-react"
-import { handlePostAd, postAdSchema } from "./actions"
+import { handlePostAd } from "./actions"
 
 import { Button } from "@/components/ui/button"
 import {
@@ -23,6 +23,14 @@ import { useI18n } from "@/context/i18n-provider"
 import { useToast } from "@/hooks/use-toast"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+
+const postAdSchema = z.object({
+  title: z.string().min(3, { message: "Title must be at least 3 characters." }),
+  description: z.string().min(10, { message: "Description must be at least 10 characters." }),
+  price: z.coerce.number().min(0),
+  phone: z.string().min(10, { message: "Phone number must be at least 10 digits." }),
+  image: z.string().optional(),
+})
 
 type AdFormValues = z.infer<typeof postAdSchema>
 

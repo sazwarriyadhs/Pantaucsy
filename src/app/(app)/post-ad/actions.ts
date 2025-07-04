@@ -4,7 +4,7 @@
 import { z } from "zod"
 import { i18n } from "@/lib/i18n"
 
-export const postAdSchema = z.object({
+const postAdSchema = z.object({
   title: z.string().min(3, { message: "Title must be at least 3 characters." }),
   description: z.string().min(10, { message: "Description must be at least 10 characters." }),
   price: z.coerce.number().min(0),
