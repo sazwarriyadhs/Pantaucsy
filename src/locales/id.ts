@@ -112,33 +112,6 @@ const id = {
   announcements: {
     title: 'Pengumuman',
     description: 'Berita dan pembaruan terkini untuk komunitas Cimahpar Stoneyard.',
-    items: {
-      tpq_congratulations: {
-        title: 'Selamat Atas Kepengurusan Baru TPA Al-Mumtaz',
-        content: 'Segenap warga Cimahpar Stoneyard mengucapkan selamat atas terbentuknya kepengurusan baru TPA Al-Mumtaz. Semoga dapat menjalankan amanah dengan baik dan membawa keberkahan bagi lingkungan kita.'
-      },
-      obituary_aswin: {
-        title: 'Berita Duka',
-        content: 'Telah meninggal dunia salah seorang warga kita pada tanggal 24 Juni 2025 pukul 04.35 WIB. Segenap pengurus dan warga Cimahpar Stoneyard turut berduka cita. Semoga almarhum diberikan tempat terbaik dan keluarga yang ditinggalkan diberi ketabahan.',
-        address: 'Rumah duka: Jl. Stoneyard Boulevard No. 1. Jenazah akan dimakamkan pada tanggal 25 Juni 2025 di TPU Pondok Ranggon.'
-      },
-      garden_meeting: {
-        title: 'Rapat Taman Komunitas',
-        content: 'Bergabunglah bersama kami Sabtu ini jam 10 pagi untuk merencanakan taman komunitas baru. Semua warga dipersilakan untuk berpartisipasi dan berbagi ide.'
-      },
-      watch_update: {
-        title: 'Pembaruan Siskamling',
-        content: 'Akan ada pertemuan singkat pada Selasa malam untuk membahas peningkatan keamanan terbaru dan jadwal patroli siskamling.'
-      },
-      summer_bbq: {
-        title: 'BBQ Musim Panas Tahunan',
-        content: 'Bersiaplah untuk BBQ musim panas tahunan kita! Acara akan diadakan di taman komunitas pada tanggal 25 Agustus. Makanan, permainan, dan keseruan untuk seluruh keluarga.'
-      },
-      road_maintenance: {
-        title: 'Pemberitahuan Perbaikan Jalan',
-        content: 'Harap diperhatikan bahwa akan ada perbaikan jalan di Stoneyard Lane dari tanggal 18 hingga 20 Agustus. Diperkirakan akan ada sedikit keterlambatan.'
-      }
-    }
   },
   associationManagement: {
     title: 'Pengurus Paguyuban',
@@ -163,20 +136,6 @@ const id = {
     recurring: {
       every_saturday: 'Setiap Sabtu'
     },
-    items: {
-      national_night_out: {
-        title: 'Malam Keakraban Warga',
-        description: 'Bergabunglah dengan tetangga dan aparat keamanan setempat untuk malam membangun kebersamaan.'
-      },
-      yoga_in_the_park: {
-        title: 'Yoga di Taman',
-        description: 'Awali akhir pekan Anda dengan sesi yoga yang menenangkan dan menyegarkan. Terbuka untuk semua level.'
-      },
-      garage_sale: {
-        title: 'Garage Sale Cimahpar Stoneyard',
-        description: 'Bazar garasi di seluruh lingkungan. Temukan barang-barang berharga dan temui tetangga Anda.'
-      }
-    }
   },
   reportIssue: {
     title: 'Lapor Masalah',

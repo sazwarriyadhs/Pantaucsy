@@ -26,33 +26,66 @@ export type WhatsAppMessage = {
   timestamp: string;
 };
 
-export const announcements = [
+export type Announcement = {
+  id: string;
+  title: string;
+  content: string;
+  date: string;
+  image?: string;
+  imageHint?: string;
+  address?: string;
+};
+
+export type CommunityEvent = {
+  id: string;
+  title: string;
+  description: string;
+  date: string; // Can also be a key for recurring events like 'every_saturday'
+  time: string;
+  location: string;
+  isRecurring: boolean;
+};
+
+export const announcements: Announcement[] = [
   {
-    titleKey: "tpq_congratulations",
+    id: "1",
+    title: "Congratulations to the New Management of TPA Al-Mumtaz",
+    content: "The entire Cimahpar Stoneyard community congratulates the formation of the new management of TPA Al-Mumtaz. May you carry out your mandate well and bring blessings to our community.",
     date: "2024-08-16",
     image: "/images/mumtaz.jpg",
     imageHint: "children students",
   },
   {
-    titleKey: "obituary_aswin",
+    id: "2",
+    title: "Obituary Notice",
+    content: "With deep sorrow, we announce the passing of one of our residents on June 24, 2025, at 04:35 AM. The entire Cimahpar Stoneyard community extends its heartfelt condolences. May they rest in peace and their family be granted strength.",
     date: "2025-06-24",
     image: "/images/obituary_aswin.jpg",
     imageHint: "condolence flowers",
+    address: "Funeral home: Jl. Stoneyard Boulevard No. 1. The burial will take place on June 25, 2025, at Pondok Ranggon Cemetery.",
   },
   {
-    titleKey: "garden_meeting",
+    id: "3",
+    title: "Community Garden Meeting",
+    content: "Join us this Saturday at 10 AM to plan the new community garden. All residents are welcome to participate and share their ideas.",
     date: "2024-08-15",
   },
   {
-    titleKey: "watch_update",
+    id: "4",
+    title: "Neighborhood Watch Update",
+    content: "There will be a brief meeting on Tuesday evening to discuss recent security enhancements and neighborhood watch patrol schedules.",
     date: "2024-08-12",
   },
   {
-    titleKey: "summer_bbq",
+    id: "5",
+    title: "Annual Summer BBQ",
+    content: "Get ready for our annual summer BBQ! It will be held at the community park on August 25th. Food, games, and fun for the whole family.",
     date: "2024-08-10",
   },
    {
-    titleKey: "road_maintenance",
+    id: "6",
+    title: "Road Maintenance Notice",
+    content: "Please be aware that road maintenance will be conducted on Stoneyard Lane from August 18th to 20th. Expect minor delays.",
     date: "2024-08-09",
   },
 ];
@@ -214,23 +247,29 @@ export const classifieds: ClassifiedAd[] = [
   },
 ];
 
-export const events = [
+export const events: CommunityEvent[] = [
   {
-    titleKey: "national_night_out",
+    id: "1",
+    title: "National Night Out",
+    description: "Join your neighbors and local law enforcement for an evening of community building.",
     date: "2024-08-06",
     time: "6:00 PM - 8:00 PM",
     location: "Community Park",
     isRecurring: false,
   },
   {
-    titleKey: "yoga_in_the_park",
+    id: "2",
+    title: "Yoga in the Park",
+    description: "Start your weekend with a relaxing and rejuvenating yoga session. All levels welcome.",
     date: "every_saturday",
     time: "9:00 AM",
     location: "Green Valley Park",
     isRecurring: true,
   },
   {
-    titleKey: "garage_sale",
+    id: "3",
+    title: "Cimahpar Stoneyard Garage Sale",
+    description: "Community-wide garage sale. Find hidden treasures and meet your neighbors.",
     date: "2024-09-14",
     time: "8:00 AM - 2:00 PM",
     location: "Throughout the neighborhood",

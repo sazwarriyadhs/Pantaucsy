@@ -112,33 +112,6 @@ const en = {
   announcements: {
     title: 'Announcements',
     description: 'Latest news and updates for the Cimahpar Stoneyard community.',
-    items: {
-      tpq_congratulations: {
-        title: 'Congratulations to the New Management of TPA Al-Mumtaz',
-        content: 'The entire Cimahpar Stoneyard community congratulates the formation of the new management of TPA Al-Mumtaz. May you carry out your mandate well and bring blessings to our community.'
-      },
-      obituary_aswin: {
-        title: 'Obituary Notice',
-        content: 'With deep sorrow, we announce the passing of one of our residents on June 24, 2025, at 04:35 AM. The entire Cimahpar Stoneyard community extends its heartfelt condolences. May they rest in peace and their family be granted strength.',
-        address: 'Funeral home: Jl. Stoneyard Boulevard No. 1. The burial will take place on June 25, 2025, at Pondok Ranggon Cemetery.'
-      },
-      garden_meeting: {
-        title: 'Community Garden Meeting',
-        content: 'Join us this Saturday at 10 AM to plan the new community garden. All residents are welcome to participate and share their ideas.'
-      },
-      watch_update: {
-        title: 'Neighborhood Watch Update',
-        content: 'There will be a brief meeting on Tuesday evening to discuss recent security enhancements and neighborhood watch patrol schedules.'
-      },
-      summer_bbq: {
-        title: 'Annual Summer BBQ',
-        content: 'Get ready for our annual summer BBQ! It will be held at the community park on August 25th. Food, games, and fun for the whole family.'
-      },
-      road_maintenance: {
-        title: 'Road Maintenance Notice',
-        content: 'Please be aware that road maintenance will be conducted on Stoneyard Lane from August 18th to 20th. Expect minor delays.'
-      }
-    }
   },
   associationManagement: {
     title: 'Association Management',
@@ -163,20 +136,6 @@ const en = {
     recurring: {
       every_saturday: 'Every Saturday'
     },
-    items: {
-      national_night_out: {
-        title: 'National Night Out',
-        description: 'Join your neighbors and local law enforcement for an evening of community building.'
-      },
-      yoga_in_the_park: {
-        title: 'Yoga in the Park',
-        description: 'Start your weekend with a relaxing and rejuvenating yoga session. All levels welcome.'
-      },
-      garage_sale: {
-        title: 'Cimahpar Stoneyard Garage Sale',
-        description: 'Community-wide garage sale. Find hidden treasures and meet your neighbors.'
-      }
-    }
   },
   reportIssue: {
     title: 'Report an Issue',
