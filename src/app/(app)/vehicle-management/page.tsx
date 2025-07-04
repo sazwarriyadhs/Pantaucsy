@@ -14,7 +14,7 @@ import {
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { vehicles as initialVehicles, type Vehicle } from "@/lib/data"
 import { Button } from "@/components/ui/button"
-import { MoreHorizontal, PlusCircle, Pencil, Trash2, Car, Motorcycle } from "lucide-react"
+import { MoreHorizontal, PlusCircle, Pencil, Trash2, Car, Bike } from "lucide-react"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -147,7 +147,7 @@ export default function VehicleManagementPage() {
                     <TableCell className="font-medium">{vehicle.residentName}</TableCell>
                     <TableCell>
                       <div className="flex items-center gap-2">
-                        {vehicle.type === 'car' ? <Car className="h-4 w-4 text-muted-foreground" /> : <Motorcycle className="h-4 w-4 text-muted-foreground" />}
+                        {vehicle.type === 'car' ? <Car className="h-4 w-4 text-muted-foreground" /> : <Bike className="h-4 w-4 text-muted-foreground" />}
                         <span>{t(`vehicleManagement.types.${vehicle.type}`)}</span>
                       </div>
                     </TableCell>
