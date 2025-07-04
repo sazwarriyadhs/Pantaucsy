@@ -41,8 +41,9 @@ export default function LandingPage() {
   const activeClassifieds = classifieds.filter(ad => ad.status === 'active');
   const galleryItems = gallery.slice(0, 8);
 
-  const generateWhatsAppLink = (phone: string, title: string) => {
-    const message = encodeURIComponent(`Halo, saya tertarik dengan "${t(`classifieds.items.${title}`)}" yang Anda iklankan.`);
+  const generateWhatsAppLink = (phone: string, titleKey: string) => {
+    const title = t(`classifieds.items.${titleKey}.title`);
+    const message = encodeURIComponent(`Halo, saya tertarik dengan "${title}" yang Anda iklankan.`);
     return `https://wa.me/${phone}?text=${message}`;
   }
 
@@ -224,7 +225,7 @@ export default function LandingPage() {
                         </CardContent>
                         <CardFooter>
                           <Button asChild className="w-full">
-                            <Link href={generateWhatsAppLink(item.phone, t(`classifieds.items.${item.titleKey}.title`))}>
+                            <Link href={generateWhatsAppLink(item.phone, item.titleKey)}>
                               <MessageSquare className="mr-2" /> {t('classifieds.contactViaWhatsapp')}
                             </Link>
                           </Button>
