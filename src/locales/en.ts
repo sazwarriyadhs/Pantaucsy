@@ -154,7 +154,7 @@ const en = {
   },
   staffManagement: {
     title: 'Staff Management',
-    description: 'Manage operational staff for security and gardening, including salaries and performance.',
+    description: 'Manage operational staff for security and gardening. Salaries are paid on the 28th of each month via bank transfer.',
     addStaff: 'Add Staff',
     roles: {
       security: 'Security',
@@ -367,6 +367,10 @@ const en = {
       pempek_mantap: {
         title: 'Delicious Pempek',
         description: 'Authentic Palembang fish cakes, complete with spicy cuko sauce. Price per portion, guaranteed to get you hooked!'
+      },
+      iguana_hilang: {
+        title: 'Lost Iguana (Reward)',
+        description: "A tame green iguana has been lost around Block B. A reward will be given to the finder. Please contact the number provided."
       },
     }
   },

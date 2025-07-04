@@ -154,7 +154,7 @@ const id = {
   },
   staffManagement: {
     title: 'Manajemen Staf',
-    description: 'Kelola staf operasional untuk keamanan dan pertamanan, termasuk gaji dan kinerja.',
+    description: 'Kelola staf operasional untuk keamanan dan pertamanan. Gaji dibayarkan setiap tanggal 28 melalui transfer bank.',
     addStaff: 'Tambah Staf',
     roles: {
       security: 'Keamanan',
@@ -367,6 +367,10 @@ const id = {
       pempek_mantap: {
         title: 'Pempek Mantap',
         description: 'Pempek asli Palembang, lengkap dengan cuko pedas. Harga per porsi, dijamin ketagihan!'
+      },
+      iguana_hilang: {
+        title: 'Iguana Hilang (Berhadiah)',
+        description: "Telah hilang seekor iguana hijau jinak di sekitar Blok B. Bagi yang menemukan akan diberi imbalan. Silakan hubungi nomor tertera."
       },
     }
   },

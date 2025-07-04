@@ -284,6 +284,17 @@ export const classifieds: ClassifiedAd[] = [
     expiryDate: '2024-10-15',
     submittedBy: 'Maria Yuliana',
   },
+  {
+    id: '7',
+    titleKey: 'iguana_hilang',
+    price: 100000,
+    image: "/images/iguana.jpg",
+    imageHint: "iguana pet",
+    phone: "6281277778888",
+    status: 'active',
+    expiryDate: '2024-10-31',
+    submittedBy: 'Doni Hidayat',
+  },
 ];
 
 export const events: CommunityEvent[] = [
@@ -500,13 +511,13 @@ export const gallery: GalleryItem[] = [
   },
   {
     id: '7',
-    titleKey: "community_bazaar",
+    titleKey: 'community_bazaar',
     image: "/images/pempek.jpg",
     imageHint: "local market food",
   },
   {
     id: '8',
-    titleKey: "kids_art_performance",
+    titleKey: 'kids_art_performance',
     image: "/images/mumtaz.jpg",
     imageHint: "children performance",
   },
@@ -592,6 +603,7 @@ export const whatsappFeed: WhatsAppMessage[] = [
     
 
     
+
 
 
 
