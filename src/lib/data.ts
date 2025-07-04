@@ -36,6 +36,16 @@ export type Announcement = {
   address?: string;
 };
 
+export type AssociationMember = {
+  name: string;
+  position: 'Chairman' | 'Vice_Chairman' | 'Secretary' | 'Treasurer';
+  phone: string;
+  email: string;
+  photo: string;
+  photoHint: string;
+  salary: number;
+};
+
 export type CommunityEvent = {
   id: string;
   title: string;
@@ -335,7 +345,7 @@ export const incidentReports = [
     { id: "IR004", date: "2024-07-20", typeKey: "vandalism", status: "investigation", summaryKey: "vandalism_summary"},
 ]
 
-export const associationManagement = [
+export const associationManagement: AssociationMember[] = [
     {
         name: "Bapak Ketua RT",
         position: "Chairman",
@@ -343,6 +353,7 @@ export const associationManagement = [
         email: "ketua.rt@cimahpar.com",
         photo: "https://placehold.co/400x400.png",
         photoHint: "man portrait",
+        salary: 5000000,
     },
     {
         name: "Bapak Wakil Ketua",
@@ -351,6 +362,7 @@ export const associationManagement = [
         email: "wakil.ketua@cimahpar.com",
         photo: "https://placehold.co/400x400.png",
         photoHint: "man portrait",
+        salary: 4500000,
     },
     {
         name: "Ibu Sekretaris",
@@ -359,6 +371,7 @@ export const associationManagement = [
         email: "sekretaris@cimahpar.com",
         photo: "https://placehold.co/400x400.png",
         photoHint: "woman portrait",
+        salary: 4000000,
     },
     {
         name: "Bapak Bendahara",
@@ -367,6 +380,7 @@ export const associationManagement = [
         email: "bendahara@cimahpar.com",
         photo: "https://placehold.co/400x400.png",
         photoHint: "man portrait",
+        salary: 4000000,
     },
 ];
 
@@ -567,6 +581,7 @@ export const whatsappFeed: WhatsAppMessage[] = [
     
 
     
+
 
 
 

@@ -5,10 +5,10 @@ import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { associationManagement } from "@/lib/data"
 import { useI18n } from "@/context/i18n-provider"
-import { Phone, Mail } from 'lucide-react';
+import { Phone, Mail, CircleDollarSign } from 'lucide-react';
 
 export default function AssociationManagementPage() {
-  const { t } = useI18n();
+  const { t, formatCurrency } = useI18n();
   
   return (
     <div className="flex flex-col gap-8">
@@ -42,6 +42,10 @@ export default function AssociationManagementPage() {
                 <div className="flex items-center">
                   <Mail className="w-4 h-4 mr-2" />
                   <a href={`mailto:${person.email}`} className="hover:underline">{person.email}</a>
+                </div>
+                <div className="flex items-center">
+                  <CircleDollarSign className="w-4 h-4 mr-2" />
+                  <span>{formatCurrency(person.salary)}</span>
                 </div>
               </div>
             </CardContent>
