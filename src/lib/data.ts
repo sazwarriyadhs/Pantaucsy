@@ -12,9 +12,17 @@ export type ClassifiedAd = {
   price: number;
   image: string;
   imageHint: string;
-  phone: string;
+  phone:string;
   status: "active" | "expired";
   expiryDate: string;
+};
+
+export type WhatsAppMessage = {
+  id: string;
+  sender: string;
+  isMe: boolean;
+  message: string;
+  timestamp: string;
 };
 
 export const announcements = [
@@ -433,6 +441,17 @@ export const wasteManagementSchedule = [
     typeKey: "garden_bulky",
   },
 ];
+
+export const whatsappFeed: WhatsAppMessage[] = [
+  { id: '1', sender: 'Admin Paguyuban', isMe: false, message: 'Selamat pagi warga, jangan lupa besok ada kerja bakti jam 8 pagi ya.', timestamp: '08:00' },
+  { id: '2', sender: 'John Doe', isMe: false, message: 'Siap, Pak Admin! Saya akan ikut serta.', timestamp: '08:05' },
+  { id: '3', sender: 'Siti Rahayu', isMe: false, message: 'Alat-alat apa saja yang perlu dibawa, Pak?', timestamp: '08:06' },
+  { id: '4', sender: 'Admin Paguyuban', isMe: false, message: 'Cukup bawa alat kebersihan pribadi seperti sapu lidi atau cangkul kecil. Sarung tangan dan kantong sampah akan disediakan.', timestamp: '08:10' },
+  { id: '5', sender: 'You', isMe: true, message: 'Baik, terima kasih informasinya!', timestamp: '08:15' },
+  { id: '6', sender: 'Budi Santoso', isMe: false, message: 'Saya ada beberapa gerobak dorong yang tidak terpakai, nanti saya bawa untuk membantu angkut sampah.', timestamp: '08:20' },
+  { id: '7', sender: 'Admin Paguyuban', isMe: false, message: 'Wah, bagus sekali Pak Budi. Sangat membantu. Terima kasih banyak!', timestamp: '08:21' },
+  { id: '8', sender: 'You', isMe: true, message: 'Luar biasa! Sampai jumpa besok pagi semua.', timestamp: '08:25' },
+];
     
 
     
@@ -440,6 +459,7 @@ export const wasteManagementSchedule = [
 
 
     
+
 
 
 

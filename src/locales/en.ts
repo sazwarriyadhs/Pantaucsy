@@ -12,6 +12,7 @@ const en = {
     gallery: 'Photo Gallery',
     reportIssue: 'Report Issue',
     curhatWarga: 'Resident Venting',
+    whatsappFeed: 'Community Chat',
     security: 'Security',
     schedule: 'Schedule',
     management: 'Management',
@@ -576,6 +577,12 @@ const en = {
         description: "Something went wrong. Please try again.",
       }
     }
+  },
+  whatsappFeed: {
+    title: 'Community Chat',
+    description: "A live feed of announcements and discussions from the residents' WhatsApp group.",
+    chatTitle: 'Cimahpar Stoneyard Residents',
+    onlineStatus: 'John, Jane, Budi, Siti & 12 others',
   },
   wasteManagement: {
     title: 'Waste Management',

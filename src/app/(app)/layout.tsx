@@ -22,6 +22,7 @@ import {
   ClipboardList,
   Home,
   PlusSquare,
+  MessageCircle,
 } from 'lucide-react';
 import {
   SidebarProvider,
@@ -74,7 +75,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
     <SidebarProvider>
       <Sidebar>
         <SidebarContent>
-          <SidebarHeader className="p-4 flex items-center justify-center">
+          <SidebarHeader className="flex items-center justify-center p-4">
             <Link href="/announcements">
               <Image
                 src="/images/logo.png"
@@ -128,6 +129,12 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
                   <SidebarMenuButton href="/curhat-warga" isActive={isActive('/curhat-warga')} tooltip={t('sidebar.curhatWarga')}>
                     <HeartHandshake />
                     {t('sidebar.curhatWarga')}
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+                <SidebarMenuItem>
+                  <SidebarMenuButton href="/whatsapp-feed" isActive={isActive('/whatsapp-feed')} tooltip={t('sidebar.whatsappFeed')}>
+                    <MessageCircle />
+                    {t('sidebar.whatsappFeed')}
                   </SidebarMenuButton>
                 </SidebarMenuItem>
             </SidebarGroup>
@@ -219,7 +226,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
         </SidebarFooter>
       </Sidebar>
       <SidebarInset>
-        <header className="flex items-center justify-between p-4 bg-background border-b">
+        <header className="flex items-center justify-between p-4 border-b bg-background">
           <SidebarTrigger className="md:hidden" />
           <div className="ml-auto">
             <UserNav />

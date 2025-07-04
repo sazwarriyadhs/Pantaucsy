@@ -12,6 +12,7 @@ const id = {
     gallery: 'Galeri Foto',
     reportIssue: 'Lapor Masalah',
     curhatWarga: 'Curhat Warga',
+    whatsappFeed: 'Obrolan Warga',
     security: 'Keamanan',
     schedule: 'Jadwal',
     management: 'Manajemen',
@@ -576,6 +577,12 @@ const id = {
         description: "Terjadi masalah. Silakan coba lagi.",
       }
     }
+  },
+  whatsappFeed: {
+    title: 'Obrolan Warga',
+    description: 'Feed langsung pengumuman dan diskusi dari grup WhatsApp warga.',
+    chatTitle: 'Warga Cimahpar Stoneyard',
+    onlineStatus: 'John, Jane, Budi, Siti & 12 lainnya',
   },
   wasteManagement: {
     title: 'Manajemen Sampah',
