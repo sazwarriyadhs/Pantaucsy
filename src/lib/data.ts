@@ -255,7 +255,7 @@ export const classifieds: ClassifiedAd[] = [
     id: '4',
     titleKey: 'berbagai_tanaman_hias',
     price: 100000,
-    image: "https://placehold.co/600x400.png",
+    image: "/images/tanaman hias.jpg",
     imageHint: "house plants",
     phone: "6281234567890",
     status: 'active',
@@ -581,6 +581,7 @@ export const whatsappFeed: WhatsAppMessage[] = [
     
 
     
+
 
 
 
