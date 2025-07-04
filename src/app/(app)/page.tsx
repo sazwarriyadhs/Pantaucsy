@@ -1,5 +1,14 @@
-import { redirect } from 'next/navigation'
+"use client"
+
+import { useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 
 export default function AppPage() {
-  redirect('/announcements')
+  const router = useRouter()
+
+  useEffect(() => {
+    router.replace('/announcements')
+  }, [router])
+
+  return null // Return null while the redirect happens
 }
