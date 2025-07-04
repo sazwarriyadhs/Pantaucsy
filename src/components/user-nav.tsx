@@ -91,11 +91,9 @@ export function UserNav() {
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
-          <Link href="/profile" passHref>
-            <DropdownMenuItem asChild>
-              <a>{t('userNav.profile')}</a>
-            </DropdownMenuItem>
-          </Link>
+          <DropdownMenuItem asChild>
+            <Link href="/profile">{t('userNav.profile')}</Link>
+          </DropdownMenuItem>
           <DropdownMenuItem>
             {t('userNav.settings')}
             <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
