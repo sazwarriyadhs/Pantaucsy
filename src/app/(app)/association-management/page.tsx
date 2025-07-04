@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { associationManagement } from "@/lib/data"
 import { useI18n } from "@/context/i18n-provider"
-import { Phone, Mail, CircleDollarSign } from 'lucide-react';
+import { PhoneIcon, EnvelopeIcon, CurrencyDollarIcon } from '@heroicons/react/24/outline';
 
 export default function AssociationManagementPage() {
   const { t, formatCurrency } = useI18n();
@@ -36,15 +36,15 @@ export default function AssociationManagementPage() {
               <CardDescription>{t(`associationManagement.positions.${person.position.toLowerCase()}`)}</CardDescription>
               <div className="flex-1 mt-4 space-y-2 text-sm text-left text-muted-foreground">
                 <div className="flex items-center">
-                  <Phone className="w-4 h-4 mr-2" />
+                  <PhoneIcon className="w-4 h-4 mr-2" />
                   <a href={`tel:${person.phone}`} className="hover:underline">{person.phone}</a>
                 </div>
                 <div className="flex items-center">
-                  <Mail className="w-4 h-4 mr-2" />
+                  <EnvelopeIcon className="w-4 h-4 mr-2" />
                   <a href={`mailto:${person.email}`} className="hover:underline">{person.email}</a>
                 </div>
                 <div className="flex items-center">
-                  <CircleDollarSign className="w-4 h-4 mr-2" />
+                  <CurrencyDollarIcon className="w-4 h-4 mr-2" />
                   <span>{formatCurrency(person.salary)}</span>
                 </div>
               </div>

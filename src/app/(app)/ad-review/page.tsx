@@ -1,3 +1,4 @@
+
 "use client"
 
 import { useState, useEffect } from "react"
@@ -17,7 +18,7 @@ import { Badge } from "@/components/ui/badge"
 import { useI18n } from "@/context/i18n-provider"
 import { useToast } from "@/hooks/use-toast"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter, DialogClose } from "@/components/ui/dialog"
-import { Wand2, Loader2, CheckCircle, XCircle, ThumbsUp, ThumbsDown } from "lucide-react"
+import { SparklesIcon, ArrowPathIcon, CheckCircleIcon, XCircleIcon, HandThumbUpIcon, HandThumbDownIcon } from "@heroicons/react/24/outline"
 import { reviewAd, ReviewAdInput, ReviewAdOutput } from "@/ai/flows/review-ad-flow"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { Separator } from "@/components/ui/separator"
@@ -110,7 +111,7 @@ export default function AdReviewPage() {
 
           {isLoading ? (
             <div className="flex flex-col items-center justify-center gap-4 py-16">
-              <Loader2 className="w-12 h-12 animate-spin text-primary" />
+              <ArrowPathIcon className="w-12 h-12 animate-spin text-primary" />
               <p className="text-muted-foreground">{t('adReview.dialog.loading')}</p>
             </div>
           ) : aiResult && selectedAd && (
@@ -133,17 +134,17 @@ export default function AdReviewPage() {
               {/* AI Review */}
               <div className="space-y-4">
                 <h3 className="font-semibold text-lg flex items-center gap-2">
-                  <Wand2 className="text-primary"/> 
+                  <SparklesIcon className="text-primary"/> 
                   {t('adReview.dialog.aiReviewTitle')}
                 </h3>
                 {aiResult.reviewStatus === 'approved' ? (
                   <Alert>
-                    <ThumbsUp className="h-4 w-4" />
+                    <HandThumbUpIcon className="h-4 w-4" />
                     <AlertTitle>{t('adReview.dialog.approvedMessage')}</AlertTitle>
                   </Alert>
                 ) : (
                   <Alert variant="destructive">
-                    <ThumbsDown className="h-4 w-4" />
+                    <HandThumbDownIcon className="h-4 w-4" />
                     <AlertTitle>{t('adReview.dialog.rejectedMessage')}</AlertTitle>
                     <AlertDescription>{aiResult.rejectionReason}</AlertDescription>
                   </Alert>
@@ -171,9 +172,9 @@ export default function AdReviewPage() {
 
           <DialogFooter>
             {aiResult?.reviewStatus === 'approved' ? (
-              <Button onClick={handleApprove}><CheckCircle className="mr-2"/>{t('adReview.dialog.approveButton')}</Button>
+              <Button onClick={handleApprove}><CheckCircleIcon className="mr-2"/>{t('adReview.dialog.approveButton')}</Button>
             ) : (
-              <Button variant="destructive" onClick={handleReject}><XCircle className="mr-2"/>{t('adReview.dialog.rejectButton')}</Button>
+              <Button variant="destructive" onClick={handleReject}><XCircleIcon className="mr-2"/>{t('adReview.dialog.rejectButton')}</Button>
             )}
             <DialogClose asChild>
               <Button variant="outline">{t('adReview.dialog.closeButton')}</Button>
@@ -210,7 +211,7 @@ export default function AdReviewPage() {
                     <TableCell>{ad.submittedBy}</TableCell>
                     <TableCell className="text-right">
                       <Button variant="outline" size="sm" onClick={() => handleReviewClick(ad)}>
-                        <Wand2 className="mr-2 h-4 w-4" />
+                        <SparklesIcon className="mr-2 h-4 w-4" />
                         {t('adReview.reviewButton')}
                       </Button>
                     </TableCell>

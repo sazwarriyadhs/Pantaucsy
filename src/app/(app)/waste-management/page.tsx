@@ -16,7 +16,7 @@ import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert"
 import { wasteManagementSchedule, residents, iplManagement } from "@/lib/data"
 import { useI18n } from "@/context/i18n-provider"
 import { useAuth } from "@/context/auth-provider"
-import { CheckCircle2, XCircle, Trash2 } from "lucide-react"
+import { CheckCircleIcon, XCircleIcon, TrashIcon } from "@heroicons/react/24/outline"
 import { Button } from "@/components/ui/button"
 
 export default function WasteManagementPage() {
@@ -48,7 +48,7 @@ export default function WasteManagementPage() {
     <div className="flex flex-col gap-8">
       <div className="flex items-start gap-4 md:items-center">
         <div className="p-3 rounded-full bg-primary/10 text-primary">
-          <Trash2 className="w-6 h-6 md:w-8 md:h-8" />
+          <TrashIcon className="w-6 h-6 md:w-8 md:h-8" />
         </div>
         <div>
           <h1 className="text-3xl font-bold tracking-tight font-headline">{t('wasteManagement.title')}</h1>
@@ -67,14 +67,14 @@ export default function WasteManagementPage() {
           <CardContent>
             {collectionStatus === 'active' && (
               <Alert>
-                <CheckCircle2 className="w-4 h-4" />
+                <CheckCircleIcon className="w-4 h-4" />
                 <AlertTitle>{t('wasteManagement.statusActive.title')}</AlertTitle>
                 <AlertDescription>{t('wasteManagement.statusActive.description')}</AlertDescription>
               </Alert>
             )}
             {collectionStatus === 'suspended' && (
               <Alert variant="destructive">
-                <XCircle className="w-4 h-4" />
+                <XCircleIcon className="w-4 h-4" />
                 <AlertTitle>{t('wasteManagement.statusSuspended.title')}</AlertTitle>
                 <AlertDescription>
                   {t('wasteManagement.statusSuspended.description')}{' '}

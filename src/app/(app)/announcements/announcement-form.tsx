@@ -30,7 +30,7 @@ import type { Announcement } from "@/lib/data"
 import { useI18n } from "@/context/i18n-provider"
 import { Calendar } from "@/components/ui/calendar"
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
-import { CalendarIcon } from "lucide-react"
+import { CalendarIcon } from "@heroicons/react/24/outline"
 import { cn } from "@/lib/utils"
 
 export const announcementFormSchema = z.object({

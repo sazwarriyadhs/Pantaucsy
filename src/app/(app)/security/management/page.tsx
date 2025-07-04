@@ -14,7 +14,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { securityPersonnel, incidentReports } from "@/lib/data"
 import { Button } from "@/components/ui/button"
-import { PlusCircle } from "lucide-react"
+import { PlusCircleIcon } from "@heroicons/react/24/outline"
 import { useI18n } from "@/context/i18n-provider"
 
 export default function SecurityManagementPage() {
@@ -57,7 +57,7 @@ export default function SecurityManagementPage() {
                   </CardDescription>
                 </div>
                 <Button className="w-full sm:w-auto">
-                  <PlusCircle className="mr-2 h-4 w-4" />
+                  <PlusCircleIcon className="mr-2 h-4 w-4" />
                   {t('security.management.addPersonnel')}
                 </Button>
               </div>

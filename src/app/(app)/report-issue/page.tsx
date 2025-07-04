@@ -1,3 +1,4 @@
+
 "use client"
 
 import { useState, useRef, useEffect } from "react"
@@ -18,7 +19,7 @@ import {
 import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { useToast } from "@/hooks/use-toast"
-import { Loader2, Wand2, Camera, Trash2 } from "lucide-react"
+import { ArrowPathIcon, SparklesIcon, CameraIcon, TrashIcon } from "@heroicons/react/24/outline"
 import { useI18n } from "@/context/i18n-provider"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { Badge } from "@/components/ui/badge"
@@ -172,7 +173,7 @@ export default function ReportIssuePage() {
                       <Button type="submit" disabled={isLoading}>
                         {isLoading ? (
                           <>
-                            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                            <ArrowPathIcon className="mr-2 h-4 w-4 animate-spin" />
                             {t('reportIssue.form.submitting')}
                           </>
                         ) : (
@@ -187,7 +188,7 @@ export default function ReportIssuePage() {
                 <Card className="flex flex-col">
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
-                      <Wand2 className="text-primary" /> {t('reportIssue.summary.title')}
+                      <SparklesIcon className="text-primary" /> {t('reportIssue.summary.title')}
                     </CardTitle>
                     <CardDescription>
                       {t('reportIssue.summary.description')}
@@ -196,7 +197,7 @@ export default function ReportIssuePage() {
                   <CardContent className="flex-1 flex items-center justify-center">
                     {isLoading && !reportResult ? (
                       <div className="flex flex-col items-center gap-2 text-muted-foreground">
-                        <Loader2 className="h-8 w-8 animate-spin text-primary" />
+                        <ArrowPathIcon className="h-8 w-8 animate-spin text-primary" />
                         <p>{t('reportIssue.summary.loading')}</p>
                       </div>
                     ) : (
@@ -242,12 +243,12 @@ export default function ReportIssuePage() {
                   <div className="flex gap-2">
                     {capturedImage ? (
                       <Button type="button" variant="outline" onClick={handleRetake}>
-                         <Trash2 className="mr-2 h-4 w-4" />
+                         <TrashIcon className="mr-2 h-4 w-4" />
                         {t('reportIssue.form.retakePicture')}
                       </Button>
                     ) : (
                       <Button type="button" onClick={handleCapture} disabled={!hasCameraPermission}>
-                        <Camera className="mr-2 h-4 w-4" />
+                        <CameraIcon className="mr-2 h-4 w-4" />
                         {t('reportIssue.form.takePicture')}
                       </Button>
                     )}

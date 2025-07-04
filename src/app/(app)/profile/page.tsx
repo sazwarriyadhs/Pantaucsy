@@ -6,12 +6,11 @@ import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
 import Image from "next/image"
-import { Camera, Trash2, Upload, Loader2, MapPin, MapPinOff } from "lucide-react"
+import { CameraIcon, ArrowUpTrayIcon, ArrowPathIcon, MapPinIcon } from "@heroicons/react/24/outline"
 import { useAuth } from "@/context/auth-provider"
 import { useI18n } from "@/context/i18n-provider"
 import { useToast } from "@/hooks/use-toast"
 import { residents as initialResidents } from "@/lib/data"
-import type { Resident } from "@/lib/data"
 import { updateUserProfile } from "./actions"
 
 import { Button } from "@/components/ui/button"
@@ -25,7 +24,6 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { Skeleton } from "@/components/ui/skeleton"
 
@@ -171,14 +169,6 @@ export default function ProfilePage() {
     }
   };
 
-  const handleRemoveImage = () => {
-    setImagePreview(null);
-    form.setValue('photo', undefined, { shouldValidate: true });
-    if (fileInputRef.current) {
-      fileInputRef.current.value = "";
-    }
-  };
-
   async function onSubmit(values: ProfileFormValues) {
     setIsLoading(true);
     try {
@@ -263,7 +253,7 @@ export default function ProfilePage() {
                        {imageMode === 'camera' ? (
                           <>
                            <Button type="button" size="sm" onClick={handleCapturePhoto} disabled={hasCameraPermission === false}>
-                               <Camera className="mr-2" /> {t('classifiedsManagement.form.capture')}
+                               <CameraIcon className="mr-2" /> {t('classifiedsManagement.form.capture')}
                            </Button>
                            <Button type="button" size="sm" variant="secondary" onClick={() => setImageMode('idle')}>
                                {t('classifiedsManagement.form.cancel')}
@@ -272,10 +262,10 @@ export default function ProfilePage() {
                        ) : (
                           <>
                            <Button type="button" size="sm" variant="outline" onClick={() => setImageMode('camera')}>
-                               <Camera className="mr-2" /> {t('profile.form.photo.change')}
+                               <CameraIcon className="mr-2" /> {t('profile.form.photo.change')}
                            </Button>
                            <Button type="button" size="sm" variant="ghost" onClick={() => fileInputRef.current?.click()}>
-                               <Upload className="mr-2" />
+                               <ArrowUpTrayIcon className="mr-2" />
                            </Button>
                           </>
                        )}
@@ -418,12 +408,12 @@ export default function ProfilePage() {
                 <Button type="button" variant="outline" onClick={handleCaptureLocation} disabled={isCapturingLocation}>
                     {isCapturingLocation ? (
                         <>
-                            <Loader2 className="mr-2 animate-spin" />
+                            <ArrowPathIcon className="mr-2 animate-spin" />
                             {t('profile.form.location.capturing')}
                         </>
                     ) : (
                         <>
-                            <MapPin className="mr-2" />
+                            <MapPinIcon className="mr-2" />
                             {t('profile.form.location.capture')}
                         </>
                     )}
@@ -435,7 +425,7 @@ export default function ProfilePage() {
             <Button type="submit" disabled={isLoading}>
                 {isLoading ? (
                 <>
-                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    <ArrowPathIcon className="mr-2 h-4 w-4 animate-spin" />
                     {t('profile.form.submitting')}
                 </>
                 ) : (

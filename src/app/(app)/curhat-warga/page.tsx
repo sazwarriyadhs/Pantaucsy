@@ -1,3 +1,4 @@
+
 "use client"
 
 import { useState } from "react"
@@ -17,7 +18,7 @@ import {
 import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { useToast } from "@/hooks/use-toast"
-import { Loader2, HeartHandshake } from "lucide-react"
+import { ArrowPathIcon, HeartIcon } from "@heroicons/react/24/outline"
 import { useI18n } from "@/context/i18n-provider"
 
 export default function CurhatWargaPage() {
@@ -103,7 +104,7 @@ export default function CurhatWargaPage() {
                 <Button type="submit" disabled={isLoading}>
                   {isLoading ? (
                     <>
-                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      <ArrowPathIcon className="mr-2 h-4 w-4 animate-spin" />
                       {t('curhatWarga.form.submitting')}
                     </>
                   ) : (
@@ -119,7 +120,7 @@ export default function CurhatWargaPage() {
           <Card className="flex flex-col">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <HeartHandshake className="text-primary" /> {t('curhatWarga.response.title')}
+                <HeartIcon className="text-primary" /> {t('curhatWarga.response.title')}
               </CardTitle>
               <CardDescription>
                 {t('curhatWarga.response.description')}
@@ -128,7 +129,7 @@ export default function CurhatWargaPage() {
             <CardContent className="flex-1 flex items-center justify-center">
               {isLoading ? (
                 <div className="flex flex-col items-center gap-2 text-muted-foreground">
-                  <Loader2 className="h-8 w-8 animate-spin text-primary" />
+                  <ArrowPathIcon className="h-8 w-8 animate-spin text-primary" />
                   <p>{t('curhatWarga.response.loading')}</p>
                 </div>
               ) : (

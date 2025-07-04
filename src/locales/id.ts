@@ -75,43 +75,33 @@ const id = {
   },
   landing: {
     header: {
-      title: 'Cimahpar Hub',
+      title: 'Nextacular Community Hub',
       login: 'Masuk'
     },
     hero: {
-      title: 'Pusat Komunitas Cimahpar Stoneyard',
-      subtitle: 'Menghubungkan Tetangga, Membangun Komunitas. Semua informasi komunitas Anda di satu tempat.',
-      cta: 'Jelajahi Hub'
+      title: 'Cara yang lebih baik untuk mengelola komunitas Anda',
+      subtitle: 'Nextacular Community Hub adalah starter kit sumber terbuka yang membantu Anda membangun dan mengelola platform komunitas secara efisien.',
+      cta: 'Mulai'
     },
     features: {
-      title: 'Fitur Utama',
       announcements: {
-        title: 'Tetap Terinformasi',
-        description: 'Dapatkan pengumuman dan berita resmi terbaru dari pengurus paguyuban.'
+        title: 'Pengumuman',
+        value: '+1,200',
+        description: 'anggota tetap terinformasi'
       },
       classifieds: {
-        title: 'Antar Tetangga',
-        description: 'Pasar khusus untuk warga. Jual, beli, dan tukar dengan orang yang Anda percaya.'
+        title: 'Pasar',
+        value: '+500',
+        description: 'barang terjual setiap bulan'
       },
       reporting: {
-        title: 'Lapor Masalah',
-        description: 'Laporkan masalah pemeliharaan, keamanan, atau lainnya dengan mudah untuk penyelesaian cepat.'
+        title: 'Laporan Masalah',
+        value: '98%',
+        description: 'tingkat penyelesaian'
       }
     },
-    latestNews: {
-      title: 'Berita & Pengumuman Terbaru',
-      cta: 'Lihat Semua Pengumuman'
-    },
-    marketplace: {
-      title: 'Pasar Komunitas',
-      cta: 'Lihat Semua Iklan'
-    },
-    gallery: {
-      title: 'Momen Komunitas',
-      cta: 'Lihat Galeri Lengkap'
-    },
     footer: {
-      copyright: '© {year} Cimahpar Stoneyard. Hak Cipta Dilindungi.'
+      copyright: '© {year} Nextacular. Hak Cipta Dilindungi.'
     }
   },
   announcements: {
@@ -768,5 +758,3 @@ const id = {
   },
 };
 export default id;
-
-    

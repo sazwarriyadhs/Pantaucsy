@@ -1,8 +1,10 @@
-# Cimahpar Stoneyard Community Hub
+# Nextacular Community Hub 🌙
 
-Welcome to the Cimahpar Stoneyard Community Hub, a comprehensive web application designed to connect neighbors, streamline communication, and manage community activities efficiently. This project is built with a modern tech stack and showcases various features, including AI-powered assistance.
+Welcome to the Nextacular Community Hub, a fork of the Nextacular open-source starter kit, tailored for community management. This starter kit helps you build full-stack multi-tenant SaaS platforms efficiently, allowing you to focus on developing your core SaaS features. This version has been adapted into a comprehensive web application designed to connect neighbors, streamline communication, and manage community activities efficiently.
 
-## ✨ Key Features
+**Features** packaged out-of-the-box: **Authentication**, **Billing & Payment**, **Database**, **Email**, **Custom Domains**, **Multi-tenancy**, **Workspaces**, and **Teams**
+
+## ✨ Key Features (Community Hub)
 
 - **Dynamic Landing Page**: A welcoming entry point for visitors and residents, showcasing latest news and marketplace items.
 - **User Authentication**: Secure login and registration system powered by Firebase Authentication, with a role-based access structure (`warga`, `admin`, `superadmin`).
@@ -25,7 +27,8 @@ Welcome to the Cimahpar Stoneyard Community Hub, a comprehensive web application
 - **Framework**: Next.js 15 (with App Router)
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS
-- **UI Components**: Shadcn/ui
+- **UI Components**: Shadcn/ui, Headless UI
+- **Icons**: HeroIcons
 - **AI/Generative**: Google Gemini via Genkit
 - **Authentication**: Firebase Authentication
 - **Notifications**: Gotify (optional)

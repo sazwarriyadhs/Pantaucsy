@@ -75,43 +75,33 @@ const en = {
   },
   landing: {
     header: {
-      title: 'Cimahpar Hub',
+      title: 'Nextacular Community Hub',
       login: 'Login'
     },
     hero: {
-      title: 'Cimahpar Stoneyard Community Hub',
-      subtitle: 'Connecting Neighbors, Building Community. All your community information in one place.',
-      cta: 'Explore the Hub'
+      title: 'A better way to manage your community',
+      subtitle: 'Nextacular Community Hub is an open-source starter kit that helps you build and manage your community platform efficiently.',
+      cta: 'Get Started'
     },
     features: {
-      title: 'Core Features',
       announcements: {
-        title: 'Stay Informed',
-        description: 'Get the latest official announcements and news from the community management.'
+        title: 'Announcements',
+        value: '+1,200',
+        description: 'members stay informed'
       },
       classifieds: {
-        title: 'Neighbor-to-Neighbor',
-        description: 'A marketplace just for residents. Buy, sell, and trade with people you trust.'
+        title: 'Marketplace',
+        value: '+500',
+        description: 'items sold monthly'
       },
       reporting: {
-        title: 'Report Issues',
-        description: 'Easily report maintenance, security, or other issues for quick resolution.'
+        title: 'Issue Reports',
+        value: '98%',
+        description: 'resolution rate'
       }
     },
-    latestNews: {
-      title: 'Latest News & Announcements',
-      cta: 'View All Announcements'
-    },
-    marketplace: {
-      title: 'Community Marketplace',
-      cta: 'Browse All Ads'
-    },
-    gallery: {
-      title: 'Community Moments',
-      cta: 'View Full Gallery'
-    },
     footer: {
-      copyright: '© {year} Cimahpar Stoneyard. All Rights Reserved.'
+      copyright: '© {year} Nextacular. All Rights Reserved.'
     }
   },
   announcements: {
@@ -768,5 +758,3 @@ const en = {
   },
 };
 export default en;
-
-    

@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
-import { Camera, Trash2, Upload, Loader2, Info } from "lucide-react"
+import { CameraIcon, TrashIcon, ArrowUpTrayIcon, ArrowPathIcon, InformationCircleIcon } from "@heroicons/react/24/outline"
 import { handlePostAd } from "./actions"
 
 import { Button } from "@/components/ui/button"
@@ -271,14 +271,14 @@ export default function PostAdPage() {
                                     <video ref={videoRef} className="object-cover w-full h-full" autoPlay muted playsInline />
                                     {hasCameraPermission === false && (
                                       <div className="absolute flex flex-col items-center text-muted-foreground">
-                                        <Camera className="w-12 h-12" />
+                                        <CameraIcon className="w-12 h-12" />
                                         <p>{t('classifiedsManagement.form.noImagePlaceholder')}</p>
                                       </div>
                                     )}
                                   </>
                                 ) : (
                                   <div className="flex flex-col items-center p-4 text-center text-muted-foreground">
-                                    <Upload className="w-12 h-12 mb-2" />
+                                    <ArrowUpTrayIcon className="w-12 h-12 mb-2" />
                                     <p>{t('classifiedsManagement.form.uploadOrCapture')}</p>
                                   </div>
                                 )}
@@ -296,13 +296,13 @@ export default function PostAdPage() {
                               <div className="flex gap-2">
                                 {imagePreview ? (
                                   <Button type="button" variant="outline" onClick={handleRemoveImage}>
-                                    <Trash2 className="w-4 h-4 mr-2" />
+                                    <TrashIcon className="w-4 h-4 mr-2" />
                                     {t('classifiedsManagement.form.removePicture')}
                                   </Button>
                                 ) : imageMode === 'camera' ? (
                                   <>
                                     <Button type="button" onClick={handleCapture} disabled={hasCameraPermission === false}>
-                                      <Camera className="w-4 h-4 mr-2" />
+                                      <CameraIcon className="w-4 h-4 mr-2" />
                                       {t('classifiedsManagement.form.capture')}
                                     </Button>
                                     <Button type="button" variant="secondary" onClick={() => setImageMode('idle')}>
@@ -312,11 +312,11 @@ export default function PostAdPage() {
                                 ) : (
                                   <>
                                     <Button type="button" onClick={() => setImageMode('camera')}>
-                                      <Camera className="w-4 h-4 mr-2" />
+                                      <CameraIcon className="w-4 h-4 mr-2" />
                                       {t('classifiedsManagement.form.takePicture')}
                                     </Button>
                                     <Button type="button" variant="secondary" onClick={() => fileInputRef.current?.click()}>
-                                      <Upload className="w-4 h-4 mr-2" />
+                                      <ArrowUpTrayIcon className="w-4 h-4 mr-2" />
                                       {t('classifiedsManagement.form.uploadFile')}
                                     </Button>
                                   </>
@@ -340,7 +340,7 @@ export default function PostAdPage() {
                   <Button type="submit" disabled={isLoading}>
                     {isLoading ? (
                       <>
-                        <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                        <ArrowPathIcon className="w-4 h-4 mr-2 animate-spin" />
                         {t('postAd.form.submitting')}
                       </>
                     ) : (
@@ -360,7 +360,7 @@ export default function PostAdPage() {
             </CardHeader>
             <CardContent>
               <Alert>
-                <Info className="h-4 w-4" />
+                <InformationCircleIcon className="h-4 w-4" />
                 <AlertTitle className="text-2xl font-bold text-primary">{formatCurrency(20000)}</AlertTitle>
                 <AlertDescription>
                   {t('postAd.pricing.description')}
